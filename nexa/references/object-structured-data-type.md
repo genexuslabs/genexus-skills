@@ -18,7 +18,7 @@ SDT <name>
 {
 	<item-name>
 	[
-		Collection = '<is-collection>'
+		Collection = '<collection>'
 	]
 	{
 		<member> | <sub-item>
@@ -39,7 +39,7 @@ Where:
 - `<item-name>`: Item name (typically same as `<name>`)
 - `<member>`: Member definition with `DataType` property
 - `<sub-item>`: Nested substructure following `<item-name>` syntax
-- `<is-collection>`: `True` if item is collection, `False` otherwise (omit brackets if False)
+- `<collection>`: True if item is collection, False otherwise (omit brackets if False)
 - `<properties>`: Optional object properties in TOML syntax
 - `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
 
@@ -65,7 +65,7 @@ Where:
 	2. Domain reference: `<domain-name>[, <module>]`
 	3. Structured reference: `<sdt-name>[, <module>]`
 	4. Built-in type: `Numeric`, `Character`, `VarChar`, `Date`, etc
-- `<collection>`: `True` if collection, `False` otherwise
+- `<collection>`: True if collection, False otherwise
 - `<complement>`: Other relevant properties (same as `Attribute` available properties)
 
 ---
