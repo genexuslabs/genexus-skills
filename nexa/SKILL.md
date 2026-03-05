@@ -268,6 +268,7 @@ Before finalizing any work, verify:
 - [ ] Keeps a minimal design with no duplicated or overlapping responsibilities
 - [ ] Preserves naming and structure consistency with existing patterns
 - [ ] Adheres data type priority (`Attribute` > `Domain` > `SDT/BC` > built-in)
+- [ ] Validate `Panel` ↔ `DesignSystem` objects are synced
 - [ ] Includes required baseline sections and metadata for target object type
 - [ ] Uses GeneXus best-practices for coding
 - [ ] Preserves backward compatibility in affected interfaces and contracts
