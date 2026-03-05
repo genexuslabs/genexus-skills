@@ -9,19 +9,22 @@ Declarative rules governing object behavior, executed automatically during data 
 
 # SYNTAX
 ~~~
-<rule-name>(<arguments>) [IF <condition>] [ON <trigger>];
+<rule-name>(<arguments>) [<execution>];
 ~~~
 
 Where:
 - `<rule-name>`: Predefined rule keyword
 - `<arguments>`: Rule-specific parameters
-- `<condition>`: Optional condition expression (may reference attributes, variables, other object calls, and operators)
-- `<trigger>`: Optional execution point (see [TRIGGERS](#triggers))
+- `<execution>`: Optional execution modifiers:
+	* `IF <condition>`: Condition expression; must evaluate `True` for rule execution
+	* `ON <trigger>`: Execution point in the lifecycle (see [TRIGGERS](#triggers))
 
 Notes:
 - Rules are evaluated declaratively, meaning their position in the code does not necessarily define the execution order
 - Rules can reference both attributes and variables, with variables always prefixed by an ampersand (`&`); e.g. `&i` or `&CustomerName`
 - Rules must end with semicolon (`;`) and be separated by a blank line to improve readability and ensure consistent formatting
+- Each execution modifier availability is defined by each rule syntax
+- Each `<condition>` can reference attributes, variables, object calls, and operators
 
 ---
 
@@ -57,7 +60,7 @@ Notes:
 ## Assign
 Assigns calculated `<expression>` to `<attribute>`
 
-Syntax: `<attribute> = <expression>`
+Syntax: `<attribute> = <expression> [IF <condition>] [ON <trigger>]`
 
 Where:
 - `<attribute>`: Target attribute to assign the expression
@@ -72,7 +75,7 @@ FinalPrice = TotalPrice - DiscountAmount IF DiscountPercentage > 0;
 ## Default
 Assigns default value for a target element
 
-Syntax: `Default(<attribute>, <expression>)`
+Syntax: `Default(<attribute>, <expression>) [IF <condition>]`
 
 Where:
 - `<attribute>`: Target attribute to receive the default value
@@ -87,7 +90,7 @@ Default(InvoiceStatus, InvoiceStatusType.Pending);
 ## Error
 Displays error message
 
-Syntax: `Error(<message>[, <exception>]) IF <condition>`
+Syntax: `Error(<message>[, <exception>]) [IF <condition>] [ON <trigger>]`
 
 Where:
 - `<message>`: Message text defined by a literal, variable, or function returning a string
@@ -102,7 +105,7 @@ Error('Price must be positive', !'APP_PRICE_ERROR') IF ProductPrice <= 0;
 ## Msg
 Displays informational message
 
-Syntax: `Msg(<message>)`
+Syntax: `Msg(<message>) [IF <condition>] [ON <trigger>]`
 
 Where:
 - `<message>`: Message text defined by a literal, variable, or function returning a string
@@ -115,7 +118,7 @@ Msg('Discount applied') IF DiscountPercentage > 0;
 ## NoAccept
 Disables the edition of target element
 
-Syntax: `NoAccept(<attribute>)`
+Syntax: `NoAccept(<attribute>) [IF <condition>] [ON <trigger]`
 
 Where:
 - `<attribute>`: Target attribute to make read-only
@@ -143,7 +146,7 @@ Serial(InvoiceNumber, InvoiceNumberSeq, 1);
 ## Add
 Adds value
 
-Syntax: `Add(<attribute>, <value>)`
+Syntax: `Add(<attribute>, <value>) [IF <condition>]`
 
 Where:
 - `<attribute>`: Target attribute to add value
@@ -157,7 +160,7 @@ Add(TotalAmount, ItemAmount);
 ## Subtract
 Subtracts value
 
-Syntax: `Subtract(<attribute>, <value>)`
+Syntax: `Subtract(<attribute>, <value>) [IF <condition>]`
 
 Where:
 - `<attribute>`: Target attribute to subtract value
