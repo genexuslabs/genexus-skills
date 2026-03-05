@@ -172,6 +172,27 @@ Use [global-output](./global-output.md) with `<type>` value: `designsystem`
 - Define breakpoints for target form factors
 - Define theme variants only when required
 - Use generic style names in `DesignSystem` object
+- Keep one spacing scale across all components (`4/8/12/16/24/32…`)
+- Define consistent focus ring styles for keyboard and accessibility
+- Use contrast-safe token pairs for text/background and action states
+- Prefer semantic surfaces and elevation layers over ad-hoc container styles
+
+---
+
+# CONTRACT
+A `DesignSystem` object must style semantic classes declared in [Panel](./object-panel.md) object
+
+Recommended mandatory semantic classes:
+- Page shell: `.page`, `.page-header`, `.page-content`, `.page-footer`
+- Surfaces: `.surface`, `.surface-elevated`, `.surface-muted`
+- Typography: `.text-title`, `.text-subtitle`, `.text-body`, `.text-caption`
+- Actions: `.btn-primary`, `.btn-secondary`, `.btn-ghost`, `.btn-danger`
+- Forms/feedback: `.field`, `.field-label`, `.field-help`, `.field-error`, `.state-loading`, `.state-empty`, `.state-error`, `.state-success`
+
+Guidance:
+- Map all semantic classes to shared tokens first, then add variant overrides
+- Keep action buttons visually distinct by role, not by arbitrary color choices
+- Reserve motion for meaningful transitions (state changes, panel entry, feedback)
 
 ---
 

@@ -91,6 +91,78 @@ Use [global-output](./global-output.md) with `<type>` value:
 - Reference only pre-defined style classes from `DesignSystem` object
 - Set `Style` property to target `DesignSystem` object when style contract applies
 - Use semantic class names in layout; avoid visual names
+- Build clear visual hierarchy in layout: `header`, `content`, `aside` (optional), `footer`
+- Keep progressive disclosure: show primary action first, defer secondary actions
+- Model perceived performance in layout: reserve space for skeleton/loading placeholders
+- Define accessibility in controls: readable labels, descriptive button captions, keyboard-safe interactions
+
+---
+
+# CONTRACT
+A `Panel` object must expose semantic hooks styled by a [DesignSystem](./object-design-system.md) object
+
+Recommended semantic contract in `Panel` classes:
+- Page: `page`, `page-header`, `page-content`, `page-footer`
+- Surfaces: `surface`, `surface-elevated`, `surface-muted`
+- Typography: `text-title`, `text-subtitle`, `text-body`, `text-caption`
+- Actions: `btn-primary`, `btn-secondary`, `btn-readonly`, `btn-danger`
+- Controls: `field`, `field-label`, `field-help`, `field-error`
+- Feedback: `state-loading`, `state-empty`, `state-error`, `state-success`
+
+Checklist:
+- [ ] Keep one dominant CTA per section and group related controls in one surface
+- [ ] Keep density consistent and distribute content responsively across mobile/tablet/desktop
+- [ ] Reserve optional desktop areas instead of overloading a single column
+- [ ] Avoid hardcoded colors or spacing; rely on `DesignSystem` classes and tokens
+- [ ] Prefer `smart`, use `table` for legacy, and `canvas` for absolute/overlap only
+- [ ] Define each child  in `canvas` with `width`, `height`, and one axis anchor
+- [ ] Avoid mixing `canvas` heavy positioning with `smart` flow in one section
+- [ ] Reserve `Refresh` event for recalculation/filtering 
+- [ ] Reserve `Load`/`Grid.Load` event for row-by-row population
+- [ ] Bind every action requires with explicit event that shows user feedback after execution
+- [ ] Verify `Style` property references the correct `DesignSystem` object and all classes exist
+- [ ] Reuse repeated screens through `Stencil` with `controlNameForStencil` mappings
+- [ ] Define `source` property for static images, and `attribute` property for bound data
+- [ ] Validate all layout units only use `px`, `dip`, or `%`
+
+---
+
+# PATTERNS
+Use these structure patterns to get modern and scalable screens:
+
+Pattern `Hero + Action + Content`:
+- Top row: contextual title and supporting copy
+- Mid row: primary action block with strongest visual priority
+- Bottom rows: data/content cards or grid lists
+
+Pattern `Form + Live Feedback`:
+- Left/main: grouped fields and helper text
+- Right/bottom: preview, summary, or validation feedback
+- Include dedicated rows/cells for `field-error` and `state-success`
+
+Pattern `List + Detail` (responsive):
+- Desktop: two-column split (list/details)
+- Mobile: stacked flow with sticky key actions in footer row
+
+Pattern `Bottom Navigation + Top Context`:
+- Bottom area: persistent primary navigation (3-5 destinations)
+- Top area: contextual title and screen-level actions
+- Keep destination state stable when switching tabs
+
+Pattern `List + Filters + Refresh`:
+- Top area: quick filters and search entry
+- Main area: scrollable results list with progressive loading
+- Mobile-first refresh behavior: pull-to-refresh and explicit retry on failures
+
+Pattern `Multi-step Flow`:
+- Stepper/progress indicator visible across the flow
+- One primary CTA fixed at bottom per step
+- Validate incrementally and keep previous step data persisted
+
+Pattern `Offline + Retry`:
+- Dedicated empty/error surface for connectivity loss
+- Show last synchronized data when available
+- Provide explicit retry action and feedback after reconnection
 
 ---
 
