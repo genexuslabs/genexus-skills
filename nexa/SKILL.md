@@ -47,13 +47,15 @@ Each reference has specific purpose
 - `object-*.md`: Object specific knowledge for modeling solutions
 - `common-*.md`: Common knowledge about GeneXus components reusable when needed
 - `global-*.md`: Global instructions to be applied while working this skill
+- `properties-*.md`: Property definitions for GeneXus objects and environments (id, type, default, values, description)
 
 Resource selection protocol:
 1. Pick target `object-*.md` files from user intent
 2. Load `global-*.md` only for artifact create/update
 3. Load only required `common-*` dependencies for selected objects
-4. Scan relevant sections first (`SYNTAX`, `CONSTRAINTS`, target feature) for long references
-5. Keep context minimal and task-driven
+4. Load `properties-*.md` when user asks about object/environment properties, defaults, or configuration options
+5. Scan relevant sections first (`SYNTAX`, `CONSTRAINTS`, target feature) for long references
+6. Keep context minimal and task-driven
 
 ---
 
@@ -219,6 +221,32 @@ Quick reference for appropriate use of each object type
 - Purpose: Integration wrapper exposing external libraries/services to GeneXus through methods, properties, events, and types
 - Use when: Calling platform APIs, SDKs, native utilities, or external contracts not implemented as GeneXus objects
 - Reference: [ExternalObject object](references/object-external-object.md)
+
+---
+
+# PROPERTIES KNOWLEDGE
+Property definitions for GeneXus objects and environment configuration. Each file documents all properties with their type, default value, allowed values, and description. Load on demand when user asks about properties or configuration.
+
+## Object Properties
+- [Transaction](references/properties-TRN.md) | [Transaction Attribute](references/properties-TransactionAttribute.md)
+- [Procedure / Report](references/properties-PRC.md) | [WebPanel / WorkWith](references/properties-WBP.md)
+- [SDT](references/properties-SDT.md) | [SDT Item](references/properties-SDTITEM.md)
+- [Table](references/properties-TBL.md) | [Index](references/properties-IDX.md)
+- [API](references/properties-API.md) | [DataSelector](references/properties-DATASELECTOR.md)
+- [DataProvider](references/properties-DPRV.md) | [File](references/properties-FILE.md)
+- [ExternalObject](references/properties-EXO.md) | [EO Property](references/properties-EXOPROP.md) | [EO Method](references/properties-EXOMETH.md)
+- [Image](references/properties-IMAGE.md) | [Report](references/properties-RPT.md)
+- [DesignSystem](references/properties-DesignSystem.md) | [Dashboard](references/properties-Dashboard.md)
+- [Menu](references/properties-MNU.md) | [MenuBar](references/properties-MBR.md)
+- [SuperApp](references/properties-SuperApp.md) | [MiniApp](references/properties-MiniApp.md)
+- [URLRewrite](references/properties-URLRewrite.md) | [Sync](references/properties-SYNC.md)
+- [Attribute](references/properties-ATT.md) | [DocumentationPart](references/properties-DocumentationPart.md)
+
+## Environment Properties
+- [Model / Environment](references/properties-Model.md) — Generator, datastore, security, UI, defaults
+- [KB Info](references/properties-kbInfo.md) — Knowledge Base level properties
+- [KB Object](references/properties-KB.md) — KB object properties
+- [Module Info](references/properties-ModuleInfo.md) — Module level properties
 
 ---
 
