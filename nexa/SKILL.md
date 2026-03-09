@@ -225,28 +225,9 @@ Quick reference for appropriate use of each object type
 ---
 
 # PROPERTIES KNOWLEDGE
-Property definitions for GeneXus objects and environment configuration. Each file documents all properties with their type, default value, allowed values, and description. Load on demand when user asks about properties or configuration.
+Property definitions use a common schema and index in [properties](references/properties.md)
 
-## Object Properties
-- [Transaction](references/properties-TRN.md) | [Transaction Attribute](references/properties-TransactionAttribute.md)
-- [Procedure / Report](references/properties-PRC.md) | [WebPanel / WorkWith](references/properties-WBP.md)
-- [SDT](references/properties-SDT.md) | [SDT Item](references/properties-SDTITEM.md)
-- [Table](references/properties-TBL.md) | [Index](references/properties-IDX.md)
-- [API](references/properties-API.md) | [DataSelector](references/properties-DATASELECTOR.md)
-- [DataProvider](references/properties-DPRV.md) | [File](references/properties-FILE.md)
-- [ExternalObject](references/properties-EXO.md) | [EO Property](references/properties-EXOPROP.md) | [EO Method](references/properties-EXOMETH.md)
-- [Image](references/properties-IMAGE.md) | [Report](references/properties-RPT.md)
-- [DesignSystem](references/properties-DesignSystem.md) | [Dashboard](references/properties-Dashboard.md)
-- [Menu](references/properties-MNU.md) | [MenuBar](references/properties-MBR.md)
-- [SuperApp](references/properties-SuperApp.md) | [MiniApp](references/properties-MiniApp.md)
-- [URLRewrite](references/properties-URLRewrite.md) | [Sync](references/properties-SYNC.md)
-- [Attribute](references/properties-ATT.md) | [DocumentationPart](references/properties-DocumentationPart.md)
-
-## Environment Properties
-- [Model / Environment](references/properties-Model.md) — Generator, datastore, security, UI, defaults
-- [KB Info](references/properties-kbInfo.md) — Knowledge Base level properties
-- [KB Object](references/properties-KB.md) — KB object properties
-- [Module Info](references/properties-ModuleInfo.md) — Module level properties
+Load object-specific property files through each corresponding `object-*.md` reference
 
 ---
 
