@@ -13,7 +13,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Label shown in generated UI and tooling
 - Type: `string`
 
-## Column title
+## ColumnTitle
 - Description: Column header shown in tabular UI
 - Type: `string`
 
@@ -48,15 +48,15 @@ Use this file to select editable properties, defaults, and valid options for thi
 
 # TYPE DEFINITION
 
-## Supertype
+## SuperType
 - Description: Name of supertype
 - Type: `string`
 
-## Based on
+## BasedOn
 - Description: Base attribute or domain used for definition
 - Type: `string`
 
-## Data Type
+## DataType
 - Description: Logical type used for storage and validation
 - Type: `string`
 
@@ -79,15 +79,15 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Enables automatic sequential value generation
 - Type: `boolean`
 
-## Autonumber start
+## AutonumberStart
 - Description: Initial value used by autonumber sequence
 - Type: `integer`
 
-## Autonumber step
+## AutonumberStep
 - Description: Increment used by autonumber sequence
 - Type: `integer`
 
-## Autonumber for replication
+## AutonumbeForReplication
 - Description: Replicates autonumber values across environments
 - Type: `boolean`
 - Default: `True`
@@ -97,7 +97,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Type: `integer`
 - Default: `3`
 
-## Initial value
+## InitialValue
 - Description: Value assigned when no explicit value is provided
 - Type: `string`
 
@@ -106,11 +106,11 @@ Use this file to select editable properties, defaults, and valid options for thi
 
 # VALIDATION
 
-## Value range
+## ValueRange
 - Description: Allowed value interval for validation
 - Type: `string`
 
-## Validation Failed Message
+## ValidationFailedMessage
 - Description: Message shown when validation fails
 - Type: `string`
 
@@ -119,7 +119,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 
 # PICTURE
 
-## Left fill
+## LeftFill
 - Description: Padding strategy applied to numeric formatting
 - Type: `enum{Blank,Zero,Blank when Zero}`
 - Options:
@@ -128,7 +128,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 	* `Blank when Zero`: Uses blanks when the numeric value is zero
 - Default: `Blank`
 
-## Thousand separator
+## ThousandSeparator
 - Description: Displays group separator in numeric formatting
 - Type: `boolean`
 - Default: `False`
@@ -243,7 +243,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 
 # INTERFACE INFORMATION
 
-## External Name
+## ExternalName
 - Description: External name used when the variable is a service parameter
 - Type: `string`
 
