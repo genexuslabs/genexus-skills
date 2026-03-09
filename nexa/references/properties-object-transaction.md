@@ -112,6 +112,7 @@ Use [common observability properties](./properties-common-observability.md)
 	* `UnanimoTemplate`: Uses the UnanimoTemplate form layout
 	* `CarmineTemplate`: Uses the CarmineTemplate form layout
 	* `FioriTemplate`: Uses the FioriTemplate form layout
+
 ## Type
 - Description: Web Panel Type
 - Type: `enum{Component,Web Page,Master Page}`
@@ -222,6 +223,7 @@ Use [common observability properties](./properties-common-observability.md)
 - Options:
 	* `Smooth`: Uses smooth web experience behavior
 	* `Previous versions compatible`: Uses legacy-compatible rendering behavior
+
 ## WebFormDefaults
 - Description: Choose responsive or legacy generation for default web forms
 - Type: `enum{Responsive Web Design,Previous versions compatible}`
@@ -466,6 +468,7 @@ Use [common warning messages properties](./properties-common-warning-messages.md
 	* `True`: Enables this behavior
 	* `False`: Disables this behavior
 	* `Use Environment property value`: Uses the setting defined at environment level
+
 ## Search viewer
 - Description: Viewer used for search interaction
 - Type: `string`

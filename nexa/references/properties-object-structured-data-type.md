@@ -68,6 +68,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 	* `Empty as Null`: Converts empty input values to null
 	* `Blank as Null`: Converts blank-only input values to null
 	* `Compatible`: Uses legacy-compatible null handling behavior
+
 ## Class
 - Description: Theme class applied to rendering
 - Type: `string`
@@ -252,6 +253,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 	* `HTML`: Renders content as HTML with formatting support
 	* `Raw HTML`: Outputs HTML without escaping or additional processing
 	* `Text with meaningful spaces`: Preserves spaces and line breaks in rendered text
+
 ## TooltipText
 - Description: Help text shown on hover or focus
 - Type: `string`

@@ -86,6 +86,7 @@ Use [common observability properties](./properties-common-observability.md)
 	* `Only To Screen`: Sends output to screen only
 	* `Only To Printer`: Sends output to printer only
 	* `Only To File`: Sends output to file only
+
 ## Customizable Layout
 - Description: Allows layout customization at runtime
 - Type: `enum{Yes,No,Use Environment property value}`

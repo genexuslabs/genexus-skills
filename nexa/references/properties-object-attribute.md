@@ -38,6 +38,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 	* `Empty as Null`: Empty input is converted to null
 	* `Blank as Null`: Blank-only input is converted to null
 	* `Compatible`: Preserves compatibility behavior defined by GeneXus for legacy objects
+
 ## Class
 - Description: Theme class applied to rendering
 - Type: `string`
@@ -228,6 +229,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 	* `HTML`: Renders content as HTML with GeneXus formatting handling
 	* `Raw HTML`: Outputs HTML without processing or escaping
 	* `Text with meaningful spaces`: Renders plain text preserving spaces and line breaks
+
 ## TooltipText
 - Description: Help text shown on hover or focus
 - Type: `string`

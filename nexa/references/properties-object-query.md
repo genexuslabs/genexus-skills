@@ -20,6 +20,7 @@ Use this file to select editable Query properties
 	* `Card`: Displays results in card layout
 	* `Chart`: Displays results in chart layout
 	* `Pivot Table`: Displays results in pivot table layout
+
 ## Cache expiration lapse
 - Description: Cache validity duration before refresh
 - Type: `string`
