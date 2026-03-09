@@ -52,7 +52,7 @@ Where:
 - `<name-type-i>`: Subtype alias derived from `<base-type-i>` with contextual/role prefix
 - `<base-type-i>`: Existing Attribute or SubType
 - `<properties-i>`: Overridden supertype properties; omit if none
-- `<properties>`: Optional object properties in TOML syntax
+- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-subtype-group.md))
 - `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
 
 ---
