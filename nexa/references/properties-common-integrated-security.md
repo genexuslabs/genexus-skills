@@ -13,9 +13,9 @@ Use this file as the common definition for integrated security property groups
 - Description: Authentication and authorization requirement level
 - Type: `enum{None,Authentication,Authorization}`
 - Options:
-	* `None`: Use this value when it matches the target behavior
-	* `Authentication`: Use this value when it matches the target behavior
-	* `Authorization`: Use this value when it matches the target behavior
+	* `None`: No security checks are enforced for the object
+	* `Authentication`: Requires a logged-in user, without permission checks
+	* `Authorization`: Requires authentication and permission checks through GAM
 - Default: `None`
 
 ## Permission Prefix

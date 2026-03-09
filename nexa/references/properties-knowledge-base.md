@@ -18,17 +18,17 @@ Use this file to select editable Knowledge Base properties and metadata
 - Description: Restricts usage to standard compatible functions
 - Type: `enum{Allows only standard functions on saving,Allows non-standard functions on saving}`
 - Options:
-	* `Allows only standard functions on saving`: Use this value when it matches the target behavior
-	* `Allows non-standard functions on saving`: Use this value when it matches the target behavior
+	* `Allows only standard functions on saving`: Validates and saves only standard GeneXus functions
+	* `Allows non-standard functions on saving`: Allows saving expressions with non-standard functions
 - Default: `Allows only standard functions on saving`
 
 ## Automatic width scale factor
 - Description: Scale factor for automatic width calculation
 - Type: `enum{Use Environment property value,1x,2x}`
 - Options:
-	* `Use Environment property value`: Use this value when it matches the target behavior
-	* `1x`: Use this value when it matches the target behavior
-	* `2x`: Use this value when it matches the target behavior
+	* `Use Environment property value`: Uses the automatic width scale defined at environment level
+	* `1x`: Uses base width factor for automatic control sizing
+	* `2x`: Uses double width factor for automatic control sizing
 - Default: `1x`
 
 ## Base image path
@@ -47,9 +47,9 @@ Use this file to select editable Knowledge Base properties and metadata
 - Description: Strategy used to determine control size when Auto Resize is enabled
 - Type: `enum{Based on message code,Based on current translation,Based on longest available translation}`
 - Options:
-	* `Based on message code`: Use this value when it matches the target behavior
-	* `Based on current translation`: Use this value when it matches the target behavior
-	* `Based on longest available translation`: Use this value when it matches the target behavior
+	* `Based on message code`: Calculates control size from the message code text
+	* `Based on current translation`: Calculates control size from the active language translation
+	* `Based on longest available translation`: Calculates control size from the longest translation found
 - Default: `Based on current translation`
 
 ## Web maximum edit length
@@ -96,11 +96,10 @@ Use this file to select editable Knowledge Base properties and metadata
 - Description: Default text-block format mode for HTML output
 - Type: `enum{Text,HTML,Raw HTML,Text with meaningful spaces}`
 - Options:
-	* `Text`: Use this value when it matches the target behavior
-	* `HTML`: Use this value when it matches the target behavior
-	* `Raw HTML`: Use this value when it matches the target behavior
-	* `Text with meaningful spaces`: Use this value when it matches the target behavior
-
+	* `Text`: Renders text blocks as plain text
+	* `HTML`: Renders text blocks as HTML with GeneXus formatting handling
+	* `Raw HTML`: Outputs text blocks as raw HTML without processing
+	* `Text with meaningful spaces`: Renders text blocks preserving spaces and line breaks
 ---
 
 # KNOWLEDGE BASE OBJECT COMPATIBILITY
@@ -109,8 +108,8 @@ Use this file to select editable Knowledge Base properties and metadata
 - Description: Defines isolation level behavior when inherited from Data Store or Generator
 - Type: `enum{Read Committed,Inherit from Generator}`
 - Options:
-	* `Read Committed`: Use this value when it matches the target behavior
-	* `Inherit from Generator`: Use this value when it matches the target behavior
+	* `Read Committed`: Uses `Read Committed` isolation when inherited behavior is resolved
+	* `Inherit from Generator`: Keeps isolation behavior defined by the target generator
 - Default: `Read Committed`
 
 ---

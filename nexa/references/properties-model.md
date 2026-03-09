@@ -55,8 +55,8 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Commits transaction when object execution ends
 - Type: `enum{Yes,No}`
 - Options:
-	* `Yes`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
+	* `Yes`: Enables this behavior
+	* `No`: Disables this behavior
 - Default: `Yes`
 
 
@@ -80,9 +80,9 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Security strictness for web runtime behavior
 - Type: `enum{Use Environment property value,High,Medium}`
 - Options:
-	* `Use Environment property value`: Use this value when it matches the target behavior
-	* `High`: Use this value when it matches the target behavior
-	* `Medium`: Use this value when it matches the target behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
+	* `High`: Uses the high level for this setting
+	* `Medium`: Uses the medium level for this setting
 - Default: `High`
 
 
@@ -108,8 +108,8 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Prototype using Docker containers
 - Type: `enum{Yes,No}`
 - Options:
-	* `Yes`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
+	* `Yes`: Enables this behavior
+	* `No`: Disables this behavior
 - Default: `No`
 
 
@@ -166,6 +166,6 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Defines whether generated URLs use named parameters or positional parameters
 - Type: `enum{Named,Positional}`
 - Options:
-	* `Named`: Use this value when it matches the target behavior
-	* `Positional`: Use this value when it matches the target behavior
+	* `Named`: Uses named parameter passing
+	* `Positional`: Uses positional parameter passing
 - Default: `Named`

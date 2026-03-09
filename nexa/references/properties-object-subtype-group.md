@@ -17,7 +17,7 @@ Use this file to select editable SubType Group properties
 - Description: Visibility scope used to expose subtype group members
 - Type: `enum{Public,Private,Knowledge Base,Internal}`
 - Options:
-	* `Public`: Use this value when it matches the target behavior
-	* `Private`: Use this value when it matches the target behavior
-	* `Knowledge Base`: Use this value when it matches the target behavior
-	* `Internal`: Use this value when it matches the target behavior
+	* `Public`: Makes the object publicly visible
+	* `Private`: Restricts visibility to private scope
+	* `Knowledge Base`: Sets visibility at Knowledge Base scope
+	* `Internal`: Executes internally within the application runtime

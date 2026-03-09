@@ -17,9 +17,9 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Execution session mode for database access
 - Type: `enum{Read Only,Read Write,None}`
 - Options:
-	* `Read Only`: Use this value when it matches the target behavior
-	* `Read Write`: Use this value when it matches the target behavior
-	* `None`: Use this value when it matches the target behavior
+	* `Read Only`: Allows read operations only
+	* `Read Write`: Allows both read and write operations
+	* `None`: Disables additional behavior for this setting
 - Default: `Read Write`
 
 ## Main program
@@ -31,11 +31,11 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Define how the object is invoked, and its output
 - Type: `enum{Internal,HTTP,Command Line,SOAP,Enterprise Java Bean}`
 - Options:
-	* `Internal`: Use this value when it matches the target behavior
-	* `HTTP`: Use this value when it matches the target behavior
-	* `Command Line`: Use this value when it matches the target behavior
-	* `SOAP`: Use this value when it matches the target behavior
-	* `Enterprise Java Bean`: Use this value when it matches the target behavior
+	* `Internal`: Executes internally within the application runtime
+	* `HTTP`: Exposes or invokes behavior over HTTP
+	* `Command Line`: Enables command-line invocation
+	* `SOAP`: Exposes or invokes behavior as SOAP service
+	* `Enterprise Java Bean`: Uses Enterprise Java Bean integration mode
 - Default: `Internal`
 
 ## Execute in new LUW
@@ -82,18 +82,17 @@ Use [common observability properties](./properties-common-observability.md)
 - Description: Output channel used for report generation
 - Type: `enum{Ask User,Only To Screen,Only To Printer,Only To File}`
 - Options:
-	* `Ask User`: Use this value when it matches the target behavior
-	* `Only To Screen`: Use this value when it matches the target behavior
-	* `Only To Printer`: Use this value when it matches the target behavior
-	* `Only To File`: Use this value when it matches the target behavior
-
+	* `Ask User`: Prompts the user to choose output destination at runtime
+	* `Only To Screen`: Sends output to screen only
+	* `Only To Printer`: Sends output to printer only
+	* `Only To File`: Sends output to file only
 ## Customizable Layout
 - Description: Allows layout customization at runtime
 - Type: `enum{Yes,No,Use Environment property value}`
 - Options:
-	* `Yes`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
-	* `Use Environment property value`: Use this value when it matches the target behavior
+	* `Yes`: Enables this behavior
+	* `No`: Disables this behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
 - Default: `No`
 
 ## Confirmation
@@ -104,25 +103,25 @@ Use [common observability properties](./properties-common-observability.md)
 - Description: Allows user cancellation during execution
 - Type: `enum{Yes,No}`
 - Options:
-	* `Yes`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
+	* `Yes`: Enables this behavior
+	* `No`: Disables this behavior
 - Default: `Yes`
 
 ## Footer on last page
 - Description: Prints footer in last page output
 - Type: `enum{Yes,No}`
 - Options:
-	* `Yes`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
+	* `Yes`: Enables this behavior
+	* `No`: Disables this behavior
 - Default: `Yes`
 
 ## Autocenter objects in (0,0)
 - Description: Centers report controls around origin
 - Type: `enum{Use Environment property value,No,Yes}`
 - Options:
-	* `Use Environment property value`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
-	* `Yes`: Use this value when it matches the target behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
+	* `No`: Disables this behavior
+	* `Yes`: Enables this behavior
 - Default: `No`
 
 
@@ -134,8 +133,8 @@ Use [common observability properties](./properties-common-observability.md)
 - Description: Commits transaction when object execution ends
 - Type: `enum{Yes,No}`
 - Options:
-	* `Yes`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
+	* `Yes`: Enables this behavior
+	* `No`: Disables this behavior
 - Default: `Yes`
 
 
@@ -152,27 +151,27 @@ Use [common warning messages properties](./properties-common-warning-messages.md
 - Description: Standard functions checking
 - Type: `enum{Use Environment property value,Only standard functions,Allow non-standard functions}`
 - Options:
-	* `Use Environment property value`: Use this value when it matches the target behavior
-	* `Only standard functions`: Use this value when it matches the target behavior
-	* `Allow non-standard functions`: Use this value when it matches the target behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
+	* `Only standard functions`: Allows only standard GeneXus functions
+	* `Allow non-standard functions`: Allows non-standard functions in expressions
 - Default: `Use Environment property value`
 
 ## Initialize not referenced attributes
 - Description: Initializes attributes not referenced in code
 - Type: `enum{Yes,No,Use Environment property value}`
 - Options:
-	* `Yes`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
-	* `Use Environment property value`: Use this value when it matches the target behavior
+	* `Yes`: Enables this behavior
+	* `No`: Disables this behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
 - Default: `Yes`
 
 ## Generate null for nullvalue()
 - Description: Generates database null when Nullvalue() is used
 - Type: `enum{No,Yes,Use Environment property value}`
 - Options:
-	* `No`: Use this value when it matches the target behavior
-	* `Yes`: Use this value when it matches the target behavior
-	* `Use Environment property value`: Use this value when it matches the target behavior
+	* `No`: Disables this behavior
+	* `Yes`: Enables this behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
 - Default: `No`
 
 
@@ -184,35 +183,35 @@ Use [common warning messages properties](./properties-common-warning-messages.md
 - Description: Transaction handling mode for LUW boundaries
 - Type: `enum{Enabled,Disabled}`
 - Options:
-	* `Enabled`: Use this value when it matches the target behavior
-	* `Disabled`: Use this value when it matches the target behavior
+	* `Enabled`: Enables this feature
+	* `Disabled`: Disables this feature
 - Default: `Enabled`
 
 ## Print using DDSs
 - Description: Uses DDS for report print generation
 - Type: `enum{Use Environment property value,No,Yes}`
 - Options:
-	* `Use Environment property value`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
-	* `Yes`: Use this value when it matches the target behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
+	* `No`: Disables this behavior
+	* `Yes`: Enables this behavior
 - Default: `No`
 
 ## Generate ILE RPG for iSeries
 - Description: Generates ILE RPG artifacts for iSeries
 - Type: `enum{Use Environment property value,No,Yes}`
 - Options:
-	* `Use Environment property value`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
-	* `Yes`: Use this value when it matches the target behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
+	* `No`: Disables this behavior
+	* `Yes`: Enables this behavior
 - Default: `No`
 
 ## Beep on messages
 - Description: Plays sound for runtime messages
 - Type: `enum{Use Environment property value,No,Yes}`
 - Options:
-	* `Use Environment property value`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
-	* `Yes`: Use this value when it matches the target behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
+	* `No`: Disables this behavior
+	* `Yes`: Enables this behavior
 - Default: `No`
 
 
@@ -224,36 +223,36 @@ Use [common warning messages properties](./properties-common-warning-messages.md
 - Description: Join execution strategy for navigations
 - Type: `enum{Use Environment property value,Join tables on the server,Join tables on the client}`
 - Options:
-	* `Use Environment property value`: Use this value when it matches the target behavior
-	* `Join tables on the server`: Use this value when it matches the target behavior
-	* `Join tables on the client`: Use this value when it matches the target behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
+	* `Join tables on the server`: Performs table joins on the server side
+	* `Join tables on the client`: Performs table joins on the client side
 - Default: `Join tables on the server`
 
 ## Join type
 - Description: Join algorithm preference for query generation
 - Type: `enum{Use Environment property value,Use default for server,Natural join,Outer join}`
 - Options:
-	* `Use Environment property value`: Use this value when it matches the target behavior
-	* `Use default for server`: Use this value when it matches the target behavior
-	* `Natural join`: Use this value when it matches the target behavior
-	* `Outer join`: Use this value when it matches the target behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
+	* `Use default for server`: Uses the server default join behavior
+	* `Natural join`: Uses natural join strategy
+	* `Outer join`: Uses outer join strategy
 - Default: `Use default for server`
 
 ## Copy table groups
 - Description: Copies grouped table definitions in generation
 - Type: `enum{If no unique index,Always,Never,Use Environment property value}`
 - Options:
-	* `If no unique index`: Use this value when it matches the target behavior
-	* `Always`: Use this value when it matches the target behavior
-	* `Never`: Use this value when it matches the target behavior
-	* `Use Environment property value`: Use this value when it matches the target behavior
+	* `If no unique index`: Enables this behavior only when no unique index exists
+	* `Always`: Always applies this behavior
+	* `Never`: Does not run automatically
+	* `Use Environment property value`: Uses the setting defined at environment level
 - Default: `If no unique index`
 
 ## Generate FOR UPDATE clause
 - Description: Adds FOR UPDATE in generated SQL
 - Type: `enum{Use Environment property value,Yes,No}`
 - Options:
-	* `Use Environment property value`: Use this value when it matches the target behavior
-	* `Yes`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
+	* `Yes`: Enables this behavior
+	* `No`: Disables this behavior
 - Default: `Yes`

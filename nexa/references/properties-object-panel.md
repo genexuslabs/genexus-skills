@@ -22,9 +22,9 @@ Use this file to select editable Panel properties and apply target-specific sett
 - Description: Execution session mode for database access
 - Type: `enum{Read Only,Read Write,None}`
 - Options:
-	* `Read Only`: Use this value when it matches the target behavior
-	* `Read Write`: Use this value when it matches the target behavior
-	* `None`: Use this value when it matches the target behavior
+	* `Read Only`: Allows read operations only
+	* `Read Write`: Allows both read and write operations
+	* `None`: Disables additional behavior for this setting
 - Default: `Read Write`
 
 ---
@@ -39,9 +39,9 @@ Use this file to select editable Panel properties and apply target-specific sett
 - Description: Defines web panel mode
 - Type: `enum{Component,Web Page,Master Page}`
 - Options:
-	* `Component`: Use this value when it matches the target behavior
-	* `Web Page`: Use this value when it matches the target behavior
-	* `Master Page`: Use this value when it matches the target behavior
+	* `Component`: Generates the object as a reusable component
+	* `Web Page`: Generates the object as a web page
+	* `Master Page`: Generates the object as a master page template
 - Default: `Web Page`
 
 ## Master Page
@@ -56,18 +56,18 @@ Use this file to select editable Panel properties and apply target-specific sett
 - Description: Action executed when session expires
 - Type: `enum{Ignore,Warn}`
 - Options:
-	* `Ignore`: Use this value when it matches the target behavior
-	* `Warn`: Use this value when it matches the target behavior
+	* `Ignore`: Ignores this condition without notifying the user
+	* `Warn`: Shows a warning for this condition
 - Default: `Ignore`
 
 ## Focus control
 - Description: Initial focus behavior for rendered controls
 - Type: `enum{Use Environment property value,First input att/var on the page,First input att/var on the page only if not embedded,Browser dependent}`
 - Options:
-	* `Use Environment property value`: Use this value when it matches the target behavior
-	* `First input att/var on the page`: Use this value when it matches the target behavior
-	* `First input att/var on the page only if not embedded`: Use this value when it matches the target behavior
-	* `Browser dependent`: Use this value when it matches the target behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
+	* `First input att/var on the page`: Focuses the first input attribute or variable on the page
+	* `First input att/var on the page only if not embedded`: Focuses the first input only when the object is not embedded
+	* `Browser dependent`: Uses browser-dependent behavior
 - Default: `First input att/var on the page`
 
 ## Cache expiration lapse
@@ -78,33 +78,31 @@ Use this file to select editable Panel properties and apply target-specific sett
 - Description: Automatically refresh grids on dependency changes
 - Type: `enum{Yes,No}`
 - Options:
-	* `Yes`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
-
+	* `Yes`: Enables this behavior
+	* `No`: Disables this behavior
 ## Auto compress http traffic
 - Description: Compresses HTTP responses to reduce payload size
 - Type: `enum{Yes,No,Use Environment property value}`
 - Options:
-	* `Yes`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
-	* `Use Environment property value`: Use this value when it matches the target behavior
+	* `Yes`: Enables this behavior
+	* `No`: Disables this behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
 - Default: `Yes`
 
 ## Web User Experience
 - Description: Applies to web generators only
 - Type: `enum{Smooth,Previous versions compatible}`
 - Options:
-	* `Smooth`: Use this value when it matches the target behavior
-	* `Previous versions compatible`: Use this value when it matches the target behavior
-
+	* `Smooth`: Uses smooth web experience behavior
+	* `Previous versions compatible`: Uses legacy-compatible rendering behavior
 ## Encrypt URL parameters
 - Description: URL value used by integration or metadata
 - Type: `enum{Use Environment property value,No,Session key,Site key}`
 - Options:
-	* `Use Environment property value`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
-	* `Session key`: Use this value when it matches the target behavior
-	* `Site key`: Use this value when it matches the target behavior
+	* `Use Environment property value`: Uses the setting defined at environment level
+	* `No`: Disables this behavior
+	* `Session key`: Encrypts values using a session-scoped key
+	* `Site key`: Encrypts values using a site-level key
 - Default: `No`
 
 ---
@@ -115,10 +113,9 @@ Use this file to select editable Panel properties and apply target-specific sett
 - Description: Applies to native generators using offline synchronization
 - Type: `enum{None,Authentication,Authorization}`
 - Options:
-	* `None`: Use this value when it matches the target behavior
-	* `Authentication`: Use this value when it matches the target behavior
-	* `Authorization`: Use this value when it matches the target behavior
-
+	* `None`: Disables additional behavior for this setting
+	* `Authentication`: Requires user authentication
+	* `Authorization`: Requires authentication and permission checks
 ## Permission Prefix
 - Description: Prefix used when generating permissions
 - Type: `string`
@@ -140,10 +137,10 @@ Use this file to select editable Panel properties and apply target-specific sett
 - Description: Trigger strategy for receive synchronization
 - Type: `enum{On Application Launch,After Elapsed Time,Manual,Never}`
 - Options:
-	* `On Application Launch`: Use this value when it matches the target behavior
-	* `After Elapsed Time`: Use this value when it matches the target behavior
-	* `Manual`: Use this value when it matches the target behavior
-	* `Never`: Use this value when it matches the target behavior
+	* `On Application Launch`: Runs automatically when the application starts
+	* `After Elapsed Time`: Runs after the configured elapsed interval
+	* `Manual`: Runs only when explicitly requested
+	* `Never`: Does not run automatically
 - Default: `On Application Launch`
 
 ## Minimum Time Between Receives
@@ -155,8 +152,8 @@ Use this file to select editable Panel properties and apply target-specific sett
 - Description: Defines sync granularity by row or by table
 - Type: `enum{By Row,By Table}`
 - Options:
-	* `By Row`: Use this value when it matches the target behavior
-	* `By Table`: Use this value when it matches the target behavior
+	* `By Row`: Processes records row by row
+	* `By Table`: Processes records table by table
 - Default: `By Row`
 
 ## Minimum Time Between Table Purges
@@ -173,9 +170,9 @@ Use this file to select editable Panel properties and apply target-specific sett
 - Description: Trigger strategy for send synchronization
 - Type: `enum{When connected,Manual,Never}`
 - Options:
-	* `When connected`: Use this value when it matches the target behavior
-	* `Manual`: Use this value when it matches the target behavior
-	* `Never`: Use this value when it matches the target behavior
+	* `When connected`: Runs only when network connectivity is available
+	* `Manual`: Runs only when explicitly requested
+	* `Never`: Does not run automatically
 - Default: `When connected`
 
 ## Minimum Time Between Sends

@@ -34,11 +34,10 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: How empty input is converted to null values
 - Type: `enum{No Nulls,Empty as Null,Blank as Null,Compatible}`
 - Options:
-	* `No Nulls`: Use this value when it matches the target behavior
-	* `Empty as Null`: Use this value when it matches the target behavior
-	* `Blank as Null`: Use this value when it matches the target behavior
-	* `Compatible`: Use this value when it matches the target behavior
-
+	* `No Nulls`: Empty input is stored as a concrete empty value, never as null
+	* `Empty as Null`: Empty input is converted to null
+	* `Blank as Null`: Blank-only input is converted to null
+	* `Compatible`: Preserves compatibility behavior defined by GeneXus for legacy objects
 ## Class
 - Description: Theme class applied to rendering
 - Type: `string`
@@ -123,9 +122,9 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Padding strategy applied to numeric formatting
 - Type: `enum{Blank,Zero,Blank when Zero}`
 - Options:
-	* `Blank`: Use this value when it matches the target behavior
-	* `Zero`: Use this value when it matches the target behavior
-	* `Blank when Zero`: Use this value when it matches the target behavior
+	* `Blank`: Pads unused leading positions with blanks
+	* `Zero`: Pads unused leading positions with zeros
+	* `Blank when Zero`: Uses blanks when the numeric value is zero
 - Default: `Blank`
 
 ## Thousand separator
@@ -150,14 +149,14 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: UI control used to edit or display the value
 - Type: `enum{Combo Box,Radio Button,Edit,Check Box,Dynamic Combo Box,List Box,Dynamic List Box,Image}`
 - Options:
-	* `Combo Box`: Use this value when it matches the target behavior
-	* `Radio Button`: Use this value when it matches the target behavior
-	* `Edit`: Use this value when it matches the target behavior
-	* `Check Box`: Use this value when it matches the target behavior
-	* `Dynamic Combo Box`: Use this value when it matches the target behavior
-	* `List Box`: Use this value when it matches the target behavior
-	* `Dynamic List Box`: Use this value when it matches the target behavior
-	* `Image`: Use this value when it matches the target behavior
+	* `Combo Box`: Renders a drop-down selector with fixed values
+	* `Radio Button`: Renders mutually exclusive options as radio buttons
+	* `Edit`: Renders a standard editable input field
+	* `Check Box`: Renders a boolean value as a checkbox
+	* `Dynamic Combo Box`: Renders a drop-down selector loaded dynamically
+	* `List Box`: Renders a visible list selector with fixed values
+	* `Dynamic List Box`: Renders a visible list selector loaded dynamically
+	* `Image`: Renders the value as an image
 - Default: `Edit`
 
 ## NotifyContextChange
@@ -216,20 +215,19 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Horizontal alignment used for displayed text
 - Type: `enum{Left,Center,Right}`
 - Options:
-	* `Left`: Use this value when it matches the target behavior
-	* `Center`: Use this value when it matches the target behavior
-	* `Right`: Use this value when it matches the target behavior
+	* `Left`: Aligns displayed content to the left
+	* `Center`: Centers displayed content horizontally
+	* `Right`: Aligns displayed content to the right
 - Default: `Left`
 
 ## Format
 - Description: Text rendering format mode in UI
 - Type: `enum{Text,HTML,Raw HTML,Text with meaningful spaces}`
 - Options:
-	* `Text`: Use this value when it matches the target behavior
-	* `HTML`: Use this value when it matches the target behavior
-	* `Raw HTML`: Use this value when it matches the target behavior
-	* `Text with meaningful spaces`: Use this value when it matches the target behavior
-
+	* `Text`: Renders content as plain text
+	* `HTML`: Renders content as HTML with GeneXus formatting handling
+	* `Raw HTML`: Outputs HTML without processing or escaping
+	* `Text with meaningful spaces`: Renders plain text preserving spaces and line breaks
 ## TooltipText
 - Description: Help text shown on hover or focus
 - Type: `string`

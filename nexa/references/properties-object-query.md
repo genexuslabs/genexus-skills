@@ -17,10 +17,9 @@ Use this file to select editable Query properties
 - Description: Type selector that controls generation behavior
 - Type: `enum{Card,Chart,Pivot Table}`
 - Options:
-	* `Card`: Use this value when it matches the target behavior
-	* `Chart`: Use this value when it matches the target behavior
-	* `Pivot Table`: Use this value when it matches the target behavior
-
+	* `Card`: Displays results in card layout
+	* `Chart`: Displays results in chart layout
+	* `Pivot Table`: Displays results in pivot table layout
 ## Cache expiration lapse
 - Description: Cache validity duration before refresh
 - Type: `string`

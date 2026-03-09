@@ -13,6 +13,6 @@ Use this file as the common definition for observability property groups
 - Description: Enables generation of OpenTelemetry spans for runtime tracing
 - Type: `enum{Yes,No}`
 - Options:
-	* `Yes`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
+	* `Yes`: Enables this behavior
+	* `No`: Disables this behavior
 - Default: `No`

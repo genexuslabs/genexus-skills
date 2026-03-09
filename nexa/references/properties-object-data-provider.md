@@ -23,11 +23,11 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Define how the object is invoked, and its output
 - Type: `enum{Internal,HTTP,Command Line,SOAP,Enterprise Java Bean}`
 - Options:
-	* `Internal`: Use this value when it matches the target behavior
-	* `HTTP`: Use this value when it matches the target behavior
-	* `Command Line`: Use this value when it matches the target behavior
-	* `SOAP`: Use this value when it matches the target behavior
-	* `Enterprise Java Bean`: Use this value when it matches the target behavior
+	* `Internal`: Executes internally within the application runtime
+	* `HTTP`: Exposes or invokes behavior over HTTP
+	* `Command Line`: Enables command-line invocation
+	* `SOAP`: Exposes or invokes behavior as SOAP service
+	* `Enterprise Java Bean`: Uses Enterprise Java Bean integration mode
 - Default: `Internal`
 
 
@@ -39,9 +39,9 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Infers output SDT from assignment structure
 - Type: `enum{Yes,if SDT is dynamic,No}`
 - Options:
-	* `Yes`: Use this value when it matches the target behavior
-	* `if SDT is dynamic`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
+	* `Yes`: Enables this behavior
+	* `if SDT is dynamic`: Applies only when the SDT is dynamic
+	* `No`: Disables this behavior
 - Default: `No`
 
 ## Output

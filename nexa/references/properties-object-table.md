@@ -45,10 +45,10 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Expected data volatility for caching heuristics
 - Type: `enum{0. Pretty Often,1. Time to Time,2. Hardly Ever,3. Almost Never}`
 - Options:
-	* `0. Pretty Often`: Use this value when it matches the target behavior
-	* `1. Time to Time`: Use this value when it matches the target behavior
-	* `2. Hardly Ever`: Use this value when it matches the target behavior
-	* `3. Almost Never`: Use this value when it matches the target behavior
+	* `0. Pretty Often`: Uses the highest suggested frequency level
+	* `1. Time to Time`: Uses a medium-high suggested frequency level
+	* `2. Hardly Ever`: Uses a low suggested frequency level
+	* `3. Almost Never`: Uses the minimum suggested frequency level
 - Default: `0. Pretty Often`
 
 
@@ -60,6 +60,6 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Storage strategy used by supported DB engines
 - Type: `enum{Column Based,Row Based}`
 - Options:
-	* `Column Based`: Use this value when it matches the target behavior
-	* `Row Based`: Use this value when it matches the target behavior
+	* `Column Based`: Uses column-based physical organization
+	* `Row Based`: Uses row-based physical organization
 - Default: `Row Based`

@@ -33,9 +33,9 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Generate OpenAPI documentation \(default.yaml\) for exposed services and components
 - Type: `enum{Yes,No,Use Environment property value}`
 - Options:
-	* `Yes`: Use this value when it matches the target behavior
-	* `No`: Use this value when it matches the target behavior
-	* `Use Environment property value`: Use this value when it matches the target behavior
+	* `Yes`: Generates the OpenAPI contract file for the service
+	* `No`: Does not generate the OpenAPI contract file
+	* `Use Environment property value`: Uses the model or environment-level OpenAPI setting
 - Default: `Yes`
 
 ## Generate As OpenAI Plugin

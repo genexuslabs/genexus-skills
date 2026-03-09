@@ -13,11 +13,11 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Type definition for the element
 - Type: `enum{Native Object,Stored Procedure,WSDL,Java Session Bean,SAP Connector Interface}`
 - Options:
-	* `Native Object`: Use this value when it matches the target behavior
-	* `Stored Procedure`: Use this value when it matches the target behavior
-	* `WSDL`: Use this value when it matches the target behavior
-	* `Java Session Bean`: Use this value when it matches the target behavior
-	* `SAP Connector Interface`: Use this value when it matches the target behavior
+	* `Native Object`: Uses native object integration
+	* `Stored Procedure`: Uses database stored procedure integration
+	* `WSDL`: Uses WSDL-based service definition
+	* `Java Session Bean`: Uses Java Session Bean integration mode
+	* `SAP Connector Interface`: Uses SAP Connector Interface integration
 - Default: `Native Object`
 
 ## Namespace
@@ -196,10 +196,10 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Access mode for external object property
 - Type: `enum{Read/Write,Read,Write,Member}`
 - Options:
-	* `Read/Write`: Use this value when it matches the target behavior
-	* `Read`: Use this value when it matches the target behavior
-	* `Write`: Use this value when it matches the target behavior
-	* `Member`: Use this value when it matches the target behavior
+	* `Read/Write`: Allows both read and write access
+	* `Read`: Allows read access only
+	* `Write`: Allows write access only
+	* `Member`: Exposes the item as a member
 - Default: `Read/Write`
 
 ## Collection Item Name
@@ -210,12 +210,12 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: UI control used to edit or display the value
 - Type: `enum{Combo Box,Radio Button,Edit,Check Box,Dynamic Combo Box,List Box,Dynamic List Box,Image}`
 - Options:
-	* `Combo Box`: Use this value when it matches the target behavior
-	* `Radio Button`: Use this value when it matches the target behavior
-	* `Edit`: Use this value when it matches the target behavior
-	* `Check Box`: Use this value when it matches the target behavior
-	* `Dynamic Combo Box`: Use this value when it matches the target behavior
-	* `List Box`: Use this value when it matches the target behavior
-	* `Dynamic List Box`: Use this value when it matches the target behavior
-	* `Image`: Use this value when it matches the target behavior
+	* `Combo Box`: Renders a drop-down selector with fixed values
+	* `Radio Button`: Renders mutually exclusive options as radio buttons
+	* `Edit`: Renders a standard editable input field
+	* `Check Box`: Renders a boolean value as a checkbox
+	* `Dynamic Combo Box`: Renders a drop-down selector loaded dynamically
+	* `List Box`: Renders a visible list selector with fixed values
+	* `Dynamic List Box`: Renders a visible list selector loaded dynamically
+	* `Image`: Renders the value as an image
 - Default: `Edit`
