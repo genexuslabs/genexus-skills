@@ -18,5 +18,5 @@ Use this file to select editable Documentation properties
 # SERVER DATA
 
 ## PageName
-- Description: Name used by generation and external references
+- Description: External wiki page name associated with this documentation object
 - Type: `string`

@@ -14,7 +14,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Type: `string`
 
 ## TargetPath
-- Description: Path used to locate related resources
+- Description: Base path where generated model resources are written
 - Type: `string`
 
 ## Startup Object

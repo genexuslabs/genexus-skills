@@ -265,7 +265,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 # SDT ITEM INTERFACE
 
 ## External Name
-- Description: Name used by generation and external references
+- Description: External parameter name used when the SDT item is exposed in services
 - Type: `string`
 
 ## Required

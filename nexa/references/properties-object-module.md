@@ -14,7 +14,7 @@ Use this file to select editable Module properties
 - Type: `string`
 
 ## ModuleVersion
-- Description: Version metadata used by generation and deployment
+- Description: Module semantic version used for packaging and distribution
 - Type: `string`
 - Default: `1.0`
 

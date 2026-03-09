@@ -10,7 +10,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 # GENERAL
 
 ## Type
-- Description: Type definition for the element
+- Description: Integration kind used to consume the external implementation
 - Type: `enum{Native Object,Stored Procedure,WSDL,Java Session Bean,SAP Connector Interface}`
 - Options:
 	* `Native Object`: Uses native object integration
@@ -25,7 +25,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Type: `string`
 
 ## ImporterVersion
-- Description: Version metadata used by generation and deployment
+- Description: Importer version used to track the source metadata format
 - Type: `string`
 
 ## SourceURI
@@ -37,11 +37,11 @@ Use this file to select editable properties, defaults, and valid options for thi
 # DOTNET FRAMEWORK INFORMATION
 
 ## .Net External Name
-- Description: Name used by generation and external references
+- Description: .NET runtime type name used to bind the external implementation
 - Type: `string`
 
 ## AssemblyName
-- Description: Name used by generation and external references
+- Description: .NET assembly name that contains the external implementation
 - Type: `string`
 
 ## .Net Constructor Parameters
@@ -53,19 +53,19 @@ Use this file to select editable properties, defaults, and valid options for thi
 # DOTNET INFORMATION
 
 ## .Net Core External Name
-- Description: Name used by generation and external references
+- Description: .NET runtime type name used to bind the external implementation
 - Type: `string`
 
 ## NetCoreAssemblyName
-- Description: Name used by generation and external references
+- Description: .NET assembly name that contains the external implementation
 - Type: `string`
 
 ## NetCorePackageName
-- Description: Name used by generation and external references
+- Description: NuGet package name used to resolve the dependency
 - Type: `string`
 
 ## NetCorePackageVersion
-- Description: Version metadata used by generation and deployment
+- Description: NuGet package version used to resolve the dependency
 - Type: `string`
 
 ## .Net Core Constructor Parameters
@@ -77,7 +77,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 # JAVA INFORMATION
 
 ## Java External Name
-- Description: Name used by generation and external references
+- Description: Java class name used to bind the external implementation
 - Type: `string`
 
 ## JavaArtifactId
@@ -85,11 +85,11 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Type: `string`
 
 ## JavaArtifactVersion
-- Description: Version metadata used by generation and deployment
+- Description: Maven artifact version used to resolve the dependency
 - Type: `string`
 
 ## External Package Name
-- Description: Name used by generation and external references
+- Description: Java package that contains the external class
 - Type: `string`
 
 ## Java Constructor Parameters
@@ -101,7 +101,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 # RUBY INFORMATION
 
 ## Ruby External Name
-- Description: Name used by generation and external references
+- Description: Ruby class or module name used to bind the external implementation
 - Type: `string`
 
 ## Required file
@@ -117,15 +117,15 @@ Use this file to select editable properties, defaults, and valid options for thi
 # IOS INFORMATION
 
 ## iOS External Name
-- Description: Name used by generation and external references
+- Description: iOS class name used to bind the external implementation
 - Type: `string`
 
 ## Library Name
-- Description: Name used by generation and external references
+- Description: iOS library name that contains the external implementation
 - Type: `string`
 
 ## Header File Name
-- Description: Name used by generation and external references
+- Description: iOS header file that declares the external implementation
 - Type: `string`
 
 ---
@@ -133,11 +133,11 @@ Use this file to select editable properties, defaults, and valid options for thi
 # ANDROID INFORMATION
 
 ## Android External Name
-- Description: Name used by generation and external references
+- Description: Android class name used to bind the external implementation
 - Type: `string`
 
 ## External Package Name
-- Description: Name used by generation and external references
+- Description: Android package that contains the external class
 - Type: `string`
 
 ---
@@ -145,7 +145,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 # JAVASCRIPT INFORMATION
 
 ## Javascript External Name
-- Description: Name used by generation and external references
+- Description: JavaScript symbol name used to bind the external implementation
 - Type: `string`
 
 ## Javascript Referenced file
@@ -157,11 +157,11 @@ Use this file to select editable properties, defaults, and valid options for thi
 # JAVASCRIPT MODULE INFORMATION
 
 ## Javascript Module Name
-- Description: Name used by generation and external references
+- Description: JavaScript module name used to import the dependency
 - Type: `string`
 
 ## Javascript Module Path
-- Description: Path used to locate related resources
+- Description: Path used to resolve the JavaScript module location
 - Type: `string`
 
 ## Javascript Module Reference
@@ -177,7 +177,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Type: `string`
 
 ## Type
-- Description: Type definition for the element
+- Description: GeneXus data type used by the external method member
 - Type: `string`
 
 ## Based on

@@ -14,7 +14,7 @@ Use this file to select editable Deployment Unit properties
 - Type: `string`
 
 ## Version
-- Description: Version metadata used by generation and deployment
+- Description: Deployment unit version used by release and deployment pipelines
 - Type: `string`
 
 ## Environment

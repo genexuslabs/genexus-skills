@@ -101,7 +101,7 @@ Use [common observability properties](./properties-common-observability.md)
 # WEB TRANSACTION
 
 ## Theme
-- Description: Theme applied to generated UI
+- Description: Name of an existing Design System object applied to generated web UI
 - Type: `string`
 
 ## Form Layout
