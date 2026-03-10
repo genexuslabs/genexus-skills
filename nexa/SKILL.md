@@ -47,6 +47,11 @@ Each reference has specific purpose
 - `object-*.md`: Object specific knowledge for modeling solutions
 - `common-*.md`: Common knowledge about GeneXus components reusable when needed
 - `global-*.md`: Global instructions to be applied while working this skill
+- `module-*.md`: References for installable external modules
+	* `module-gam*.md`: Defines GAM (GeneXus Access Manager) module references
+		+ Provides authentication and authorization capabilities
+		+ Requires `Enable integrated security` environment property enabled
+		+ Requires `GeneXusSecurity` module installed
 
 Resource selection protocol:
 1. Pick target `object-*.md` files from user intent
