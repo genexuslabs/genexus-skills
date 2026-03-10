@@ -453,6 +453,84 @@ EndFooter
 
 ---
 
+# DATA VIEW COMMANDS
+Commands for navigation over `Data View` objects without associated table
+
+Shared constraints:
+- Use internal attribute names only
+- Use these commands when `Associated table` is not defined
+
+## XFor Each
+Iterates matching records from a `Data View` index
+
+Syntax:
+~~~
+XFor Each <dataview>
+    [Index <index>]
+    [Where <condition>]
+    <code-main>
+[When none
+    <code-none>]
+XEndFor
+~~~
+
+Where:
+- `<dataview>`: Existing `Data View` object name
+- `<index>`: Index defined in the `Data View` object `Indexes` node
+- `<condition>`: Optional filter expression using internal attribute names
+- `<code-main>`: Repetitive code block per matching row
+- `<code-none>`: Optional code block executed when no record is found
+
+Constraints:
+- Define `Index` when deterministic index selection is required
+
+Example:
+~~~
+XFor Each CustomerExternal
+    Index ICustomerExternal
+    Where CustomerStatus = !'A'
+    &CustomerName = CustomerName
+XEndFor
+~~~
+
+## XFor First
+Reads first matching record from a `Data View` index
+
+Syntax:
+~~~
+XFor First <dataview>
+    [Index <index>]
+    [Where <condition>]
+    <code-main>
+[When none
+    <code-none>]
+XEndFor
+~~~
+
+Where:
+- `<dataview>`: Existing `Data View` object name
+- `<index>`: Index defined in the `Data View` object `Indexes` node
+- `<condition>`: Optional filter expression using internal attribute names
+- `<code-main>`: Code block executed when one record is found
+- `<code-none>`: Optional code block executed when no record is found
+
+Constraints:
+- Use `XFor First` for single-row read by key or selective filter
+- Define `Index` when deterministic index selection is required
+
+Example:
+~~~
+XFor First CustomerExternal 
+    Index ICustomerExternal
+    Where CustomerId = &CustomerId
+    &CustomerName = CustomerName
+When none
+    msg("Customer not found", status)
+XEndFor
+~~~
+
+---
+
 # CONSTRAINTS
 - Commands must be used within their allowed scope
 - Statement blocks must be properly closed with matching end keyword
