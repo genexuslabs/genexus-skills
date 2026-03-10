@@ -51,6 +51,10 @@ Each reference has specific purpose
 	* `module-gam*.md`: Defines GAM (GeneXus Access Manager) module references
 		+ Provides authentication and authorization capabilities
 		+ Requires `Enable integrated security` environment property enabled
+		+ Requires `Integrated Security Level` property with one of:
+			- `None` (default): No security checks are enforced for the object
+			- `Autentication`: Requires a logged-in user, without permission checks
+			- `Authorization`: Requires authentication and permission checks
 		+ Requires `GeneXusSecurity` module installed
 
 Resource selection protocol:
