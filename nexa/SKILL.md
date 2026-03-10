@@ -165,6 +165,11 @@ Quick reference for appropriate use of each object type
 - Use when: Creating reusable filters, implementing dynamic search criteria, or centralizing business filtering rules
 - Reference: [DataSelector object](references/object-data-selector.md)
 
+## DataView (DV)
+- Purpose: External data source mapping for GeneXus navigation and query reuse
+- Use when: Accessing and consuming external data structures from navigation objects
+- Reference: [DataView object](references/object-data-view.md)
+
 ## API
 - Purpose: REST API endpoint definition with HTTP methods
 - Use when: Exposing business logic as RESTful services, integrating with external systems, or enabling third-party integrations
