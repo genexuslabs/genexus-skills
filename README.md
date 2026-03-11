@@ -10,6 +10,7 @@ Root
 │  ├─ references/
 │  │  ├─ common-*.md         : shared components over other references
 │  │  ├─ global-*.md         : shared global definitions
+│  │  ├─ model-*.md          : shared model definitions
 │  │  └─ object-*.md         : object-specific specifications
 │  └─ SKILL.md               : skill definition and workflow
 │

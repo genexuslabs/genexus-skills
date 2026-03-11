@@ -47,6 +47,7 @@ Each reference has specific purpose
 - `object-*.md`: Object specific knowledge for modeling solutions
 - `common-*.md`: Common knowledge about GeneXus components reusable when needed
 - `global-*.md`: Global instructions to be applied while working this skill
+- `model-*.md`: Knowledge Base model files and configuration nodes
 
 Resource selection protocol:
 1. Pick target `object-*.md` files from user intent
@@ -105,8 +106,31 @@ When user requests technical question:
 
 ---
 
+# MODEL DEFINITIONS
+Quick reference for model setup; stored in `/src.ns` sub directory
+
+## Knowledge Base
+- Purpose: Knowledge Base definition file with version file references and KB creation properties
+- Constraint: Must be unique by Knowledge Base definition
+- Use when: Creating or validating KB model files and references to Version files
+- Reference: [Model Knowledge Base](references/model-knowledge-base.md)
+
+## Version
+- Purpose: Version definition file with environment file references and version properties
+- Constraint: Must be referenced by Knowledge Base definition file
+- Use when: Creating or validating Version model files and references to Environment files
+- Reference: [Model Version](references/model-version.md)
+
+## Environment
+- Purpose: Environment definition file with generators, datastores, services, and deployment settings
+- Constraint: Must be referenced by only one Version definition file
+- Use when: Creating or validating Environment model files and generator or datastore properties
+- Reference: [Model Environment](references/model-environment.md)
+
+---
+
 # OBJECTS KNOWLEDGE
-Quick reference for appropriate use of each object type
+Quick reference for appropriate use of each object type; stored in `/src` sub directory
 
 ## Folder
 - Purpose: Simple directory container for organizing objects without encapsulation; cannot contain modules, only folder and other objects allowed
