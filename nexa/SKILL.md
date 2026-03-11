@@ -112,6 +112,7 @@ When user requests modeling task:
 		- Run `build_one` tool for a specific object
 		- Run `build_all` tool for full model build
 	* Run `export_kb_to_text` tool only if user explicitly requested
+		- Use `rootDirectory` with the `output directory` path
 8. Return a brief summary
 
 When user requests technical question:
