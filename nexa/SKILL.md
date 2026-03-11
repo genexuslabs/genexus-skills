@@ -88,6 +88,9 @@ When user requests modeling task:
 			2) Stop further processing until an MCP server is up and running (with validation)
 2. Resolve KB:
 	* Ask for `output directory` from user or use current directory as default
+	* Use the `output directory` as base path:
+		- Add `/src` for AI-generated files
+		- Add `/src.ns` for namespaced AI-generated files
 	* Use `create_knowledge_base` tool if KB does not exist
 		- Set `directory` argument for GeneXus generated files
 		- Set `environment` argument; values: `.NET`, `Java`
