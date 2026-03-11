@@ -87,7 +87,7 @@ When user requests modeling task:
 			1) Continue without MCP server and just dump definition files (without validation)
 			2) Stop further processing until an MCP server is up and running (with validation)
 2. Resolve KB:
-	* Ask the user the output directory for dumping AI generated files
+	* Ask for `output directory` from user or use current directory as default
 	* Use `create_knowledge_base` tool if KB does not exist
 		- Set `directory` argument for GeneXus generated files
 		- Set `environment` argument; values: `.NET`, `Java`
