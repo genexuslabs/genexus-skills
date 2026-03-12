@@ -135,8 +135,8 @@ Documentation for MyEntity transaction
 
 # CONSTRAINTS
 - Output policy governs artifact selection and naming only
-- Output policy never overrides section completeness rules from the object `SYNTAX` section
+- Output policy never overrides section completeness rules from object `SYNTAX` section
 - Object-specific reference files may define exceptions to this policy
-- Enforce canonical naming only from `FORMAT MATRIX`
+- Enforce canonical naming only from [FORMAT MATRIX](#format-matrix) section
 - Generate `multi-file` artifacts only when requested or required
 - Keep one mode per target object after save; never keep both `single-file` and `multi-file` artifacts
