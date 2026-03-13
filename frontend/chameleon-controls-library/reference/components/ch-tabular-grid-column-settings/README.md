@@ -1,0 +1,42 @@
+# ch-grid-menu-columns
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Properties](#properties)
+- [Dependencies](#dependencies)
+  - [Used by](#used-by)
+  - [Depends on](#depends-on)
+  - [Graph](#graph)
+
+<!-- Auto Generated Below -->
+
+## Overview
+
+The `ch-tabular-grid-column-settings` component represents a settings window for a column
+
+## Properties
+
+| Property              | Attribute | Description                                                                       | Type                             | Default     |
+| --------------------- | --------- | --------------------------------------------------------------------------------- | -------------------------------- | ----------- |
+| `column` _(required)_ | --        | The `HTMLChTabularGridColumnElement` that the settings window is associated with. | `HTMLChTabularGridColumnElement` | `undefined` |
+| `show`                | `show`    | Indicates whether the settings window is currently shown or not.                  | `boolean`                        | `false`     |
+
+## Dependencies
+
+### Used by
+
+ - [ch-tabular-grid-column](../ch-tabular-grid-column/README.md)
+
+### Graph
+```mermaid
+graph TD;
+  ch-tabular-grid-column-settings --> ch-window
+  ch-window --> ch-window-close
+  ch-tabular-grid-column --> ch-tabular-grid-column-settings
+  style ch-tabular-grid-column-settings fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+----------------------------------------------
+
+

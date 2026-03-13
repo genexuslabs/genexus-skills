@@ -1,0 +1,89 @@
+# ch-navigation-list-render
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Use when](#use-when)
+- [Do not use when](#do-not-use-when)
+- [Accessibility](#accessibility)
+- [Usage](./usage.md)
+- [Properties](#properties)
+- [Events](#events)
+- [Dependencies](#dependencies)
+  - [Used by](#used-by)
+  - [Depends on](#depends-on)
+  - [Graph](#graph)
+- [Styling](./styling.md)
+
+<!-- Auto Generated Below -->
+
+## Overview
+
+The `ch-navigation-list-render` component renders a hierarchical navigation menu composed of expandable items that can act as hyperlinks or buttons
+
+## Features
+ - Nested items supported to any depth, each with optional start image, caption, and expandable indicator
+ - Automatic synchronization with ancestor `ch-sidebar` expand/collapse events
+ - Auto-expand ancestors of the selected link when `expandSelectedLink` is enabled
+ - Configurable expandable button style (`decorative` or `no`) and position (`start` or `end`)
+ - Selected link indicator for hyperlink items
+ - Caption display on collapse via inline text or tooltip
+ - Custom item rendering through the `renderItem` callback
+
+## Use when
+ - Building primary or secondary navigation menus inside a sidebar, dashboard shell, or settings page
+ - Primary or secondary sidebar navigation that changes what is rendered in the main content area
+ - Indicating the user's current location within the application
+
+## Do not use when
+ - Displaying flat, non-hierarchical link lists -- a simple `<ul>` would suffice
+ - Displaying tree-structured data that requires checkboxes, drag-and-drop, or inline editing -- prefer `ch-tree-view-render` instead
+ - Displaying hierarchical data structures like file trees — prefer `ch-tree-view-render`
+ - Contextual actions on items — prefer `ch-action-list-render` or `ch-action-menu-render`
+ - Navigation depth regularly exceeds 2 levels — consider a `ch-tree-view-render` or separate pages
+
+## Accessibility
+ - The host element has `role="list"`
+ - Expandable items use disclosure semantics so assistive technology can convey hierarchy
+
+## Properties
+
+| Property                   | Attribute                    | Description                                                                                                                                                                                                                                                                                                                                                                                                 | Type                                                                                                                | Default                              |
+| -------------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| `autoGrow`                 | `auto-grow`                  | When `true`, the control grows in the block direction to fit all its content (no clipping or scrollbars). When `false`, the overflowing content is clipped to the borders of its container and a scrollbar may appear.                                                                                                                                                                                      | `boolean`                                                                                                           | `false`                              |
+| `expandSelectedLink`       | `expand-selected-link`       | `true` to expand the path to the selected link when the `selectedLink` property is updated.                                                                                                                                                                                                                                                                                                                 | `boolean`                                                                                                           | `false`                              |
+| `expandableButton`         | `expandable-button`          | Specifies what kind of expandable button is displayed in the items by default.  - `"decorative"`: Only a decorative icon is rendered to display the state     of the item. The icon is not interactive; clicking the row itself     expands or collapses the item.  - `"no"`: No expandable button is rendered; the item is still expandable     via row click but has no visual expand/collapse indicator. | `"decorative" \| "no"`                                                                                              | `"decorative"`                       |
+| `expandableButtonPosition` | `expandable-button-position` | Specifies the position of the expandable button in reference of the action element of the items  - `"start"`: Expandable button is placed before the action element.  - `"end"`: Expandable button is placed after the action element.                                                                                                                                                                      | `"end" \| "start"`                                                                                                  | `"start"`                            |
+| `expanded`                 | `expanded`                   | Specifies if the control is expanded or collapsed.                                                                                                                                                                                                                                                                                                                                                          | `boolean`                                                                                                           | `true`                               |
+| `getImagePathCallback`     | --                           | This property specifies a callback that is executed when the path for an startImgSrc needs to be resolved.                                                                                                                                                                                                                                                                                                  | `(item: NavigationListItemModel) => GxImageMultiState`                                                              | `undefined`                          |
+| `gxImageConstructor`       | --                           | This property is a WA to implement the Tree View as a UC 2.0 in GeneXus.                                                                                                                                                                                                                                                                                                                                    | `(name: string) => any`                                                                                             | `undefined`                          |
+| `gxSettings`               | `gx-settings`                | This property is a WA to implement the Tree View as a UC 2.0 in GeneXus.                                                                                                                                                                                                                                                                                                                                    | `any`                                                                                                               | `undefined`                          |
+| `model`                    | --                           | Specifies the items of the control. The model is an array of `NavigationListItemModel` objects, each defining an `id`, `caption`, optional `link` (URL navigation), optional `startImgSrc`/`startImgType` for icons, and a nested `items` array for child nodes.                                                                                                                                            | `NavigationListItemModel[]`                                                                                         | `undefined`                          |
+| `renderItem`               | --                           | Specifies the items of the control.                                                                                                                                                                                                                                                                                                                                                                         | `(item: NavigationListItemModel, navigationListState: ChNavigationListRender, level: number, index: number) => any` | `defaultRender`                      |
+| `selectedLink`             | --                           | Specifies the current selected hyperlink.                                                                                                                                                                                                                                                                                                                                                                   | `{ id?: string; link: ItemLink; }`                                                                                  | `{     link: { url: undefined }   }` |
+| `selectedLinkIndicator`    | `selected-link-indicator`    | Specifies if the selected item indicator is displayed (only works for hyperlink items).                                                                                                                                                                                                                                                                                                                     | `boolean`                                                                                                           | `false`                              |
+| `showCaptionOnCollapse`    | `show-caption-on-collapse`   | Specifies how the caption of the items will be displayed when the control is collapsed                                                                                                                                                                                                                                                                                                                      | `"inline" \| "tooltip"`                                                                                             | `"inline"`                           |
+| `tooltipDelay`             | `tooltip-delay`              | Specifies the delay (in ms) for the tooltip to be displayed.                                                                                                                                                                                                                                                                                                                                                | `number`                                                                                                            | `100`                                |
+| `useGxRender`              | `use-gx-render`              | This property is a WA to implement the Navigation List as a UC 2.0 in GeneXus.                                                                                                                                                                                                                                                                                                                              | `boolean`                                                                                                           | `false`                              |
+
+## Events
+
+| Event            | Description                                                                                                                                                                                                   | Type                                                                                                                                                                                                                   |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `buttonClick`    | Fired when a button item is clicked. This event can be prevented. Calling `preventDefault()` on the event stops the default expand/collapse toggle so you can handle the action entirely in your own handler. | `CustomEvent<{ id?: string; caption: string; disabled?: boolean; expanded?: boolean; metadata?: string; startImgSrc?: string; startImgType?: "mask" \| "background"; link?: ItemLink; items?: NavigationListModel; }>` |
+| `hyperlinkClick` | Fired when a hyperlink item is clicked. This event can be prevented. Calling `preventDefault()` on the event stops the browser's native navigation so you can perform client-side routing instead.            | `CustomEvent<{ event: PointerEvent; item: NavigationListItemModel; }>`                                                                                                                                                 |
+
+### Graph
+```mermaid
+graph TD;
+  ch-navigation-list-render --> ch-navigation-list-item
+  ch-navigation-list-item --> ch-tooltip
+  ch-tooltip --> ch-popover
+  ch-showcase --> ch-navigation-list-render
+  style ch-navigation-list-render fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+----------------------------------------------
+
+
