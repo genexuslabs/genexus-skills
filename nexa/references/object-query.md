@@ -46,7 +46,7 @@ Where:
 - `<parameters>`: Input parameter list, possibly empty, including names and definitions
 - `<filters>`: Boolean filter (comparisons, operators, formulas, functions, methods)
 - `<orders>`: Sorting expression combining attributes and formulas
-- `<properties>`: Optional object properties in TOML syntax
+- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-query.md))
 - `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
 
 Notes:

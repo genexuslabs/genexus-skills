@@ -20,6 +20,7 @@ Module <name>
 		"Description" = "<description>"
 		"Version" = "<version>"
 		"Object Visibility" = "<visibility>"
+    <properties>
 	#End
 
 	#Documentation
@@ -37,6 +38,7 @@ Where:
 	* `Knowledge Base`: Accessible from any module in the same KB, cannot be distributed
 	* `Internal`: Only accessible by objects with a common root module, cannot be distributed
 	* `Private`: Only accessible within the same module and its sub-modules, cannot be distributed
+- `<properties>`: Optional object properties (see [properties](./properties-object-module.md))
 - `<documentation>`: Optional module documentation (check [common-markdown](./common-markdown.md))
 
 ---
