@@ -1,6 +1,6 @@
 # Objects Parts
 
-Icons representing object components — conditions, events, rules, and variables.
+Icons representing object components — conditions, events, rules, and variables
 
 **Type:** Multicolor
 

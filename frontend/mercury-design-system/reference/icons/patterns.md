@@ -1,6 +1,6 @@
 # Patterns
 
-Design pattern icons for standardized development solutions and reusable structures.
+Design pattern icons for standardized development solutions and reusable structures
 
 **Type:** Multicolor
 

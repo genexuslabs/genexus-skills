@@ -1,10 +1,10 @@
 # Spacing System
 
-Mercury's spacing system is based on a **4-point (4pt) grid**. This modular foundation ensures consistent, scalable, and visually balanced interfaces.
+Mercury's spacing system is based on a **4-point (4pt) grid**. This modular foundation ensures consistent, scalable, and visually balanced interfaces
 
 ## The 4pt Grid
 
-All spacing values must be multiples of 4. This creates visual harmony and predictable layouts.
+All spacing values must be multiples of 4. This creates visual harmony and predictable layouts
 
 ## Spacing Scale
 
@@ -20,7 +20,7 @@ All spacing values must be multiples of 4. This creates visual harmony and predi
 | 32 | Large: major section breaks |
 | 40 | Extra large: page-level margins |
 
-The scale is not limited to these values — any multiple of 4 is valid.
+The scale is not limited to these values — any multiple of 4 is valid
 
 ## Never Use em or rem Units
 
@@ -28,19 +28,19 @@ The scale is not limited to these values — any multiple of 4 is valid.
 
 Mercury provides spacing tokens and classes that are the source of truth for the design system. Using raw `em`/`rem` values bypasses the token system and creates fragile code:
 
-- If Mercury updates its spacing scale, token-based code adapts automatically — hardcoded `em`/`rem` values do not.
-- If a user customizes token values for their product, `em`/`rem` values become misaligned with the rest of the UI.
-- `em` values compound unpredictably when elements are nested, breaking the 4pt grid.
+- If Mercury updates its spacing scale, token-based code adapts automatically — hardcoded `em`/`rem` values do not
+- If a user customizes token values for their product, `em`/`rem` values become misaligned with the rest of the UI
+- `em` values compound unpredictably when elements are nested, breaking the 4pt grid
 
-Use spacing tokens, `spacing-body-*` utility classes, or Mercury's CSS custom properties for spacing. When a specific token or utility doesn't exist for the exact value, use `px` values from the 4pt grid scale above — these are explicit, predictable, and easy to audit against the design system.
+Use spacing tokens, `spacing-body-*` utility classes, or Mercury's CSS custom properties for spacing. When a specific token or utility doesn't exist for the exact value, use `px` values from the 4pt grid scale above — these are explicit, predictable, and easy to audit against the design system
 
 ## Spacing Tokens
 
-Mercury provides semantic spacing tokens defined in `base/base`. **Always prefer these tokens over raw px values** — they adapt automatically when the design system scale changes or when users customize values.
+Mercury provides semantic spacing tokens defined in `base/base`. **Always prefer these tokens over raw px values** — they adapt automatically when the design system scale changes or when users customize values
 
 ### Padding Tokens (`--spacing-padding-*`)
 
-Use for `padding`, `margin`, or any spatial property. Despite the name "padding", these tokens represent spacing values and can be used for margins, `calc()` expressions for heights/widths, or any sizing need.
+Use for `padding`, `margin`, or any spatial property. Despite the name "padding", these tokens represent spacing values and can be used for margins, `calc()` expressions for heights/widths, or any sizing need
 
 | Token | Value | Size label |
 |-------|-------|------------|
@@ -56,7 +56,7 @@ Use for `padding`, `margin`, or any spatial property. Despite the name "padding"
 
 ### Gap Tokens (`--spacing-gap-*`)
 
-Use for flex/grid `gap`, or any spacing between sibling elements.
+Use for flex/grid `gap`, or any spacing between sibling elements
 
 | Token | Value | Size label |
 |-------|-------|------------|
@@ -101,7 +101,7 @@ When a Figma design specifies a raw px spacing value, find the closest token:
 | 24px | `--spacing-padding-xxl` | `--spacing-gap-xxl` |
 | 32px | `--spacing-padding-xxxl` | `--spacing-gap-xxxl` |
 
-If the design uses a value not in this table (e.g. 20px, 40px), use `calc()` with tokens or fall back to px from the 4pt grid.
+If the design uses a value not in this table (e.g. 20px, 40px), use `calc()` with tokens or fall back to px from the 4pt grid
 
 ### Border Radius Tokens
 
@@ -120,7 +120,7 @@ Mercury also provides border-radius tokens:
 
 Bundle: `utils/spacing`
 
-**These classes are NOT the primary way to apply spacing.** Use `--spacing-padding-*` and `--spacing-gap-*` tokens instead for most spacing needs. The `spacing-body-*` classes are designed for a specific use case: ensuring consistent padding across containers in IDE shells, plugin panels, dialogs, and similar environments where multiple views must share the same spacing values.
+**These classes are NOT the primary way to apply spacing.** Use `--spacing-padding-*` and `--spacing-gap-*` tokens instead for most spacing needs. The `spacing-body-*` classes are designed for a specific use case: ensuring consistent padding across containers in IDE shells, plugin panels, dialogs, and similar environments where multiple views must share the same spacing values
 
 ### How they work
 
@@ -130,7 +130,7 @@ The `spacing-body-*` classes read custom properties that **must be set by a pare
 - `--spacing-body-inline-start`
 - `--spacing-body-inline-end`
 
-Without a parent defining these custom properties, the classes have no effect. Certain Mercury components (accordion, dialog, form containers, layouts, tabs) set these properties internally, so the classes work within those contexts.
+Without a parent defining these custom properties, the classes have no effect. Certain Mercury components (accordion, dialog, form containers, layouts, tabs) set these properties internally, so the classes work within those contexts
 
 | Class | Effect |
 |-------|--------|
@@ -142,7 +142,7 @@ Without a parent defining these custom properties, the classes have no effect. C
 | `spacing-body-inline-start` | Padding left only (start in LTR) |
 | `spacing-body-inline-end` | Padding right only (end in LTR) |
 
-These classes use logical properties for RTL support.
+These classes use logical properties for RTL support
 
 ### When to use spacing-body vs tokens
 
@@ -156,13 +156,13 @@ These classes use logical properties for RTL support.
 ## Design Principles
 
 ### Hierarchy
-More space indicates greater conceptual separation. Less space indicates stronger relationship.
+More space indicates greater conceptual separation. Less space indicates stronger relationship
 
 ### Rhythm
-Consistent use of the 4pt grid creates a harmonious and predictable visual flow.
+Consistent use of the 4pt grid creates a harmonious and predictable visual flow
 
 ### Proximity
-Elements that are close together are perceived as related. Use spacing to group or separate elements without needing visual dividers.
+Elements that are close together are perceived as related. Use spacing to group or separate elements without needing visual dividers
 
 ## Application
 

@@ -10,7 +10,7 @@
 
 ## Basic Usage
 
-Demonstrates a simple popover anchored below a trigger button.
+Demonstrates a simple popover anchored below a trigger button
 
 ### HTML
 
@@ -51,14 +51,14 @@ popover.addEventListener("popoverClosed", (event) => {
 
 ### Key Points
 
-- The `actionElement` property tells the popover which element to anchor to. It must be set programmatically (it is not an HTML attribute).
-- `block-align="outside-end"` positions the popover below the trigger, and `inline-align="inside-start"` aligns it to the start edge.
-- In `"auto"` mode (the default), clicking outside the popover or pressing Escape automatically closes it.
-- The `popoverClosed` event provides a `reason` in its detail (`"toggle"`, `"click-outside"`, `"escape-key"`, or `"popover-no-longer-visible"`).
+- The `actionElement` property tells the popover which element to anchor to. It must be set programmatically (it is not an HTML attribute)
+- `block-align="outside-end"` positions the popover below the trigger, and `inline-align="inside-start"` aligns it to the start edge
+- In `"auto"` mode (the default), clicking outside the popover or pressing Escape automatically closes it
+- The `popoverClosed` event provides a `reason` in its detail (`"toggle"`, `"click-outside"`, `"escape-key"`, or `"popover-no-longer-visible"`)
 
 ## Aligned Popover
 
-Demonstrates different block and inline alignment combinations.
+Demonstrates different block and inline alignment combinations
 
 ### HTML
 
@@ -99,14 +99,14 @@ setupPopover("btn-above", "popover-above");
 
 ### Key Points
 
-- `blockAlign` controls the vertical position relative to the action element: `"outside-start"` (above), `"inside-start"`, `"center"`, `"inside-end"`, `"outside-end"` (below).
-- `inlineAlign` controls the horizontal position: `"outside-start"` (left of), `"inside-start"`, `"center"`, `"inside-end"`, `"outside-end"` (right of).
-- Use `--ch-popover-separation-x` and `--ch-popover-separation-y` to add spacing between the action element and the popover.
-- All alignment values work correctly in RTL layouts.
+- `blockAlign` controls the vertical position relative to the action element: `"outside-start"` (above), `"inside-start"`, `"center"`, `"inside-end"`, `"outside-end"` (below)
+- `inlineAlign` controls the horizontal position: `"outside-start"` (left of), `"inside-start"`, `"center"`, `"inside-end"`, `"outside-end"` (right of)
+- Use `--ch-popover-separation-x` and `--ch-popover-separation-y` to add spacing between the action element and the popover
+- All alignment values work correctly in RTL layouts
 
 ## Responsive Popover
 
-Demonstrates a popover that flips its position when it would overflow the viewport.
+Demonstrates a popover that flips its position when it would overflow the viewport
 
 ### HTML
 
@@ -145,14 +145,14 @@ trigger.addEventListener("click", () => {
 
 ### Key Points
 
-- `position-try="flip-block"` flips the popover to the opposite side along the block axis (e.g., from below to above) when it would overflow the viewport.
-- `position-try="flip-inline"` does the same along the inline axis (e.g., from right to left).
-- `overflow-behavior="add-scroll"` is an alternative strategy that adds a scrollbar instead of flipping.
-- The popover re-evaluates its position on scroll and window resize events automatically.
+- `position-try="flip-block"` flips the popover to the opposite side along the block axis (e.g., from below to above) when it would overflow the viewport
+- `position-try="flip-inline"` does the same along the inline axis (e.g., from right to left)
+- `overflow-behavior="add-scroll"` is an alternative strategy that adds a scrollbar instead of flipping
+- The popover re-evaluates its position on scroll and window resize events automatically
 
 ## Popover with Action Group
 
-Demonstrates a popover containing a list of action items, such as a context menu or overflow menu.
+Demonstrates a popover containing a list of action items, such as a context menu or overflow menu
 
 ### HTML
 
@@ -203,22 +203,22 @@ popover.addEventListener("click", (event) => {
 
 ### Key Points
 
-- Add `aria-haspopup="true"` on the trigger button to indicate that it opens a popup menu.
-- Use `role="menu"` on the container and `role="menuitem"` on each action for proper accessibility semantics.
-- In `"auto"` mode, the popover closes automatically when clicking outside. Actions inside the popover should also close it explicitly by setting `show = false`.
-- For nested menus, use `mode="manual"` and `close-on-click-outside="true"` to prevent parent popovers from closing when a child opens.
+- Add `aria-haspopup="true"` on the trigger button to indicate that it opens a popup menu
+- Use `role="menu"` on the container and `role="menuitem"` on each action for proper accessibility semantics
+- In `"auto"` mode, the popover closes automatically when clicking outside. Actions inside the popover should also close it explicitly by setting `show = false`
+- For nested menus, use `mode="manual"` and `close-on-click-outside="true"` to prevent parent popovers from closing when a child opens
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
-- Always provide an `accessibleName` or appropriate `aria-` attribute for screen reader support.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
+- Always provide an `accessibleName` or appropriate `aria-` attribute for screen reader support
 
 ### Don't
 
-- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead.
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

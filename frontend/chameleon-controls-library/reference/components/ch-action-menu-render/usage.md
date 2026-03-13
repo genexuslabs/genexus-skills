@@ -10,7 +10,7 @@
 
 ## Basic Usage
 
-Demonstrates a simple dropdown menu with button items.
+Demonstrates a simple dropdown menu with button items
 
 ### HTML
 
@@ -42,15 +42,15 @@ menu.addEventListener("buttonClick", (event) => {
 
 ### Key Points
 
-- The default slot provides the content of the trigger button. Use text, icons, or both.
-- The `buttonAccessibleName` property is important for accessibility: it sets the `aria-label` on the trigger button.
-- The `model` property accepts an array of `ActionMenuItemModel` objects. Items with `type: "actionable"` render as buttons; `type: "separator"` renders a horizontal divider.
-- The `buttonClick` event fires when a leaf button item is clicked. Its `detail` contains the full item model.
-- The dropdown auto-closes when a leaf item is clicked or when clicking outside the menu.
+- The default slot provides the content of the trigger button. Use text, icons, or both
+- The `buttonAccessibleName` property is important for accessibility: it sets the `aria-label` on the trigger button
+- The `model` property accepts an array of `ActionMenuItemModel` objects. Items with `type: "actionable"` render as buttons; `type: "separator"` renders a horizontal divider
+- The `buttonClick` event fires when a leaf button item is clicked. Its `detail` contains the full item model
+- The dropdown auto-closes when a leaf item is clicked or when clicking outside the menu
 
 ## Nested Sub-Menus
 
-Demonstrates a dropdown menu with deeply nested sub-menus.
+Demonstrates a dropdown menu with deeply nested sub-menus
 
 ### HTML
 
@@ -105,14 +105,14 @@ menu.addEventListener("buttonClick", (event) => {
 
 ### Key Points
 
-- Add an `items` array to any actionable item to create a sub-menu. Nesting can go to any depth.
-- Sub-menus expand on mouse hover and collapse when the mouse leaves.
-- Keyboard navigation: ArrowRight opens a sub-menu, ArrowLeft closes it, ArrowUp/ArrowDown navigate within a level.
-- The `expandedItemChange` event fires whenever a sub-menu opens or closes, providing the item and its new `expanded` state.
+- Add an `items` array to any actionable item to create a sub-menu. Nesting can go to any depth
+- Sub-menus expand on mouse hover and collapse when the mouse leaves
+- Keyboard navigation: ArrowRight opens a sub-menu, ArrowLeft closes it, ArrowUp/ArrowDown navigate within a level
+- The `expandedItemChange` event fires whenever a sub-menu opens or closes, providing the item and its new `expanded` state
 
 ## Menu Positioning
 
-Demonstrates different alignment options for the dropdown menu relative to its trigger button.
+Demonstrates different alignment options for the dropdown menu relative to its trigger button
 
 ### HTML
 
@@ -170,14 +170,14 @@ document.querySelectorAll("ch-action-menu-render").forEach(menu => {
 
 ### Key Points
 
-- `blockAlign` controls the vertical position: `"outside-end"` (below), `"outside-start"` (above), `"inside-start"`, `"center"`, `"inside-end"`.
-- `inlineAlign` controls the horizontal position: `"inside-start"` (left-aligned), `"center"`, `"inside-end"` (right-aligned), `"outside-start"`, `"outside-end"`.
-- Set `positionTry="flip-block"` to automatically flip the menu to the opposite side when it would overflow the viewport.
-- Sub-menus default to `itemsInlineAlign="outside-end"` (opening to the right), configurable per-item via `itemsInlineAlign` and `itemsBlockAlign`.
+- `blockAlign` controls the vertical position: `"outside-end"` (below), `"outside-start"` (above), `"inside-start"`, `"center"`, `"inside-end"`
+- `inlineAlign` controls the horizontal position: `"inside-start"` (left-aligned), `"center"`, `"inside-end"` (right-aligned), `"outside-start"`, `"outside-end"`
+- Set `positionTry="flip-block"` to automatically flip the menu to the opposite side when it would overflow the viewport
+- Sub-menus default to `itemsInlineAlign="outside-end"` (opening to the right), configurable per-item via `itemsInlineAlign` and `itemsBlockAlign`
 
 ## Menu with Icons
 
-Demonstrates menu items with start images and keyboard shortcuts.
+Demonstrates menu items with start images and keyboard shortcuts
 
 ### HTML
 
@@ -231,22 +231,22 @@ menu.addEventListener("buttonClick", (event) => {
 
 ### Key Points
 
-- Set `startImgSrc` and `startImgType` on an item to render an icon at the start of the menu row. Use `endImgSrc`/`endImgType` for icons at the end.
-- The `shortcut` property renders a keyboard shortcut label at the trailing edge of the row. This is purely visual; you must implement the actual keyboard shortcut handler separately.
-- Control icon sizes with `--ch-action-menu-item__image-size` and `--ch-action-menu-item__background-image-size`.
-- Items can also be hyperlinks by providing a `link` property with a `url`. In that case, `hyperlinkClick` fires instead of `buttonClick`.
+- Set `startImgSrc` and `startImgType` on an item to render an icon at the start of the menu row. Use `endImgSrc`/`endImgType` for icons at the end
+- The `shortcut` property renders a keyboard shortcut label at the trailing edge of the row. This is purely visual; you must implement the actual keyboard shortcut handler separately
+- Control icon sizes with `--ch-action-menu-item__image-size` and `--ch-action-menu-item__background-image-size`
+- Items can also be hyperlinks by providing a `link` property with a `url`. In that case, `hyperlinkClick` fires instead of `buttonClick`
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
-- Always provide an `accessibleName` or appropriate `aria-` attribute for screen reader support.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
+- Always provide an `accessibleName` or appropriate `aria-` attribute for screen reader support
 
 ### Don't
 
-- Don't place a `<button>` inside the default slot — the trigger is already rendered as a `<button>` internally, so nesting another `<button>` produces invalid HTML and breaks accessibility. Use a `<span>`, `<div>`, or plain text instead.
-- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't place a `<button>` inside the default slot — the trigger is already rendered as a `<button>` internally, so nesting another `<button>` produces invalid HTML and breaks accessibility. Use a `<span>`, `<div>`, or plain text instead
+- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

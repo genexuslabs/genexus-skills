@@ -11,17 +11,17 @@ When the DS has only one color variant, **there is no `scope/` directory**. Both
 
 ## Multi-Brand / Multi-Variant Strategy
 
-Use `scope/` **only** when the DS has more than one color variant (brands, white-labels, etc.).
+Use `scope/` **only** when the DS has more than one color variant (brands, white-labels, etc.)
 
-- Each brand gets its own `scope/theme-{brand}.css` file containing `:root.light` + `:root.dark`.
-- Each brand may get a `base/base-{brand}.css` file that overrides primitives.
-- Components remain identical across all brands — they only consume semantic tokens.
+- Each brand gets its own `scope/theme-{brand}.css` file containing `:root.light` + `:root.dark`
+- Each brand may get a `base/base-{brand}.css` file that overrides primitives
+- Components remain identical across all brands — they only consume semantic tokens
 
 ## Scope Layer (multi-variant only)
 
 File: `scope/theme-{brand}.css`
 
-Each scope file overrides Tier 2 semantic tokens for a specific brand and mode.
+Each scope file overrides Tier 2 semantic tokens for a specific brand and mode
 
 ```css
 /* Both modes live in the same file — scope/theme-brand-a.css */
@@ -41,9 +41,9 @@ Each scope file overrides Tier 2 semantic tokens for a specific brand and mode.
 
 ## Dark / Light Mode
 
-- **Primary mechanism:** CSS class on `:root` — `:root.light` or `:root.dark`.
-- **Both modes live in the same `scope/theme-{brand}.css` file** — never split into separate files.
-- **Fallback for auto-detect:** `@media (prefers-color-scheme: dark)`.
+- **Primary mechanism:** CSS class on `:root` — `:root.light` or `:root.dark`
+- **Both modes live in the same `scope/theme-{brand}.css` file** — never split into separate files
+- **Fallback for auto-detect:** `@media (prefers-color-scheme: dark)`
 
 ```css
 :root.light {
@@ -73,16 +73,16 @@ ch-theme
   └── component-3.shadowRoot.adoptedStyleSheets = [sheet]
 ```
 
-One fetch per bundle, one `CSSStyleSheet` object, N component instances share it in memory. Zero CSS duplication at runtime.
+One fetch per bundle, one `CSSStyleSheet` object, N component instances share it in memory. Zero CSS duplication at runtime
 
 ## Anti-Patterns
 
-- DO NOT put theme logic (`.dark & { ... }`) inside component CSS.
-- DO NOT reference primitive tokens directly from component CSS.
-- DO NOT use JavaScript for theme switching when CSS classes suffice.
-- ALL theme logic lives exclusively in `scope/`.
+- DO NOT put theme logic (`.dark & { ... }`) inside component CSS
+- DO NOT reference primitive tokens directly from component CSS
+- DO NOT use JavaScript for theme switching when CSS classes suffice
+- ALL theme logic lives exclusively in `scope/`
 
 ## Rules
 
-- Components NEVER reference primitives directly. They consume ONLY semantic tokens.
-- Target size per scope file: ≤25 KB.
+- Components NEVER reference primitives directly. They consume ONLY semantic tokens
+- Target size per scope file: ≤25 KB

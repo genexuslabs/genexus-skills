@@ -21,22 +21,22 @@
 The `ch-code` component renders read-only, syntax-highlighted code blocks powered by lowlight and highlight.js.
 
 ## Features
- - Syntax highlighting by parsing code to [hast](https://github.com/syntax-tree/hast) using [lowlight](https://github.com/wooorm/lowlight), with a custom reactive render layer.
- - Supports all programming languages from [highlight.js](https://github.com/highlightjs/highlight.js).
- - On-demand loading of the code parser and language grammars at runtime.
- - Streaming indicator for real-time code generation scenarios (controlled by `showIndicator`).
- - Extensive set of CSS custom properties (`--ch-code__*`) for token-level color theming of all highlight.js token types.
+ - Syntax highlighting by parsing code to [hast](https://github.com/syntax-tree/hast) using [lowlight](https://github.com/wooorm/lowlight), with a custom reactive render layer
+ - Supports all programming languages from [highlight.js](https://github.com/highlightjs/highlight.js)
+ - On-demand loading of the code parser and language grammars at runtime
+ - Streaming indicator for real-time code generation scenarios (controlled by `showIndicator`)
+ - Extensive set of CSS custom properties (`--ch-code__*`) for token-level color theming of all highlight.js token types
 
 ## Use when
- - Displaying read-only syntax-highlighted code snippets, configuration files, or AI-generated code in documentation or chat responses.
+ - Displaying read-only syntax-highlighted code snippets, configuration files, or AI-generated code in documentation or chat responses
 
 ## Do not use when
- - Users need to edit code -- prefer `ch-code-editor` instead.
- - Comparing two versions of code -- prefer `ch-code-diff-editor`.
+ - Users need to edit code -- prefer `ch-code-editor` instead
+ - Comparing two versions of code -- prefer `ch-code-diff-editor`
 
 ## Accessibility
- - The component renders a semantic `<code>` element with an `hljs language-{lang}` class for assistive technology identification.
- - The host element uses scrollable overflow, allowing keyboard-driven scrolling of long code blocks.
+ - The component renders a semantic `<code>` element with an `hljs language-{lang}` class for assistive technology identification
+ - The host element uses scrollable overflow, allowing keyboard-driven scrolling of long code blocks
 
 ## Properties
 

@@ -15,27 +15,27 @@
 
 ## Overview
 
-The `ch-qr` component generates a QR code from any text, URL, or data string and renders it as a canvas element in the Shadow DOM.
+The `ch-qr` component generates a QR code from any text, URL, or data string and renders it as a canvas element in the Shadow DOM
 
 ## Features
- - Customizable foreground (`fill`) and background colors with `currentColor` support for seamless theme integration.
- - Configurable error correction levels: `"Low"` (7%), `"Medium"` (15%), `"Quartile"` (25%), `"High"` (30%).
- - Adjustable block radius (0 to 0.5) for rounded or square aesthetics.
- - Scalable output size via the `size` property (in pixels).
- - Automatic re-render when any property changes — the canvas is regenerated on every render cycle.
- - Accessible via `role="img"` and `aria-label` when `value` is set.
- - When `value` is `undefined` or empty, the component renders nothing and removes ARIA attributes.
+ - Customizable foreground (`fill`) and background colors with `currentColor` support for seamless theme integration
+ - Configurable error correction levels: `"Low"` (7%), `"Medium"` (15%), `"Quartile"` (25%), `"High"` (30%)
+ - Adjustable block radius (0 to 0.5) for rounded or square aesthetics
+ - Scalable output size via the `size` property (in pixels)
+ - Automatic re-render when any property changes — the canvas is regenerated on every render cycle
+ - Accessible via `role="img"` and `aria-label` when `value` is set
+ - When `value` is `undefined` or empty, the component renders nothing and removes ARIA attributes
 
 ## Use when
- - Displaying a QR code for a URL, text, or data string.
- - Generating a machine-readable QR code from a URL, text, or identifier for mobile scanning.
+ - Displaying a QR code for a URL, text, or data string
+ - Generating a machine-readable QR code from a URL, text, or identifier for mobile scanning
 
 ## Do not use when
- - Scanning or reading QR codes — use `ch-barcode-scanner` instead.
+ - Scanning or reading QR codes — use `ch-barcode-scanner` instead
 
 ## Accessibility
- - When `value` is set, the host element has `role="img"` and `aria-label` derived from the `accessibleName` property. Always provide `accessibleName` to describe the QR code content for screen readers.
- - When `value` is unset, ARIA attributes are removed.
+ - When `value` is set, the host element has `role="img"` and `aria-label` derived from the `accessibleName` property. Always provide `accessibleName` to describe the QR code content for screen readers
+ - When `value` is unset, ARIA attributes are removed
 
 ## Properties
 

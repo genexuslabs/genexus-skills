@@ -1,6 +1,6 @@
 # States
 
-State indicator icons — filled and outlined pills for status representation.
+State indicator icons — filled and outlined pills for status representation
 
 **Type:** Monochrome
 

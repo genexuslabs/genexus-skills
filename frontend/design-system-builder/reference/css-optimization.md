@@ -1,13 +1,13 @@
 # CSS Optimization Rules
 
 > **Goal**: Generate the smallest possible CSS without minification. Every byte matters
-> in component budgets (≤10 KB minified / ≤5 KB gzipped per component).
+> in component budgets (≤10 KB minified / ≤5 KB gzipped per component)
 
 ## Core Rules
 
 ### 1. No Redundant Selectors
 
-The same selector MUST NOT appear twice in a file. If you need to add properties to a selector that already exists, merge them into the existing rule block.
+The same selector MUST NOT appear twice in a file. If you need to add properties to a selector that already exists, merge them into the existing rule block
 
 ```css
 /* WRONG — same selector appears twice */
@@ -27,11 +27,11 @@ The same selector MUST NOT appear twice in a file. If you need to add properties
 }
 ```
 
-**Exception**: The 5-section structure in component CSS files allows the same selector to appear in different sections (STRUCTURE, DECORATION, TYPOGRAPHY, STATES, VARIANTS) for readability. However, within each section, selectors must not repeat. When optimizing for size, sections can be collapsed if the file exceeds budget.
+**Exception**: The 5-section structure in component CSS files allows the same selector to appear in different sections (STRUCTURE, DECORATION, TYPOGRAPHY, STATES, VARIANTS) for readability. However, within each section, selectors must not repeat. When optimizing for size, sections can be collapsed if the file exceeds budget
 
 ### 2. Group Shared Properties
 
-When multiple selectors share identical property-value pairs, combine them with comma-separated selectors.
+When multiple selectors share identical property-value pairs, combine them with comma-separated selectors
 
 ```css
 /* WRONG — duplicated declarations */
@@ -67,7 +67,7 @@ When multiple selectors share identical property-value pairs, combine them with 
 
 ### 3. No Duplicate Declarations
 
-Within a single rule block, no property should appear more than once.
+Within a single rule block, no property should appear more than once
 
 ```css
 /* WRONG */
@@ -86,7 +86,7 @@ Within a single rule block, no property should appear more than once.
 
 ### 4. Use `:where()` for Shared Base Styles
 
-Use `:where()` to zero-specificity base selectors, allowing variant overrides without specificity wars.
+Use `:where()` to zero-specificity base selectors, allowing variant overrides without specificity wars
 
 ```css
 /* Base styles at zero specificity */
@@ -108,7 +108,7 @@ Use `:where()` to zero-specificity base selectors, allowing variant overrides wi
 
 ### 5. Shorthand Properties
 
-Use shorthand properties when setting multiple related values.
+Use shorthand properties when setting multiple related values
 
 ```css
 /* WRONG — verbose */
@@ -128,7 +128,7 @@ Use shorthand properties when setting multiple related values.
 
 ### 6. Avoid Unnecessary Resets
 
-Do not reset properties to their browser defaults when they already inherit the correct value from the DS base layer.
+Do not reset properties to their browser defaults when they already inherit the correct value from the DS base layer
 
 ```css
 /* WRONG — unnecessary resets (base/base.css already handles these) */
@@ -148,7 +148,7 @@ Do not reset properties to their browser defaults when they already inherit the 
 
 ### 7. Minimize Token References
 
-If a token is used multiple times in the same component, consider creating a component-level CSS custom property to reduce repetition.
+If a token is used multiple times in the same component, consider creating a component-level CSS custom property to reduce repetition
 
 ```css
 /* Instead of repeating the same token 5 times... */
@@ -178,7 +178,7 @@ Before finalizing any component CSS, verify:
 
 ## Units Rule
 
-> **HARD RULE**: Never use `em` or `rem` units for any property — spacing, sizing, border-radius, font-size in components. Use design tokens or px values from the 4pt grid. **Only exception**: the user explicitly requests em/rem.
+> **HARD RULE**: Never use `em` or `rem` units for any property — spacing, sizing, border-radius, font-size in components. Use design tokens or px values from the 4pt grid. **Only exception**: the user explicitly requests em/rem
 
 ```css
 /* WRONG */

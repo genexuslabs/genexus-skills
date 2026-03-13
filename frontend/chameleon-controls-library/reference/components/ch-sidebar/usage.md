@@ -9,7 +9,7 @@
 
 ## Basic Usage
 
-Demonstrates a simple sidebar that can be expanded and collapsed using its built-in toggle button.
+Demonstrates a simple sidebar that can be expanded and collapsed using its built-in toggle button
 
 ### HTML
 
@@ -49,15 +49,15 @@ sidebar.addEventListener("expandedChange", (event) => {
 
 ### Key Points
 
-- The `expanded` property controls whether the sidebar is expanded or collapsed. It uses mutable two-way binding.
-- Setting `show-expand-button` renders a toggle button that the user can click to expand or collapse the sidebar.
-- Use `--ch-sidebar-inline-size--expanded` and `--ch-sidebar-inline-size--collapsed` CSS custom properties to control the sidebar width in each state.
-- The `expandedChange` event fires when the user clicks the expand/collapse button, with the new `expanded` value as the detail.
-- The `expand-button-position` property can be set to `"before"` or `"after"` (default) to place the button above or below the content.
+- The `expanded` property controls whether the sidebar is expanded or collapsed. It uses mutable two-way binding
+- Setting `show-expand-button` renders a toggle button that the user can click to expand or collapse the sidebar
+- Use `--ch-sidebar-inline-size--expanded` and `--ch-sidebar-inline-size--collapsed` CSS custom properties to control the sidebar width in each state
+- The `expandedChange` event fires when the user clicks the expand/collapse button, with the new `expanded` value as the detail
+- The `expand-button-position` property can be set to `"before"` or `"after"` (default) to place the button above or below the content
 
 ## Resizable Sidebar
 
-Demonstrates a sidebar that can be resized by the user via CSS `resize`, combined with the expand/collapse toggle for a flexible layout.
+Demonstrates a sidebar that can be resized by the user via CSS `resize`, combined with the expand/collapse toggle for a flexible layout
 
 ### HTML
 
@@ -103,14 +103,14 @@ sidebar.addEventListener("expandedChange", (event) => {
 
 ### Key Points
 
-- CSS `resize: horizontal` allows the user to drag the sidebar edge to resize it. Combine with `overflow: hidden` and `min-inline-size`/`max-inline-size` for bounds.
-- When the sidebar is collapsed, the host class `ch-sidebar--collapsed` is applied. Use this to disable resizing in the collapsed state.
-- On `expandedChange`, clearing the inline style ensures the sidebar respects the `--ch-sidebar-inline-size--collapsed` custom property.
-- For a fully integrated resize experience, consider pairing with `ch-layout-splitter` instead of CSS `resize`.
+- CSS `resize: horizontal` allows the user to drag the sidebar edge to resize it. Combine with `overflow: hidden` and `min-inline-size`/`max-inline-size` for bounds
+- When the sidebar is collapsed, the host class `ch-sidebar--collapsed` is applied. Use this to disable resizing in the collapsed state
+- On `expandedChange`, clearing the inline style ensures the sidebar respects the `--ch-sidebar-inline-size--collapsed` custom property
+- For a fully integrated resize experience, consider pairing with `ch-layout-splitter` instead of CSS `resize`
 
 ## Sidebar with Navigation
 
-Demonstrates a sidebar containing a navigation list that automatically synchronizes its expanded/collapsed state with the sidebar.
+Demonstrates a sidebar containing a navigation list that automatically synchronizes its expanded/collapsed state with the sidebar
 
 ### HTML
 
@@ -169,22 +169,22 @@ navList.model = [
 
 ### Key Points
 
-- The `ch-sidebar` component uses an observable system: descendant components like `ch-navigation-list-render` automatically synchronize their expanded state with the sidebar.
-- When the sidebar collapses, the navigation list detects the change and can adapt its rendering (e.g., showing only icons).
-- The `expand-button-position` property controls whether the toggle button appears above (`"before"`) or below (`"after"`) the content.
-- Separate accessible names for expanded and collapsed states ensure screen readers announce the correct action for the button.
-- The sidebar auto-assigns an `id` on connect so the observer system can identify it for state synchronization with descendants.
+- The `ch-sidebar` component uses an observable system: descendant components like `ch-navigation-list-render` automatically synchronize their expanded state with the sidebar
+- When the sidebar collapses, the navigation list detects the change and can adapt its rendering (e.g., showing only icons)
+- The `expand-button-position` property controls whether the toggle button appears above (`"before"`) or below (`"after"`) the content
+- Separate accessible names for expanded and collapsed states ensure screen readers announce the correct action for the button
+- The sidebar auto-assigns an `id` on connect so the observer system can identify it for state synchronization with descendants
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
 
 ### Don't
 
-- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead.
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

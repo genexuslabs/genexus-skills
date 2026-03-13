@@ -16,28 +16,28 @@
 
 ## Overview
 
-The `ch-status` component provides a lightweight loading indicator that communicates an ongoing process to both visual users and assistive technologies.
+The `ch-status` component provides a lightweight loading indicator that communicates an ongoing process to both visual users and assistive technologies
 
 ## Features
- - Sets `role="status"` and `aria-live="polite"` for non-interrupting screen reader announcements.
- - Automatic `aria-busy` and `aria-describedby` management on a referenced loading region.
- - Cleans up ARIA attributes when removed from the DOM.
- - Designed for use inside buttons, overlays, table cells, and any region needing a simple "busy" signal.
+ - Sets `role="status"` and `aria-live="polite"` for non-interrupting screen reader announcements
+ - Automatic `aria-busy` and `aria-describedby` management on a referenced loading region
+ - Cleans up ARIA attributes when removed from the DOM
+ - Designed for use inside buttons, overlays, table cells, and any region needing a simple "busy" signal
 
 ## Use when
- - You need an indeterminate loading state without numeric progress (e.g., a spinner on a button).
- - A region of the page is loading and no progress percentage is available (spinner pattern).
- - An operation is running in the background and the user should be aware without being interrupted.
+ - You need an indeterminate loading state without numeric progress (e.g., a spinner on a button)
+ - A region of the page is loading and no progress percentage is available (spinner pattern)
+ - An operation is running in the background and the user should be aware without being interrupted
 
 ## Do not use when
- - You have tasks with measurable progress -- prefer `ch-progress` instead.
- - Actual progress percentage is known — prefer `ch-progress` with determinate mode instead.
+ - You have tasks with measurable progress -- prefer `ch-progress` instead
+ - Actual progress percentage is known — prefer `ch-progress` with determinate mode instead
 
 ## Accessibility
- - `role="status"` is set on the host in `connectedCallback`, which carries an implicit `aria-live="polite"` and `aria-atomic="true"` semantic. An explicit `aria-live="polite"` is also set for maximum compatibility.
- - Resolves its accessible name from the `accessibleName` property.
- - `aria-busy` and `aria-describedby` are set on the `loadingRegionRef` element while the status is rendered, and cleaned up on disconnect.
- - No keyboard interaction — the component is a passive indicator, not an interactive control.
+ - `role="status"` is set on the host in `connectedCallback`, which carries an implicit `aria-live="polite"` and `aria-atomic="true"` semantic. An explicit `aria-live="polite"` is also set for maximum compatibility
+ - Resolves its accessible name from the `accessibleName` property
+ - `aria-busy` and `aria-describedby` are set on the `loadingRegionRef` element while the status is rendered, and cleaned up on disconnect
+ - No keyboard interaction — the component is a passive indicator, not an interactive control
 
 ## Properties
 

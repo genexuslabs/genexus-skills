@@ -94,26 +94,26 @@
 
 ## Anti-patterns
 
-- **Do not set `role="status"` or `aria-live` on the host from outside.** The component sets these attributes internally in `connectedCallback`. Adding them externally will cause duplicates.
-- **Do not use `ch-status` for determinate progress.** If you can measure progress (percentage, steps), use `ch-progress` instead. `ch-status` is designed for indeterminate loading states only.
-- **Do not forget `accessible-name`.** Without it, screen readers will announce the status region but may not convey its purpose. The component logs a warning if no accessible name is provided.
+- **Do not set `role="status"` or `aria-live` on the host from outside.** The component sets these attributes internally in `connectedCallback`. Adding them externally will cause duplicates
+- **Do not use `ch-status` for determinate progress.** If you can measure progress (percentage, steps), use `ch-progress` instead. `ch-status` is designed for indeterminate loading states only
+- **Do not forget `accessible-name`.** Without it, screen readers will announce the status region but may not convey its purpose. The component logs a warning if no accessible name is provided
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-status__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-status::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-status__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-status::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented
 
 ---
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)

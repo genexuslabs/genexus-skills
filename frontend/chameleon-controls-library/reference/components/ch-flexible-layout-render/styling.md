@@ -81,7 +81,7 @@
 
 ### Full-height IDE Layout
 
-Ensure the flexible layout fills its container.
+Ensure the flexible layout fills its container
 
 ```css
 ch-flexible-layout-render {
@@ -93,7 +93,7 @@ ch-flexible-layout-render {
 
 ### Custom Tab Appearance
 
-Since `ch-flexible-layout-render` renders `ch-tab` components internally for tabbed leaves, you can style the tabs through the theme system or by targeting the inner `ch-tab` parts.
+Since `ch-flexible-layout-render` renders `ch-tab` components internally for tabbed leaves, you can style the tabs through the theme system or by targeting the inner `ch-tab` parts
 
 ```css
 /* Style via theme model - preferred approach */
@@ -104,7 +104,7 @@ ch-flexible-layout-render {
 
 ### Widget Container Overflow
 
-Control overflow behavior for all widgets globally or per-widget via the `contain` and `overflow` properties.
+Control overflow behavior for all widgets globally or per-widget via the `contain` and `overflow` properties
 
 ```html
 <ch-flexible-layout-render
@@ -144,20 +144,20 @@ ch-flexible-layout-render {
 <ch-flexible-layout-render overflow="auto"></ch-flexible-layout-render>
 ```
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-flexible-layout__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-flexible-layout::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-flexible-layout__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-flexible-layout::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented

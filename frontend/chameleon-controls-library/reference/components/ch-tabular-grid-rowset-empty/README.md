@@ -8,7 +8,7 @@
 
 ## Overview
 
-The `ch-tabular-grid-rowset-empty` component represents a container to "empty message" when ch-tabular-grid-rowset is empty.
+The `ch-tabular-grid-rowset-empty` component represents a container to "empty message" when ch-tabular-grid-rowset is empty
 
 ----------------------------------------------
 

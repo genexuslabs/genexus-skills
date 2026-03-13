@@ -1,6 +1,6 @@
 # @genexus/mercury/assets-manager.js
 
-Icon and image path helpers and callbacks for Chameleon components. For the complete icon catalog and usage guide, see **[Mercury Icons](../icons/README.md)**.
+Icon and image path helpers and callbacks for Chameleon components. For the complete icon catalog and usage guide, see **[Mercury Icons](../icons/README.md)**
 
 ## registerAssets
 
@@ -8,7 +8,7 @@ Icon and image path helpers and callbacks for Chameleon components. For the comp
 registerAssets(vendorName: string, vendorAlias: string, assets: Assets): void
 ```
 
-Registers a vendor’s assets. After registration, `getAsset` can retrieve them. Example: `registerAssets("Mercury", "mer", MERCURY_ASSETS)`.
+Registers a vendor’s assets. After registration, `getAsset` can retrieve them. Example: `registerAssets("Mercury", "mer", MERCURY_ASSETS)`
 
 ## getAsset
 
@@ -16,7 +16,7 @@ Registers a vendor’s assets. After registration, `getAsset` can retrieve them.
 getAsset(vendorAliasOrName: string, assetMetadata: AssetsMetadata): AssetsColorType | undefined
 ```
 
-Returns the asset for the given vendor and metadata, or `undefined` if not found.
+Returns the asset for the given vendor and metadata, or `undefined` if not found
 
 ## getIconPath
 
@@ -24,7 +24,7 @@ Returns the asset for the given vendor and metadata, or `undefined` if not found
 getIconPath(iconMetadata: AssetsMetadata, vendorAlias?: string): string
 ```
 
-Builds the icon path string from metadata. Default vendor alias is `"mer"`. Always use this to reference Mercury icons in Chameleon components.
+Builds the icon path string from metadata. Default vendor alias is `"mer"`. Always use this to reference Mercury icons in Chameleon components
 
 **Multicolor icons** (colors baked into the SVG) — no `colorType` needed:
 
@@ -38,7 +38,7 @@ getIconPath({ category: "objects", name: "api" });
 getIconPath({ category: "system", name: "settings", colorType: "on-surface" });
 ```
 
-Use the result as `src` for `ch-image` or as `startImgSrc`/`endImgSrc` in component item models.
+Use the result as `src` for `ch-image` or as `startImgSrc`/`endImgSrc` in component item models
 
 ## getIconPathExpanded
 
@@ -66,7 +66,7 @@ getIconPathExpanded(
 );
 ```
 
-> `getIconPath` also works with `ch-tree-view-render` when you don't need different icons for collapsed/expanded states.
+> `getIconPath` also works with `ch-tree-view-render` when you don't need different icons for collapsed/expanded states
 
 ## getImagePathCallback
 
@@ -74,7 +74,7 @@ getIconPathExpanded(
 getImagePathCallback(iconPath: string): GxImageMultiState | undefined
 ```
 
-Returns a multi-state image callback for the given icon path.
+Returns a multi-state image callback for the given icon path
 
 ## Component callbacks
 
@@ -86,9 +86,9 @@ Returns a multi-state image callback for the given icon path.
 
 ## getImagePathCallbackDefinitions
 
-Object with all `getImagePathCallback` definitions for Chameleon. Use with `registryProperty("getImagePathCallback", getImagePathCallbackDefinitions)`.
+Object with all `getImagePathCallback` definitions for Chameleon. Use with `registryProperty("getImagePathCallback", getImagePathCallbackDefinitions)`
 
-When Mercury's resolver receives an icon path that doesn't match any internal Mercury mapping, it falls back to `{ base: <the raw path> }`. This means custom icons outside Mercury's set still work in Chameleon components — just pass the full path as `src` or `startImgSrc`.
+When Mercury's resolver receives an icon path that doesn't match any internal Mercury mapping, it falls back to `{ base: <the raw path> }`. This means custom icons outside Mercury's set still work in Chameleon components — just pass the full path as `src` or `startImgSrc`
 
 ## Types
 

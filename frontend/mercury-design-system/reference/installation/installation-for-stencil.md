@@ -6,12 +6,12 @@
 
 ## 1. Preparation
 
-> [!IMPORTANT]  
-> This guide assumes you are using Mercury >= `0.36.0`, which is the minimum version for using the `@genexus/mercury-cli` package.
+> [!IMPORTANT]
+> This guide assumes you are using Mercury >= `0.36.0`, which is the minimum version for using the `@genexus/mercury-cli` package
 
 ### 1.1. Decide the assets paths
 
-First of all, you must decide the paths where the CSS bundles, font assets, and icon set will be contained in the `dist` folder of your final application. Keep them noted down.
+First of all, you must decide the paths where the CSS bundles, font assets, and icon set will be contained in the `dist` folder of your final application. Keep them noted down
 
 We will refer to those paths with the following names:
 
@@ -21,11 +21,11 @@ We will refer to those paths with the following names:
 | `{{ Fonts final path }}`       | Path in the final application (`dist` folder) where the custom fonts will be consumed. | `/assets/fonts/` |
 | `{{ Icons final path }}`       | Path in the final application (`dist` folder) where the icons will be consumed.        | `/assets/icons/` |
 
-> NOTE For Stencil, these paths may need to start with `./` instead of `/` depending on your config.
+> NOTE For Stencil, these paths may need to start with `./` instead of `/` depending on your config
 
 ### 1.2. Build Mercury before starting dev server or prod builds
 
-1. If you haven't already, install Mercury and Chameleon: `npm i @genexus/chameleon-controls-library @genexus/mercury`.
+1. If you haven't already, install Mercury and Chameleon: `npm i @genexus/chameleon-controls-library @genexus/mercury`
 
 2. Install the `@genexus/mercury-cli` devDependency:
 
@@ -45,7 +45,7 @@ We will refer to those paths with the following names:
    }
    ```
 
-4. Run the build script to execute `build.mercury`.
+4. Run the build script to execute `build.mercury`
 
 If `build.mercury` succeeds, you will find under your project root:
 
@@ -110,7 +110,7 @@ export const config: Config = {
 
 ### 3.1. Import declarations
 
-Include the required imports at the application's entry point (e.g. `src/index.ts`) to configure and bootstrap Mercury with Chameleon. You must call `setBundleMapping(bundleToHashMappings)` and load the base and icons CSS bundles before any Mercury or Chameleon usage.
+Include the required imports at the application's entry point (e.g. `src/index.ts`) to configure and bootstrap Mercury with Chameleon. You must call `setBundleMapping(bundleToHashMappings)` and load the base and icons CSS bundles before any Mercury or Chameleon usage
 
 `src/index.ts`
 
@@ -144,11 +144,11 @@ linkIconsBundle.href = `{{ CSS bundles final path }}${bundleToHashMappings["base
 document.head.appendChild(linkIconsBundle);
 ```
 
-> [!IMPORTANT] `setBundleMapping` and `bundleToHashMappings` must be included before using any Mercury or Chameleon utilities.
+> [!IMPORTANT] `setBundleMapping` and `bundleToHashMappings` must be included before using any Mercury or Chameleon utilities
 
 ### 3.2. Set the dark/light mode
 
-Add the `light` or `dark` class on the `<html>` tag in your `index.html`. This toggles the color scheme for all components and icons.
+Add the `light` or `dark` class on the `<html>` tag in your `index.html`. This toggles the color scheme for all components and icons
 
 **Dark** — `index.html`
 
@@ -172,7 +172,7 @@ Add the `light` or `dark` class on the `<html>` tag in your `index.html`. This t
 
 ### 3.3. Creating your components
 
-Chameleon provides the `ch-theme` component to apply CSS bundles. In your Stencil components, use `getBundles` with the bundle names and your CSS path, then pass the result to `<ch-theme model={bundles}>`.
+Chameleon provides the `ch-theme` component to apply CSS bundles. In your Stencil components, use `getBundles` with the bundle names and your CSS path, then pass the result to `<ch-theme model={bundles}>`
 
 Example Stencil component:
 
@@ -206,10 +206,10 @@ export class CustomDialog {
 }
 ```
 
-**Code explained:** `getBundles` returns the theme model for the requested bundles (here only `components/button`). Pass it to `ch-theme` so the CSS is applied. Use the **Component → bundles table** in this skill to choose which bundles to request for each component; use the **Bundles index** for class names like `button-primary`.
+**Code explained:** `getBundles` returns the theme model for the requested bundles (here only `components/button`). Pass it to `ch-theme` so the CSS is applied. Use the **Component → bundles table** in this skill to choose which bundles to request for each component; use the **Bundles index** for class names like `button-primary`
 
 ---
 
 ## Next steps
 
-Use the **Component → Mercury CSS bundles table** and **Bundles index** in this skill to choose the right bundles and CSS classes for each Chameleon component you use.
+Use the **Component → Mercury CSS bundles table** and **Bundles index** in this skill to choose the right bundles and CSS classes for each Chameleon component you use

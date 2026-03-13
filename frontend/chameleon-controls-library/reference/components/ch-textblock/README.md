@@ -21,31 +21,31 @@
 
 ## Overview
 
-The `ch-textblock` component displays text or HTML content with multi-line ellipsis truncation, automatic grow behavior, and overflow detection.
+The `ch-textblock` component displays text or HTML content with multi-line ellipsis truncation, automatic grow behavior, and overflow detection
 
 ## Features
- - Multi-line ellipsis truncation with automatic line calculation.
- - Auto-grow mode that expands the container to fit its content.
- - Overflow detection with an `overflowingContentChange` event.
- - Semantic role mapping (paragraph or heading levels h1-h6).
- - Optional native tooltip on content overflow.
+ - Multi-line ellipsis truncation with automatic line calculation
+ - Auto-grow mode that expands the container to fit its content
+ - Overflow detection with an `overflowingContentChange` event
+ - Semantic role mapping (paragraph or heading levels h1-h6)
+ - Optional native tooltip on content overflow
 
 ## Use when
- - You need a text container that intelligently handles overflow across multiple lines.
- - Displaying dynamic text that may overflow and requires a tooltip or line-clamping.
- - Content needs a semantic heading role (`h1`–`h6`) without using native heading elements.
+ - You need a text container that intelligently handles overflow across multiple lines
+ - Displaying dynamic text that may overflow and requires a tooltip or line-clamping
+ - Content needs a semantic heading role (`h1`–`h6`) without using native heading elements
 
 ## Do not use when
- - You need to render rich Markdown content — prefer `ch-markdown-viewer` instead.
- - Rich Markdown or HTML formatting is needed — prefer `ch-markdown-viewer`.
- - Static text that never overflows — a plain HTML element is more appropriate.
+ - You need to render rich Markdown content — prefer `ch-markdown-viewer` instead
+ - Rich Markdown or HTML formatting is needed — prefer `ch-markdown-viewer`
+ - Static text that never overflows — a plain HTML element is more appropriate
 
 ## Accessibility
- - Supports configurable semantic role via `accessibleRole`: `"p"` maps to `role="paragraph"`, and `"h1"`–`"h6"` map to `role="heading"` with the corresponding `aria-level`.
- - When content overflows and `showTooltipOnOverflow` is `true`, a `title` attribute provides the full text to assistive technology.
+ - Supports configurable semantic role via `accessibleRole`: `"p"` maps to `role="paragraph"`, and `"h1"`–`"h6"` map to `role="heading"` with the corresponding `aria-level`
+ - When content overflows and `showTooltipOnOverflow` is `true`, a `title` attribute provides the full text to assistive technology
 
 ## Slots
- - **default**: Slot for HTML content. Rendered when `format` is set to `"HTML"`. When using this slot, the `caption` property is ignored.
+ - **default**: Slot for HTML content. Rendered when `format` is set to `"HTML"`. When using this slot, the `caption` property is ignored
 
 ## Properties
 

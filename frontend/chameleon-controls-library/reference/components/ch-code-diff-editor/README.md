@@ -16,26 +16,26 @@
 
 ## Overview
 
-The `ch-code-diff-editor` component provides a side-by-side or inline diff view for comparing two versions of source code, powered by the [Monaco Editor](https://microsoft.github.io/monaco-editor/).
+The `ch-code-diff-editor` component provides a side-by-side or inline diff view for comparing two versions of source code, powered by the [Monaco Editor](https://microsoft.github.io/monaco-editor/)
 
 ## Features
- - Side-by-side and inline diff rendering with syntax highlighting.
- - Scroll synchronization and inline change decorations.
- - Configurable themes, read-only mode, and YAML schema validation.
- - Automatic resize handling via `ResizeObserver`.
- - Separate `value` (original) and `modifiedValue` properties for each side of the diff.
+ - Side-by-side and inline diff rendering with syntax highlighting
+ - Scroll synchronization and inline change decorations
+ - Configurable themes, read-only mode, and YAML schema validation
+ - Automatic resize handling via `ResizeObserver`
+ - Separate `value` (original) and `modifiedValue` properties for each side of the diff
 
 ## Use when
- - Visualizing textual differences between an original and a modified document.
- - Showing a before/after comparison of two code versions (e.g., pull request diffs, AI-generated code changes).
+ - Visualizing textual differences between an original and a modified document
+ - Showing a before/after comparison of two code versions (e.g., pull request diffs, AI-generated code changes)
 
 ## Do not use when
- - Single-document editing is needed -- prefer `ch-code-editor` instead.
- - Read-only highlighted code without diff -- prefer `ch-code` instead.
+ - Single-document editing is needed -- prefer `ch-code-editor` instead
+ - Read-only highlighted code without diff -- prefer `ch-code` instead
 
 ## Accessibility
- - Monaco Diff Editor provides built-in keyboard accessibility, screen reader support, and ARIA attributes for both editor panes.
- - The component does not use Shadow DOM (`shadow: false`), so the Monaco editor's native accessibility features are fully available.
+ - Monaco Diff Editor provides built-in keyboard accessibility, screen reader support, and ARIA attributes for both editor panes
+ - The component does not use Shadow DOM (`shadow: false`), so the Monaco editor's native accessibility features are fully available
 
 ## Configuration Required
 
@@ -69,7 +69,7 @@ Like `ch-code-editor`, this control requires the Monaco Web Workers to be copied
 
 ### `updateOptions(options: CodeDiffEditorOptions) => Promise<void>`
 
-Update the editor's options after the editor has been created.
+Update the editor's options after the editor has been created
 
 #### Parameters
 

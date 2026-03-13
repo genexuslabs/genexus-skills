@@ -1,6 +1,6 @@
 # Color System
 
-Mercury's color system is designed for accessibility, scalability, and automatic dark/light mode support.
+Mercury's color system is designed for accessibility, scalability, and automatic dark/light mode support
 
 ## Design Principles
 
@@ -21,7 +21,7 @@ Mercury organizes colors into 4 functional categories:
 
 ## Token Categories (by CSS property)
 
-**Critical rule:** Always match the token category to the CSS property it applies to.
+**Critical rule:** Always match the token category to the CSS property it applies to
 
 | CSS property | Token category | Pattern | Example |
 |-------------|----------------|---------|---------|
@@ -30,7 +30,7 @@ Mercury organizes colors into 4 functional categories:
 | `border`, `border-color`, `outline` | `border` | `--color-border-{sub}-{state}` | `--color-border-neutral-default` |
 | Icon `color` / `fill` | `icon` | `--color-icon-{sub}-{state}` | `--color-icon-neutral-default` |
 
-**Never cross categories** — don't use `--color-text-*` for borders or `--color-border-*` for backgrounds.
+**Never cross categories** — don't use `--color-text-*` for borders or `--color-border-*` for backgrounds
 
 ## Interaction States
 
@@ -47,7 +47,7 @@ Every token subcategory supports these states:
 | On-hover | `-on-hover` | Content color ON the hover state |
 | On-pressed | `-on-pressed` | Content color ON the pressed state |
 
-Mercury handles interaction state styling automatically through its CSS classes. Do not write custom `:hover`, `:focus`, or `:disabled` styles.
+Mercury handles interaction state styling automatically through its CSS classes. Do not write custom `:hover`, `:focus`, or `:disabled` styles
 
 ## Surfaces and Elevation
 
@@ -60,7 +60,7 @@ Mercury provides 3 elevation levels for layered UIs:
 | `--color-accent-surface-elevation-2` | Dropdowns, popovers |
 | `--color-accent-surface-elevation-3` | Dialogs, modals |
 
-Use the `utils/elevation` bundle for elevation CSS classes.
+Use the `utils/elevation` bundle for elevation CSS classes
 
 ## Semantic Color Usage
 
@@ -109,9 +109,9 @@ The two variants share the same token names but resolve to different color primi
 | Neutral palette | Blue-tinted grays (`#2D3A48`, `#9DA9B6`) | Pure grays (`#3B3B3B`, `#A9A9A9`) |
 | Feedback colors | Identical across both variants | Identical across both variants |
 
-**How to detect the variant from a design:** Look at the primary action color (buttons, links, focus rings). Blue → Mercury. Green → Globant. Also look at neutral colors — blue-tinted grays confirm Mercury, pure grays confirm Globant.
+**How to detect the variant from a design:** Look at the primary action color (buttons, links, focus rings). Blue → Mercury. Green → Globant. Also look at neutral colors — blue-tinted grays confirm Mercury, pure grays confirm Globant
 
-For exact hex-to-token mapping for both variants, see [Figma token mapping](figma-token-mapping.md).
+For exact hex-to-token mapping for both variants, see [Figma token mapping](figma-token-mapping.md)
 
 ## Dark / Light Mode
 

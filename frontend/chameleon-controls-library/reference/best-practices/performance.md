@@ -12,9 +12,9 @@ For long lists or grids, use virtualization to render only visible items:
 
 Some components load large dependencies. Lazy-load when possible:
 
-- **ch-code-editor** — Monaco editor; requires Web Workers copy task. Load only when the user opens a code editor.
-- **ch-math-viewer** — KaTeX; load only when math content is present.
-- **ch-chat** — Consider lazy-loading if the chat is not immediately visible.
+- **ch-code-editor** — Monaco editor; requires Web Workers copy task. Load only when the user opens a code editor
+- **ch-math-viewer** — KaTeX; load only when math content is present
+- **ch-chat** — Consider lazy-loading if the chat is not immediately visible
 
 ## React: chameleon-generate-react
 
@@ -32,7 +32,7 @@ Add to `package.json`:
 "build": "npm run build.chameleon && ..."
 ```
 
-Execution takes less than 300ms.
+Execution takes less than 300ms
 
 ## Reduce re-renders
 

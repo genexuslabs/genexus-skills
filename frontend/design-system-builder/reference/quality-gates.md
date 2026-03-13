@@ -23,20 +23,20 @@ Every PR MUST pass ALL gates before merge:
 
 A component is NOT shippable until it meets ALL of:
 
-1. CSS compiles without errors.
-2. Documentation complete (`.md` file).
-3. Only tokens — zero hardcoded values.
-4. All states covered (default, hover, focus, active, disabled, error).
-5. axe-core zero violations Level AA.
-6. Visual baseline established.
-7. Bundle size within budget.
-8. Naming convention satisfied.
-9. Logical properties used (RTL-ready).
-10. Core team review approved.
+1. CSS compiles without errors
+2. Documentation complete (`.md` file)
+3. Only tokens — zero hardcoded values
+4. All states covered (default, hover, focus, active, disabled, error)
+5. axe-core zero violations Level AA
+6. Visual baseline established
+7. Bundle size within budget
+8. Naming convention satisfied
+9. Logical properties used (RTL-ready)
+10. Core team review approved
 
 Recommended (not blocking):
-- Do / Don't section in docs.
-- List of tokens consumed in docs.
+- Do / Don't section in docs
+- List of tokens consumed in docs
 
 ## Testing Pyramid
 

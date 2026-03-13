@@ -17,7 +17,7 @@ The base bundle is **required for every Mercury application**. It provides:
 
 Applies to the components: `html`
 
-Sets the dark color mode. Apply this class to the `<html>` element to activate dark mode tokens. All `--color-*` tokens automatically switch to their dark-mode values. Mercury components and utility classes adapt automatically — no additional code needed.
+Sets the dark color mode. Apply this class to the `<html>` element to activate dark mode tokens. All `--color-*` tokens automatically switch to their dark-mode values. Mercury components and utility classes adapt automatically — no additional code needed
 
 ```html
 <html class="dark">
@@ -27,7 +27,7 @@ Sets the dark color mode. Apply this class to the `<html>` element to activate d
 
 Applies to the components: `html`
 
-Sets the light color mode. Apply this class to the `<html>` element to activate light mode tokens. This is the default mode — if neither `dark` nor `light` is set, light mode is used.
+Sets the light color mode. Apply this class to the `<html>` element to activate light mode tokens. This is the default mode — if neither `dark` nor `light` is set, light mode is used
 
 ```html
 <html class="light">
@@ -35,8 +35,8 @@ Sets the light color mode. Apply this class to the `<html>` element to activate 
 
 ## Theme Variants
 
-- **Mercury theme:** Use `base.css` (default). Loaded automatically by `getBundles`.
-- **Globant theme:** Use `base-globant.css` instead. Set via Vite plugin `theme: "globant"` or CLI `--globant` flag.
+- **Mercury theme:** Use `base.css` (default). Loaded automatically by `getBundles`
+- **Globant theme:** Use `base-globant.css` instead. Set via Vite plugin `theme: "globant"` or CLI `--globant` flag
 
 ## What the base bundle provides
 

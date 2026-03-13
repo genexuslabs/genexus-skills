@@ -29,30 +29,30 @@
 
 ## Overview
 
-The `ch-flexible-layout-render` component is a high-level shell for building IDE-style dock layouts composed of lightweight, modular widgets.
+The `ch-flexible-layout-render` component is a high-level shell for building IDE-style dock layouts composed of lightweight, modular widgets
 
 ## Features
- - Hierarchical model of groups and leaves, where each leaf can host a single widget or a tabbed collection of widgets.
- - Coordinates `ch-flexible-layout` and `ch-layout-splitter` primitives for draggable, resizable, and reorderable views.
- - Add, remove, and reorder widgets and views at runtime via public methods.
- - Slotted widget mode (`slottedWidgets`) projects widget content from outside the component via named slots.
- - Close button support for tabbed leaves.
- - Configurable CSS containment and overflow per widget.
- - Theme support via the `theme` property.
- - Emits `renderedWidgetsChange` whenever the set of visible widgets changes, enabling host apps to lazy-mount or unmount content.
+ - Hierarchical model of groups and leaves, where each leaf can host a single widget or a tabbed collection of widgets
+ - Coordinates `ch-flexible-layout` and `ch-layout-splitter` primitives for draggable, resizable, and reorderable views
+ - Add, remove, and reorder widgets and views at runtime via public methods
+ - Slotted widget mode (`slottedWidgets`) projects widget content from outside the component via named slots
+ - Close button support for tabbed leaves
+ - Configurable CSS containment and overflow per widget
+ - Theme support via the `theme` property
+ - Emits `renderedWidgetsChange` whenever the set of visible widgets changes, enabling host apps to lazy-mount or unmount content
 
 ## Use when
- - Building a complex, multi-pane workspace (code editors, dashboards, admin panels) where users can rearrange, close, and add views at runtime.
- - Building IDE-like or dashboard interfaces with multiple movable, resizable widget panes.
+ - Building a complex, multi-pane workspace (code editors, dashboards, admin panels) where users can rearrange, close, and add views at runtime
+ - Building IDE-like or dashboard interfaces with multiple movable, resizable widget panes
 
 ## Do not use when
- - Building simple, static layouts -- prefer `ch-layout-splitter` or CSS Grid instead.
- - A simple fixed two-panel layout is sufficient -- prefer `ch-layout-splitter` directly.
+ - Building simple, static layouts -- prefer `ch-layout-splitter` or CSS Grid instead
+ - A simple fixed two-panel layout is sufficient -- prefer `ch-layout-splitter` directly
 
 ## Accessibility
- - Tab reordering in `"tabbed"` leaves supports keyboard-initiated drag via the inner `ch-tab` component.
- - Focus management is delegated to the underlying `ch-flexible-layout` and `ch-tab` primitives.
- - Close actions are cancelable through the `widgetClose` event, allowing confirmation dialogs before removal.
+ - Tab reordering in `"tabbed"` leaves supports keyboard-initiated drag via the inner `ch-tab` component
+ - Focus management is delegated to the underlying `ch-flexible-layout` and `ch-tab` primitives
+ - Close actions are cancelable through the `widgetClose` event, allowing confirmation dialogs before removal
 
 ## Properties
 
@@ -79,12 +79,12 @@ The `ch-flexible-layout-render` component is a high-level shell for building IDE
 
 ### `addSiblingView(parentGroup: string, siblingItem: string, placedInTheSibling: "before" | "after", viewInfo: FlexibleLayoutLeafModel, takeHalfTheSpaceOfTheSiblingItem: boolean) => Promise<boolean>`
 
-Adds a new leaf view as a sibling of an existing item within a group.
+Adds a new leaf view as a sibling of an existing item within a group
 The new view takes half the space of the specified sibling when
-`takeHalfTheSpaceOfTheSiblingItem` is `true`.
+`takeHalfTheSpaceOfTheSiblingItem` is `true`
 
 Returns `true` if the view was added successfully, `false` if the
-parent group or sibling item was not found.
+parent group or sibling item was not found
 
 #### Parameters
 
@@ -102,16 +102,16 @@ Type: `Promise<boolean>`
 
 ### `addWidget(leafId: string, widget: FlexibleLayoutWidget, selectWidget?: boolean) => Promise<void>`
 
-Adds a widget to an existing `"tabbed"` type leaf.
+Adds a widget to an existing `"tabbed"` type leaf
 Only works if the parent leaf is `"tabbed"` type; no-ops for
-`"single-content"` leaves.
-If a widget with the same ID already exists, this method has no effect.
+`"single-content"` leaves
+If a widget with the same ID already exists, this method has no effect
 
-By default, the newly added widget is selected (`selectWidget = true`).
-Set `selectWidget` to `false` to add the widget without switching to it.
+By default, the newly added widget is selected (`selectWidget = true`)
+Set `selectWidget` to `false` to add the widget without switching to it
 
 To add a widget in a `"single-content"` type leaf, use the
-`addSiblingView` method instead.
+`addSiblingView` method instead
 
 #### Parameters
 
@@ -127,14 +127,14 @@ Type: `Promise<void>`
 
 ### `removeView(leafId: string, removeRenderedWidgets: boolean) => Promise<FlexibleLayoutViewRemoveResult>`
 
-Removes a leaf view and optionally all its rendered widgets.
-The space freed by the removed view is given to the closest sibling.
+Removes a leaf view and optionally all its rendered widgets
+The space freed by the removed view is given to the closest sibling
 
 Only works on `"tabbed"` type leaves. Returns `{ success: false }` if
-the leaf does not exist or is `"single-content"` type.
+the leaf does not exist or is `"single-content"` type
 
 When `removeRenderedWidgets` is `true`, widget render state is
-destroyed (unless the widget has `conserveRenderState === true`).
+destroyed (unless the widget has `conserveRenderState === true`)
 
 #### Parameters
 
@@ -149,15 +149,15 @@ Type: `Promise<FlexibleLayoutViewRemoveResult>`
 
 ### `removeWidget(widgetId: string) => Promise<void>`
 
-Removes a widget from a `"tabbed"` type leaf by its widget ID.
-Only works if the parent leaf is `"tabbed"` type; no-ops otherwise.
+Removes a widget from a `"tabbed"` type leaf by its widget ID
+Only works if the parent leaf is `"tabbed"` type; no-ops otherwise
 
 If the removed widget was the only one in the leaf, the entire view
 is destroyed via `removeView`. If it was the selected widget, the
-adjacent widget is automatically selected.
+adjacent widget is automatically selected
 
 To remove a widget from a `"single-content"` type leaf, use the
-`removeView` method instead.
+`removeView` method instead
 
 #### Parameters
 
@@ -171,10 +171,10 @@ Type: `Promise<void>`
 
 ### `updateSelectedWidget(parentLeafId: string, newSelectedWidgetId: string) => Promise<void>`
 
-Updates the selected (visible) widget in a `"tabbed"` type leaf.
+Updates the selected (visible) widget in a `"tabbed"` type leaf
 Only works if the parent leaf is `"tabbed"` type and the specified
 widget belongs to that leaf. No-ops if the widget is already selected,
-the widget is not found, or the leaf is `"single-content"` type.
+the widget is not found, or the leaf is `"single-content"` type
 
 #### Parameters
 
@@ -190,12 +190,12 @@ Type: `Promise<void>`
 ### `updateViewInfo(viewId: string, properties: Partial<Omit<FlexibleLayoutLeafConfigurationTabbed, "selectedWidgetId" | "widget" | "widgets">>) => Promise<void>`
 
 Updates leaf-level configuration properties (e.g., `tabListPosition`,
-`dragBar`) for the view identified by `viewId`.
+`dragBar`) for the view identified by `viewId`
 
 The `type` field in the `properties` argument must match the leaf's
-current type; otherwise the update is silently skipped.
+current type; otherwise the update is silently skipped
 The `selectedWidgetId`, `widget`, and `widgets` fields cannot be
-changed through this method.
+changed through this method
 
 #### Parameters
 
@@ -212,9 +212,9 @@ Type: `Promise<void>`
 
 Updates metadata properties on an existing widget (e.g., `name`,
 `startImgSrc`, `slot`). The `id` and `wasRendered` fields cannot be
-changed. No-ops if the widget is not found.
+changed. No-ops if the widget is not found
 
-Triggers a re-render of both the widget container and its parent leaf.
+Triggers a re-render of both the widget container and its parent leaf
 
 #### Parameters
 

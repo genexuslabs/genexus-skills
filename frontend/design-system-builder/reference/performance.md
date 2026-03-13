@@ -62,6 +62,6 @@ SCSS source
 
 ## Additional Optimizations
 
-- Extract shared `@keyframes` into `resets/` or `base/` to avoid duplication.
-- Use `content-visibility: auto` on heavy components (`tabular-grid`, `tree-view`, `list-box`).
-- Use hashed filenames for immutable cache headers.
+- Extract shared `@keyframes` into `resets/` or `base/` to avoid duplication
+- Use `content-visibility: auto` on heavy components (`tabular-grid`, `tree-view`, `list-box`)
+- Use hashed filenames for immutable cache headers

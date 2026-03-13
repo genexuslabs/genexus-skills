@@ -1,6 +1,6 @@
 # Internal
 
-Reserved for Mercury design system internal use only.
+Reserved for Mercury design system internal use only
 
 **Type:** Monochrome
 

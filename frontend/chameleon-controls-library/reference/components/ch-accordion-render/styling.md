@@ -63,7 +63,7 @@
 
 ### Animated Expand/Collapse
 
-Enable smooth expand and collapse transitions using CSS grid animation.
+Enable smooth expand and collapse transitions using CSS grid animation
 
 ```css
 ch-accordion-render {
@@ -74,7 +74,7 @@ ch-accordion-render {
 
 ### Custom Chevron
 
-Replace the default chevron icon and adjust its size.
+Replace the default chevron icon and adjust its size
 
 ```css
 ch-accordion-render {
@@ -87,7 +87,7 @@ ch-accordion-render {
 
 ### Bordered Panels
 
-Add borders between accordion panels for visual separation.
+Add borders between accordion panels for visual separation
 
 ```css
 ch-accordion-render::part(panel) {
@@ -106,7 +106,7 @@ ch-accordion-render::part(section expanded) {
 
 ### Focus Ring
 
-Add a visible focus indicator for keyboard navigation.
+Add a visible focus indicator for keyboard navigation
 
 ```css
 ch-accordion-render::part(header):focus-visible {
@@ -163,20 +163,20 @@ ch-accordion-render {
 }
 ```
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-accordion__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-accordion::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-accordion__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-accordion::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented

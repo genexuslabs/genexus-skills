@@ -1,13 +1,13 @@
 # Chameleon Components Index
 
-**Total: 58 components** across 11 categories. This is the exhaustive catalog — if a component is not listed here, it does not exist in Chameleon.
+**Total: 58 components** across 11 categories. This is the exhaustive catalog — if a component is not listed here, it does not exist in Chameleon
 
 Each component has its own directory with up to three documentation files:
-- **README.md** — Properties, events, slots, shadow parts, CSS custom properties, and dependencies.
-- **usage.md** — Usage examples, patterns, do's and don'ts.
-- **styling.md** — Shadow parts reference, CSS custom properties, shadow DOM layout, styling recipes, and anti-patterns.
+- **README.md** — Properties, events, slots, shadow parts, CSS custom properties, and dependencies
+- **usage.md** — Usage examples, patterns, do's and don'ts
+- **styling.md** — Shadow parts reference, CSS custom properties, shadow DOM layout, styling recipes, and anti-patterns
 
-For TypeScript types used in component properties/events, see [Types index](types-index.md).
+For TypeScript types used in component properties/events, see [Types index](types-index.md)
 
 ---
 
@@ -67,7 +67,7 @@ For TypeScript types used in component properties/events, see [Types index](type
 
 ## Grid / Tabular (18 components)
 
-The grid system is built around `ch-tabular-grid` as the root, with specialized subcomponents for columns, settings, actions, and scrolling. Most subcomponents are used internally by the grid — you typically only interact with the top-level components.
+The grid system is built around `ch-tabular-grid` as the root, with specialized subcomponents for columns, settings, actions, and scrolling. Most subcomponents are used internally by the grid — you typically only interact with the top-level components
 
 ### Top-level grid components
 
@@ -80,7 +80,7 @@ The grid system is built around `ch-tabular-grid` as the root, with specialized 
 
 ### Grid subcomponents (used within ch-tabular-grid)
 
-These are structural parts of the grid. You place them inside `ch-tabular-grid` to configure its behavior.
+These are structural parts of the grid. You place them inside `ch-tabular-grid` to configure its behavior
 
 | Component | Purpose | Docs |
 |-----------|---------|------|

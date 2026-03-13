@@ -1,6 +1,6 @@
 # Menus
 
-Menu organization icons for presenting user options — build, save, edit, and other common operations.
+Menu organization icons for presenting user options — build, save, edit, and other common operations
 
 **Type:** Monochrome
 

@@ -10,7 +10,7 @@
 
 ## Basic Usage
 
-Demonstrates displaying a static, read-only code snippet with syntax highlighting.
+Demonstrates displaying a static, read-only code snippet with syntax highlighting
 
 ### HTML
 
@@ -49,15 +49,15 @@ codeBlock.language = "typescript";
 
 ### Key Points
 
-- The `language` property accepts any valid highlight.js language identifier (e.g., `"typescript"`, `"python"`, `"json"`, `"yaml"`, `"html"`, `"css"`).
-- When `language` is `undefined` or empty, the component falls back to `"plaintext"` (no highlighting).
-- The code is parsed asynchronously using lowlight, and language grammars are loaded on demand at runtime.
-- The component renders a semantic `<code>` element with an `hljs language-{lang}` class.
-- The host uses `overflow: auto` for scrollable long code blocks with keyboard-driven scrolling.
+- The `language` property accepts any valid highlight.js language identifier (e.g., `"typescript"`, `"python"`, `"json"`, `"yaml"`, `"html"`, `"css"`)
+- When `language` is `undefined` or empty, the component falls back to `"plaintext"` (no highlighting)
+- The code is parsed asynchronously using lowlight, and language grammars are loaded on demand at runtime
+- The component renders a semantic `<code>` element with an `hljs language-{lang}` class
+- The host uses `overflow: auto` for scrollable long code blocks with keyboard-driven scrolling
 
 ## Editable Code with Monaco
 
-Demonstrates a fully-featured code editor powered by the Monaco Editor, with IntelliSense and syntax highlighting.
+Demonstrates a fully-featured code editor powered by the Monaco Editor, with IntelliSense and syntax highlighting
 
 ### HTML
 
@@ -110,15 +110,15 @@ editor.readonly = true;
 
 ### Key Points
 
-- The `language` property is required and accepts any Monaco language ID (e.g., `"typescript"`, `"json"`, `"yaml"`, `"python"`).
-- The `theme` property accepts built-in Monaco themes: `"vs"` (light), `"vs-dark"` (dark), `"hc-black"` (high contrast).
-- The `options` property passes through to Monaco's `IStandaloneEditorConstructionOptions` for full customization.
-- The component uses `shadow: false` (no Shadow DOM), so Monaco's built-in accessibility features are fully available.
-- A `ResizeObserver` automatically relayouts the editor when the container size changes.
+- The `language` property is required and accepts any Monaco language ID (e.g., `"typescript"`, `"json"`, `"yaml"`, `"python"`)
+- The `theme` property accepts built-in Monaco themes: `"vs"` (light), `"vs-dark"` (dark), `"hc-black"` (high contrast)
+- The `options` property passes through to Monaco's `IStandaloneEditorConstructionOptions` for full customization
+- The component uses `shadow: false` (no Shadow DOM), so Monaco's built-in accessibility features are fully available
+- A `ResizeObserver` automatically relayouts the editor when the container size changes
 
 ## Side-by-Side Diff
 
-Demonstrates comparing two versions of code with the Monaco Diff Editor.
+Demonstrates comparing two versions of code with the Monaco Diff Editor
 
 ### HTML
 
@@ -172,15 +172,15 @@ diffEditor.updateOptions({
 
 ### Key Points
 
-- The `value` property sets the original (left-side) content; `modified-value` sets the modified (right-side) content.
-- By default, `readonly` is `true`, making both panes read-only. Set to `false` to enable editing in both panes.
-- The `options` property accepts `IDiffEditorConstructionOptions`, including `renderSideBySide` (default `true`) to toggle between side-by-side and inline diff views.
-- The `language` property applies the same language mode to both the original and modified models.
-- YAML schema validation is supported via `yamlSchemaUri`, which validates both panes against the specified schema.
+- The `value` property sets the original (left-side) content; `modified-value` sets the modified (right-side) content
+- By default, `readonly` is `true`, making both panes read-only. Set to `false` to enable editing in both panes
+- The `options` property accepts `IDiffEditorConstructionOptions`, including `renderSideBySide` (default `true`) to toggle between side-by-side and inline diff views
+- The `language` property applies the same language mode to both the original and modified models
+- YAML schema validation is supported via `yamlSchemaUri`, which validates both panes against the specified schema
 
 ## YAML with Schema Validation
 
-Demonstrates a YAML editor with remote schema validation for IntelliSense and error diagnostics.
+Demonstrates a YAML editor with remote schema validation for IntelliSense and error diagnostics
 
 ### HTML
 
@@ -231,21 +231,21 @@ editor.yamlSchemaUri = "";
 
 ### Key Points
 
-- The `yaml-schema-uri` property accepts a URL to a JSON Schema that validates the YAML content and provides IntelliSense suggestions.
-- Schema validation only takes effect when `language` is set to `"yaml"`.
-- Changing the `yamlSchemaUri` at runtime recreates the editor model to apply the new schema.
-- The `configureMonacoYaml` integration enables features like auto-completion, hover documentation, and inline error diagnostics based on the provided schema.
-- Both `ch-code-editor` and `ch-code-diff-editor` support the `yamlSchemaUri` property.
+- The `yaml-schema-uri` property accepts a URL to a JSON Schema that validates the YAML content and provides IntelliSense suggestions
+- Schema validation only takes effect when `language` is set to `"yaml"`
+- Changing the `yamlSchemaUri` at runtime recreates the editor model to apply the new schema
+- The `configureMonacoYaml` integration enables features like auto-completion, hover documentation, and inline error diagnostics based on the provided schema
+- Both `ch-code-editor` and `ch-code-diff-editor` support the `yamlSchemaUri` property
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
 
 ### Don't
 
-- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead.
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

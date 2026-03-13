@@ -1,8 +1,8 @@
 # Widget Rendering & Content Projection Tests
 
-Tests validating how `ch-flexible-layout-render` renders widget content via **slots** (user-provided projection) or **renders** (function-based rendering).
+Tests validating how `ch-flexible-layout-render` renders widget content via **slots** (user-provided projection) or **renders** (function-based rendering)
 
-**Note:** Some tests use `.spec.tsx` (instead of `.e2e.ts`) because the `renders` prop requires JavaScript functions, which Puppeteer cannot serialize.
+**Note:** Some tests use `.spec.tsx` (instead of `.e2e.ts`) because the `renders` prop requires JavaScript functions, which Puppeteer cannot serialize
 
 ## How Rendering Works
 
@@ -29,7 +29,7 @@ Tests validating how `ch-flexible-layout-render` renders widget content via **sl
 
 ### `type="tabbed"`
 
-Same logic. Representative cases only (multiple widgets, selected tab rendered, tab switching).
+Same logic. Representative cases only (multiple widgets, selected tab rendered, tab switching)
 
 | `slottedWidgets` | `widget.slot` | Result | Test Files |
 |------------------|---------------|--------|------------|
@@ -41,7 +41,7 @@ Same logic. Representative cases only (multiple widgets, selected tab rendered, 
 
 ## Content Projection
 
-Validates content reaches final destination through all shadow DOM levels.
+Validates content reaches final destination through all shadow DOM levels
 
 ### [`content-projection.e2e.ts`](content-projection.e2e.ts)
 
@@ -71,7 +71,7 @@ Validates content reaches final destination through all shadow DOM levels.
 
 ## Renders
 
-Validates `renders` property behavior and function execution.
+Validates `renders` property behavior and function execution
 
 ### [`renders.spec.tsx`](renders.spec.tsx)
 
@@ -94,7 +94,7 @@ Validates `renders` property behavior and function execution.
 
 ## Slots
 
-Validates slot element creation and attributes.
+Validates slot element creation and attributes
 
 ### [`slots.e2e.ts`](slots.e2e.ts)
 

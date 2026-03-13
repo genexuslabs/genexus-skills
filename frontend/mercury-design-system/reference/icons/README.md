@@ -1,6 +1,6 @@
 # Mercury Icons
 
-Mercury ships a comprehensive set of built-in icons organized into 17 categories. Icons are installed automatically with the `@genexus/mercury` package — the Vite plugin (`@genexus/vite-plugin-mercury`) or the Mercury CLI (`@genexus/mercury-cli`) configures where icon assets end up in the final build. You never need to know or manage the output path.
+Mercury ships a comprehensive set of built-in icons organized into 17 categories. Icons are installed automatically with the `@genexus/mercury` package — the Vite plugin (`@genexus/vite-plugin-mercury`) or the Mercury CLI (`@genexus/mercury-cli`) configures where icon assets end up in the final build. You never need to know or manage the output path
 
 ## How icons are resolved
 
@@ -15,15 +15,15 @@ registerMercury();
 registryProperty("getImagePathCallback", getImagePathCallbackDefinitions);
 ```
 
-This registers Mercury's icon resolver globally via Chameleon's Registry Property System (documented in the **chameleon-controls-library** skill under `reference/registry.md`). After this setup, every Chameleon component that supports `getImagePathCallback` (`ch-image`, `ch-tree-view-render`, `ch-combo-box-render`, `ch-accordion-render`, etc.) automatically resolves Mercury icon paths — no per-instance prop binding needed.
+This registers Mercury's icon resolver globally via Chameleon's Registry Property System (documented in the **chameleon-controls-library** skill under `reference/registry.md`). After this setup, every Chameleon component that supports `getImagePathCallback` (`ch-image`, `ch-tree-view-render`, `ch-combo-box-render`, `ch-accordion-render`, etc.) automatically resolves Mercury icon paths — no per-instance prop binding needed
 
-When Mercury's resolver receives an icon path that doesn't match any internal Mercury mapping, it falls back to `{ base: <the raw path> }`, so custom icons outside Mercury's set still work in Chameleon components.
+When Mercury's resolver receives an icon path that doesn't match any internal Mercury mapping, it falls back to `{ base: <the raw path> }`, so custom icons outside Mercury's set still work in Chameleon components
 
-> For the general approach to icons and images (semantic vs decorative, `mask-image`, `<img>`, CSS pseudo-elements), see the **chameleon-controls-library** skill — specifically `reference/icons-and-images.md`.
+> For the general approach to icons and images (semantic vs decorative, `mask-image`, `<img>`, CSS pseudo-elements), see the **chameleon-controls-library** skill — specifically `reference/icons-and-images.md`
 
 ## Using Mercury icons
 
-Always use `getIconPath` or `getIconPathExpanded` from `@genexus/mercury/assets-manager.js` to reference Mercury icons. These utilities build the correct path string that Mercury's registry resolver understands. See [assets-manager API](../api/assets-manager.md) for full signatures.
+Always use `getIconPath` or `getIconPathExpanded` from `@genexus/mercury/assets-manager.js` to reference Mercury icons. These utilities build the correct path string that Mercury's registry resolver understands. See [assets-manager API](../api/assets-manager.md) for full signatures
 
 ### `getIconPath` — single icon
 
@@ -73,16 +73,16 @@ getIconPathExpanded(
 );
 ```
 
-> `getIconPath` also works with `ch-tree-view-render` when you don't need different icons for collapsed/expanded states.
+> `getIconPath` also works with `ch-tree-view-render` when you don't need different icons for collapsed/expanded states
 
 ## Important limitations
 
-- Mercury does **not** currently support using its icons directly as `background-image`, `mask-image`, or `<img src>` URLs. Always go through `getIconPath`/`getIconPathExpanded` + Chameleon components.
-- If you need general-purpose icon/image techniques (CSS pseudo-elements, `mask-image` for custom icons outside Mercury), see the **chameleon-controls-library** skill — specifically `reference/icons-and-images.md`.
+- Mercury does **not** currently support using its icons directly as `background-image`, `mask-image`, or `<img src>` URLs. Always go through `getIconPath`/`getIconPathExpanded` + Chameleon components
+- If you need general-purpose icon/image techniques (CSS pseudo-elements, `mask-image` for custom icons outside Mercury), see the **chameleon-controls-library** skill — specifically `reference/icons-and-images.md`
 
 ## Icon categories
 
-Mercury organizes its icons into **17 categories**. Each category is either **multicolor** (colors baked into the SVG) or **monochrome** (colored via CSS, requires `colorType`).
+Mercury organizes its icons into **17 categories**. Each category is either **multicolor** (colors baked into the SVG) or **monochrome** (colored via CSS, requires `colorType`)
 
 ### Monochrome categories (8)
 
@@ -111,4 +111,4 @@ Mercury organizes its icons into **17 categories**. Each category is either **mu
 | [objects-parts](objects-parts.md) | 5 | Object components — conditions, events, rules, variables |
 | [patterns-default-associated](patterns-default-associated.md) | 5 | Pattern association and synchronization states |
 
-> ~95% of icons used in a typical Mercury application come from the **system** category.
+> ~95% of icons used in a typical Mercury application come from the **system** category

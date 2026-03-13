@@ -30,7 +30,7 @@ npm i @genexus/chameleon-controls-library --save
    defineCustomElements(window);
    ```
 
-4. Use the generated wrappers in your components (e.g. `ChAccordionRender`, `ChEdit`).
+4. Use the generated wrappers in your components (e.g. `ChAccordionRender`, `ChEdit`)
 
 ## Angular
 
@@ -47,7 +47,7 @@ npm i @genexus/chameleon-controls-library --save
    defineCustomElements(window);
    ```
 
-3. Add `CUSTOM_ELEMENTS_SCHEMA` to your NgModule if needed so Angular recognizes custom elements.
+3. Add `CUSTOM_ELEMENTS_SCHEMA` to your NgModule if needed so Angular recognizes custom elements
 
 ## Stencil
 
@@ -63,7 +63,7 @@ npm i @genexus/chameleon-controls-library --save
    import "@genexus/chameleon-controls-library";
    ```
 
-3. Use Chameleon components in your templates/JSX.
+3. Use Chameleon components in your templates/JSX
 
 ## Script tag (no bundler)
 

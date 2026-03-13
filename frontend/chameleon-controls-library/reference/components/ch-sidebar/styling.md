@@ -67,7 +67,7 @@
 
 ### Fixed-Width Sidebar
 
-Define explicit widths for expanded and collapsed states.
+Define explicit widths for expanded and collapsed states
 
 ```css
 ch-sidebar {
@@ -80,7 +80,7 @@ ch-sidebar {
 
 ### Animated Expand/Collapse
 
-Add a transition for smooth expand and collapse animations.
+Add a transition for smooth expand and collapse animations
 
 ```css
 ch-sidebar {
@@ -92,7 +92,7 @@ ch-sidebar {
 
 ### Hidden When Collapsed
 
-Completely hide the sidebar when collapsed by setting the collapsed size to zero.
+Completely hide the sidebar when collapsed by setting the collapsed size to zero
 
 ```css
 ch-sidebar {
@@ -105,7 +105,7 @@ ch-sidebar {
 
 ### Custom Expand Button
 
-Replace the default expand button icon and adjust styling.
+Replace the default expand button icon and adjust styling
 
 ```css
 ch-sidebar {
@@ -122,7 +122,7 @@ ch-sidebar::part(expand-button) {
 
 ### Focus Ring
 
-Add a visible focus indicator for keyboard navigation.
+Add a visible focus indicator for keyboard navigation
 
 ```css
 ch-sidebar::part(expand-button):focus-visible {
@@ -175,20 +175,20 @@ ch-sidebar {
 }
 ```
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-sidebar__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-sidebar::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-sidebar__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-sidebar::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented

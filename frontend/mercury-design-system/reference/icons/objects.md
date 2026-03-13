@@ -1,6 +1,6 @@
 # Objects
 
-Core GeneXus object type icons — transactions, procedures, reports, webpanels, workflows, and more.
+Core GeneXus object type icons — transactions, procedures, reports, webpanels, workflows, and more
 
 **Type:** Multicolor
 

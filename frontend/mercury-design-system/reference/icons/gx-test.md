@@ -1,6 +1,6 @@
 # GX Test
 
-Testing framework icons for unit tests, UI tests, test suites, and result reporting.
+Testing framework icons for unit tests, UI tests, test suites, and result reporting
 
 **Type:** Multicolor
 

@@ -23,7 +23,7 @@
 
 ## Overview
 
-The `ch-chat` component delivers a full-featured conversational interface with virtual scrolling for efficient rendering of large message histories.
+The `ch-chat` component delivers a full-featured conversational interface with virtual scrolling for efficient rendering of large message histories
 
 ## Properties
 
@@ -59,7 +59,7 @@ The `ch-chat` component delivers a full-featured conversational interface with v
 
 ### `addNewMessage(message: ChatMessage) => Promise<void>`
 
-Add a new message at the end of the record, performing a re-render.
+Add a new message at the end of the record, performing a re-render
 
 #### Parameters
 
@@ -86,13 +86,13 @@ method executes the same callbacks and interoperates with the same
 features as if the message were sent through user interaction. The only
 things to keep in mind are the following:
  - If the `content` parameter is provided, it will be used in replacement
-   of the input content.
+   of the input content
 
  - If the `files` parameter is provided, the `getChatMessageFiles`
-   callback won't be executed to get the current files of the chat.
+   callback won't be executed to get the current files of the chat
 
 Whether or not the `content` parameter is provided, the content of the
-`send-input` element will be cleared.
+`send-input` element will be cleared
 
 #### Parameters
 
@@ -121,7 +121,7 @@ Type: `Promise<void>`
 
 ### `updateChatMessage(messageIndex: number, message: ChatMessageByRoleNoId<"system" | "assistant">, mode: "concat" | "replace") => Promise<void>`
 
-Given the id of the message, it updates the content of the indexed message.
+Given the id of the message, it updates the content of the indexed message
 
 #### Parameters
 
@@ -137,7 +137,7 @@ Type: `Promise<void>`
 
 ### `updateLastMessage(message: ChatMessageByRoleNoId<"system" | "assistant">, mode: "concat" | "replace") => Promise<void>`
 
-Update the content of the last message, performing a re-render.
+Update the content of the last message, performing a re-render
 
 #### Parameters
 

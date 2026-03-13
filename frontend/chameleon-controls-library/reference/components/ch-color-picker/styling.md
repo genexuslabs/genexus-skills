@@ -88,7 +88,7 @@
 
 ## Shadow DOM Layout
 
-Controls rendered depend on the `controlsOrder` property. Each control is optional and composable.
+Controls rendered depend on the `controlsOrder` property. Each control is optional and composable
 
 ## Case 1: Full layout (all controls)
 
@@ -353,7 +353,7 @@ ch-color-picker::part(hex__input-label) {
 
 ### Using `overflow: hidden` on the host
 
-The color field marker can extend to the edges of the color field area. Setting `overflow: hidden` on the host element will clip the marker when it is positioned at the boundaries.
+The color field marker can extend to the edges of the color field area. Setting `overflow: hidden` on the host element will clip the marker when it is positioned at the boundaries
 
 ```css
 /* Avoid */
@@ -369,7 +369,7 @@ ch-color-picker {
 
 ### Styling palette buttons with fixed width/height instead of min-size
 
-Using fixed `width` and `height` on palette buttons via `::part(color-palette__button)` prevents the buttons from adapting to different screen sizes and font scaling. Use the CSS custom properties which set `min-inline-size` and `min-block-size` instead.
+Using fixed `width` and `height` on palette buttons via `::part(color-palette__button)` prevents the buttons from adapting to different screen sizes and font scaling. Use the CSS custom properties which set `min-inline-size` and `min-block-size` instead
 
 ```css
 /* Avoid */
@@ -387,7 +387,7 @@ ch-color-picker {
 
 ### Targeting internal elements by class name
 
-The component uses shadow DOM. Selectors like `ch-color-picker .color-palette-grid` will not match any internal elements. Always use the `::part()` pseudo-element to target internal elements.
+The component uses shadow DOM. Selectors like `ch-color-picker .color-palette-grid` will not match any internal elements. Always use the `::part()` pseudo-element to target internal elements
 
 ```css
 /* Avoid - will not work */
@@ -405,18 +405,18 @@ ch-color-picker::part(color-palette-grid) {
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-color-picker__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-color-picker::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-color-picker__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-color-picker::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented
 
 ---
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)

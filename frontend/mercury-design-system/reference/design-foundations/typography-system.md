@@ -1,6 +1,6 @@
 # Typography System
 
-Mercury uses the **Inter** typeface for all text. Typography is organized into 4 roles with a consistent class naming pattern.
+Mercury uses the **Inter** typeface for all text. Typography is organized into 4 roles with a consistent class naming pattern
 
 ## Class Naming Pattern
 
@@ -25,7 +25,7 @@ Mercury uses the **Inter** typeface for all text. Typography is organized into 4
 | `var(--font-style-semi-bold)` | SemiBold (600) | Medium (500) | 500 |
 | `var(--font-style-bold)` | Bold (700) | SemiBold (600) | 600 |
 
-**Critical:** Figma displays font-weight +100 higher than production. Never copy Figma's font-weight literally.
+**Critical:** Figma displays font-weight +100 higher than production. Never copy Figma's font-weight literally
 
 ## Line Heights
 
@@ -37,7 +37,7 @@ Mercury uses the **Inter** typeface for all text. Typography is organized into 4
 
 ## Headings
 
-Always bold (`var(--font-style-bold)`), tight line-height. Use `--font-family-header`.
+Always bold (`var(--font-style-bold)`), tight line-height. Use `--font-family-header`
 
 | Class | Size | Figma variable | Usage |
 |-------|------|---------------|-------|
@@ -50,7 +50,7 @@ Always bold (`var(--font-style-bold)`), tight line-height. Use `--font-family-he
 
 ## Subtitles
 
-Use `--font-family-header`. Available in `regular` and `semi-bold` weights.
+Use `--font-family-header`. Available in `regular` and `semi-bold` weights
 
 | Class | Size | Figma variable | Line-height |
 |-------|------|---------------|-------------|
@@ -60,11 +60,11 @@ Use `--font-family-header`. Available in `regular` and `semi-bold` weights.
 | `subtitle-regular-s` / `subtitle-semi-bold-s` | 15px (`--font-size-subtitle-s`) | `--font-size/subtitle/s` | tight |
 | `subtitle-regular-xs` / `subtitle-semi-bold-xs` | 14px (`--font-size-subtitle-xs`) | `--font-size/subtitle/xs` | tight |
 
-**When to use subtitles:** Section introductions, support text before content, group/category labels.
+**When to use subtitles:** Section introductions, support text before content, group/category labels
 
 ## Body
 
-Use `--font-family-body`. Available in `regular`, `semi-bold`, and `italic` weights.
+Use `--font-family-body`. Available in `regular`, `semi-bold`, and `italic` weights
 
 | Class | Size | Figma variable | Usage |
 |-------|------|---------------|-------|
@@ -74,13 +74,13 @@ Use `--font-family-body`. Available in `regular`, `semi-bold`, and `italic` weig
 | `body-regular-s` / `-semi-bold-s` / `-italic-s` | 12px (`--font-size-body-s`) | `--font-size/body/s` | Small body, tables |
 | `body-regular-xs` / `-semi-bold-xs` / `-italic-xs` | 11px (`--font-size-body-xs`) | `--font-size/body/xs` | Minimal body |
 
-All body classes use `--line-height-relaxed`.
+All body classes use `--line-height-relaxed`
 
-**When to use body:** Main reading content, form values, table data, descriptions.
+**When to use body:** Main reading content, form values, table data, descriptions
 
 ## Captions
 
-Use `--font-family-body`. Available in `regular` and `semi-bold` weights.
+Use `--font-family-body`. Available in `regular` and `semi-bold` weights
 
 | Class | Size | Figma variable | Usage |
 |-------|------|---------------|-------|
@@ -89,9 +89,9 @@ Use `--font-family-body`. Available in `regular` and `semi-bold` weights.
 | `caption-regular-s` / `caption-semi-bold-s` | 8px (`--font-size-caption-s`) | `--font-size/caption/s` | Small captions |
 | `caption-regular-xs` / `caption-semi-bold-xs` | — (`--font-size-caption-xs`) | — | Extra small captions |
 
-All caption classes use `--line-height-relaxed`.
+All caption classes use `--line-height-relaxed`
 
-**When to use captions:** Form labels, timestamps, metadata, badges, secondary information.
+**When to use captions:** Form labels, timestamps, metadata, badges, secondary information
 
 ## Semantic Usage Guide
 
@@ -120,4 +120,4 @@ All caption classes use `--line-height-relaxed`.
 
 ## HTML Reset
 
-Mercury resets `h1`..`h6` and `p` elements (font, margin, padding, color all unset). Always apply typography classes explicitly.
+Mercury resets `h1`..`h6` and `p` elements (font, margin, padding, color all unset). Always apply typography classes explicitly

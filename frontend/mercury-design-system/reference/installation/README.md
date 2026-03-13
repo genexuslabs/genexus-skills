@@ -13,6 +13,6 @@ Then follow the guide for your framework (all paths are local to this skill):
 - [Installation for Next.js (with Turbopack)](installation-for-nextjs.md)
 - [Installation for Stencil](installation-for-stencil.md)
 
-After installation, verify that all installed versions are mutually compatible by consulting the **[Compatibility table](compatibility.md)**. Always prefer the latest versions.
+After installation, verify that all installed versions are mutually compatible by consulting the **[Compatibility table](compatibility.md)**. Always prefer the latest versions
 
-Then use the **[Component → bundles table](../component-bundles-table.md)** and **[Bundles index](../bundles-index.md)** in this skill to choose CSS bundles and class names.
+Then use the **[Component → bundles table](../component-bundles-table.md)** and **[Bundles index](../bundles-index.md)** in this skill to choose CSS bundles and class names

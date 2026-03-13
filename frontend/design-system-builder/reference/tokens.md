@@ -8,11 +8,11 @@ Tier 2: Semantic Tokens    →  reference Tier 1 only
 Tier 1: Primitive Tokens   →  hold raw values
 ```
 
-**Rule:** Component → Semantic → Primitive → Raw value. NEVER skip tiers.
+**Rule:** Component → Semantic → Primitive → Raw value. NEVER skip tiers
 
 ## W3C DTCG Format
 
-Use the [Design Tokens Community Group](https://www.w3.org/community/design-tokens/) JSON schema.
+Use the [Design Tokens Community Group](https://www.w3.org/community/design-tokens/) JSON schema
 
 ### Tier 1 — Primitive (`tokens/primitive.json`)
 
@@ -96,10 +96,10 @@ Pattern: `{category}-{concept}-{property}-{variant}-{state}`
 | state | `-hover`, `-focus`, `-active`, `-disabled` |
 
 Rules:
-- Use kebab-case.
-- Category comes first for grouping.
-- Name by role, NEVER by appearance: `color-bg-primary` OK / `color-bg-blue` BAD.
-- States are always the last suffix.
+- Use kebab-case
+- Category comes first for grouping
+- Name by role, NEVER by appearance: `color-bg-primary` OK / `color-bg-blue` BAD
+- States are always the last suffix
 
 ## Mandatory Metadata Per Token
 
@@ -113,7 +113,7 @@ Every token MUST include:
 
 ## Token Categories by CSS Property
 
-**Critical rule:** Organize color tokens into 4 categories that match the CSS property they apply to. Never cross categories.
+**Critical rule:** Organize color tokens into 4 categories that match the CSS property they apply to. Never cross categories
 
 | CSS property | Token category | Pattern | Example |
 |-------------|----------------|---------|---------|
@@ -122,9 +122,9 @@ Every token MUST include:
 | `border`, `border-color`, `outline` | `border` | `--color-border-{sub}-{state}` | `--color-border-neutral-default` |
 | Icon `color` / `fill` | `icon` | `--color-icon-{sub}-{state}` | `--color-icon-neutral-default` |
 
-This separation ensures dark/light mode inversions work correctly and each CSS property can be independently themed.
+This separation ensures dark/light mode inversions work correctly and each CSS property can be independently themed
 
-See [Color System](design-foundations/color-system.md) for the complete color architecture.
+See [Color System](design-foundations/color-system.md) for the complete color architecture
 
 ## Interaction State Tokens
 
@@ -176,7 +176,7 @@ Define semantic icon size tokens (global, no bundle import required):
 | `--icon-xl` | 24px |
 | `--icon-xxl` | 32px |
 
-See [Icons System](design-foundations/icons-system.md) for class families and usage.
+See [Icons System](design-foundations/icons-system.md) for class families and usage
 
 ## Semantic Spacing Tokens
 
@@ -185,26 +185,26 @@ Define two spacing token families (global, no bundle import required):
 - **`--spacing-padding-*`** — For padding, margin, or any spatial property (xxs=2px through xxxl=32px)
 - **`--spacing-gap-*`** — For flex/grid gap (same scale)
 
-See [Spacing System](design-foundations/spacing-system.md) for the complete scale and usage.
+See [Spacing System](design-foundations/spacing-system.md) for the complete scale and usage
 
 ## Figma Token Fidelity
 
-> **HARD RULE**: The DS must not invent tokens beyond what is defined.
+> **HARD RULE**: The DS must not invent tokens beyond what is defined
 
 ### When a Figma Token Export Exists
 
 If the user provides a Figma token export (JSON, CSV, or via Figma Variables API):
 
-1. **Use exactly those tokens.** Every color, typography, border, and shadow token in the DS must trace back to the Figma export.
-2. **Never invent new color, typography, border-radius, or shadow tokens** that don't exist in the Figma export.
-3. **Spacing tokens may be added** if they follow the 4pt grid and fill a genuine gap in the scale (e.g., the Figma export doesn't define a 6px spacing but the DS needs it). Document the addition.
-4. **Component tokens (Tier 3)** may be created as aliases to Figma-defined semantic tokens — this is expected, not invention.
+1. **Use exactly those tokens.** Every color, typography, border, and shadow token in the DS must trace back to the Figma export
+2. **Never invent new color, typography, border-radius, or shadow tokens** that don't exist in the Figma export
+3. **Spacing tokens may be added** if they follow the 4pt grid and fill a genuine gap in the scale (e.g., the Figma export doesn't define a 6px spacing but the DS needs it). Document the addition
+4. **Component tokens (Tier 3)** may be created as aliases to Figma-defined semantic tokens — this is expected, not invention
 
 **Checklist before adding any token:**
-- [ ] Does this token exist in the Figma export? → Use it.
-- [ ] Is this a component alias to an existing semantic token? → Allowed (Tier 3).
-- [ ] Is this a spacing token on the 4pt grid? → Allowed if justified.
-- [ ] None of the above? → **Do not add it.** Ask the user.
+- [ ] Does this token exist in the Figma export? → Use it
+- [ ] Is this a component alias to an existing semantic token? → Allowed (Tier 3)
+- [ ] Is this a spacing token on the 4pt grid? → Allowed if justified
+- [ ] None of the above? → **Do not add it.** Ask the user
 
 ### When No Figma Export Exists
 
@@ -218,7 +218,7 @@ Follow the naming conventions and token categories defined in this document and 
 - **Border radius**: `--border-radius-{xxs|xs|s|m|l|xl}`
 - **Icon sizes**: `--icon-{xs|s|m|l|xl|xxl}`
 
-Do not invent tokens that break these patterns (e.g., a `--color-bg-special-accent` that doesn't fit the 4-category system).
+Do not invent tokens that break these patterns (e.g., a `--color-bg-special-accent` that doesn't fit the 4-category system)
 
 ## Token Distribution Pipeline
 

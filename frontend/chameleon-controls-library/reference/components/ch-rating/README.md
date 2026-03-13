@@ -17,36 +17,36 @@
 
 ## Overview
 
-The `ch-rating` component displays a star-based rating control that allows users to select a value from zero up to a configurable maximum number of stars.
+The `ch-rating` component displays a star-based rating control that allows users to select a value from zero up to a configurable maximum number of stars
 
 ## Features
- - Configurable number of stars.
- - Partial (fractional) star selection for averaged ratings.
- - Form-associated via `ElementInternals` for native form submissions.
- - Radio group pattern internally for full keyboard and screen reader accessibility.
+ - Configurable number of stars
+ - Partial (fractional) star selection for averaged ratings
+ - Form-associated via `ElementInternals` for native form submissions
+ - Radio group pattern internally for full keyboard and screen reader accessibility
 
 ## Use when
- - Product reviews, feedback forms, or satisfaction ratings are needed.
- - A visual quality rating is required.
- - Collecting subjective quality feedback (e.g., product reviews, content ratings).
- - Displaying aggregated star ratings alongside user-generated content.
+ - Product reviews, feedback forms, or satisfaction ratings are needed
+ - A visual quality rating is required
+ - Collecting subjective quality feedback (e.g., product reviews, content ratings)
+ - Displaying aggregated star ratings alongside user-generated content
 
 ## Do not use when
- - Simple numeric input is needed — prefer `ch-slider` instead.
- - Precise numeric input is needed — prefer `ch-slider` or `ch-edit` with `type="number"`.
- - The scale semantics are unclear to users without a legend explaining what each star means.
- - The rating is read-only / display-only — remove interactive behaviors and provide equivalent alt text.
+ - Simple numeric input is needed — prefer `ch-slider` instead
+ - Precise numeric input is needed — prefer `ch-slider` or `ch-edit` with `type="number"`
+ - The scale semantics are unclear to users without a legend explaining what each star means
+ - The rating is read-only / display-only — remove interactive behaviors and provide equivalent alt text
 
 ## Slots
- - No slots. All content is rendered internally.
+ - No slots. All content is rendered internally
 
 ## Accessibility
- - Form-associated via `ElementInternals` — participates in native form validation and submission.
- - Delegates focus into the shadow DOM (`delegatesFocus: true`).
- - The host receives `role="radiogroup"` set imperatively in `connectedCallback`.
- - Each star is a native `<input type="radio">`, so Arrow keys navigate between stars and Space selects the focused star.
- - Each radio input carries a hardcoded English `aria-label` describing its value (e.g. "3 stars").
- - Resolves its accessible name from an external `<label>` element or the `accessibleName` property.
+ - Form-associated via `ElementInternals` — participates in native form validation and submission
+ - Delegates focus into the shadow DOM (`delegatesFocus: true`)
+ - The host receives `role="radiogroup"` set imperatively in `connectedCallback`
+ - Each star is a native `<input type="radio">`, so Arrow keys navigate between stars and Space selects the focused star
+ - Each radio input carries a hardcoded English `aria-label` describing its value (e.g. "3 stars")
+ - Resolves its accessible name from an external `<label>` element or the `accessibleName` property
 
 ## Properties
 

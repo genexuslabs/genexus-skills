@@ -20,40 +20,40 @@
 
 ## Overview
 
-The `ch-checkbox` component is a form-associated checkbox control that allows users to toggle between checked, unchecked, and optionally indeterminate states.
+The `ch-checkbox` component is a form-associated checkbox control that allows users to toggle between checked, unchecked, and optionally indeterminate states
 
 ## Features
- - Tri-state support: checked, unchecked, and indeterminate.
- - Optional label and start images with multi-state support (hover, active, focus, disabled).
- - Read-only mode to prevent user modifications.
- - Form-associated via `ElementInternals` for native form participation.
- - Accessible name resolution from external `<label>` elements via `ElementInternals.labels`.
+ - Tri-state support: checked, unchecked, and indeterminate
+ - Optional label and start images with multi-state support (hover, active, focus, disabled)
+ - Read-only mode to prevent user modifications
+ - Form-associated via `ElementInternals` for native form participation
+ - Accessible name resolution from external `<label>` elements via `ElementInternals.labels`
 
 ## Use when
- - A binary or tri-state selection is needed in forms, settings panels, or tree views.
- - Multiple independent options can be selected from a list.
- - Filtering content where multiple criteria can apply simultaneously.
- - Batch operations in data tables (e.g., select-all rows).
- - Acknowledging terms or conditions before submitting a form.
+ - A binary or tri-state selection is needed in forms, settings panels, or tree views
+ - Multiple independent options can be selected from a list
+ - Filtering content where multiple criteria can apply simultaneously
+ - Batch operations in data tables (e.g., select-all rows)
+ - Acknowledging terms or conditions before submitting a form
 
 ## Do not use when
- - The semantics are closer to an on/off toggle — prefer `ch-switch` instead.
- - Only one option can be selected from a group — prefer `ch-radio-group-render` instead.
- - The change must take immediate effect without a confirmation step — prefer `ch-switch` instead.
- - The list of options exceeds 7 items — prefer `ch-combo-box-render` with multiple selection instead.
- - A single checkbox is used in isolation as a binary toggle for a live system setting — prefer `ch-switch`.
+ - The semantics are closer to an on/off toggle — prefer `ch-switch` instead
+ - Only one option can be selected from a group — prefer `ch-radio-group-render` instead
+ - The change must take immediate effect without a confirmation step — prefer `ch-switch` instead
+ - The list of options exceeds 7 items — prefer `ch-combo-box-render` with multiple selection instead
+ - A single checkbox is used in isolation as a binary toggle for a live system setting — prefer `ch-switch`
 
 ## Slots
-This component does not project any slots. All content is rendered from the `caption` and `startImgSrc` properties.
+This component does not project any slots. All content is rendered from the `caption` and `startImgSrc` properties
 
 ## Accessibility
- - Uses a native `<input type="checkbox">` internally, providing built-in ARIA semantics.
- - Form-associated via `ElementInternals` — participates in native form validation and submission.
- - Delegates focus into the shadow DOM (`delegatesFocus: true`), so clicking the host or an associated external `<label>` automatically focuses the internal input.
- - Resolves its accessible name from an external `<label>` element (via `ElementInternals.labels`) or the `accessibleName` property. The external label takes priority.
- - The decorative option overlay is hidden from assistive technology with `aria-hidden`.
- - Keyboard: Space toggles the checkbox (native `<input type="checkbox">` behavior). Tab moves focus in/out.
- - The `indeterminate` IDL property is set on the native input, so screen readers announce the mixed state.
+ - Uses a native `<input type="checkbox">` internally, providing built-in ARIA semantics
+ - Form-associated via `ElementInternals` — participates in native form validation and submission
+ - Delegates focus into the shadow DOM (`delegatesFocus: true`), so clicking the host or an associated external `<label>` automatically focuses the internal input
+ - Resolves its accessible name from an external `<label>` element (via `ElementInternals.labels`) or the `accessibleName` property. The external label takes priority
+ - The decorative option overlay is hidden from assistive technology with `aria-hidden`
+ - Keyboard: Space toggles the checkbox (native `<input type="checkbox">` behavior). Tab moves focus in/out
+ - The `indeterminate` IDL property is set on the native input, so screen readers announce the mixed state
 
 ## Properties
 

@@ -13,7 +13,7 @@
 
 ## Sizing Behavior
 
-> **Sizing behavior:** `ch-action-list-render` uses `contain: size`, which means the component does **not** contribute to its parent's intrinsic size. The parent must establish its own size through layout. If the parent has no size, the component will be invisible.
+> **Sizing behavior:** `ch-action-list-render` uses `contain: size`, which means the component does **not** contribute to its parent's intrinsic size. The parent must establish its own size through layout. If the parent has no size, the component will be invisible
 >
 > The recommended approach is to place the component inside a grid or flex container that already has a defined size:
 >
@@ -139,7 +139,7 @@
 
 ### Selectable List with Hover Effects
 
-A polished list with hover and selection states.
+A polished list with hover and selection states
 
 ```css
 ch-action-list-render::part(item__action) {
@@ -160,7 +160,7 @@ ch-action-list-render::part(item__action selected) {
 
 ### Checkbox List Styling
 
-Style the checkbox items within the list.
+Style the checkbox items within the list
 
 ```css
 ch-action-list-render::part(item__checkbox) {
@@ -177,7 +177,7 @@ ch-action-list-render::part(item__action) {
 
 ### Grouped List with Expandable Sections
 
-Style group headers and their expandable containers.
+Style group headers and their expandable containers
 
 ```css
 ch-action-list-render {
@@ -241,20 +241,20 @@ ch-action-list-render::part(item__action) {
 }
 ```
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-action-list__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-action-list::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-action-list__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-action-list::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented

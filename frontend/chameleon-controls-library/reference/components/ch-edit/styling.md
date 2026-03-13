@@ -179,7 +179,7 @@ ch-edit[multiline]:focus-within {
 
 ### Setting `display: none` to hide the component
 
-Avoid `display: none` on `ch-edit` because it breaks the internal grid layout when the element becomes visible again. Use the `hidden` attribute or `visibility: hidden` instead.
+Avoid `display: none` on `ch-edit` because it breaks the internal grid layout when the element becomes visible again. Use the `hidden` attribute or `visibility: hidden` instead
 
 ```css
 /* Avoid */
@@ -196,7 +196,7 @@ ch-edit[hidden] {
 
 ### Overriding internal element styles with `!important`
 
-The component uses shadow DOM, so external selectors cannot reach internal elements. Using `!important` on the host to force inherited styles can conflict with auto-fill detection and internal grid layouts. Use CSS custom properties and `::part()` selectors instead.
+The component uses shadow DOM, so external selectors cannot reach internal elements. Using `!important` on the host to force inherited styles can conflict with auto-fill detection and internal grid layouts. Use CSS custom properties and `::part()` selectors instead
 
 ```css
 /* Avoid */
@@ -212,7 +212,7 @@ ch-edit {
 
 ### Using placeholder as a label
 
-Never rely on `--ch-placeholder-color` and the `placeholder` property as a substitute for a visible `<label>`. Placeholders disappear when the user types and are not reliably announced by all screen readers.
+Never rely on `--ch-placeholder-color` and the `placeholder` property as a substitute for a visible `<label>`. Placeholders disappear when the user types and are not reliably announced by all screen readers
 
 ```html
 <!-- Avoid -->
@@ -227,18 +227,18 @@ Never rely on `--ch-placeholder-color` and the `placeholder` property as a subst
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-edit__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-edit::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-edit__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-edit::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented
 
 ---
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)

@@ -8,7 +8,7 @@
 
 ## Overview
 
-The `ch-tabular-grid-actionbar` component represents a container for a grid actions.
+The `ch-tabular-grid-actionbar` component represents a container for a grid actions
 
 ----------------------------------------------
 

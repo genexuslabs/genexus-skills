@@ -9,4 +9,4 @@ type MercuryChatMessageMetadata = {
 };
 ```
 
-Type for chat message metadata when using Mercury’s chat render. Use with Chameleon chat’s message metadata handling.
+Type for chat message metadata when using Mercury’s chat render. Use with Chameleon chat’s message metadata handling

@@ -8,12 +8,12 @@
 
 ## 1. Preparation
 
-> [!IMPORTANT]  
-> This guide assumes you are using Mercury >= `0.36.0`, which is the minimum version for using the `@genexus/mercury-cli` package.
+> [!IMPORTANT]
+> This guide assumes you are using Mercury >= `0.36.0`, which is the minimum version for using the `@genexus/mercury-cli` package
 
 ### 1.1. Decide the assets paths
 
-First of all, you must decide the paths where the CSS bundles, font assets, and icon set will be contained in the `dist` folder of your final application. Keep them noted down, as we will refer to them in the next steps.
+First of all, you must decide the paths where the CSS bundles, font assets, and icon set will be contained in the `dist` folder of your final application. Keep them noted down, as we will refer to them in the next steps
 
 We will refer to those paths with the following names:
 
@@ -25,9 +25,9 @@ We will refer to those paths with the following names:
 
 ### 1.2. Build Mercury before starting dev server or prod builds
 
-1. If you haven't already, install Mercury and Chameleon: `npm i @genexus/chameleon-controls-library @genexus/mercury`.
+1. If you haven't already, install Mercury and Chameleon: `npm i @genexus/chameleon-controls-library @genexus/mercury`
 
-2. Install the `@genexus/mercury-cli` devDependency that automates the Mercury setup process.
+2. Install the `@genexus/mercury-cli` devDependency that automates the Mercury setup process
 
    ```bash
    npm i --save-dev @genexus/mercury-cli
@@ -45,9 +45,9 @@ We will refer to those paths with the following names:
    }
    ```
 
-4. Run the `build` script to execute `build.mercury`.
+4. Run the `build` script to execute `build.mercury`
 
-> [NOTE] The `mercury` command builds the Mercury assets for the design system. See the mercury-cli package documentation for full CLI flags.
+> [NOTE] The `mercury` command builds the Mercury assets for the design system. See the mercury-cli package documentation for full CLI flags
 
 If `build.mercury` successfully generates the assets, you will find the following folders under your project root:
 
@@ -121,9 +121,9 @@ To confirm that the assets have been copied successfully, build your project. Th
 
 ### 3.1. Import declarations
 
-Include the required imports at the application's entry point to properly configure and bootstrap Mercury with Chameleon.
+Include the required imports at the application's entry point to properly configure and bootstrap Mercury with Chameleon
 
-> NOTE In the following code, Angular bootstrap is commented so we can focus on Mercury and Chameleon.
+> NOTE In the following code, Angular bootstrap is commented so we can focus on Mercury and Chameleon
 
 `src/main.ts`
 
@@ -159,11 +159,11 @@ defineCustomElements(window);
 // bootstrapApplication(App, appConfig).catch(err => console.error(err));
 ```
 
-> [!IMPORTANT] `setBundleMapping` and `bundleToHashMappings` must be included before using any Mercury or Chameleon utilities.
+> [!IMPORTANT] `setBundleMapping` and `bundleToHashMappings` must be included before using any Mercury or Chameleon utilities
 
 ### 3.2. Include a CSS loader service
 
-This service dynamically loads two essential CSS bundles: `base-<hash>.css` and `icons-<hash>.css`. These contain the core CSS tokens (variables) used across all components, as well as icon styles.
+This service dynamically loads two essential CSS bundles: `base-<hash>.css` and `icons-<hash>.css`. These contain the core CSS tokens (variables) used across all components, as well as icon styles
 
 `src/app/services/css-loader.service.ts`
 
@@ -196,7 +196,7 @@ export class CssLoaderService {
 
 ### 3.3. Set the dark/light mode
 
-Mercury supports both dark and light modes. Add the `light` or `dark` class on the `<html>` tag in `index.html`.
+Mercury supports both dark and light modes. Add the `light` or `dark` class on the `<html>` tag in `index.html`
 
 **Dark theme** — `index.html`
 
@@ -220,7 +220,7 @@ Mercury supports both dark and light modes. Add the `light` or `dark` class on t
 
 ### 3.4. Creating your components
 
-Example: a simple component that uses Mercury bundles and `ch-theme`.
+Example: a simple component that uses Mercury bundles and `ch-theme`
 
 `src/app/custom-dialog/custom-dialog.component.ts` (example component)
 
@@ -258,7 +258,7 @@ export class CustomDialogComponent {
 }
 ```
 
-**Code explained:** The component uses `getBundles` to get the button and icon bundles, and `getIconPath` for the icon source. `ch-theme` applies the CSS bundles. Use the **Component → bundles table** in this skill to choose which bundles to request per component; use the **Bundles index** for class names.
+**Code explained:** The component uses `getBundles` to get the button and icon bundles, and `getIconPath` for the icon source. `ch-theme` applies the CSS bundles. Use the **Component → bundles table** in this skill to choose which bundles to request per component; use the **Bundles index** for class names
 
 `src/app/app.ts`
 
@@ -306,4 +306,4 @@ Expected structure:
 
 ## Next steps
 
-Use the **Component → Mercury CSS bundles table** and **Bundles index** in this skill to choose the right bundles and CSS classes for each Chameleon component you use.
+Use the **Component → Mercury CSS bundles table** and **Bundles index** in this skill to choose the right bundles and CSS classes for each Chameleon component you use

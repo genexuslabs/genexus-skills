@@ -20,32 +20,32 @@
 
 ## Overview
 
-The `ch-navigation-list-render` component renders a hierarchical navigation menu composed of expandable items that can act as hyperlinks or buttons.
+The `ch-navigation-list-render` component renders a hierarchical navigation menu composed of expandable items that can act as hyperlinks or buttons
 
 ## Features
- - Nested items supported to any depth, each with optional start image, caption, and expandable indicator.
- - Automatic synchronization with ancestor `ch-sidebar` expand/collapse events.
- - Auto-expand ancestors of the selected link when `expandSelectedLink` is enabled.
- - Configurable expandable button style (`decorative` or `no`) and position (`start` or `end`).
- - Selected link indicator for hyperlink items.
- - Caption display on collapse via inline text or tooltip.
- - Custom item rendering through the `renderItem` callback.
+ - Nested items supported to any depth, each with optional start image, caption, and expandable indicator
+ - Automatic synchronization with ancestor `ch-sidebar` expand/collapse events
+ - Auto-expand ancestors of the selected link when `expandSelectedLink` is enabled
+ - Configurable expandable button style (`decorative` or `no`) and position (`start` or `end`)
+ - Selected link indicator for hyperlink items
+ - Caption display on collapse via inline text or tooltip
+ - Custom item rendering through the `renderItem` callback
 
 ## Use when
- - Building primary or secondary navigation menus inside a sidebar, dashboard shell, or settings page.
- - Primary or secondary sidebar navigation that changes what is rendered in the main content area.
- - Indicating the user's current location within the application.
+ - Building primary or secondary navigation menus inside a sidebar, dashboard shell, or settings page
+ - Primary or secondary sidebar navigation that changes what is rendered in the main content area
+ - Indicating the user's current location within the application
 
 ## Do not use when
- - Displaying flat, non-hierarchical link lists -- a simple `<ul>` would suffice.
- - Displaying tree-structured data that requires checkboxes, drag-and-drop, or inline editing -- prefer `ch-tree-view-render` instead.
- - Displaying hierarchical data structures like file trees — prefer `ch-tree-view-render`.
- - Contextual actions on items — prefer `ch-action-list-render` or `ch-action-menu-render`.
- - Navigation depth regularly exceeds 2 levels — consider a `ch-tree-view-render` or separate pages.
+ - Displaying flat, non-hierarchical link lists -- a simple `<ul>` would suffice
+ - Displaying tree-structured data that requires checkboxes, drag-and-drop, or inline editing -- prefer `ch-tree-view-render` instead
+ - Displaying hierarchical data structures like file trees — prefer `ch-tree-view-render`
+ - Contextual actions on items — prefer `ch-action-list-render` or `ch-action-menu-render`
+ - Navigation depth regularly exceeds 2 levels — consider a `ch-tree-view-render` or separate pages
 
 ## Accessibility
- - The host element has `role="list"`.
- - Expandable items use disclosure semantics so assistive technology can convey hierarchy.
+ - The host element has `role="list"`
+ - Expandable items use disclosure semantics so assistive technology can convey hierarchy
 
 ## Properties
 

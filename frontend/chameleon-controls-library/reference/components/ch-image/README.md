@@ -15,28 +15,28 @@
 
 ## Overview
 
-The `ch-image` component renders a multi-state image that automatically reflects the interactive state of its parent container.
+The `ch-image` component renders a multi-state image that automatically reflects the interactive state of its parent container
 
 ## Features
- - Visual appearance changes in response to parent state (hover, focus, active, disabled) via CSS custom properties (`--ch-start-img--base`, `--ch-start-img--hover`, etc.).
- - Image source resolved via a configurable callback (`getImagePathCallback`) or a globally registered resolver from the control registry.
- - Supports `"background"` (background-image) and `"mask"` (mask-image with `currentColor`) rendering modes.
- - Sets a `data-ch-image` attribute on its container element so parent-state CSS selectors can drive image state transitions.
- - Renders as a purely decorative element (`aria-hidden="true"`).
+ - Visual appearance changes in response to parent state (hover, focus, active, disabled) via CSS custom properties (`--ch-start-img--base`, `--ch-start-img--hover`, etc.)
+ - Image source resolved via a configurable callback (`getImagePathCallback`) or a globally registered resolver from the control registry
+ - Supports `"background"` (background-image) and `"mask"` (mask-image with `currentColor`) rendering modes
+ - Sets a `data-ch-image` attribute on its container element so parent-state CSS selectors can drive image state transitions
+ - Renders as a purely decorative element (`aria-hidden="true"`)
 
 ## Use when
- - Displaying icons inside buttons, menu items, or any interactive element where the image must reflect the element's current state.
- - An icon or image needs to visually respond to the interactive state of its parent (hover, focus, active, disabled).
- - You need a monochrome icon that inherits the parent's text color — use `type="mask"`.
+ - Displaying icons inside buttons, menu items, or any interactive element where the image must reflect the element's current state
+ - An icon or image needs to visually respond to the interactive state of its parent (hover, focus, active, disabled)
+ - You need a monochrome icon that inherits the parent's text color — use `type="mask"`
 
 ## Do not use when
- - You need a standalone, non-interactive image display — use a native `<img>` element directly.
- - A static, non-state-reactive image is needed.
- - The image conveys meaningful content that requires alt text — this component is always `aria-hidden`.
+ - You need a standalone, non-interactive image display — use a native `<img>` element directly
+ - A static, non-state-reactive image is needed
+ - The image conveys meaningful content that requires alt text — this component is always `aria-hidden`
 
 ## Accessibility
- - The host is marked `aria-hidden="true"` — this is a decorative element hidden from assistive technology.
- - Do not use this component for images that convey meaning; use a native `<img>` with `alt` text instead.
+ - The host is marked `aria-hidden="true"` — this is a decorative element hidden from assistive technology
+ - Do not use this component for images that convey meaning; use a native `<img>` with `alt` text instead
 
 ## Properties
 

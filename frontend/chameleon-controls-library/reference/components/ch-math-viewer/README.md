@@ -16,24 +16,24 @@
 
 ## Overview
 
-The `ch-math-viewer` component renders LaTeX math expressions as accessible, high-quality typeset mathematics using [KaTeX](https://katex.org/).
+The `ch-math-viewer` component renders LaTeX math expressions as accessible, high-quality typeset mathematics using [KaTeX](https://katex.org/)
 
 ## Features
- - Accepts LaTeX blocks delimited by `$$`, `\[...\]`, `\(...\)`, or bare expressions.
- - Supports both block and inline display modes via the `displayMode` property (reflected as an HTML attribute for CSS targeting).
- - Multi-paragraph support: paragraphs separated by blank lines are rendered as individual math blocks.
- - Graceful error handling: on parse failure, renders raw source text in a `<span part="error">` with the error message exposed via `aria-description` and `title`.
- - Accessible output via `htmlAndMathml` rendering.
+ - Accepts LaTeX blocks delimited by `$$`, `\[...\]`, `\(...\)`, or bare expressions
+ - Supports both block and inline display modes via the `displayMode` property (reflected as an HTML attribute for CSS targeting)
+ - Multi-paragraph support: paragraphs separated by blank lines are rendered as individual math blocks
+ - Graceful error handling: on parse failure, renders raw source text in a `<span part="error">` with the error message exposed via `aria-description` and `title`
+ - Accessible output via `htmlAndMathml` rendering
 
 ## Use when
- - Displaying mathematical formulas, equations, or scientific notation.
+ - Displaying mathematical formulas, equations, or scientific notation
 
 ## Do not use when
- - Rendering general rich-text content that may include math. Prefer `ch-markdown-viewer` instead.
+ - Rendering general rich-text content that may include math. Prefer `ch-markdown-viewer` instead
 
 ## Accessibility
- - KaTeX renders both HTML and MathML output, allowing assistive technology to read mathematical expressions natively.
- - Error spans carry `aria-description` and `title` attributes describing the parsing error, so screen readers can announce what went wrong.
+ - KaTeX renders both HTML and MathML output, allowing assistive technology to read mathematical expressions natively
+ - Error spans carry `aria-description` and `title` attributes describing the parsing error, so screen readers can announce what went wrong
 
 ## Configuration Required
 

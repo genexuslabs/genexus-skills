@@ -1,6 +1,6 @@
 # Patterns Default Associated
 
-Icons indicating automatic pattern associations and synchronization states.
+Icons indicating automatic pattern associations and synchronization states
 
 **Type:** Multicolor
 

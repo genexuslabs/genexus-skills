@@ -10,7 +10,7 @@
 
 ## Overview
 
-The `ch-tabular-grid-action-settings` component represents a settings button for a grid action bar.
+The `ch-tabular-grid-action-settings` component represents a settings button for a grid action bar
 
 ## Properties
 

@@ -1,6 +1,6 @@
 # Controls
 
-UI control icons representing buttons, input fields, dropdowns, grids, and other interactive interface elements.
+UI control icons representing buttons, input fields, dropdowns, grids, and other interactive interface elements
 
 **Type:** Multicolor
 

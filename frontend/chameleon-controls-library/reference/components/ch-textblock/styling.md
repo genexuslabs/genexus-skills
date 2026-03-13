@@ -13,7 +13,7 @@
 
 ## Sizing Behavior
 
-> **Sizing behavior:** `ch-textblock` uses `contain: size` when `autoGrow = false` (the default), which means it does **not** contribute to its parent's intrinsic size. The parent must establish its own size through layout. If the parent has no size, the component will be invisible.
+> **Sizing behavior:** `ch-textblock` uses `contain: size` when `autoGrow = false` (the default), which means it does **not** contribute to its parent's intrinsic size. The parent must establish its own size through layout. If the parent has no size, the component will be invisible
 >
 > Set `autoGrow` to `true` to let the component size to its content, or place the component inside a grid or flex container that already has a defined size:
 >
@@ -64,7 +64,7 @@
 
 ### Basic text block with line clamping
 
-Constrain the host height and the component automatically calculates how many lines to display with ellipsis truncation.
+Constrain the host height and the component automatically calculates how many lines to display with ellipsis truncation
 
 ```css
 ch-textblock {
@@ -87,7 +87,7 @@ ch-textblock {
 
 ### Heading-style text block
 
-Use the `accessibleRole` property for semantics and style the host with heading typography.
+Use the `accessibleRole` property for semantics and style the host with heading typography
 
 ```css
 ch-textblock[accessible-role="h1"] {
@@ -105,7 +105,7 @@ ch-textblock[accessible-role="h2"] {
 
 ### Auto-grow mode with max height fallback
 
-When `autoGrow` is enabled the component expands to fit content. Add a `max-block-size` to prevent unbounded growth.
+When `autoGrow` is enabled the component expands to fit content. Add a `max-block-size` to prevent unbounded growth
 
 ```css
 ch-textblock {
@@ -116,28 +116,28 @@ ch-textblock {
 
 ## Anti-patterns
 
-1. **Do not manually set `--ch-textblock-displayed-lines` or `--ch-textblock-line-height`.** These custom properties are computed at runtime by an internal `ResizeObserver`. Overriding them will conflict with the component's calculations and produce broken truncation.
+1. **Do not manually set `--ch-textblock-displayed-lines` or `--ch-textblock-line-height`.** These custom properties are computed at runtime by an internal `ResizeObserver`. Overriding them will conflict with the component's calculations and produce broken truncation
 
-2. **Do not apply `overflow: hidden` on the host element.** The component already handles overflow and line clamping internally. Adding `overflow: hidden` on the host can interfere with the resize observer measurements and the ellipsis rendering.
+2. **Do not apply `overflow: hidden` on the host element.** The component already handles overflow and line clamping internally. Adding `overflow: hidden` on the host can interfere with the resize observer measurements and the ellipsis rendering
 
-3. **Do not use `text-overflow: ellipsis` on the host.** The component implements multi-line ellipsis via `-webkit-line-clamp` internally. Adding `text-overflow` on the host has no effect on multi-line content and may cause confusion.
+3. **Do not use `text-overflow: ellipsis` on the host.** The component implements multi-line ellipsis via `-webkit-line-clamp` internally. Adding `text-overflow` on the host has no effect on multi-line content and may cause confusion
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-textblock__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-textblock::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-textblock__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-textblock::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented
 
 ---
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)

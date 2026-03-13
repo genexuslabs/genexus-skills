@@ -24,30 +24,30 @@
 
 ## Overview
 
-The `ch-smart-grid` component is an accessible grid layout for data-driven applications that require infinite scrolling, virtual rendering, and dynamic content loading.
+The `ch-smart-grid` component is an accessible grid layout for data-driven applications that require infinite scrolling, virtual rendering, and dynamic content loading
 
 ## Features
- - Infinite scrolling via `ch-infinite-scroll` integration with configurable thresholds.
- - Standard and inverse loading orders (newest items at the bottom or top).
- - Automatic scroll-position management to prevent layout shifts (CLS) during async content loads.
- - Anchor a specific cell at the top of the viewport with reserved space, similar to code editors (via `scrollEndContentToPosition`).
- - Auto-grow mode (`autoGrow`) to adjust size to content, or fixed size with scrollbars.
- - ARIA live-region support for accessible announcements.
- - Virtual-scroller integration for rendering only visible items.
+ - Infinite scrolling via `ch-infinite-scroll` integration with configurable thresholds
+ - Standard and inverse loading orders (newest items at the bottom or top)
+ - Automatic scroll-position management to prevent layout shifts (CLS) during async content loads
+ - Anchor a specific cell at the top of the viewport with reserved space, similar to code editors (via `scrollEndContentToPosition`)
+ - Auto-grow mode (`autoGrow`) to adjust size to content, or fixed size with scrollbars
+ - ARIA live-region support for accessible announcements
+ - Virtual-scroller integration for rendering only visible items
 
 ## Use when
- - Building chat-like interfaces with inverse loading.
- - Displaying large, dynamically loaded data sets with virtual scrolling.
- - Infinite-scroll or paginated feeds with bottom-to-top inverse loading (e.g., chat, activity streams).
+ - Building chat-like interfaces with inverse loading
+ - Displaying large, dynamically loaded data sets with virtual scrolling
+ - Infinite-scroll or paginated feeds with bottom-to-top inverse loading (e.g., chat, activity streams)
 
 ## Do not use when
- - Displaying static tabular data with columns and headers -- use `ch-tabular-grid` instead.
- - A fixed, non-scrollable list is sufficient -- prefer `ch-action-list-render`.
+ - Displaying static tabular data with columns and headers -- use `ch-tabular-grid` instead
+ - A fixed, non-scrollable list is sufficient -- prefer `ch-action-list-render`
 
 ## Accessibility
- - The host element uses `aria-live="polite"` to announce content changes to assistive technologies.
- - `aria-busy` is set to `"true"` during `"initial"` and `"loading"` states, preventing premature announcements.
- - The `accessibleName` property maps to `aria-label` on the host.
+ - The host element uses `aria-live="polite"` to announce content changes to assistive technologies
+ - `aria-busy` is set to `"true"` during `"initial"` and `"loading"` states, preventing premature announcements
+ - The `accessibleName` property maps to `aria-label` on the host
 
 ## Properties
 
@@ -72,7 +72,7 @@ The `ch-smart-grid` component is an accessible grid layout for data-driven appli
 
 ### `removeScrollEndContentReference() => Promise<void>`
 
-Removes the cell reference that is aligned at the start of the viewport.
+Removes the cell reference that is aligned at the start of the viewport
 
 In other words, removes the reserved space that is used to aligned
 `scrollEndContentToPosition(cellId, { position: "start" })`
@@ -84,15 +84,15 @@ Type: `Promise<void>`
 ### `scrollEndContentToPosition(cellId: string, options: { position: "start" | "end"; behavior?: ScrollBehavior; }) => Promise<void>`
 
 Scrolls the grid so that the cell identified by `cellId` is aligned at
-the `"start"` or `"end"` of the viewport.
+the `"start"` or `"end"` of the viewport
 
 When `position === "start"`, the component reserves extra space after
 the last cell (similar to how the Monaco editor reserves space for the
 last lines) to keep the anchor cell visible at the top even when there
-is not enough content below it.
+is not enough content below it
 
 The reserved space is automatically recalculated as cells are added or
-removed. Call `removeScrollEndContentReference()` to clear the anchor.
+removed. Call `removeScrollEndContentReference()` to clear the anchor
 
 #### Parameters
 

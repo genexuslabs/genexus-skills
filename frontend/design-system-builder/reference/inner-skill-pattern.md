@@ -1,6 +1,6 @@
 # Inner Skill Pattern
 
-Every DS built with this builder MUST include a vibe-code skill inside `docs/` that enables AI agents and developers to use the DS. This follows the reference pattern defined below.
+Every DS built with this builder MUST include a vibe-code skill inside `docs/` that enables AI agents and developers to use the DS. This follows the reference pattern defined below
 
 ## File Structure
 
@@ -254,10 +254,10 @@ npm install @{ds-name}/design-system @genexus/chameleon-controls-library
 
 The inner skill's `icons-system.md` must document more than just size tokens and color tokens. It should also cover:
 
-1. **Icon resolver setup** — How the DS registers its `getImagePathCallback` via `registryProperty` during installation, and the fallback behavior for custom icons.
-2. **Available icon keys** — A table of all icon keys the DS provides (the short strings consumers pass to `startImgSrc`, `ch-image src`, etc.).
-3. **Rendering mode guidance** — When to use `type="mask"` (monochrome, themeable) vs `type="background"` (multicolor).
-4. **Icons in component models** — How to use `startImgSrc`/`endImgSrc` + `startImgType`/`endImgType` with the DS's icon keys.
+1. **Icon resolver setup** — How the DS registers its `getImagePathCallback` via `registryProperty` during installation, and the fallback behavior for custom icons
+2. **Available icon keys** — A table of all icon keys the DS provides (the short strings consumers pass to `startImgSrc`, `ch-image src`, etc.)
+3. **Rendering mode guidance** — When to use `type="mask"` (monochrome, themeable) vs `type="background"` (multicolor)
+4. **Icons in component models** — How to use `startImgSrc`/`endImgSrc` + `startImgType`/`endImgType` with the DS's icon keys
 
 ## When to Update the Inner Skill
 

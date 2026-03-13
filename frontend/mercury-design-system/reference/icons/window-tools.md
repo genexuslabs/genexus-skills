@@ -1,6 +1,6 @@
 # Window Tools
 
-Development environment tool icons for workspace management, debugging, and configuration.
+Development environment tool icons for workspace management, debugging, and configuration
 
 **Type:** Monochrome
 

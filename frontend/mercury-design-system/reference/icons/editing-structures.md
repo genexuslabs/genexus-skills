@@ -1,6 +1,6 @@
 # Editing Structures
 
-Icons for data structure creation and modification, representing attributes, formulas, keys, and indexes.
+Icons for data structure creation and modification, representing attributes, formulas, keys, and indexes
 
 **Type:** Multicolor
 

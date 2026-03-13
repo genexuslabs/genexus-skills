@@ -114,7 +114,7 @@
 
 ### Underline Tab Indicator
 
-Add a bottom border indicator for the selected tab.
+Add a bottom border indicator for the selected tab
 
 ```css
 ch-tab-render::part(tab) {
@@ -131,7 +131,7 @@ ch-tab-render::part(tab selected) {
 
 ### Pill-Shaped Tabs
 
-Create rounded, pill-style tab buttons.
+Create rounded, pill-style tab buttons
 
 ```css
 ch-tab-render::part(tab) {
@@ -150,7 +150,7 @@ ch-tab-render::part(tab selected) {
 
 ### Vertical Tab Styling
 
-Style tabs when using an inline (vertical) tab list position.
+Style tabs when using an inline (vertical) tab list position
 
 ```css
 ch-tab-render::part(tab) {
@@ -167,7 +167,7 @@ ch-tab-render::part(tab selected) {
 
 ### Focus Ring
 
-Add a visible focus ring for keyboard navigation.
+Add a visible focus ring for keyboard navigation
 
 ```css
 ch-tab-render::part(tab):focus-visible {
@@ -178,7 +178,7 @@ ch-tab-render::part(tab):focus-visible {
 
 ### Tab List Background
 
-Style the tab list container to create a toolbar appearance.
+Style the tab list container to create a toolbar appearance
 
 ```css
 ch-tab-render::part(tab-list) {
@@ -229,20 +229,20 @@ ch-tab-render::part(tab-panel) {
 /* CORRECT - let the component manage panel visibility via selectedId */
 ```
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-tab__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-tab::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-tab__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-tab::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented

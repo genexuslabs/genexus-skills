@@ -25,8 +25,8 @@ Apply to EVERY interactive element:
 }
 ```
 
-- Use `:focus-visible` (NOT `:focus`) — shows outline only on keyboard navigation.
-- Negative offset prevents layout shift.
+- Use `:focus-visible` (NOT `:focus`) — shows outline only on keyboard navigation
+- Negative offset prevents layout shift
 
 ## Reduced Motion
 
@@ -65,14 +65,14 @@ Use `--control-block-size` to guarantee minimum 24x24 px targets:
 }
 ```
 
-Add `touch-action: manipulation` to all interactive elements.
+Add `touch-action: manipulation` to all interactive elements
 
 ## Typography
 
-- Use `rem` for all font sizes.
-- Use `round(1em * var(--line-height-relaxed), 1px)` for pixel rounding.
-- Use logical properties for RTL support.
-- Keep line length at 65-75 characters for readability.
+- Use `rem` for all font sizes
+- Use `round(1em * var(--line-height-relaxed), 1px)` for pixel rounding
+- Use logical properties for RTL support
+- Keep line length at 65-75 characters for readability
 
 ## Form Accessibility Pattern
 
@@ -88,13 +88,13 @@ Add `touch-action: manipulation` to all interactive elements.
 
 ## Dialog Accessibility
 
-- `ch-dialog` handles focus trap natively via the `modal` prop.
-- `closable` prop enables Escape to close.
-- ALWAYS set `close-button-accessible-name`.
-- Return focus to the trigger element when dialog closes.
+- `ch-dialog` handles focus trap natively via the `modal` prop
+- `closable` prop enables Escape to close
+- ALWAYS set `close-button-accessible-name`
+- Return focus to the trigger element when dialog closes
 
 ## Navigation Accessibility
 
-- Use HTML landmarks: `<nav>`, `<main>`, `<aside>`, `<header>`, `<footer>`.
-- Provide skip links (hidden until focused).
-- Chameleon handles `aria-expanded` (accordion/tree) and `aria-selected` (tabs) natively.
+- Use HTML landmarks: `<nav>`, `<main>`, `<aside>`, `<header>`, `<footer>`
+- Provide skip links (hidden until focused)
+- Chameleon handles `aria-expanded` (accordion/tree) and `aria-selected` (tabs) natively

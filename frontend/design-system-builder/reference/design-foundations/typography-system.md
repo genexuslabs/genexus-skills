@@ -1,8 +1,8 @@
 # Typography System
 
-How to define a complete typography system for a design system.
+How to define a complete typography system for a design system
 
-> **Note:** The size values in this guide are recommended ranges. Each DS defines exact values within these ranges based on its brand and design requirements (e.g., a DS might set `heading-1` at 40px within the suggested 36-40px range).
+> **Note:** The size values in this guide are recommended ranges. Each DS defines exact values within these ranges based on its brand and design requirements (e.g., a DS might set `heading-1` at 40px within the suggested 36-40px range)
 
 ## Typography Roles
 
@@ -34,7 +34,7 @@ Define two font family tokens:
 | Header family | `var(--font-family-header)` | `heading-*`, `subtitle-*` |
 | Body family | `var(--font-family-body)` | `body-*`, `caption-*` |
 
-These can be the same typeface or different typefaces depending on the brand.
+These can be the same typeface or different typefaces depending on the brand
 
 ## Font Weight Scale
 
@@ -46,7 +46,7 @@ Define a weight scale with CSS variables:
 | `var(--font-style-semi-bold)` | 500-600 | Emphasis, labels |
 | `var(--font-style-bold)` | 600-700 | Headings, strong emphasis |
 
-**Figma font-weight discrepancy:** Figma may display font-weights differently than production rendering. Document the exact mapping between Figma values and production values for each typeface. A common pattern is Figma showing +100 higher than production. Never copy Figma font-weight values literally — always use the DS's typography classes or CSS variables.
+**Figma font-weight discrepancy:** Figma may display font-weights differently than production rendering. Document the exact mapping between Figma values and production values for each typeface. A common pattern is Figma showing +100 higher than production. Never copy Figma font-weight values literally — always use the DS's typography classes or CSS variables
 
 ## Line Height Tokens
 
@@ -60,7 +60,7 @@ Define 3 line-height tokens for different density needs:
 
 ## Headings
 
-Always bold weight, tight line-height, header font family.
+Always bold weight, tight line-height, header font family
 
 | Class | Typical size | Usage |
 |-------|-------------|-------|
@@ -71,11 +71,11 @@ Always bold weight, tight line-height, header font family.
 | `heading-5` | 18-20px | Minor headings |
 | `heading-6` | 16-18px | Minimal headings |
 
-Define font-size tokens for each: `--font-size-header-h1` through `--font-size-header-h6`.
+Define font-size tokens for each: `--font-size-header-h1` through `--font-size-header-h6`
 
 ## Subtitles
 
-Header font family. Available in `regular` and `semi-bold` weights.
+Header font family. Available in `regular` and `semi-bold` weights
 
 | Size | Typical px | Line-height | Usage |
 |------|-----------|-------------|-------|
@@ -87,7 +87,7 @@ Header font family. Available in `regular` and `semi-bold` weights.
 
 ## Body
 
-Body font family. Available in `regular`, `semi-bold`, and `italic` weights.
+Body font family. Available in `regular`, `semi-bold`, and `italic` weights
 
 | Size | Typical px | Usage |
 |------|-----------|-------|
@@ -97,11 +97,11 @@ Body font family. Available in `regular`, `semi-bold`, and `italic` weights.
 | `s` | 11-12px | Small body, dense tables |
 | `xs` | 10-11px | Minimal body |
 
-All body classes use relaxed line-height.
+All body classes use relaxed line-height
 
 ## Captions
 
-Body font family. Available in `regular` and `semi-bold` weights.
+Body font family. Available in `regular` and `semi-bold` weights
 
 | Size | Typical px | Usage |
 |------|-----------|-------|
@@ -110,7 +110,7 @@ Body font family. Available in `regular` and `semi-bold` weights.
 | `s` | 8-9px | Small captions, badges |
 | `xs` | 7-8px | Extra small captions |
 
-All caption classes use relaxed line-height.
+All caption classes use relaxed line-height
 
 ## Semantic Usage Guide
 
@@ -139,7 +139,7 @@ All caption classes use relaxed line-height.
 
 ## HTML Reset
 
-The DS should reset `h1`..`h6` and `p` elements (unset font, margin, padding, color). Typography classes must always be applied explicitly — never rely on browser defaults.
+The DS should reset `h1`..`h6` and `p` elements (unset font, margin, padding, color). Typography classes must always be applied explicitly — never rely on browser defaults
 
 ## Figma Text Style Mapping
 
@@ -147,7 +147,7 @@ When Figma text styles are available (from a Figma export or design context), ty
 
 ### Derivation Rules
 
-1. **Convert Figma text style name to kebab-case** using the `{role}-{weight}-{size}` pattern.
+1. **Convert Figma text style name to kebab-case** using the `{role}-{weight}-{size}` pattern
 2. **Mapping examples:**
 
 | Figma text style name | DS class |
@@ -157,10 +157,10 @@ When Figma text styles are available (from a Figma export or design context), ty
 | `Subtitle/SemiBold/L` | `subtitle-semi-bold-l` |
 | `Caption/Regular/S` | `caption-regular-s` |
 
-3. **If Figma has styles that don't match the 4-role system**, map to the closest role and document the decision. For example, "Label" in Figma → `caption-semi-bold-*` in the DS.
-4. **Every Figma text style must produce exactly one DS class.** No extra typography classes beyond what Figma defines.
-5. **No Figma text styles?** Use the standard scale defined in the sections above.
-6. **Font sizes and line-heights come from Figma.** Apply the font-weight discrepancy mapping (see [Figma Mapping](figma-mapping.md#the-figma-font-weight-discrepancy)) when translating weight values.
+3. **If Figma has styles that don't match the 4-role system**, map to the closest role and document the decision. For example, "Label" in Figma → `caption-semi-bold-*` in the DS
+4. **Every Figma text style must produce exactly one DS class.** No extra typography classes beyond what Figma defines
+5. **No Figma text styles?** Use the standard scale defined in the sections above
+6. **Font sizes and line-heights come from Figma.** Apply the font-weight discrepancy mapping (see [Figma Mapping](figma-mapping.md#the-figma-font-weight-discrepancy)) when translating weight values
 
 ## Typography Rules
 

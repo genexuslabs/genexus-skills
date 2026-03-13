@@ -99,7 +99,7 @@ ch-tooltip::part(window) {
 
 ### Styled trigger button
 
-When the action lives inside the shadow DOM, use the `action` part to restyle the default `<button>` trigger.
+When the action lives inside the shadow DOM, use the `action` part to restyle the default `<button>` trigger
 
 ```css
 ch-tooltip::part(action) {
@@ -121,7 +121,7 @@ ch-tooltip::part(action):hover {
 
 ### Axis-specific positioning overrides
 
-Use the x/y separation properties independently to offset the tooltip window along a single axis -- useful when the tooltip appears beside the trigger rather than above or below it.
+Use the x/y separation properties independently to offset the tooltip window along a single axis -- useful when the tooltip appears beside the trigger rather than above or below it
 
 ```css
 /* Tooltip displayed to the right of the trigger with horizontal gap only */
@@ -143,7 +143,7 @@ ch-tooltip::part(window) {
 
 ### 1. Styling the window part when it may not exist
 
-The `"window"` part is only rendered while the tooltip is visible. Styles applied to it are valid CSS but will have no effect when the tooltip is hidden. Do not rely on `::part(window)` for layout that must always be present.
+The `"window"` part is only rendered while the tooltip is visible. Styles applied to it are valid CSS but will have no effect when the tooltip is hidden. Do not rely on `::part(window)` for layout that must always be present
 
 ```css
 /* INCORRECT - trying to reserve space for a tooltip that may not be in the DOM */
@@ -163,7 +163,7 @@ ch-tooltip::part(window) {
 
 ### 2. Using combinators after ::part()
 
-CSS combinators (` `, `>`, `+`, `~`) cannot follow `::part()` selectors. You cannot reach into the popover's shadow tree through the tooltip's part.
+CSS combinators (` `, `>`, `+`, `~`) cannot follow `::part()` selectors. You cannot reach into the popover's shadow tree through the tooltip's part
 
 ```css
 /* INCORRECT - combinators after ::part() are not supported */
@@ -179,7 +179,7 @@ ch-tooltip::part(window) {
 
 ### 3. Overriding separation with popover custom properties
 
-The tooltip forwards its separation custom properties to `ch-popover` internally. Setting `--ch-popover-separation-*` directly on the tooltip host will not work because the internal mapping takes precedence.
+The tooltip forwards its separation custom properties to `ch-popover` internally. Setting `--ch-popover-separation-*` directly on the tooltip host will not work because the internal mapping takes precedence
 
 ```css
 /* INCORRECT - popover custom properties are overridden internally */
@@ -199,19 +199,19 @@ ch-tooltip {
 
 ### Do
 
-- Prefer CSS custom properties (`--ch-tooltip-separation`, `--ch-tooltip-separation-x`, `--ch-tooltip-separation-y`) over `::part()` for spacing and theming adjustments.
-- Use class selectors on the host element (e.g., `ch-tooltip.dark-theme`) to scope variant styles.
-- Use `::part(action)` to reset or restyle the internal trigger button when using the default action mode.
-- Use `::part(window)` for visual styling of the tooltip overlay (background, border, padding, shadow).
-- Test tooltip styling across all relevant states: visible/hidden, internal action vs. external `actionElement`, and different `delay` values.
-- Test tooltip styling in both action modes (internal button vs. external element) since the `action` part is only rendered in the internal button mode.
+- Prefer CSS custom properties (`--ch-tooltip-separation`, `--ch-tooltip-separation-x`, `--ch-tooltip-separation-y`) over `::part()` for spacing and theming adjustments
+- Use class selectors on the host element (e.g., `ch-tooltip.dark-theme`) to scope variant styles
+- Use `::part(action)` to reset or restyle the internal trigger button when using the default action mode
+- Use `::part(window)` for visual styling of the tooltip overlay (background, border, padding, shadow)
+- Test tooltip styling across all relevant states: visible/hidden, internal action vs. external `actionElement`, and different `delay` values
+- Test tooltip styling in both action modes (internal button vs. external element) since the `action` part is only rendered in the internal button mode
 
 ### Don't
 
-- Don't chain `::part()` selectors (e.g., `parent::part(x)::part(y)`) -- CSS does not support this.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-of-type()`, etc.) after `::part()` -- only user-action pseudo-classes (`:hover`, `:focus`) are supported.
-- Don't override `--ch-popover-separation-*` on the tooltip host -- use `--ch-tooltip-separation-*` instead.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors (e.g., `parent::part(x)::part(y)`) -- CSS does not support this
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-of-type()`, etc.) after `::part()` -- only user-action pseudo-classes (`:hover`, `:focus`) are supported
+- Don't override `--ch-popover-separation-*` on the tooltip host -- use `--ch-tooltip-separation-*` instead
+- Don't override internal CSS custom properties that are not documented
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)

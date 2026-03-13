@@ -1,6 +1,6 @@
 # Usage & Consumption
 
-How applications consume the Design System built with this skill.
+How applications consume the Design System built with this skill
 
 ## Architecture
 
@@ -29,7 +29,7 @@ Application code
 npm install @{ds-name}/design-system
 ```
 
-Or copy the DS directory into the application.
+Or copy the DS directory into the application
 
 ## Step 2 — Load Critical CSS (Tier 1)
 
@@ -67,7 +67,7 @@ Load the scope CSS early (Tier 2), before components render:
 
 ## Step 4 — Use `ch-theme` + `getBundles` for Component CSS
 
-`ch-theme` is a Chameleon component that delivers CSS bundles to web components via `adoptedStyleSheets`. This is the primary mechanism for loading component and utility CSS (Tier 3 — on-demand).
+`ch-theme` is a Chameleon component that delivers CSS bundles to web components via `adoptedStyleSheets`. This is the primary mechanism for loading component and utility CSS (Tier 3 — on-demand)
 
 ### Creating a getBundles function
 
@@ -194,7 +194,7 @@ theme.model = getBundles(
 
 ## Anti-Patterns
 
-- DO NOT load all component CSS upfront. Use `getBundles` to load only what the page needs.
-- DO NOT duplicate CSS. `ch-theme` shares `CSSStyleSheet` objects across component instances.
-- DO NOT use inline styles for values that have tokens. Always use CSS classes.
-- DO NOT mix theme scope classes. One theme class per root element at a time.
+- DO NOT load all component CSS upfront. Use `getBundles` to load only what the page needs
+- DO NOT duplicate CSS. `ch-theme` shares `CSSStyleSheet` objects across component instances
+- DO NOT use inline styles for values that have tokens. Always use CSS classes
+- DO NOT mix theme scope classes. One theme class per root element at a time

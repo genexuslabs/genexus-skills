@@ -1,8 +1,8 @@
 # Mercury CSS bundles — index
 
-Each bundle folder contains the documentation (`.md`) and the implementation (`.css`) at the same level. Open the `.md` for class names and usage; open the `.css` for concrete rules and overrides.
+Each bundle folder contains the documentation (`.md`) and the implementation (`.css`) at the same level. Open the `.md` for class names and usage; open the `.css` for concrete rules and overrides
 
-All paths are local to this skill.
+All paths are local to this skill
 
 ## base
 

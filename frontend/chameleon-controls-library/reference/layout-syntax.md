@@ -1,12 +1,12 @@
 # Shadow DOM Layout Syntax
 
-Each component has a `styling.md` file that includes a Shadow DOM Layout section describing its shadow DOM structure using an ASCII-tree notation. This document explains the syntax conventions used in those sections.
+Each component has a `styling.md` file that includes a Shadow DOM Layout section describing its shadow DOM structure using an ASCII-tree notation. This document explains the syntax conventions used in those sections
 
 ---
 
 ## File structure
 
-The Shadow DOM Layout section in `styling.md` contains one or more **Cases**. Each case represents a significant rendering variant (e.g. expanded vs collapsed, desktop vs mobile).
+The Shadow DOM Layout section in `styling.md` contains one or more **Cases**. Each case represents a significant rendering variant (e.g. expanded vs collapsed, desktop vs mobile)
 
 ```markdown
 # ch-component-name: Shadow DOM layout
@@ -97,7 +97,7 @@ When a dynamic value is also conditional (only present under certain circumstanc
 <button part="button [disabled] [{parts}]"></button>
 ```
 
-Read as: the button always has `button`; optionally `disabled`; and optionally a set of custom parts provided by the consumer through a `parts` property. The `{parts}` value is a variable that the item's model passes along and the component forwards as additional part names.
+Read as: the button always has `button`; optionally `disabled`; and optionally a set of custom parts provided by the consumer through a `parts` property. The `{parts}` value is a variable that the item's model passes along and the component forwards as additional part names
 
 ### Combined example
 
@@ -107,7 +107,7 @@ All notations can appear together in a single `part` attribute:
 <button part="{item.id} tab [selected | not-selected] [disabled]"></button>
 ```
 
-Read as: the button always has `{item.id}` and `tab`; it also receives either `selected` or `not-selected`; and optionally `disabled`.
+Read as: the button always has `{item.id}` and `tab`; it also receives either `selected` or `not-selected`; and optionally `disabled`
 
 ---
 
@@ -164,7 +164,7 @@ When an element is rendered once per item in a collection, it is preceded by a `
 | </div>
 ```
 
-Without this marker, every element in the diagram is assumed to be **static** (rendered exactly once).
+Without this marker, every element in the diagram is assumed to be **static** (rendered exactly once)
 
 ---
 
@@ -185,10 +185,10 @@ default slot):
 
 When a component renders a child that has its own shadow DOM, the diagram shows both the child's **shadow tree** (its internal structure) and its **projected content** (light DOM children the parent passes in). The key visual distinction is the pipe level (`|`):
 
-- **Shadow tree elements** have one more `|` level than the host tag.
-- **Projected content** shares the same `|` level as the host tag, because it belongs to the parent's shadow DOM — not to the child's.
+- **Shadow tree elements** have one more `|` level than the host tag
+- **Projected content** shares the same `|` level as the host tag, because it belongs to the parent's shadow DOM — not to the child's
 
-An empty blank line separates the shadow tree from the projected content for readability.
+An empty blank line separates the shadow tree from the projected content for readability
 
 #### Default slot projection
 
@@ -216,8 +216,8 @@ Content placed inside a component without a `slot` attribute is projected into t
 </ch-action-menu-render>
 ```
 
-In this example, `<ch-popover>` declares `<slot />` inside its shadow root.
-The `<ch-action-menu>` elements are light DOM children of `<ch-popover>` — they are written by the **parent** component (`ch-action-menu-render`) and projected into that default slot. Notice they sit at the same `|` level as the `<ch-popover>` tag itself, not at the `|   |` level of the popover's shadow root.
+In this example, `<ch-popover>` declares `<slot />` inside its shadow root
+The `<ch-action-menu>` elements are light DOM children of `<ch-popover>` — they are written by the **parent** component (`ch-action-menu-render`) and projected into that default slot. Notice they sit at the same `|` level as the `<ch-popover>` tag itself, not at the `|   |` level of the popover's shadow root
 
 #### Named slot projection
 
@@ -233,7 +233,7 @@ When a child component has named slots, the projected content includes a `slot="
 </ch-popover>
 ```
 
-Elements projected into a named slot would show `slot="header"` in the diagram. Elements without a `slot` attribute land in the default `<slot />`.
+Elements projected into a named slot would show `slot="header"` in the diagram. Elements without a `slot` attribute land in the default `<slot />`
 
 #### Reading the pipe levels
 
@@ -244,7 +244,7 @@ A quick rule of thumb for identifying what lives where:
 | `\|   \| ...` (one level deeper) | Inside the host's **shadow DOM**            |
 | `\|   ...` (same level as host)  | **Light DOM** content projected into a slot |
 
-The blank line between the shadow root's `<slot />` and the projected children is a visual separator — it is not required by the parser but is a convention used in all layout files for clarity.
+The blank line between the shadow root's `<slot />` and the projected children is a visual separator — it is not required by the parser but is a convention used in all layout files for clarity
 
 ---
 
@@ -262,14 +262,14 @@ When a component renders a child that has its own shadow DOM, the child's intern
 
 ### Part resolution for nested shadow DOM
 
-Parts on inner elements are shown with their **final resolved names** — the names accessible via `::part()` from the outermost consumer's perspective.
-The `exportparts` attribute itself is **never shown** in diagrams; it is an implementation detail.
+Parts on inner elements are shown with their **final resolved names** — the names accessible via `::part()` from the outermost consumer's perspective
+The `exportparts` attribute itself is **never shown** in diagrams; it is an implementation detail
 
 Resolution rules:
 
-- If a parent does **not** export a part, **omit** that part from the inner element in the diagram.
-- If a parent renames a part via `exportparts` (e.g. `container:item__checkbox-container`), show the **renamed** name.
-- If multiple shadow boundaries rename the same part, show the name from the **outermost** rename.
+- If a parent does **not** export a part, **omit** that part from the inner element in the diagram
+- If a parent renames a part via `exportparts` (e.g. `container:item__checkbox-container`), show the **renamed** name
+- If multiple shadow boundaries rename the same part, show the name from the **outermost** rename
 
 Example — `ch-tree-view-item` renders a `ch-checkbox` whose original parts (`container`, `input`, `option`) are renamed via `exportparts` to `item__checkbox-container`, `item__checkbox-input`, `item__checkbox-option`. The diagram shows the full nesting with the resolved names:
 
@@ -293,11 +293,11 @@ Example — `ch-tree-view-item` renders a `ch-checkbox` whose original parts (`c
 
 ### Light DOM exception
 
-Elements projected via `<slot>` are in light DOM — their parts are directly accessible without `exportparts`. The part resolution algorithm above only applies to elements rendered inside shadow DOM.
+Elements projected via `<slot>` are in light DOM — their parts are directly accessible without `exportparts`. The part resolution algorithm above only applies to elements rendered inside shadow DOM
 
 ### Always expand inline
 
-Sub-component shadow DOM internals are **always expanded inline**. Cross-references to other layout files (e.g. `<!-- See ch-X layout -->`) are not used, because when a sub-component is consumed as a child, its parts are often renamed via `exportparts`, making a reference to the original layout incorrect.
+Sub-component shadow DOM internals are **always expanded inline**. Cross-references to other layout files (e.g. `<!-- See ch-X layout -->`) are not used, because when a sub-component is consumed as a child, its parts are often renamed via `exportparts`, making a reference to the original layout incorrect
 
 ---
 
@@ -310,7 +310,7 @@ Plain HTML comments (without `when`, `else`, or `for each`) are informational la
 | <hr part="separator" />
 ```
 
-These have no semantic effect on the diagram; they exist only to aid readability.
+These have no semantic effect on the diagram; they exist only to aid readability
 
 ---
 
@@ -327,9 +327,9 @@ The `id` attribute is shown in the element's tag when it is referenced by an ARI
 ```
 
 In the SVG diagram, `id` appears inside the floating tag pill:
-`<h2 id="heading">`, `<div id="panel-{item.id}" role="tabpanel">`.
+`<h2 id="heading">`, `<div id="panel-{item.id}" role="tabpanel">`
 
-Only include `id` when it participates in an ARIA relationship. Omit it for elements whose `id` is purely internal (e.g. used only by JavaScript logic).
+Only include `id` when it participates in an ARIA relationship. Omit it for elements whose `id` is purely internal (e.g. used only by JavaScript logic)
 
 ### `role` attribute
 
@@ -340,7 +340,7 @@ The `role` attribute is shown directly in the element's tag, just like `id` and 
 | <button role="tab" part="tab [selected]"></button>
 ```
 
-In the SVG diagram, `role` appears inside the floating tag pill: `<div role="tablist">`.
+In the SVG diagram, `role` appears inside the floating tag pill: `<div role="tablist">`
 
 ### `aria-*` attributes
 
@@ -351,7 +351,7 @@ ARIA attributes describe the accessible state and relationships of elements. The
 | <div id="panel-{item.id}" role="tabpanel" aria-labelledby="{item.id}" part="panel"></div>
 ```
 
-In the SVG diagram, `aria-*` attributes are displayed as a separate annotation line (in blue italic) below the part names.
+In the SVG diagram, `aria-*` attributes are displayed as a separate annotation line (in blue italic) below the part names
 
 ### Dynamic ARIA values — `{expression}`
 

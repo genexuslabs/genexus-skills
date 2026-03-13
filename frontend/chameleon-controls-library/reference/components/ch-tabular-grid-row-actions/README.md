@@ -18,7 +18,7 @@
 
 ## Overview
 
-The `ch-tabular-grid-row-actions` component represents a group row actions.
+The `ch-tabular-grid-row-actions` component represents a group row actions
 
 ## Properties
 
@@ -38,7 +38,7 @@ The `ch-tabular-grid-row-actions` component represents a group row actions.
 
 ### `close() => Promise<void>`
 
-Closes the row actions window.
+Closes the row actions window
 
 #### Returns
 
@@ -46,7 +46,7 @@ Type: `Promise<void>`
 
 ### `openRowActions(cell: HTMLElement) => Promise<void>`
 
-Opens the row actions on the row-actions-button cell.
+Opens the row actions on the row-actions-button cell
 
 #### Parameters
 
@@ -60,7 +60,7 @@ Type: `Promise<void>`
 
 ### `openRowContext(clientX: number, clientY: number) => Promise<void>`
 
-Opens the row actions on the row-actions-button cell.
+Opens the row actions on the row-actions-button cell
 
 #### Parameters
 
@@ -75,7 +75,7 @@ Type: `Promise<void>`
 
 ### `openRowHover(row: HTMLElement) => Promise<void>`
 
-Opens the row actions on row hover.
+Opens the row actions on row hover
 
 #### Parameters
 

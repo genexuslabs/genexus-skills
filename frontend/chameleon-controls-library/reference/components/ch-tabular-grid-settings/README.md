@@ -14,7 +14,7 @@
 
 ## Overview
 
-The `ch-tabular-grid-settings` component represents a settings window for a grid component.
+The `ch-tabular-grid-settings` component represents a settings window for a grid component
 
 ## Properties
 

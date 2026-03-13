@@ -55,24 +55,24 @@ ch-image {
 
 ### 3. Expecting state changes without a container
 
-The multi-state behavior requires the parent container to have the `data-ch-image` attribute (set automatically). If the `ch-image` is not inside a valid container, hover/active/focus states will not work.
+The multi-state behavior requires the parent container to have the `data-ch-image` attribute (set automatically). If the `ch-image` is not inside a valid container, hover/active/focus states will not work
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-image__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-image::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-image__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-image::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented
 
 ---
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)

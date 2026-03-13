@@ -1,16 +1,16 @@
 # Icons System
 
-> For the complete catalog of Mercury built-in icons, how to use `getIconPath`/`getIconPathExpanded`, and colorType references per category, see **[Mercury Icons](../icons/README.md)**.
+> For the complete catalog of Mercury built-in icons, how to use `getIconPath`/`getIconPathExpanded`, and colorType references per category, see **[Mercury Icons](../icons/README.md)**
 
-Mercury uses **Material Symbols** as its icon foundation, loaded via the `base/base` bundle (icons.css).
+Mercury uses **Material Symbols** as its icon foundation, loaded via the `base/base` bundle (icons.css)
 
 ## Icon Library
 
-Material Symbols is a consistent, scalable icon family designed for digital interfaces. It provides a clear and familiar visual language across Mercury products.
+Material Symbols is a consistent, scalable icon family designed for digital interfaces. It provides a clear and familiar visual language across Mercury products
 
 ## Icon Size Tokens
 
-Mercury provides semantic icon size tokens defined in `base/base`. Always use these tokens or the corresponding CSS classes — never hardcode icon dimensions.
+Mercury provides semantic icon size tokens defined in `base/base`. Always use these tokens or the corresponding CSS classes — never hardcode icon dimensions
 
 | Token | Value | Size label |
 |-------|-------|------------|
@@ -27,7 +27,7 @@ Two class families are available for sizing icons:
 
 ### `icon-{size}` — For `ch-image` components
 
-Sets `--ch-image-size` on Chameleon image components. Use when rendering icons via `ch-image`.
+Sets `--ch-image-size` on Chameleon image components. Use when rendering icons via `ch-image`
 
 | Class | Size | Use case |
 |-------|------|----------|
@@ -44,7 +44,7 @@ Sets `--ch-image-size` on Chameleon image components. Use when rendering icons v
 
 ### `icon-size-{size}` — For standalone icon elements
 
-Sets explicit `inline-size` and `block-size` on the element and renders the icon via `background` using `--icon-path`. Use for non-`ch-image` icon containers.
+Sets explicit `inline-size` and `block-size` on the element and renders the icon via `background` using `--icon-path`. Use for non-`ch-image` icon containers
 
 | Class | Size |
 |-------|------|
@@ -61,7 +61,7 @@ Sets explicit `inline-size` and `block-size` on the element and renders the icon
 
 ### `icon-and-text` — Icon + text layout
 
-Creates an inline grid layout with icon and text side by side, with `gap: var(--spacing-gap-m)` (8px) between them.
+Creates an inline grid layout with icon and text side by side, with `gap: var(--spacing-gap-m)` (8px) between them
 
 ```html
 <div class="icon-and-text">
@@ -93,7 +93,7 @@ For accessible and usable experiences, respect minimum touch areas when using ic
 
 ## Icon Colors
 
-Icons use a dedicated token category (`--color-icon-*`) to ensure visual consistency. Never use text or accent tokens for icon colors.
+Icons use a dedicated token category (`--color-icon-*`) to ensure visual consistency. Never use text or accent tokens for icon colors
 
 ### Primary Icons
 
@@ -130,7 +130,7 @@ Icons use a dedicated token category (`--color-icon-*`) to ensure visual consist
 
 Bundle: `components/icon`
 
-The icon bundle provides styling for icon containers. Use it when placing standalone icons or icons within Mercury components.
+The icon bundle provides styling for icon containers. Use it when placing standalone icons or icons within Mercury components
 
 ## Usage Rules
 

@@ -113,7 +113,7 @@
 
 ### Branded Send Container
 
-Style the bottom send bar with brand colors and spacing.
+Style the bottom send bar with brand colors and spacing
 
 ```css
 ch-chat::part(send-container) {
@@ -137,7 +137,7 @@ ch-chat::part(send-button):hover {
 
 ### Rounded Input with Padding
 
-Give the send input a rounded, padded appearance.
+Give the send input a rounded, padded appearance
 
 ```css
 ch-chat::part(send-input) {
@@ -156,7 +156,7 @@ ch-chat::part(send-input):focus-within {
 
 ### Full-height Chat with Constrained Width
 
-Set the chat to fill the viewport height while constraining its inline size.
+Set the chat to fill the viewport height while constraining its inline size
 
 ```css
 ch-chat {
@@ -243,18 +243,18 @@ ch-chat {
 
 ### Do
 
-- Set the chat's height on the host element (e.g., `ch-chat { block-size: 100dvh; }`) and let the internal grid distribute space between messages and the send container.
-- Use `::part(send-container)` for layout properties like `padding`, `gap`, and `background` on the bottom bar.
-- Use `::part(send-button)` and `::part(stop-response-button)` to style the action buttons, including hover and focus states.
-- Use `::part(messages-container)` for padding and background on the scrollable message area.
-- Test styling changes across all component states: initial loading, empty chat, messages loaded, and waiting-response.
+- Set the chat's height on the host element (e.g., `ch-chat { block-size: 100dvh; }`) and let the internal grid distribute space between messages and the send container
+- Use `::part(send-container)` for layout properties like `padding`, `gap`, and `background` on the bottom bar
+- Use `::part(send-button)` and `::part(stop-response-button)` to style the action buttons, including hover and focus states
+- Use `::part(messages-container)` for padding and background on the scrollable message area
+- Test styling changes across all component states: initial loading, empty chat, messages loaded, and waiting-response
 
 ### Don't
 
-- Don't chain `::part()` selectors -- use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override the host's `display: grid` or `grid-template-rows` -- the component depends on these for its internal layout.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors -- use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override the host's `display: grid` or `grid-template-rows` -- the component depends on these for its internal layout
+- Don't override internal CSS custom properties that are not documented
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)

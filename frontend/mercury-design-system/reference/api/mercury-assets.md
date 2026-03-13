@@ -17,4 +17,4 @@ MERCURY_ASSETS: {
 }
 ```
 
-Used with `registerAssets("Mercury", "mer", MERCURY_ASSETS)` to register icons for `getIconPath`, `getAsset`, and Chameleon component callbacks. Categories and icon names are generated from the SVG source; see the package for the full structure.
+Used with `registerAssets("Mercury", "mer", MERCURY_ASSETS)` to register icons for `getIconPath`, `getAsset`, and Chameleon component callbacks. Categories and icon names are generated from the SVG source; see the package for the full structure

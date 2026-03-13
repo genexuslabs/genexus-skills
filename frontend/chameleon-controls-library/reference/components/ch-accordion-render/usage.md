@@ -10,7 +10,7 @@
 
 ## Basic Usage
 
-Demonstrates a simple accordion with multiple collapsible panels that can be expanded or collapsed independently.
+Demonstrates a simple accordion with multiple collapsible panels that can be expanded or collapsed independently
 
 ### HTML
 
@@ -40,14 +40,14 @@ accordion.addEventListener("expandedChange", (event) => {
 
 ### Key Points
 
-- The `model` property accepts an array of `AccordionItemModel` objects, each requiring `id`, `caption`, and `expanded`.
-- Slot names correspond to each item's `id` to project content into the correct panel.
-- The `expandedChange` event fires whenever a panel is expanded or collapsed, with `{ id, expanded }` in the detail.
-- Multiple panels can be open simultaneously by default.
+- The `model` property accepts an array of `AccordionItemModel` objects, each requiring `id`, `caption`, and `expanded`
+- Slot names correspond to each item's `id` to project content into the correct panel
+- The `expandedChange` event fires whenever a panel is expanded or collapsed, with `{ id, expanded }` in the detail
+- Multiple panels can be open simultaneously by default
 
 ## Single Expansion
 
-Demonstrates the single-item expansion mode where only one panel can be open at a time. Opening a new panel automatically closes the previously open one.
+Demonstrates the single-item expansion mode where only one panel can be open at a time. Opening a new panel automatically closes the previously open one
 
 ### HTML
 
@@ -79,14 +79,14 @@ accordion.addEventListener("expandedChange", (event) => {
 
 ### Key Points
 
-- Setting `singleItemExpanded` to `true` enforces that only one panel is open at a time.
-- When a panel is expanded, the component automatically collapses the currently open panel and fires `expandedChange` for both items.
-- If `singleItemExpanded` is toggled to `true` while multiple panels are open, all but the last expanded panel are auto-collapsed.
-- The component mutates `item.expanded` directly on the model objects when toggling panels.
+- Setting `singleItemExpanded` to `true` enforces that only one panel is open at a time
+- When a panel is expanded, the component automatically collapses the currently open panel and fires `expandedChange` for both items
+- If `singleItemExpanded` is toggled to `true` while multiple panels are open, all but the last expanded panel are auto-collapsed
+- The component mutates `item.expanded` directly on the model objects when toggling panels
 
 ## Custom Header Slots
 
-Demonstrates using named slots to provide custom header content instead of plain text captions. This is useful for adding icons, badges, or complex layouts to accordion headers.
+Demonstrates using named slots to provide custom header content instead of plain text captions. This is useful for adding icons, badges, or complex layouts to accordion headers
 
 ### HTML
 
@@ -133,14 +133,14 @@ accordion.model = [
 
 ### Key Points
 
-- Setting `headerSlotId` on a model item replaces the default caption text with the content of the named slot.
-- The `headerSlotId` slot is projected inside the `<button>` header element, so its content is fully interactive and accessible.
-- The `caption` property still serves as a fallback label if the slot is empty or for programmatic access.
-- Both the `headerSlotId` and the item `id` are exported as parts, allowing per-item header styling via `::part()`.
+- Setting `headerSlotId` on a model item replaces the default caption text with the content of the named slot
+- The `headerSlotId` slot is projected inside the `<button>` header element, so its content is fully interactive and accessible
+- The `caption` property still serves as a fallback label if the slot is empty or for programmatic access
+- Both the `headerSlotId` and the item `id` are exported as parts, allowing per-item header styling via `::part()`
 
 ## Animated Transitions
 
-Demonstrates configuring smooth expand and collapse animations using CSS custom properties. The accordion uses CSS grid row transitions for a fluid reveal effect.
+Demonstrates configuring smooth expand and collapse animations using CSS custom properties. The accordion uses CSS grid row transitions for a fluid reveal effect
 
 ### HTML
 
@@ -172,23 +172,23 @@ accordion.model = [
 
 ### Key Points
 
-- The `--ch-accordion-expand-collapse-duration` custom property controls the animation duration. The default is `0ms` (no animation).
-- The `--ch-accordion-expand-collapse-timing-function` custom property controls the easing curve. The default is `linear`.
-- The animation is powered by CSS `grid-template-rows` transitions, providing a natural height reveal without JavaScript measurement.
-- The chevron icon also rotates using the same duration and timing function, keeping the animation synchronized.
-- Both properties are applied at the `:host` level and affect the panel grid, the section visibility, and the chevron rotation.
+- The `--ch-accordion-expand-collapse-duration` custom property controls the animation duration. The default is `0ms` (no animation)
+- The `--ch-accordion-expand-collapse-timing-function` custom property controls the easing curve. The default is `linear`
+- The animation is powered by CSS `grid-template-rows` transitions, providing a natural height reveal without JavaScript measurement
+- The chevron icon also rotates using the same duration and timing function, keeping the animation synchronized
+- Both properties are applied at the `:host` level and affect the panel grid, the section visibility, and the chevron rotation
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
-- Use named slots to provide custom content where supported.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
+- Use named slots to provide custom content where supported
 
 ### Don't
 
-- Don't place a `<button>` or other interactive element inside the header slot — each accordion header is already rendered as a `<button>` internally, so nesting another `<button>` produces invalid HTML and breaks accessibility. Use `<span>`, `<div>`, images, or plain text for custom header content.
-- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't place a `<button>` or other interactive element inside the header slot — each accordion header is already rendered as a `<button>` internally, so nesting another `<button>` produces invalid HTML and breaks accessibility. Use `<span>`, `<div>`, images, or plain text for custom header content
+- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

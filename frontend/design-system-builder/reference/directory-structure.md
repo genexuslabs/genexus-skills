@@ -1,6 +1,6 @@
 # Directory Structure
 
-Every DS built with this skill MUST follow this structure. All files and folders listed are mandatory.
+Every DS built with this skill MUST follow this structure. All files and folders listed are mandatory
 
 ```
 {ds-name}/
@@ -57,11 +57,11 @@ Maintain six ITCSS-inspired layers in **strict order**:
 
 ## Rules
 
-- Co-locate each component's `.css` and `.md` in the same directory (`components/`).
-- Never place theme logic inside `components/` or `utils/`.
-- Every brand gets its own `scope/theme-{brand}.css` file.
-- Every brand may get a `base/base-{brand}.css` that overrides primitives.
-- The `docs/` directory follows a 3-level navigation: `SKILL.md` → index → detail.
+- Co-locate each component's `.css` and `.md` in the same directory (`components/`)
+- Never place theme logic inside `components/` or `utils/`
+- Every brand gets its own `scope/theme-{brand}.css` file
+- Every brand may get a `base/base-{brand}.css` that overrides primitives
+- The `docs/` directory follows a 3-level navigation: `SKILL.md` → index → detail
 
 ## Resets Layer
 
@@ -75,17 +75,17 @@ File: `resets/box-sizing.css`
 }
 ```
 
-Target size: ≤200 B.
+Target size: ≤200 B
 
 ## Base Layer
 
 File: `base/base.css`
 
 Contains:
-1. Tier 1 primitive tokens as CSS custom properties on `:root`.
-2. Tier 2 semantic tokens on `:root.light` and `:root.dark` — both in this same file.
-3. `@font-face` declarations with `unicode-range` subsetting (woff2 format).
-4. Body defaults.
+1. Tier 1 primitive tokens as CSS custom properties on `:root`
+2. Tier 2 semantic tokens on `:root.light` and `:root.dark` — both in this same file
+3. `@font-face` declarations with `unicode-range` subsetting (woff2 format)
+4. Body defaults
 
 ```css
 /* Tier 1 — Primitives */
@@ -125,8 +125,8 @@ Contains:
 ```
 
 Rules:
-- Every `@font-face` MUST include `font-display: swap` to prevent FOIT.
-- All sizing tokens MUST use `rem` (never `px` for font sizes).
-- Target size: ≤50 KB.
-- The `scope/` layer is **optional** — only create it when the DS has multiple color variants (brands). A single-variant DS needs no `scope/` directory.
-- Generate `base-{variant}.css` files for each brand that override primitives.
+- Every `@font-face` MUST include `font-display: swap` to prevent FOIT
+- All sizing tokens MUST use `rem` (never `px` for font sizes)
+- Target size: ≤50 KB
+- The `scope/` layer is **optional** — only create it when the DS has multiple color variants (brands). A single-variant DS needs no `scope/` directory
+- Generate `base-{variant}.css` files for each brand that override primitives

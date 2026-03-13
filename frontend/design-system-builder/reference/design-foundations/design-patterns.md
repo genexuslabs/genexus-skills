@@ -1,10 +1,10 @@
 # Design Patterns
 
-Reusable UI patterns for building consistent, accessible interfaces with the design system. Use these patterns when building without a Figma design, or to validate Figma implementations.
+Reusable UI patterns for building consistent, accessible interfaces with the design system. Use these patterns when building without a Figma design, or to validate Figma implementations
 
 ## Buttons
 
-Define 5 button variants plus modifiers. Bundle: `components/button`.
+Define 5 button variants plus modifiers. Bundle: `components/button`
 
 ### Button Hierarchy
 
@@ -25,9 +25,9 @@ Define 5 button variants plus modifiers. Bundle: `components/button`.
 
 ### Button Rules
 
-- **Only one primary button per page/view.** Multiple primary buttons confuse the user about the main action.
-- Never write custom button CSS — the DS handles all states (hover, pressed, focused, disabled).
-- Use link classes (`link-primary`, `link-secondary`, `link-tertiary`) for navigation actions (requires `utils/link` bundle).
+- **Only one primary button per page/view.** Multiple primary buttons confuse the user about the main action
+- Never write custom button CSS — the DS handles all states (hover, pressed, focused, disabled)
+- Use link classes (`link-primary`, `link-secondary`, `link-tertiary`) for navigation actions (requires `utils/link` bundle)
 
 ### Button States
 

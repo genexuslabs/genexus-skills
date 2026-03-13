@@ -12,7 +12,7 @@
 
 ## Overview
 
-The `ch-tabular-grid-columnset` component represents a group of columns.
+The `ch-tabular-grid-columnset` component represents a group of columns
 
 ## Properties
 

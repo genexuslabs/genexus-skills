@@ -1,6 +1,6 @@
 # GX Server
 
-Server collaboration icons representing version control, commits, locks, and repository management.
+Server collaboration icons representing version control, commits, locks, and repository management
 
 **Type:** Multicolor
 

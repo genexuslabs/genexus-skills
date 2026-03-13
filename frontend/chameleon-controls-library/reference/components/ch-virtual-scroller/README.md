@@ -22,27 +22,27 @@
 
 ## Overview
 
-The `ch-virtual-scroller` component provides efficient virtual scrolling for large lists of items within a `ch-smart-grid`, keeping only visible items plus a configurable buffer in the DOM.
+The `ch-virtual-scroller` component provides efficient virtual scrolling for large lists of items within a `ch-smart-grid`, keeping only visible items plus a configurable buffer in the DOM
 
 ## Features
- - `"virtual-scroll"` mode: removes items outside the viewport from the DOM, using CSS pseudo-element spacers (`::before` / `::after`) to maintain scroll height. Lowest memory footprint.
- - `"lazy-render"` mode: lazily renders items as they scroll into view, but keeps them in the DOM once rendered. Avoids re-rendering costs at the expense of higher memory usage.
- - Configurable buffer amount (`bufferAmount`) for items rendered above and below the viewport.
- - Inverse loading support (`inverseLoading`) for chat-style interfaces where the newest items are at the bottom and the scroll starts at the end.
- - Automatic re-rendering on scroll and resize events via `requestAnimationFrame`-synced updates.
- - Emits `virtualItemsChanged` whenever the visible slice changes, enabling the parent to render only the required cells.
- - Hides content with `opacity: 0` until the initial viewport cells are fully loaded, then fires `virtualScrollerDidLoad`.
+ - `"virtual-scroll"` mode: removes items outside the viewport from the DOM, using CSS pseudo-element spacers (`::before` / `::after`) to maintain scroll height. Lowest memory footprint
+ - `"lazy-render"` mode: lazily renders items as they scroll into view, but keeps them in the DOM once rendered. Avoids re-rendering costs at the expense of higher memory usage
+ - Configurable buffer amount (`bufferAmount`) for items rendered above and below the viewport
+ - Inverse loading support (`inverseLoading`) for chat-style interfaces where the newest items are at the bottom and the scroll starts at the end
+ - Automatic re-rendering on scroll and resize events via `requestAnimationFrame`-synced updates
+ - Emits `virtualItemsChanged` whenever the visible slice changes, enabling the parent to render only the required cells
+ - Hides content with `opacity: 0` until the initial viewport cells are fully loaded, then fires `virtualScrollerDidLoad`
 
 ## Use when
- - Rendering hundreds or thousands of items inside a `ch-smart-grid`.
- - Building chat interfaces that need efficient inverse-loaded virtual scrolling.
+ - Rendering hundreds or thousands of items inside a `ch-smart-grid`
+ - Building chat interfaces that need efficient inverse-loaded virtual scrolling
 
 ## Do not use when
- - The list has fewer than ~100 items — the overhead of virtual scrolling is not justified.
- - Used outside of `ch-smart-grid` — this component is designed to work exclusively with `ch-smart-grid`.
+ - The list has fewer than ~100 items — the overhead of virtual scrolling is not justified
+ - Used outside of `ch-smart-grid` — this component is designed to work exclusively with `ch-smart-grid`
 
 ## Accessibility
- - This component is structural and does not render visible interactive content. Accessibility semantics are handled by the parent `ch-smart-grid` and its cells.
+ - This component is structural and does not render visible interactive content. Accessibility semantics are handled by the parent `ch-smart-grid` and its cells
 
 ```
   <ch-smart-grid>
@@ -83,10 +83,10 @@ the virtual scroller's internal indexes. This is the preferred way to
 append or prepend items to the collection (e.g., infinite scroll or
 chat message loading). When `position` is `"start"`, internal start/end
 indexes are shifted by the number of added items to keep the viewport
-stable.
+stable
 
 After mutation, the scroller triggers a scroll handler update to
-recalculate visible items.
+recalculate visible items
 
 #### Parameters
 

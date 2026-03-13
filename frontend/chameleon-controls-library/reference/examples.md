@@ -1,10 +1,10 @@
 # Chameleon Examples
 
-Real-world component composition patterns. Use these as templates when building similar UIs.
+Real-world component composition patterns. Use these as templates when building similar UIs
 
 ## App shell with sidebar navigation and tabs
 
-A common enterprise layout: collapsible sidebar with hierarchical navigation, and tabbed content area.
+A common enterprise layout: collapsible sidebar with hierarchical navigation, and tabbed content area
 
 ```html
 <ch-sidebar accessibleName="Main navigation">
@@ -21,14 +21,14 @@ A common enterprise layout: collapsible sidebar with hierarchical navigation, an
 ```
 
 Key points:
-- `ch-sidebar` wraps the navigation — it handles collapse/expand behavior.
-- `ch-navigation-list-render` supports hierarchical items (nested children in the model).
-- `ch-tab-render` manages tabbed content. The `model` defines tab labels and IDs.
-- Use `accessible-name` on both sidebar and navigation for screen readers.
+- `ch-sidebar` wraps the navigation — it handles collapse/expand behavior
+- `ch-navigation-list-render` supports hierarchical items (nested children in the model)
+- `ch-tab-render` manages tabbed content. The `model` defines tab labels and IDs
+- Use `accessible-name` on both sidebar and navigation for screen readers
 
 ## Form with labels and accessible controls
 
-Always prefer HTML `<label>` elements linked via `for`/`id` over the `accessible-name` property. Labels are visible and provide a better UX.
+Always prefer HTML `<label>` elements linked via `for`/`id` over the `accessible-name` property. Labels are visible and provide a better UX
 
 ```html
 <form>
@@ -63,10 +63,10 @@ Always prefer HTML `<label>` elements linked via `for`/`id` over the `accessible
 ```
 
 Key points:
-- Link `<label for="X">` with component `id="X"` for every form control.
-- `ch-checkbox` has a built-in `caption` prop — no separate label needed.
-- `ch-radio-group-render` uses `aria-label` (not `accessible-name`) for group labeling.
-- Buttons are native `<button>`, never a `ch-*` component.
+- Link `<label for="X">` with component `id="X"` for every form control
+- `ch-checkbox` has a built-in `caption` prop — no separate label needed
+- `ch-radio-group-render` uses `aria-label` (not `accessible-name`) for group labeling
+- Buttons are native `<button>`, never a `ch-*` component
 
 ## Chat interface with code and markdown
 
@@ -78,8 +78,8 @@ Key points:
 ```
 
 Key points:
-- `ch-chat` **renders a send button by default** — don't add a separate one.
-- It internally uses `ch-code` and `ch-markdown-viewer` for message rendering — no need to manually compose them.
+- `ch-chat` **renders a send button by default** — don't add a separate one
+- It internally uses `ch-code` and `ch-markdown-viewer` for message rendering — no need to manually compose them
 
 For standalone code display outside chat:
 ```html
@@ -104,9 +104,9 @@ For simpler two-panel splits without full IDE behavior:
 ```
 
 Key points:
-- `ch-flexible-layout-render` for complex multi-pane dockable layouts (IDE, dashboards).
-- `ch-layout-splitter` for simple resizable two-panel splits.
-- Don't use either for layouts without user-resizable dividers — use CSS Grid/Flexbox instead.
+- `ch-flexible-layout-render` for complex multi-pane dockable layouts (IDE, dashboards)
+- `ch-layout-splitter` for simple resizable two-panel splits
+- Don't use either for layouts without user-resizable dividers — use CSS Grid/Flexbox instead
 
 ## Data grid with virtual scrolling
 
@@ -137,13 +137,13 @@ For card-based virtual scrolling (not tabular):
 ```
 
 Key points:
-- `ch-tabular-grid` + `ch-tabular-grid-virtual-scroller` for large tabular data.
-- `ch-virtual-scroller` for card grids, lists, or any non-tabular virtualized content.
-- `ch-smart-grid` for simpler grids without full tabular-grid features.
+- `ch-tabular-grid` + `ch-tabular-grid-virtual-scroller` for large tabular data
+- `ch-virtual-scroller` for card grids, lists, or any non-tabular virtualized content
+- `ch-smart-grid` for simpler grids without full tabular-grid features
 
 ## ch-theme placement
 
-`ch-theme` always has the `hidden` attribute. Never place children inside it — use it as a sibling element before the UI tree.
+`ch-theme` always has the `hidden` attribute. Never place children inside it — use it as a sibling element before the UI tree
 
 ```html
 <!-- Correct: ch-theme as sibling -->

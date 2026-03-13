@@ -32,37 +32,37 @@
 
 ## Overview
 
-The `ch-tree-view-render` component displays hierarchical data as an interactive tree with full-featured node management.
+The `ch-tree-view-render` component displays hierarchical data as an interactive tree with full-featured node management
 
 ## Features
- - Expand and collapse nodes with configurable expandable button styles.
- - Single or multi-selection of nodes.
- - Tri-state checkboxes with toggle support.
- - Inline caption editing.
- - Drag-and-drop reordering of nodes.
- - Lazy loading of child items.
- - Keyboard navigation.
- - Filtering by caption, metadata, or custom list.
- - Start and end images per node.
- - Relationship lines connecting siblings and parents.
- - Context menu support.
+ - Expand and collapse nodes with configurable expandable button styles
+ - Single or multi-selection of nodes
+ - Tri-state checkboxes with toggle support
+ - Inline caption editing
+ - Drag-and-drop reordering of nodes
+ - Lazy loading of child items
+ - Keyboard navigation
+ - Filtering by caption, metadata, or custom list
+ - Start and end images per node
+ - Relationship lines connecting siblings and parents
+ - Context menu support
 
 ## Use when
- - Building a full-featured tree widget (file explorers, organizational charts, permission editors, or any master list with nested structure).
- - Navigating or selecting nodes within deeply hierarchical data (e.g., file system, code symbols, category trees).
- - Users need to expand, collapse, and select items at multiple nesting levels.
+ - Building a full-featured tree widget (file explorers, organizational charts, permission editors, or any master list with nested structure)
+ - Navigating or selecting nodes within deeply hierarchical data (e.g., file system, code symbols, category trees)
+ - Users need to expand, collapse, and select items at multiple nesting levels
 
 ## Do not use when
- - Building simpler navigation hierarchies without checkboxes, drag-and-drop, or editing -- prefer `ch-navigation-list-render` instead.
- - Used as a PRIMARY navigation menu — prefer `ch-navigation-list-render`, which carries proper navigation semantics for assistive technology.
- - Content sections have collapsible summaries (FAQs) — prefer `ch-accordion-render`.
- - The data is flat or only one level deep — prefer `ch-action-list-render`.
- - Nesting depth regularly exceeds 10 levels — UX becomes untenable.
+ - Building simpler navigation hierarchies without checkboxes, drag-and-drop, or editing -- prefer `ch-navigation-list-render` instead
+ - Used as a PRIMARY navigation menu — prefer `ch-navigation-list-render`, which carries proper navigation semantics for assistive technology
+ - Content sections have collapsible summaries (FAQs) — prefer `ch-accordion-render`
+ - The data is flat or only one level deep — prefer `ch-action-list-render`
+ - Nesting depth regularly exceeds 10 levels — UX becomes untenable
 
 ## Accessibility
- - Implements a tree-view keyboard pattern: Arrow keys to navigate, Enter/Space to select, Left/Right to collapse/expand, F2 to start editing the caption, and Delete/Backspace to remove the focused item.
- - Checkbox items support tri-state (`checked`, `unchecked`, `indeterminate`) with matching ARIA states.
- - Items can be individually disabled, preventing keyboard and pointer interaction.
+ - Implements a tree-view keyboard pattern: Arrow keys to navigate, Enter/Space to select, Left/Right to collapse/expand, F2 to start editing the caption, and Delete/Backspace to remove the focused item
+ - Checkbox items support tri-state (`checked`, `unchecked`, `indeterminate`) with matching ARIA states
+ - Items can be individually disabled, preventing keyboard and pointer interaction
 
 ## Properties
 
@@ -110,7 +110,7 @@ The `ch-tree-view-render` component displays hierarchical data as an interactive
 ### `dropItems(acceptDrop: boolean, dataTransferInfo: TreeViewDataTransferInfo, model?: TreeViewModel) => Promise<void>`
 
 Given the drop accepting, the data transfer info and the external items,
-it process the drops of the items in the tree.
+it process the drops of the items in the tree
 
 #### Parameters
 
@@ -128,10 +128,10 @@ Type: `Promise<void>`
 
 Returns item's path (an ordered array of the UI models that creates the path
 from the root to the ID) given the item ID, and null if there is no such item
-otherwise.
+otherwise
 
 This method doesn't change its behavior if the tree view has filters
-applied.
+applied
 
 #### Parameters
 
@@ -146,7 +146,7 @@ Type: `Promise<TreeViewItemModel[]>`
 ### `getItemsInfo(itemsId: string[]) => Promise<TreeViewItemModelExtended[]>`
 
 Given a list of ids, it returns an array of the items that exists in the
-given list.
+given list
 
 #### Parameters
 
@@ -161,7 +161,7 @@ Type: `Promise<TreeViewItemModelExtended[]>`
 ### `loadLazyContent(itemId: string, model?: TreeViewModel, downloading?: boolean, lazy?: boolean) => Promise<void>`
 
 Given an item id, an array of items to add, the download status and the
-lazy state, updates the item's UI Model.
+lazy state, updates the item's UI Model
 
 #### Parameters
 
@@ -180,7 +180,7 @@ Type: `Promise<void>`
 
 Given an item id and the additional properties to update before and after
 reload, it reloads the items of the `itemId` node by using the
-`lazyLoadTreeItemsCallback` property.
+`lazyLoadTreeItemsCallback` property
 
 #### Parameters
 
@@ -196,7 +196,7 @@ Type: `Promise<boolean>`
 
 ### `removeItems(items: string[]) => Promise<void>`
 
-Given a list of ids, removes the items and their children in the tree.
+Given a list of ids, removes the items and their children in the tree
 
 #### Parameters
 
@@ -212,18 +212,18 @@ Type: `Promise<void>`
 
 Given the path of the item (represent by a sorted array containing all ids
 from the root to the item) and the additional properties to update after,
-it displays and scrolls into the item view.
+it displays and scrolls into the item view
 The path can also be a string representing the id of the item to scroll
-into.
+into
 
 When using a path, this method will fail if:
-  - The path does not start from the root element.
-  - The path contains a cycle.
+  - The path does not start from the root element
+  - The path contains a cycle
   - The path does not correspond to a valid path on the server:
-    - One of the item of the path, except for the last one, is a leaf.
-    - An item in the path does not exists on the server.
-    - The path has repeated items.
-    - And so on.
+    - One of the item of the path, except for the last one, is a leaf
+    - An item in the path does not exists on the server
+    - The path has repeated items
+    - And so on
 
 #### Parameters
 
@@ -238,7 +238,7 @@ Type: `Promise<boolean>`
 
 ### `toggleItems(treeItemIds: string[], expand?: boolean) => Promise<TreeViewItemExpandedInfo[]>`
 
-This method is used to toggle a tree item by the tree item id/ids.
+This method is used to toggle a tree item by the tree item id/ids
 
 #### Parameters
 
@@ -251,11 +251,11 @@ This method is used to toggle a tree item by the tree item id/ids.
 
 Type: `Promise<TreeViewItemExpandedInfo[]>`
 
-The modified items after the method was called.
+The modified items after the method was called
 
 ### `updateAllItemsProperties(properties: { expanded?: boolean; checked?: boolean; }) => Promise<void>`
 
-Given a subset of item's properties, it updates all item UI models.
+Given a subset of item's properties, it updates all item UI models
 
 #### Parameters
 
@@ -270,7 +270,7 @@ Type: `Promise<void>`
 ### `updateItemsProperties(items: string[], properties: Partial<TreeViewItemModel>) => Promise<void>`
 
 Given a item list and the properties to update, it updates the properties
-of the items in the list.
+of the items in the list
 
 #### Parameters
 
@@ -285,7 +285,7 @@ Type: `Promise<void>`
 
 ### `updateValidDropZone(requestTimestamp: number, newContainerId: string, draggedItems: GxDataTransferInfo[], dropType: TreeViewDropType, validDrop: boolean) => Promise<void>`
 
-Update the information about the valid droppable zones.
+Update the information about the valid droppable zones
 
 #### Parameters
 

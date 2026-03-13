@@ -102,7 +102,7 @@
 
 ### Card-style Dialog
 
-A dialog with rounded corners, shadow, and a distinct header.
+A dialog with rounded corners, shadow, and a distinct header
 
 ```css
 ch-dialog {
@@ -143,7 +143,7 @@ ch-dialog::part(footer) {
 
 ### Resizable Dialog with Size Constraints
 
-Constrain a resizable dialog within reasonable bounds.
+Constrain a resizable dialog within reasonable bounds
 
 ```css
 ch-dialog {
@@ -159,7 +159,7 @@ ch-dialog {
 
 ### Full-width Footer Buttons
 
-Stretch footer buttons to fill the footer area.
+Stretch footer buttons to fill the footer area
 
 ```css
 ch-dialog::part(footer) {
@@ -178,7 +178,7 @@ ch-dialog [slot="footer"] button {
 
 ### Backdrop Styling
 
-Style the modal backdrop via the host element (since the host acts as the backdrop container in modal mode).
+Style the modal backdrop via the host element (since the host acts as the backdrop container in modal mode)
 
 ```css
 ch-dialog {
@@ -248,20 +248,20 @@ ch-dialog {
 }
 ```
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-dialog__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-dialog::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-dialog__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-dialog::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented

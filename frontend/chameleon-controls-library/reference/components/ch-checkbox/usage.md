@@ -9,7 +9,7 @@
 
 ## Basic Usage
 
-Demonstrates a simple checkbox with a visible caption that toggles between checked and unchecked states.
+Demonstrates a simple checkbox with a visible caption that toggles between checked and unchecked states
 
 ### HTML
 
@@ -34,14 +34,14 @@ checkbox.addEventListener("input", (event) => {
 
 ### Key Points
 
-- The checked state is derived from `value === checkedValue`; there is no separate `checked` boolean property.
-- Setting `value="yes"` at initialization renders the checkbox as checked immediately.
-- The `caption` property renders a `<label>` element wrapping the checkbox, improving the click target area.
-- The `input` event fires on every user toggle and its `detail` contains the new value string.
+- The checked state is derived from `value === checkedValue`; there is no separate `checked` boolean property
+- Setting `value="yes"` at initialization renders the checkbox as checked immediately
+- The `caption` property renders a `<label>` element wrapping the checkbox, improving the click target area
+- The `input` event fires on every user toggle and its `detail` contains the new value string
 
 ## Indeterminate State
 
-Demonstrates the tri-state (indeterminate) checkbox pattern, typically used for a "select all" parent that reflects mixed child selections.
+Demonstrates the tri-state (indeterminate) checkbox pattern, typically used for a "select all" parent that reflects mixed child selections
 
 ### HTML
 
@@ -96,14 +96,14 @@ selectAll.addEventListener("input", (event) => {
 
 ### Key Points
 
-- Setting `indeterminate` to `true` renders the mixed-state visual; it takes precedence over `checked`/`unchecked` parts.
-- Any user interaction automatically resets `indeterminate` to `false` internally. The parent must re-set it from the outside when needed.
-- The `indeterminate` property maps to the native `<input>` IDL property, so screen readers announce the mixed state.
-- The parent logic must be managed externally; the component does not propagate indeterminate state to other checkboxes.
+- Setting `indeterminate` to `true` renders the mixed-state visual; it takes precedence over `checked`/`unchecked` parts
+- Any user interaction automatically resets `indeterminate` to `false` internally. The parent must re-set it from the outside when needed
+- The `indeterminate` property maps to the native `<input>` IDL property, so screen readers announce the mixed state
+- The parent logic must be managed externally; the component does not propagate indeterminate state to other checkboxes
 
 ## Form Submission
 
-Demonstrates using `ch-checkbox` inside a native `<form>`, leveraging `checkedValue` and `unCheckedValue` for form data.
+Demonstrates using `ch-checkbox` inside a native `<form>`, leveraging `checkedValue` and `unCheckedValue` for form data
 
 ### HTML
 
@@ -148,20 +148,20 @@ form.addEventListener("submit", (event) => {
 
 ### Key Points
 
-- The component is form-associated via `ElementInternals`, so it participates in native `<form>` submission without hidden inputs.
-- The `name` property determines the key in `FormData`.
-- When `unCheckedValue` is set, the unchecked state submits that value. When `unCheckedValue` is omitted (or `undefined`), the field is absent from `FormData` when unchecked.
-- The form value is kept in sync via `ElementInternals.setFormValue()` on every value change.
+- The component is form-associated via `ElementInternals`, so it participates in native `<form>` submission without hidden inputs
+- The `name` property determines the key in `FormData`
+- When `unCheckedValue` is set, the unchecked state submits that value. When `unCheckedValue` is omitted (or `undefined`), the field is absent from `FormData` when unchecked
+- The form value is kept in sync via `ElementInternals.setFormValue()` on every value change
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
 
 ### Don't
 
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

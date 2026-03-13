@@ -89,9 +89,9 @@ Compose via multiple classes:
 
 ## Styling APIs for Chameleon Web Components
 
-For Chameleon component styling APIs (`::part()`, CSS custom properties, state parts pattern, `exportparts`), consult the **chameleon-controls-library** skill — specifically each component's `styling.md` and the `css-shadow-parts-guide.md` reference.
+For Chameleon component styling APIs (`::part()`, CSS custom properties, state parts pattern, `exportparts`), consult the **chameleon-controls-library** skill — specifically each component's `styling.md` and the `css-shadow-parts-guide.md` reference
 
-**CRITICAL: Classes go directly on the Chameleon component host**, never on a wrapper `<div>`. The `::part()` selector descends from the class on the host element.
+**CRITICAL: Classes go directly on the Chameleon component host**, never on a wrapper `<div>`. The `::part()` selector descends from the class on the host element
 
 ## Anti-Patterns (NEVER do these)
 
@@ -130,16 +130,16 @@ These patterns are **strictly forbidden** and MUST be caught during code review:
 ```
 
 ### 4. Invalid `::part()` pseudo-element chain
-Only certain pseudo-elements can follow `::part()`: `::before`, `::after`, and `::placeholder` are allowed. Pseudo-elements like `::selection` and `::first-line` CANNOT be chained after `::part()` — they silently fail. Standard pseudo-classes (`:hover`, `:focus-visible`, `:active`, `:disabled`, `:focus`, `:focus-within`) are always allowed.
+Only certain pseudo-elements can follow `::part()`: `::before`, `::after`, and `::placeholder` are allowed. Pseudo-elements like `::selection` and `::first-line` CANNOT be chained after `::part()` — they silently fail. Standard pseudo-classes (`:hover`, `:focus-visible`, `:active`, `:disabled`, `:focus`, `:focus-within`) are always allowed
 
 ### 5. Invented parts
-Never write a `::part()` selector for a part that doesn't exist. Verify all parts in the component's `styling.md` (consult the **chameleon-controls-library** skill).
+Never write a `::part()` selector for a part that doesn't exist. Verify all parts in the component's `styling.md` (consult the **chameleon-controls-library** skill)
 
 ### 6. HTML attribute confused with part state
-Use compound part selectors (e.g., `::part(header disabled)`) instead of host attribute selectors (e.g., `[disabled]::part(header)`). Consult the **chameleon-controls-library** skill's per-component `styling.md` for state parts.
+Use compound part selectors (e.g., `::part(header disabled)`) instead of host attribute selectors (e.g., `[disabled]::part(header)`). Consult the **chameleon-controls-library** skill's per-component `styling.md` for state parts
 
 ### 7. Redundant Chameleon resets
-Chameleon components apply internal resets for `<button>` and `<a>`. Never write `cursor: pointer`, `border: none`, `appearance: none`, or `text-decoration: none` on `::part()` selectors targeting these elements. Consult the **chameleon-controls-library** skill's `css-shadow-parts-guide.md` for what components handle internally.
+Chameleon components apply internal resets for `<button>` and `<a>`. Never write `cursor: pointer`, `border: none`, `appearance: none`, or `text-decoration: none` on `::part()` selectors targeting these elements. Consult the **chameleon-controls-library** skill's `css-shadow-parts-guide.md` for what components handle internally
 
 ### 8. Numbered spacing tokens without semantics
 ```css
@@ -182,21 +182,21 @@ Use this pattern when a component must adapt to its elevation context:
 
 ## Mandatory Rules
 
-- Use ONLY CSS custom properties (tokens). NEVER hardcode color, spacing, or font values (exception: `0`, `transparent`, `100%`).
-- NEVER use `!important`.
-- **NEVER use `em` or `rem` units** for any property (spacing, sizing, font-size, border-radius). Use tokens or px from the 4pt grid. Only exception: user explicitly requests em/rem. See [Spacing System](design-foundations/spacing-system.md#never-use-em-or-rem-units).
-- **Valid `::part()` selectors only** — Before writing ANY `::part()` selector, verify the part name exists in the component's `styling.md` (consult the **chameleon-controls-library** skill). Invalid parts silently fail and produce dead CSS.
-- **Valid `--ch-*` custom properties only** — Before using any `--ch-*` CSS custom property, verify it exists in the component's `styling.md` (consult the **chameleon-controls-library** skill). Never guess or invent variable names — invalid custom properties silently produce dead CSS with no error.
-- **Group shared properties** — When multiple selectors share identical property-value pairs, combine them with comma-separated selectors. No redundant selectors, no duplicate declarations. See [CSS Optimization](css-optimization.md).
-- Use `:where()` for zero-specificity wrappers when needed: `:where(button, a) { ... }`.
-- Use **logical properties** everywhere: `padding-block`, `padding-inline`, `inline-size`, `block-size`, `inline-start`. RTL support for free.
-- Animate ONLY compositor-friendly properties: `transform`, `opacity`. Never animate `width`, `height`, `top`, `left`.
-- Use `round(1em * var(--line-height), 1px)` for pixel-perfect line-height rounding.
-- Add `touch-action: manipulation` on all interactive elements.
-- Cover ALL states: default, `:hover`, `:active`, `:focus-visible`, `:disabled`, error, loading.
-- Max SCSS nesting: 3 levels. Output must be flat selectors.
-- NEVER use `@extend`. Use mixins for compile-time variant generation.
-- Target size: ≤10 KB minified / ≤5 KB gzipped per component.
+- Use ONLY CSS custom properties (tokens). NEVER hardcode color, spacing, or font values (exception: `0`, `transparent`, `100%`)
+- NEVER use `!important`
+- **NEVER use `em` or `rem` units** for any property (spacing, sizing, font-size, border-radius). Use tokens or px from the 4pt grid. Only exception: user explicitly requests em/rem. See [Spacing System](design-foundations/spacing-system.md#never-use-em-or-rem-units)
+- **Valid `::part()` selectors only** — Before writing ANY `::part()` selector, verify the part name exists in the component's `styling.md` (consult the **chameleon-controls-library** skill). Invalid parts silently fail and produce dead CSS
+- **Valid `--ch-*` custom properties only** — Before using any `--ch-*` CSS custom property, verify it exists in the component's `styling.md` (consult the **chameleon-controls-library** skill). Never guess or invent variable names — invalid custom properties silently produce dead CSS with no error
+- **Group shared properties** — When multiple selectors share identical property-value pairs, combine them with comma-separated selectors. No redundant selectors, no duplicate declarations. See [CSS Optimization](css-optimization.md)
+- Use `:where()` for zero-specificity wrappers when needed: `:where(button, a) { ... }`
+- Use **logical properties** everywhere: `padding-block`, `padding-inline`, `inline-size`, `block-size`, `inline-start`. RTL support for free
+- Animate ONLY compositor-friendly properties: `transform`, `opacity`. Never animate `width`, `height`, `top`, `left`
+- Use `round(1em * var(--line-height), 1px)` for pixel-perfect line-height rounding
+- Add `touch-action: manipulation` on all interactive elements
+- Cover ALL states: default, `:hover`, `:active`, `:focus-visible`, `:disabled`, error, loading
+- Max SCSS nesting: 3 levels. Output must be flat selectors
+- NEVER use `@extend`. Use mixins for compile-time variant generation
+- Target size: ≤10 KB minified / ≤5 KB gzipped per component
 
 ## Never Cross Token Categories
 
@@ -209,13 +209,13 @@ Match the token category to the CSS property:
 | `border-color`, `outline` | `--color-border-*` | `--color-text-*`, `--color-accent-*` |
 | Icon `color` / `fill` | `--color-icon-*` | `--color-text-*` |
 
-This ensures dark/light mode inversions work correctly — text and backgrounds need opposite adjustments.
+This ensures dark/light mode inversions work correctly — text and backgrounds need opposite adjustments
 
 ## Interaction States Auto-Handled
 
-DS component CSS must cover ALL interaction states (default, hover, pressed, focused, disabled). Consuming applications should NOT write custom `:hover`, `:focus`, or `:disabled` color styles — the DS handles them.
+DS component CSS must cover ALL interaction states (default, hover, pressed, focused, disabled). Consuming applications should NOT write custom `:hover`, `:focus`, or `:disabled` color styles — the DS handles them
 
-If a consumer needs a state not covered, the DS component CSS should be extended rather than overridden in application code.
+If a consumer needs a state not covered, the DS component CSS should be extended rather than overridden in application code
 
 ## Body and Root Container Styling
 
@@ -229,4 +229,4 @@ If a framework wrapper exists (`#root`, `#app`, `#__next`), use `display: conten
 }
 ```
 
-Never set `min-height: 100vh` on the root wrapper — `base/base.css` already handles this on `body`.
+Never set `min-height: 100vh` on the root wrapper — `base/base.css` already handles this on `body`

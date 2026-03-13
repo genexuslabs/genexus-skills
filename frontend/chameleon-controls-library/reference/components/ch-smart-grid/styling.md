@@ -14,7 +14,7 @@
 
 ## Sizing Behavior
 
-> **Sizing behavior:** `ch-smart-grid` uses `contain: strict` when `autoGrow = false` (the default), which means it does **not** contribute to its parent's intrinsic size. The parent must establish its own size through layout. If the parent has no size, the component will be invisible.
+> **Sizing behavior:** `ch-smart-grid` uses `contain: strict` when `autoGrow = false` (the default), which means it does **not** contribute to its parent's intrinsic size. The parent must establish its own size through layout. If the parent has no size, the component will be invisible
 >
 > Set `autoGrow` to `true` to let the component size to its content, or place the component inside a grid or flex container that already has a defined size:
 >
@@ -152,20 +152,20 @@ ch-smart-grid {
 }
 ```
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-smart-grid__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-smart-grid::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-smart-grid__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-smart-grid::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented

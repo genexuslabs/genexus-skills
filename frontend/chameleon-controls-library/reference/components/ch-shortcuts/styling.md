@@ -191,22 +191,22 @@ ch-shortcuts::part(tooltip) {
 ### Do
 
 - Use `::part(key)` for all key-badge styling (color, background, font, border,
-  padding).
+  padding)
 - Use `::part(tooltip)` to control the overall tooltip container layout
-  (`display: flex`, padding, background, border-radius).
+  (`display: flex`, padding, background, border-radius)
 - Use `::part(element)` to highlight target elements (outline, box-shadow) so
-  users can see which element each shortcut applies to.
+  users can see which element each shortcut applies to
 - Use class selectors on the host (e.g., `.my-shortcuts::part(key)`) instead of
-  bare tag names for specificity and maintainability.
+  bare tag names for specificity and maintainability
 
 ### Don't
 
 - Don't chain `::part()` selectors -- use `exportparts` if you need to forward
-  parts up another shadow boundary.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
+  parts up another shadow boundary
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
 - Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.)
-  with `::part()`.
+  with `::part()`
 - Don't override `display` on the `:host` -- the component relies on
-  `display: contents` for correct rendering.
+  `display: contents` for correct rendering
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)

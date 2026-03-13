@@ -10,7 +10,7 @@
 
 ## Basic Usage
 
-Demonstrates a simple tab component with multiple panels. Clicking a tab button switches the visible content.
+Demonstrates a simple tab component with multiple panels. Clicking a tab button switches the visible content
 
 ### HTML
 
@@ -49,15 +49,15 @@ tabs.addEventListener("selectedItemChange", (event) => {
 
 ### Key Points
 
-- The `model` property accepts an array of `TabItemModel` objects, each requiring at least `id` and `name`.
-- The `selected-id` attribute (or `selectedId` property) determines which tab is active initially.
-- Slot names correspond to each item's `id` to project content into the correct panel.
-- The `selectedItemChange` event fires when the user selects a different tab.
-- Panel content is lazily rendered: a panel's slot is only mounted after the tab has been selected at least once.
+- The `model` property accepts an array of `TabItemModel` objects, each requiring at least `id` and `name`
+- The `selected-id` attribute (or `selectedId` property) determines which tab is active initially
+- Slot names correspond to each item's `id` to project content into the correct panel
+- The `selectedItemChange` event fires when the user selects a different tab
+- Panel content is lazily rendered: a panel's slot is only mounted after the tab has been selected at least once
 
 ## Tab Positions
 
-Demonstrates the different `tabListPosition` values that control where the tab buttons are rendered relative to the panels.
+Demonstrates the different `tabListPosition` values that control where the tab buttons are rendered relative to the panels
 
 ### HTML
 
@@ -103,15 +103,15 @@ document.querySelector("#tabs-inline-end").model = model;
 
 ### Key Points
 
-- The `tabListPosition` property accepts `"block-start"`, `"block-end"`, `"inline-start"`, or `"inline-end"`.
-- `"block-start"` (default) places tabs above the panels; `"block-end"` places them below.
-- `"inline-start"` and `"inline-end"` place the tabs vertically on the left or right side, respectively. These layouts work best with a defined height on the component.
-- The position is RTL-aware: `"inline-start"` maps to the right side in RTL layouts.
-- Direction and position parts (`block`/`inline`, `start`/`end`) are exported for position-specific styling.
+- The `tabListPosition` property accepts `"block-start"`, `"block-end"`, `"inline-start"`, or `"inline-end"`
+- `"block-start"` (default) places tabs above the panels; `"block-end"` places them below
+- `"inline-start"` and `"inline-end"` place the tabs vertically on the left or right side, respectively. These layouts work best with a defined height on the component
+- The position is RTL-aware: `"inline-start"` maps to the right side in RTL layouts
+- Direction and position parts (`block`/`inline`, `start`/`end`) are exported for position-specific styling
 
 ## Closable Tabs
 
-Demonstrates tabs with a close button that allows users to remove individual tabs at runtime.
+Demonstrates tabs with a close button that allows users to remove individual tabs at runtime
 
 ### HTML
 
@@ -160,15 +160,15 @@ tabs.addEventListener("itemClose", (event) => {
 
 ### Key Points
 
-- Setting `close-button` (or `closeButton = true`) renders a close button on each tab.
-- The `itemClose` event fires when the user clicks a tab's close button, with `{ itemId }` in the detail.
-- The component does not remove the tab automatically; you must update the `model` in the event handler.
-- Individual items can opt out of the close button by setting `closable: false` on the model item.
-- The `closable` and `not-closable` state parts are available for styling tabs with or without close buttons.
+- Setting `close-button` (or `closeButton = true`) renders a close button on each tab
+- The `itemClose` event fires when the user clicks a tab's close button, with `{ itemId }` in the detail
+- The component does not remove the tab automatically; you must update the `model` in the event handler
+- Individual items can opt out of the close button by setting `closable: false` on the model item
+- The `closable` and `not-closable` state parts are available for styling tabs with or without close buttons
 
 ## Overflow Tabs
 
-Demonstrates handling many tabs that exceed the available width by using the tab list start/end slots for custom overflow controls.
+Demonstrates handling many tabs that exceed the available width by using the tab list start/end slots for custom overflow controls
 
 ### HTML
 
@@ -210,23 +210,23 @@ tabs.model = Array.from({ length: 10 }, (_, i) => ({
 
 ### Key Points
 
-- When many tabs are added, the tab list may overflow its container. Use `overflow-x: auto` on the `tab-list` part to enable horizontal scrolling.
-- Set `showTabListEnd` (or `show-tab-list-end`) to `true` to render a slot adjacent to the tab list for custom controls like an overflow menu or "add tab" button.
-- The slot name for projecting content into the tab list area matches the `tabListPosition` value (e.g., `"block-start"` for the default position).
-- Similarly, `showTabListStart` renders a slot at the start of the tab list.
-- The `tab-list-start` and `tab-list-end` parts are available for styling these adjacent areas.
+- When many tabs are added, the tab list may overflow its container. Use `overflow-x: auto` on the `tab-list` part to enable horizontal scrolling
+- Set `showTabListEnd` (or `show-tab-list-end`) to `true` to render a slot adjacent to the tab list for custom controls like an overflow menu or "add tab" button
+- The slot name for projecting content into the tab list area matches the `tabListPosition` value (e.g., `"block-start"` for the default position)
+- Similarly, `showTabListStart` renders a slot at the start of the tab list
+- The `tab-list-start` and `tab-list-end` parts are available for styling these adjacent areas
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
-- Use named slots to provide custom content where supported.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
+- Use named slots to provide custom content where supported
 
 ### Don't
 
-- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead.
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

@@ -21,30 +21,30 @@
 
 ## Overview
 
-The `ch-action-menu-render` component renders a dropdown menu triggered by an expandable button, supporting deeply nested sub-menus and full keyboard accessibility.
+The `ch-action-menu-render` component renders a dropdown menu triggered by an expandable button, supporting deeply nested sub-menus and full keyboard accessibility
 
 ## Features
- - Deeply nested sub-menus with mouse hover expand/collapse.
- - Keyboard navigation (arrow keys, Escape, Enter).
- - Menu items can be buttons, hyperlinks, separators, or custom slots.
- - Positioned using `ch-popover`; auto-closes on outside click or Escape.
- - Internal expansion state management -- host only supplies data and reacts to events.
+ - Deeply nested sub-menus with mouse hover expand/collapse
+ - Keyboard navigation (arrow keys, Escape, Enter)
+ - Menu items can be buttons, hyperlinks, separators, or custom slots
+ - Positioned using `ch-popover`; auto-closes on outside click or Escape
+ - Internal expansion state management -- host only supplies data and reacts to events
 
 ## Use when
- - You need a multi-level dropdown menu with full keyboard accessibility (e.g., application menus, context menus, toolbar overflow menus).
- - Space is constrained and 3 or more item-level actions must be accessible (e.g., Edit, Rename, Delete in a table row).
- - Contextual actions that are secondary and do not need to be always visible.
+ - You need a multi-level dropdown menu with full keyboard accessibility (e.g., application menus, context menus, toolbar overflow menus)
+ - Space is constrained and 3 or more item-level actions must be accessible (e.g., Edit, Rename, Delete in a table row)
+ - Contextual actions that are secondary and do not need to be always visible
 
 ## Do not use when
- - You need a flat list of selectable items without nesting -- prefer `ch-action-list-render` instead.
- - Fewer than 3 actions are available — show them as visible inline icon buttons (fewer clicks, more discoverable).
- - Selection input is needed — never use `role="menu"` semantics for a value selector; prefer `ch-combo-box-render`.
- - Actions should always be immediately visible and prominent — put them inline.
+ - You need a flat list of selectable items without nesting -- prefer `ch-action-list-render` instead
+ - Fewer than 3 actions are available — show them as visible inline icon buttons (fewer clicks, more discoverable)
+ - Selection input is needed — never use `role="menu"` semantics for a value selector; prefer `ch-combo-box-render`
+ - Actions should always be immediately visible and prominent — put them inline
 
 ## Accessibility
- - The expandable button has `aria-expanded`, `aria-haspopup="true"`, `aria-controls`, and a configurable `aria-label` (`buttonAccessibleName`).
- - The popup window has `role="list"`.
- - Keyboard support: Enter/Space activates the focused item, ArrowUp/ArrowDown navigate within a menu level, ArrowRight opens a sub-menu, ArrowLeft closes it, and Escape closes the menu returning focus to the trigger button.
+ - The expandable button has `aria-expanded`, `aria-haspopup="true"`, `aria-controls`, and a configurable `aria-label` (`buttonAccessibleName`)
+ - The popup window has `role="list"`
+ - Keyboard support: Enter/Space activates the focused item, ArrowUp/ArrowDown navigate within a menu level, ArrowRight opens a sub-menu, ArrowLeft closes it, and Escape closes the menu returning focus to the trigger button
 
 ## Properties
 

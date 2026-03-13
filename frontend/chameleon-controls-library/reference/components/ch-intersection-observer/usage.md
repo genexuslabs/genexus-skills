@@ -8,7 +8,7 @@
 
 ## Basic Usage
 
-Demonstrates using the intersection observer to trigger lazy loading when an element scrolls into view.
+Demonstrates using the intersection observer to trigger lazy loading when an element scrolls into view
 
 ### HTML
 
@@ -41,15 +41,15 @@ observer.addEventListener("intersectionUpdate", (event) => {
 
 ### Key Points
 
-- Place the content to observe inside the `content` slot.
-- The `intersectionUpdate` event fires with an `IntersectionObserverEntry` as its `detail`, which includes `isIntersecting`, `intersectionRatio`, and bounding rectangles.
-- By default, the threshold is `[0]`, meaning the event fires as soon as even one pixel of the observed element is visible.
-- The `root` property accepts a DOM ID string. If not set, the browser viewport is used as the intersection root.
-- All properties (`root`, `threshold`, margins) are init-only and must be set before the component loads.
+- Place the content to observe inside the `content` slot
+- The `intersectionUpdate` event fires with an `IntersectionObserverEntry` as its `detail`, which includes `isIntersecting`, `intersectionRatio`, and bounding rectangles
+- By default, the threshold is `[0]`, meaning the event fires as soon as even one pixel of the observed element is visible
+- The `root` property accepts a DOM ID string. If not set, the browser viewport is used as the intersection root
+- All properties (`root`, `threshold`, margins) are init-only and must be set before the component loads
 
 ## Custom Thresholds
 
-Demonstrates configuring multiple visibility thresholds to trigger events at specific visibility percentages.
+Demonstrates configuring multiple visibility thresholds to trigger events at specific visibility percentages
 
 ### HTML
 
@@ -87,22 +87,22 @@ observer.addEventListener("intersectionUpdate", (event) => {
 
 ### Key Points
 
-- The `threshold` property accepts a comma-separated string of percentages (e.g., `"25%,50%,75%,100%"`). Each value triggers an `intersectionUpdate` event when the observed element crosses that visibility percentage.
-- The `root` property accepts the DOM ID of a scrollable container. The element is resolved via `document.getElementById`. If not set, the viewport is used.
-- Margin properties (`topMargin`, `bottomMargin`, `leftMargin`, `rightMargin`) expand or contract the intersection area. They accept device-independent pixels (e.g., `"100dip"`, converted to `px`) or percentages (e.g., `"10%"`).
-- All configuration properties are init-only. Changes after `componentDidLoad` have no effect.
-- The observer is automatically disconnected when the component is removed from the DOM.
+- The `threshold` property accepts a comma-separated string of percentages (e.g., `"25%,50%,75%,100%"`). Each value triggers an `intersectionUpdate` event when the observed element crosses that visibility percentage
+- The `root` property accepts the DOM ID of a scrollable container. The element is resolved via `document.getElementById`. If not set, the viewport is used
+- Margin properties (`topMargin`, `bottomMargin`, `leftMargin`, `rightMargin`) expand or contract the intersection area. They accept device-independent pixels (e.g., `"100dip"`, converted to `px`) or percentages (e.g., `"10%"`)
+- All configuration properties are init-only. Changes after `componentDidLoad` have no effect
+- The observer is automatically disconnected when the component is removed from the DOM
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
-- Use named slots to provide custom content where supported.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
+- Use named slots to provide custom content where supported
 
 ### Don't
 
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

@@ -56,7 +56,7 @@
 
 ### Smooth Animated Toggle
 
-Add a sliding animation when the thumb moves between states.
+Add a sliding animation when the thumb moves between states
 
 ```css
 ch-switch {
@@ -66,7 +66,7 @@ ch-switch {
 
 ### iOS-style Switch
 
-Create a pill-shaped switch with a large, rounded track.
+Create a pill-shaped switch with a large, rounded track
 
 ```css
 ch-switch {
@@ -87,7 +87,7 @@ ch-switch::part(thumb) {
 
 ### Focus Ring
 
-Add a visible focus indicator for accessibility.
+Add a visible focus indicator for accessibility
 
 ```css
 ch-switch::part(thumb):focus-visible {
@@ -98,7 +98,7 @@ ch-switch::part(thumb):focus-visible {
 
 ### Caption Color by State
 
-Change the caption text color depending on whether the switch is on or off.
+Change the caption text color depending on whether the switch is on or off
 
 ```css
 ch-switch::part(caption checked) {
@@ -155,20 +155,20 @@ ch-switch::part(track) {
 }
 ```
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-switch__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-switch::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-switch__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-switch::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented

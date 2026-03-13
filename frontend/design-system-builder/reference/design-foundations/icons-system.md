@@ -1,6 +1,6 @@
 # Icons System
 
-How to define an icon system for a design system.
+How to define an icon system for a design system
 
 ## Icon Library Selection
 
@@ -9,11 +9,11 @@ Choose a consistent icon library for the DS. Options:
 - **Custom SVG set** — Brand-specific icons, full control over style
 - **Hybrid** — Base library + custom icons for brand-specific needs
 
-The icon library is loaded via the `base/base` bundle (icons stylesheet).
+The icon library is loaded via the `base/base` bundle (icons stylesheet)
 
 ## Icon Size Tokens
 
-Define semantic icon size tokens in `base/base`. Always use these tokens or corresponding CSS classes — never hardcode icon dimensions.
+Define semantic icon size tokens in `base/base`. Always use these tokens or corresponding CSS classes — never hardcode icon dimensions
 
 | Token | Typical value | Size label |
 |-------|---------------|------------|
@@ -24,7 +24,7 @@ Define semantic icon size tokens in `base/base`. Always use these tokens or corr
 | `--icon-xl` | 24px | Extra large |
 | `--icon-xxl` | 32px | Extra extra large |
 
-These tokens are global (defined in base), no bundle import required to use as CSS custom properties.
+These tokens are global (defined in base), no bundle import required to use as CSS custom properties
 
 ## Icon Size Classes (bundle: `components/icon`)
 
@@ -32,7 +32,7 @@ Two class families for sizing icons:
 
 ### `icon-{size}` — For `ch-image` components
 
-Sets `--ch-image-size` on Chameleon image components.
+Sets `--ch-image-size` on Chameleon image components
 
 | Class | Size | Use case |
 |-------|------|----------|
@@ -49,7 +49,7 @@ Sets `--ch-image-size` on Chameleon image components.
 
 ### `icon-size-{size}` — For standalone icon elements
 
-Sets explicit `inline-size` and `block-size` and renders the icon via `background` using `--icon-path`.
+Sets explicit `inline-size` and `block-size` and renders the icon via `background` using `--icon-path`
 
 | Class | Size |
 |-------|------|
@@ -66,7 +66,7 @@ Sets explicit `inline-size` and `block-size` and renders the icon via `backgroun
 
 ### `icon-and-text` — Icon + text layout
 
-Creates an inline grid layout with icon and text side by side, with `gap: var(--spacing-gap-m)` between them.
+Creates an inline grid layout with icon and text side by side, with `gap: var(--spacing-gap-m)` between them
 
 ```html
 <div class="icon-and-text">
@@ -140,18 +140,18 @@ Icons use a dedicated token category (`--color-icon-*`) to ensure visual consist
 
 ## Icon Implementation Patterns
 
-Most icons in a DS are decorative (they embellish the UI but don't carry meaning that would be lost without them). The implementation technique depends on whether the icon is decorative or semantic, and whether it needs dynamic color.
+Most icons in a DS are decorative (they embellish the UI but don't carry meaning that would be lost without them). The implementation technique depends on whether the icon is decorative or semantic, and whether it needs dynamic color
 
-- **Decorative monochrome icons** — Use `ch-image` with `type="mask"`. The icon renders via CSS `mask-image` with `background-color: currentColor`, so the color adapts automatically to the theme, pseudo-states, and inherited text color. This is the standard approach for most DS icons.
-- **Decorative multicolor icons** — Use `ch-image` with `type="background"` (default). The icon renders via `background-image` with its original colors intact.
-- **Decorative icons via CSS** — For icons that don't need Chameleon's multi-state support, use CSS pseudo-elements (`::before`/`::after`) with `mask-image` (monochrome) or `background-image` (multicolor). This is the lightest approach — no DOM node created.
-- **Semantic images** — Use `<img>` with a descriptive `alt` attribute. Examples: company logos, product photos, charts.
+- **Decorative monochrome icons** — Use `ch-image` with `type="mask"`. The icon renders via CSS `mask-image` with `background-color: currentColor`, so the color adapts automatically to the theme, pseudo-states, and inherited text color. This is the standard approach for most DS icons
+- **Decorative multicolor icons** — Use `ch-image` with `type="background"` (default). The icon renders via `background-image` with its original colors intact
+- **Decorative icons via CSS** — For icons that don't need Chameleon's multi-state support, use CSS pseudo-elements (`::before`/`::after`) with `mask-image` (monochrome) or `background-image` (multicolor). This is the lightest approach — no DOM node created
+- **Semantic images** — Use `<img>` with a descriptive `alt` attribute. Examples: company logos, product photos, charts
 
-> **You MUST read the chameleon-controls-library skill** — specifically `reference/icons-and-images.md` — before implementing any icon or image in the DS. It covers semantic vs decorative decisions, `mask-image` techniques, responsive images, `ch-image` usage, and `startImgSrc`/`endImgSrc` in component models. The summary above is not a substitute for the full guide.
+> **You MUST read the chameleon-controls-library skill** — specifically `reference/icons-and-images.md` — before implementing any icon or image in the DS. It covers semantic vs decorative decisions, `mask-image` techniques, responsive images, `ch-image` usage, and `startImgSrc`/`endImgSrc` in component models. The summary above is not a substitute for the full guide
 
 ## Global Icon Resolution
 
-Every DS built on Chameleon should register a global icon resolver so that consumers can reference icons by short keys (e.g., `"settings"`) instead of full file paths. This is done via Chameleon's Registry Property System.
+Every DS built on Chameleon should register a global icon resolver so that consumers can reference icons by short keys (e.g., `"settings"`) instead of full file paths. This is done via Chameleon's Registry Property System
 
 ### Implementing a resolver
 
@@ -184,9 +184,9 @@ registryProperty("getImagePathCallback", {
 });
 ```
 
-This registration should happen once during the DS's installation/bootstrap step. After registration, every Chameleon component that supports `getImagePathCallback` automatically resolves icon paths — no per-instance prop binding needed.
+This registration should happen once during the DS's installation/bootstrap step. After registration, every Chameleon component that supports `getImagePathCallback` automatically resolves icon paths — no per-instance prop binding needed
 
-> **You MUST read the chameleon-controls-library skill** — specifically `reference/registry.md` — before implementing icon resolution. It documents the full Registry Property System: per-component callback signatures, supported components, and the `GxImageMultiState` type. The example above is a starting point, not the complete picture.
+> **You MUST read the chameleon-controls-library skill** — specifically `reference/registry.md` — before implementing icon resolution. It documents the full Registry Property System: per-component callback signatures, supported components, and the `GxImageMultiState` type. The example above is a starting point, not the complete picture
 
 ## Icons in Component Models
 
@@ -204,8 +204,8 @@ const items = [
 ];
 ```
 
-- **`startImgSrc`** — Icon at the leading edge (left in LTR).
-- **`endImgSrc`** — Icon at the trailing edge (right in LTR).
-- **`startImgType` / `endImgType`** — `"mask"` for monochrome themeable icons, `"background"` for multicolor icons.
+- **`startImgSrc`** — Icon at the leading edge (left in LTR)
+- **`endImgSrc`** — Icon at the trailing edge (right in LTR)
+- **`startImgType` / `endImgType`** — `"mask"` for monochrome themeable icons, `"background"` for multicolor icons
 
-When the global resolver is registered, consumers pass short icon keys. The DS classes for icon sizing (`icon-m`, `icon-l`, etc.) apply to `ch-image` instances, while icons inside component item models are sized by the component's own CSS.
+When the global resolver is registered, consumers pass short icon keys. The DS classes for icon sizing (`icon-m`, `icon-l`, etc.) apply to `ch-image` instances, while icons inside component item models are sized by the component's own CSS

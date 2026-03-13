@@ -8,7 +8,7 @@
 
 ## Basic Usage
 
-Demonstrates real-time barcode and QR code scanning from the device camera.
+Demonstrates real-time barcode and QR code scanning from the device camera
 
 ### HTML
 
@@ -45,16 +45,16 @@ scanner.addEventListener("read", (event) => {
 
 ### Key Points
 
-- The `scanning` property (default `true`) controls whether the camera feed is active. Set to `false` to stop the camera without destroying the component.
-- The `cameraPreference` property selects the camera: `"Default"` (first available), `"FrontCamera"`, or `"BackCamera"`.
-- The `barcodeBoxWidth` and `barcodeBoxHeight` properties (default `200`) control the size of the scanning region overlay in pixels.
-- The `readDebounce` property (default `200` ms) prevents duplicate `read` events when the same code is scanned consecutively.
-- The `cameras` event fires once during initialization with an array of available camera ID strings.
-- A `ResizeObserver` restarts the scanner automatically when the component is resized to maintain the correct aspect ratio.
+- The `scanning` property (default `true`) controls whether the camera feed is active. Set to `false` to stop the camera without destroying the component
+- The `cameraPreference` property selects the camera: `"Default"` (first available), `"FrontCamera"`, or `"BackCamera"`
+- The `barcodeBoxWidth` and `barcodeBoxHeight` properties (default `200`) control the size of the scanning region overlay in pixels
+- The `readDebounce` property (default `200` ms) prevents duplicate `read` events when the same code is scanned consecutively
+- The `cameras` event fires once during initialization with an array of available camera ID strings
+- A `ResizeObserver` restarts the scanner automatically when the component is resized to maintain the correct aspect ratio
 
 ## Scan from File Upload
 
-Demonstrates scanning a barcode or QR code from an uploaded image file using the `scan()` method.
+Demonstrates scanning a barcode or QR code from an uploaded image file using the `scan()` method
 
 ### HTML
 
@@ -91,20 +91,20 @@ fileInput.addEventListener("change", async () => {
 
 ### Key Points
 
-- The `scan(imageFile)` method accepts a `File` object and returns a `Promise<string>` with the decoded text.
-- The scanner does not need to be actively scanning (`scanning` can be `false`) for file-based scanning to work.
-- If no barcode is found in the image, the promise rejects.
-- The component element must be in the DOM even when hidden, because the `html5-qrcode` library needs the internal container element.
-- File scanning works independently of the camera — no camera permissions are required for this method.
+- The `scan(imageFile)` method accepts a `File` object and returns a `Promise<string>` with the decoded text
+- The scanner does not need to be actively scanning (`scanning` can be `false`) for file-based scanning to work
+- If no barcode is found in the image, the promise rejects
+- The component element must be in the DOM even when hidden, because the `html5-qrcode` library needs the internal container element
+- File scanning works independently of the camera — no camera permissions are required for this method
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
 
 ### Don't
 
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

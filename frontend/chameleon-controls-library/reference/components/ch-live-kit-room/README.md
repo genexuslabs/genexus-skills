@@ -19,26 +19,26 @@
 
 ## Overview
 
-The `ch-live-kit-room` component integrates with the LiveKit real-time communication platform to establish audio room connections and manage remote participants.
+The `ch-live-kit-room` component integrates with the LiveKit real-time communication platform to establish audio room connections and manage remote participants
 
 ## Features
- - Room lifecycle management: connect, disconnect, and track remote participants via the `livekit-client` SDK.
- - Automatic attachment of remote audio tracks to dynamically rendered `<audio>` elements in the shadow DOM.
- - Local microphone toggle support via the `microphoneEnabled` property.
- - Callbacks for transcription updates, active speaker changes, mute/unmute, and connection quality via the `callbacks` property.
- - Renders a default `<slot>` for projecting custom UI (e.g., transcription display, controls).
+ - Room lifecycle management: connect, disconnect, and track remote participants via the `livekit-client` SDK
+ - Automatic attachment of remote audio tracks to dynamically rendered `<audio>` elements in the shadow DOM
+ - Local microphone toggle support via the `microphoneEnabled` property
+ - Callbacks for transcription updates, active speaker changes, mute/unmute, and connection quality via the `callbacks` property
+ - Renders a default `<slot>` for projecting custom UI (e.g., transcription display, controls)
 
 ## Use when
- - Building voice-enabled conversational experiences with LiveKit.
- - Adding real-time audio communication to a `ch-chat` component.
+ - Building voice-enabled conversational experiences with LiveKit
+ - Adding real-time audio communication to a `ch-chat` component
 
 ## Do not use when
- - You need a full video conferencing UI — use a dedicated LiveKit UI framework instead.
- - Video tracks are required — this component only handles audio tracks.
+ - You need a full video conferencing UI — use a dedicated LiveKit UI framework instead
+ - Video tracks are required — this component only handles audio tracks
 
 ## Accessibility
- - The rendered `<audio>` elements are hidden (`display: none`) and play automatically when remote tracks are attached. No keyboard interaction is required for audio playback.
- - The host uses `display: contents`, so it does not affect the layout of slotted content.
+ - The rendered `<audio>` elements are hidden (`display: none`) and play automatically when remote tracks are attached. No keyboard interaction is required for audio playback
+ - The host uses `display: contents`, so it does not affect the layout of slotted content
 
 ## Properties
 

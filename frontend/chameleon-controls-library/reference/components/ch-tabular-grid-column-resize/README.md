@@ -13,7 +13,7 @@
 
 ## Overview
 
-The `ch-tabular-grid-column-resize` component responsible for resizing a column in a grid.
+The `ch-tabular-grid-column-resize` component responsible for resizing a column in a grid
 
 ## Properties
 

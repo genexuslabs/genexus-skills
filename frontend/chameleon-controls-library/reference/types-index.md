@@ -1,10 +1,10 @@
 # Chameleon Types Index
 
-**270+ TypeScript type definitions** for component properties, events, and methods. This file maps each type to the component(s) that use it, so you can quickly find the right type when wiring up Chameleon components.
+**270+ TypeScript type definitions** for component properties, events, and methods. This file maps each type to the component(s) that use it, so you can quickly find the right type when wiring up Chameleon components
 
 ## How to use types
 
-Types are **imported from the Chameleon library** in your project, not from this skill. This skill only serves as a reference to see the exact shape of each type.
+Types are **imported from the Chameleon library** in your project, not from this skill. This skill only serves as a reference to see the exact shape of each type
 
 ```ts
 import type { AccordionModel, AccordionItemModel } from "@genexus/chameleon-controls-library";
@@ -16,7 +16,7 @@ import type { AccordionModel, AccordionItemModel } from "@genexus/chameleon-cont
 2. **See which types** that component uses (model, events, callbacks, etc.)
 3. **View the type definition** by clicking the link to see its exact shape (properties, unions, etc.)
 
-Each type file in `reference/types/` is a `.ts` file named after the type. For example, `AccordionModel.ts` defines the `AccordionModel` type.
+Each type file in `reference/types/` is a `.ts` file named after the type. For example, `AccordionModel.ts` defines the `AccordionModel` type
 
 ---
 
@@ -423,7 +423,7 @@ Each type file in `reference/types/` is a `.ts` file named after the type. For e
 
 ### GeneXus integration types
 
-These types are used in GeneXus-powered applications. Most developers outside GeneXus will not need them.
+These types are used in GeneXus-powered applications. Most developers outside GeneXus will not need them
 
 | Type | Role | Definition |
 |------|------|------------|

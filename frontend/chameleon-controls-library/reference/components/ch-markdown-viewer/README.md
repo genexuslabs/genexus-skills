@@ -18,29 +18,29 @@
 
 ## Overview
 
-The `ch-markdown-viewer` component renders Markdown content as rich HTML with GFM support, code highlighting, math rendering, and streaming indicators.
+The `ch-markdown-viewer` component renders Markdown content as rich HTML with GFM support, code highlighting, math rendering, and streaming indicators
 
 ## Features
- - Parses Markdown to [mdast](https://github.com/syntax-tree/mdast) using [micromark](https://github.com/micromark/micromark) via [mdast-util-from-markdown](https://github.com/syntax-tree/mdast-util-from-markdown), with a reactive render layer that only updates changed DOM portions.
- - GitHub Flavored Markdown (GFM) via [mdast-util-gfm](https://github.com/syntax-tree/mdast-util-gfm) and [micromark-extension-gfm](https://github.com/micromark/micromark-extension-gfm).
- - Code highlighting by parsing code blocks to [hast](https://github.com/syntax-tree/hast) using [lowlight](https://github.com/wooorm/lowlight), supporting all [highlight.js](https://github.com/highlightjs/highlight.js) languages.
- - On-demand loading of code parsers and language grammars at runtime.
- - Math rendering (built-in extension), raw HTML pass-through, and streaming indicator for real-time content.
- - Custom extensions for adding new syntax and rendering behavior.
- - Theming support via the `theme` property with optional flash-of-unstyled-content prevention.
+ - Parses Markdown to [mdast](https://github.com/syntax-tree/mdast) using [micromark](https://github.com/micromark/micromark) via [mdast-util-from-markdown](https://github.com/syntax-tree/mdast-util-from-markdown), with a reactive render layer that only updates changed DOM portions
+ - GitHub Flavored Markdown (GFM) via [mdast-util-gfm](https://github.com/syntax-tree/mdast-util-gfm) and [micromark-extension-gfm](https://github.com/micromark/micromark-extension-gfm)
+ - Code highlighting by parsing code blocks to [hast](https://github.com/syntax-tree/hast) using [lowlight](https://github.com/wooorm/lowlight), supporting all [highlight.js](https://github.com/highlightjs/highlight.js) languages
+ - On-demand loading of code parsers and language grammars at runtime
+ - Math rendering (built-in extension), raw HTML pass-through, and streaming indicator for real-time content
+ - Custom extensions for adding new syntax and rendering behavior
+ - Theming support via the `theme` property with optional flash-of-unstyled-content prevention
 
 ## Use when
- - Displaying user-authored or AI-generated Markdown in a polished, interactive way.
- - Rendering Markdown content that includes headings, lists, code blocks, tables, and math expressions.
+ - Displaying user-authored or AI-generated Markdown in a polished, interactive way
+ - Rendering Markdown content that includes headings, lists, code blocks, tables, and math expressions
 
 ## Do not use when
- - Only plain text needs to be displayed -- prefer `ch-textblock` for better performance.
- - Full math rendering is needed and Markdown is not involved -- prefer `ch-math-viewer` directly.
+ - Only plain text needs to be displayed -- prefer `ch-textblock` for better performance
+ - Full math rendering is needed and Markdown is not involved -- prefer `ch-math-viewer` directly
 
 ## Accessibility
- - Renders semantic HTML elements (headings, lists, tables, code blocks) that are natively accessible to assistive technologies.
- - Code blocks are rendered via `ch-code`, which provides scrollable, labeled code regions.
- - Math expressions rendered via the math extension include MathML for screen reader compatibility.
+ - Renders semantic HTML elements (headings, lists, tables, code blocks) that are natively accessible to assistive technologies
+ - Code blocks are rendered via `ch-code`, which provides scrollable, labeled code regions
+ - Math expressions rendered via the math extension include MathML for screen reader compatibility
 
 ## Properties
 

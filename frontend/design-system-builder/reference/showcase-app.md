@@ -1,7 +1,7 @@
 # Showcase App
 
 > A navigable mini-application to browse all components, tokens, and design guidelines
-> of the Design System. Built with Kasstor + Chameleon, styled by the DS itself.
+> of the Design System. Built with Kasstor + Chameleon, styled by the DS itself
 
 ## Purpose
 
@@ -189,11 +189,11 @@ Navigation sections:
 ## Temporary Styles Workflow
 
 > **CRITICAL FLOW**: This workflow ensures the showcase always looks complete, even when
-> the DS is still under construction.
+> the DS is still under construction
 
 ### How It Works
 
-1. When a Chameleon component is used in the showcase but **not yet styled** in the DS (no corresponding `.css` in `components/`), add temporary styles in `showcase-overrides.scss`.
+1. When a Chameleon component is used in the showcase but **not yet styled** in the DS (no corresponding `.css` in `components/`), add temporary styles in `showcase-overrides.scss`
 
 2. Each temporary block MUST be marked with a clear comment:
 
@@ -230,7 +230,7 @@ Navigation sections:
 
 ### Tracking Unstyled Components
 
-The showcase should display a visual indicator (e.g., a subtle badge or border) on components that are still using temporary styles. This helps the team track DS completion progress.
+The showcase should display a visual indicator (e.g., a subtle badge or border) on components that are still using temporary styles. This helps the team track DS completion progress
 
 ## Scaffold Script
 
@@ -243,7 +243,7 @@ node <path-to-skill>/scripts/scaffold-showcase.mjs \
   --components button,dialog,accordion,checkbox,switch,tabs
 ```
 
-The script creates the full directory structure, `package.json`, config files, shell component, page stubs for each component + foundations, and `showcase-overrides.scss` with temporary block markers for all listed components.
+The script creates the full directory structure, `package.json`, config files, shell component, page stubs for each component + foundations, and `showcase-overrides.scss` with temporary block markers for all listed components
 
 ## Running the Showcase
 
@@ -253,4 +253,4 @@ npm install
 npm run dev    # Starts Vite dev server with HMR
 ```
 
-Changes to `.lit.ts` files hot-reload instantly via Kasstor's HMR support.
+Changes to `.lit.ts` files hot-reload instantly via Kasstor's HMR support

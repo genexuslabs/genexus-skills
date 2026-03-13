@@ -9,7 +9,7 @@
 - [List with Checkbox Selection](#list-with-checkbox-selection)
 - [Do's and Don'ts](#dos-and-donts)
 
-> **Sizing behavior:** `ch-action-list-render` uses `contain: size`, which means the component does **not** contribute to its parent's intrinsic size. The parent must establish its own size through layout — for example, by being a grid or flex item, or by having an explicit `block-size`. If the parent has no size, the component will be invisible.
+> **Sizing behavior:** `ch-action-list-render` uses `contain: size`, which means the component does **not** contribute to its parent's intrinsic size. The parent must establish its own size through layout — for example, by being a grid or flex item, or by having an explicit `block-size`. If the parent has no size, the component will be invisible
 >
 > The recommended approach is to place the component inside a grid or flex container that already has a defined size:
 >
@@ -23,7 +23,7 @@
 
 ## Basic Usage
 
-Demonstrates a simple action list with single selection.
+Demonstrates a simple action list with single selection
 
 ### HTML
 
@@ -52,14 +52,14 @@ actionList.addEventListener("selectedItemsChange", (event) => {
 
 ### Key Points
 
-- The `model` property accepts an array of `ActionListItemModel` objects. Each actionable item requires an `id`, `caption`, and `type: "actionable"`.
-- Set `selection="single"` to allow only one item to be selected at a time.
-- Pre-select an item by setting `selected: true` on it in the model.
-- The `selectedItemsChange` event fires whenever the selection changes and its `detail` contains the array of selected item models.
+- The `model` property accepts an array of `ActionListItemModel` objects. Each actionable item requires an `id`, `caption`, and `type: "actionable"`
+- Set `selection="single"` to allow only one item to be selected at a time
+- Pre-select an item by setting `selected: true` on it in the model
+- The `selectedItemsChange` event fires whenever the selection changes and its `detail` contains the array of selected item models
 
 ## Multiple Selection
 
-Demonstrates a list that supports selecting multiple items using modifier-key clicks.
+Demonstrates a list that supports selecting multiple items using modifier-key clicks
 
 ### HTML
 
@@ -92,14 +92,14 @@ actionList.addEventListener("selectedItemsChange", (event) => {
 
 ### Key Points
 
-- Set `selection="multiple"` to allow multi-selection.
-- Hold Ctrl (Windows/Linux) or Cmd (macOS) while clicking to add or remove items from the current selection.
-- Clicking an item without the modifier key clears the previous selection and selects only that item.
-- The `selectedItemsChange` event fires after each selection change with the full list of currently selected items.
+- Set `selection="multiple"` to allow multi-selection
+- Hold Ctrl (Windows/Linux) or Cmd (macOS) while clicking to add or remove items from the current selection
+- Clicking an item without the modifier key clears the previous selection and selects only that item
+- The `selectedItemsChange` event fires after each selection change with the full list of currently selected items
 
 ## Inline Editing
 
-Demonstrates a list where item captions can be edited in-place.
+Demonstrates a list where item captions can be edited in-place
 
 ### HTML
 
@@ -132,14 +132,14 @@ actionList.modifyItemCaptionCallback = async (itemId, newCaption) => {
 
 ### Key Points
 
-- Set `editableItems` to `true` (the default) to enable inline editing for all items. Override per-item with `editable: false`.
-- The `modifyItemCaptionCallback` is called when the user confirms a caption edit. It receives the item ID and the new caption string.
-- The component uses optimistic UI: the caption updates immediately in the UI. If the callback rejects, the caption reverts to its previous value.
-- Items also support remove and fix/unfix actions via `removeItemCallback` and `fixItemCallback`.
+- Set `editableItems` to `true` (the default) to enable inline editing for all items. Override per-item with `editable: false`
+- The `modifyItemCaptionCallback` is called when the user confirms a caption edit. It receives the item ID and the new caption string
+- The component uses optimistic UI: the caption updates immediately in the UI. If the callback rejects, the caption reverts to its previous value
+- Items also support remove and fix/unfix actions via `removeItemCallback` and `fixItemCallback`
 
 ## List with Checkbox Selection
 
-Demonstrates an action list where each item displays a checkbox for toggling checked state.
+Demonstrates an action list where each item displays a checkbox for toggling checked state
 
 ### HTML
 
@@ -169,21 +169,21 @@ actionList.addEventListener("itemClick", (event) => {
 
 ### Key Points
 
-- Set the `checkbox` attribute to display a checkbox on all items by default. Override per-item with `checkbox: true/false`.
-- Use `checked: true` on an item in the model to mark it as checked initially.
-- When `selection="none"`, clicking an item fires the `itemClick` event instead of `selectedItemsChange`.
-- Checkbox state and selection state are independent: an item can be checked without being selected and vice versa.
+- Set the `checkbox` attribute to display a checkbox on all items by default. Override per-item with `checkbox: true/false`
+- Use `checked: true` on an item in the model to mark it as checked initially
+- When `selection="none"`, clicking an item fires the `itemClick` event instead of `selectedItemsChange`
+- Checkbox state and selection state are independent: an item can be checked without being selected and vice versa
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
 
 ### Don't
 
-- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead.
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

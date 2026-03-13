@@ -13,7 +13,7 @@
 
 ## Overview
 
-The `ch-tabular-grid-settings-columns` component represents the settings for a grid's columns.
+The `ch-tabular-grid-settings-columns` component represents the settings for a grid's columns
 
 ## Properties
 

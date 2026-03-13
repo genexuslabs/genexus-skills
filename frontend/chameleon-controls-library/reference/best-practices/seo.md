@@ -8,13 +8,13 @@
 
 ## Markdown and dynamic content
 
-- **ch-markdown-viewer** — Renders markdown on the client. For SEO, ensure the raw markdown or a server-rendered HTML version is available for crawlers (e.g. via SSR or prerendering).
-- Use `ch-markdown-viewer` for user-generated or dynamic content; consider server-side rendering for public pages that must be indexed.
+- **ch-markdown-viewer** — Renders markdown on the client. For SEO, ensure the raw markdown or a server-rendered HTML version is available for crawlers (e.g. via SSR or prerendering)
+- Use `ch-markdown-viewer` for user-generated or dynamic content; consider server-side rendering for public pages that must be indexed
 
 ## Server-side rendering
 
-- Next.js, Angular SSR, and Stencil can prerender or server-render pages. Use them for public pages that need SEO.
-- Chameleon components may require hydration; ensure the loader is imported and `defineCustomElements` runs before the app renders.
+- Next.js, Angular SSR, and Stencil can prerender or server-render pages. Use them for public pages that need SEO
+- Chameleon components may require hydration; ensure the loader is imported and `defineCustomElements` runs before the app renders
 
 ## Semantic HTML
 

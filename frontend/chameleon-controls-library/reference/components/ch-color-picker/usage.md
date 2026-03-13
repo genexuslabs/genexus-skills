@@ -9,7 +9,7 @@
 
 ## Basic Usage
 
-A minimal color picker with the color field and hue slider visible.
+A minimal color picker with the color field and hue slider visible
 
 ### HTML
 
@@ -40,15 +40,15 @@ picker.value = "#10B981";
 
 ### Key Points
 
-- The color field (saturation/brightness picker) is always visible. The hue slider must be enabled explicitly with `showHueSlider="true"`.
-- The `value` property accepts color strings in HEX (`"#FF00AA"`), RGB (`"rgb(255, 0, 170)"`), HSL (`"hsl(320, 100%, 50%)"`), or HSV (`"hsv(320, 100%, 100%)"`) formats.
-- The `input` event emits a `ColorVariants` object with the selected color in all supported formats simultaneously, so you do not need to convert between formats yourself.
-- The component is form-associated via `ElementInternals`. Always pair it with a visible `<label>` for accessibility.
-- Use `hueSliderStep` to control the precision of the hue slider (default is 1 degree).
+- The color field (saturation/brightness picker) is always visible. The hue slider must be enabled explicitly with `showHueSlider="true"`
+- The `value` property accepts color strings in HEX (`"#FF00AA"`), RGB (`"rgb(255, 0, 170)"`), HSL (`"hsl(320, 100%, 50%)"`), or HSV (`"hsv(320, 100%, 100%)"`) formats
+- The `input` event emits a `ColorVariants` object with the selected color in all supported formats simultaneously, so you do not need to convert between formats yourself
+- The component is form-associated via `ElementInternals`. Always pair it with a visible `<label>` for accessibility
+- Use `hueSliderStep` to control the precision of the hue slider (default is 1 degree)
 
 ## Full-Featured Color Picker
 
-A color picker with all controls enabled: hue slider, alpha slider, format selector, color preview, and a preset palette.
+A color picker with all controls enabled: hue slider, alpha slider, format selector, color preview, and a preset palette
 
 ### HTML
 
@@ -103,16 +103,16 @@ picker.addEventListener("input", (event) => {
 
 ### Key Points
 
-- Each section is toggled independently with its `show*` property: `showHueSlider`, `showAlphaSlider`, `showColorFormatSelector`, `showColorPreview`, and `showColorPalette`.
-- The `colorPalette` property accepts an array of CSS color strings. These render as clickable swatches for quick selection. The palette is only visible when `showColorPalette="true"` and the array has at least one item.
-- The `order` property uses CSS `order` internally to rearrange the controls visually without changing the DOM structure.
-- The format selector lets users switch between HEX, RGB, HSL, and HSV at runtime. Each format shows its respective channel inputs.
-- The alpha slider controls opacity from 0% to 100%. The alpha value is reflected in RGBA and HSLA output formats.
-- Use `disabled` or `readonly` properties to prevent user interaction while still displaying the current color.
+- Each section is toggled independently with its `show*` property: `showHueSlider`, `showAlphaSlider`, `showColorFormatSelector`, `showColorPreview`, and `showColorPalette`
+- The `colorPalette` property accepts an array of CSS color strings. These render as clickable swatches for quick selection. The palette is only visible when `showColorPalette="true"` and the array has at least one item
+- The `order` property uses CSS `order` internally to rearrange the controls visually without changing the DOM structure
+- The format selector lets users switch between HEX, RGB, HSL, and HSV at runtime. Each format shows its respective channel inputs
+- The alpha slider controls opacity from 0% to 100%. The alpha value is reflected in RGBA and HSLA output formats
+- Use `disabled` or `readonly` properties to prevent user interaction while still displaying the current color
 
 ## Event Handling and Color Formats
 
-Capture the `input` event to receive all color format variants simultaneously and apply the selected color in real time.
+Capture the `input` event to receive all color format variants simultaneously and apply the selected color in real time
 
 ### HTML
 
@@ -156,21 +156,21 @@ picker.addEventListener("input", (event) => {
 
 ### Key Points
 
-- The `input` event fires every time the color changes (field drag, slider move, palette click, or manual input). The `event.detail` is a `ColorVariants` object with `hex`, `rgb`, `hsl`, and `hsv` properties.
-- You always receive all four format strings in a single event, regardless of which format the user is currently viewing.
-- The component's `value` property reflects the color in the format that was last set. Setting `value="#FF0000"` stores it as HEX; setting `value="rgb(255,0,0)"` stores it as RGB.
-- Because the component is form-associated, setting the `name` property allows it to participate in `<form>` submission. The submitted value is the current `value` string.
-- For real-time previews, use the `hex` or `rgb` property from `ColorVariants` to set CSS properties directly.
+- The `input` event fires every time the color changes (field drag, slider move, palette click, or manual input). The `event.detail` is a `ColorVariants` object with `hex`, `rgb`, `hsl`, and `hsv` properties
+- You always receive all four format strings in a single event, regardless of which format the user is currently viewing
+- The component's `value` property reflects the color in the format that was last set. Setting `value="#FF0000"` stores it as HEX; setting `value="rgb(255,0,0)"` stores it as RGB
+- Because the component is form-associated, setting the `name` property allows it to participate in `<form>` submission. The submitted value is the current `value` string
+- For real-time previews, use the `hex` or `rgb` property from `ColorVariants` to set CSS properties directly
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
 
 ### Don't
 
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

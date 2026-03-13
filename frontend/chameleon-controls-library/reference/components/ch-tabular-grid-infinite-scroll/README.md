@@ -30,7 +30,7 @@ The 'ch-tabular-grid-infinite-scroll' provides infinite scroll functionality for
 
 ### `complete() => Promise<void>`
 
-Indicates that the grid is already loaded.
+Indicates that the grid is already loaded
 
 #### Returns
 

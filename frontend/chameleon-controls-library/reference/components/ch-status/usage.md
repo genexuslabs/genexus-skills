@@ -8,7 +8,7 @@
 
 ## Basic Usage
 
-A simple loading indicator with slotted content that announces itself to screen readers via `aria-live="polite"`.
+A simple loading indicator with slotted content that announces itself to screen readers via `aria-live="polite"`
 
 ### HTML
 
@@ -46,15 +46,15 @@ button.addEventListener("click", async () => {
 
 ### Key Points
 
-- `ch-status` sets `role="status"` and `aria-live="polite"` on the host element, so screen readers announce the slotted content without interrupting the user.
-- The default slot accepts any content: spinner icons, text, or a combination of both.
-- The component is a **passive indicator** with no keyboard interaction.
-- Add or remove the element from the DOM to show/hide the loading state. ARIA cleanup happens automatically on disconnect.
-- Always set `accessible-name` to provide a meaningful label for assistive technologies.
+- `ch-status` sets `role="status"` and `aria-live="polite"` on the host element, so screen readers announce the slotted content without interrupting the user
+- The default slot accepts any content: spinner icons, text, or a combination of both
+- The component is a **passive indicator** with no keyboard interaction
+- Add or remove the element from the DOM to show/hide the loading state. ARIA cleanup happens automatically on disconnect
+- Always set `accessible-name` to provide a meaningful label for assistive technologies
 
 ## Loading Region with aria-busy
 
-Use `loadingRegionRef` to mark a specific page region as busy while the status indicator is active.
+Use `loadingRegionRef` to mark a specific page region as busy while the status indicator is active
 
 ### HTML
 
@@ -108,22 +108,22 @@ async function search(query) {
 
 ### Key Points
 
-- Setting `loadingRegionRef` causes `ch-status` to set `aria-busy="true"` and `aria-describedby="<status-id>"` on the referenced element.
-- When the `ch-status` element is **removed from the DOM**, these ARIA attributes are automatically cleaned up via `disconnectedCallback`.
-- If the `ch-status` element has no explicit `id`, the component generates a unique one (e.g., `ch-status-0`) for the `aria-describedby` binding.
-- Unlike `ch-progress`, `ch-status` **replaces** (rather than appends to) any existing `aria-describedby` value on the referenced element.
-- The `loadingRegionRef` must be in the **same Shadow Tree** as the `ch-status` element for `aria-describedby` to resolve correctly.
+- Setting `loadingRegionRef` causes `ch-status` to set `aria-busy="true"` and `aria-describedby="<status-id>"` on the referenced element
+- When the `ch-status` element is **removed from the DOM**, these ARIA attributes are automatically cleaned up via `disconnectedCallback`
+- If the `ch-status` element has no explicit `id`, the component generates a unique one (e.g., `ch-status-0`) for the `aria-describedby` binding
+- Unlike `ch-progress`, `ch-status` **replaces** (rather than appends to) any existing `aria-describedby` value on the referenced element
+- The `loadingRegionRef` must be in the **same Shadow Tree** as the `ch-status` element for `aria-describedby` to resolve correctly
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
-- Always provide an `accessibleName` or appropriate `aria-` attribute for screen reader support.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
+- Always provide an `accessibleName` or appropriate `aria-` attribute for screen reader support
 
 ### Don't
 
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

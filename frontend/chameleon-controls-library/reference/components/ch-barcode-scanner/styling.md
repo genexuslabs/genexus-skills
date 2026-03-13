@@ -10,11 +10,11 @@
 
 ## Overview
 
-The `ch-barcode-scanner` component renders a camera video feed for real-time barcode and QR code scanning. It does not use Shadow DOM (`shadow: false`), so its internal elements can be styled directly.
+The `ch-barcode-scanner` component renders a camera video feed for real-time barcode and QR code scanning. It does not use Shadow DOM (`shadow: false`), so its internal elements can be styled directly
 
 ## Layout
 
-The component uses `display: grid` with `position: relative` on the host element and an absolutely positioned inner container. The scanner video feed fills the component's width.
+The component uses `display: grid` with `position: relative` on the host element and an absolutely positioned inner container. The scanner video feed fills the component's width
 
 ```css
 ch-barcode-scanner {
@@ -64,13 +64,13 @@ Since the component does not use Shadow DOM, the internal HTML structure is:
 
 ### Styling the Scanning Box
 
-The `html5-qrcode` library renders its own scanning region overlay. Consult the [html5-qrcode documentation](https://github.com/mebjas/html5-qrcode) for customization of the scanning box appearance.
+The `html5-qrcode` library renders its own scanning region overlay. Consult the [html5-qrcode documentation](https://github.com/mebjas/html5-qrcode) for customization of the scanning box appearance
 
 ## Anti-patterns
 
 ### 1. Setting `display: none` or `height: 0` on the scanner
 
-The scanner computes the camera aspect ratio from the element's `clientWidth` and `clientHeight`. If the element is collapsed or hidden, the scanner cannot start.
+The scanner computes the camera aspect ratio from the element's `clientWidth` and `clientHeight`. If the element is collapsed or hidden, the scanner cannot start
 
 ```css
 /* INCORRECT - the scanner cannot compute aspect ratio */
@@ -86,24 +86,24 @@ ch-barcode-scanner {
 
 ### 2. Using `overflow: visible` on the host
 
-The component uses `overflow: clip` to prevent flickering during initial load. Overriding this may cause visual artifacts.
+The component uses `overflow: clip` to prevent flickering during initial load. Overriding this may cause visual artifacts
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-barcode-scanner__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-barcode-scanner::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-barcode-scanner__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-barcode-scanner::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented
 
 ---
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)

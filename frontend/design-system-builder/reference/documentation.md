@@ -54,12 +54,12 @@ docs/SKILL.md (entry point)
 ```
 
 Requirements:
-- Co-locate `.md` and `.css` in the same directory.
-- Use layered navigation: SKILL.md → index → detail (3 levels).
-- Use markdown tables with explicit mappings (machine-parseable).
-- Keep framework-agnostic; separate installation docs per framework.
-- Serve both humans and AI agents (dual audience).
+- Co-locate `.md` and `.css` in the same directory
+- Use layered navigation: SKILL.md → index → detail (3 levels)
+- Use markdown tables with explicit mappings (machine-parseable)
+- Keep framework-agnostic; separate installation docs per framework
+- Serve both humans and AI agents (dual audience)
 
 ## Changelog
 
-Use `CHANGELOG.md` at the DS root. Follow [Keep a Changelog](https://keepachangelog.com/) format. Group changes by: Added, Changed, Deprecated, Removed, Fixed, Security.
+Use `CHANGELOG.md` at the DS root. Follow [Keep a Changelog](https://keepachangelog.com/) format. Group changes by: Added, Changed, Deprecated, Removed, Fixed, Security

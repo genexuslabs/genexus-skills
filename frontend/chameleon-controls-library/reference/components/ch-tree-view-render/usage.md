@@ -10,7 +10,7 @@
 - [Tree with Filter](#tree-with-filter)
 - [Do's and Don'ts](#dos-and-donts)
 
-> **Sizing behavior:** `ch-tree-view-render` uses `contain: size`, which means the component does **not** contribute to its parent's intrinsic size. The parent must establish its own size through layout — for example, by being a grid or flex item, or by having an explicit `block-size`. If the parent has no size, the component will be invisible.
+> **Sizing behavior:** `ch-tree-view-render` uses `contain: size`, which means the component does **not** contribute to its parent's intrinsic size. The parent must establish its own size through layout — for example, by being a grid or flex item, or by having an explicit `block-size`. If the parent has no size, the component will be invisible
 >
 > The recommended approach is to place the component inside a grid or flex container that already has a defined size:
 >
@@ -24,7 +24,7 @@
 
 ## Basic Usage
 
-Demonstrates a simple tree with expandable and collapsible nodes.
+Demonstrates a simple tree with expandable and collapsible nodes
 
 ### HTML
 
@@ -69,14 +69,14 @@ tree.addEventListener("selectedItemsChange", (event) => {
 
 ### Key Points
 
-- The `model` property accepts an array of `TreeViewItemModel` objects. Each item needs an `id` and `caption`. Set `leaf: true` on items without children.
-- Items with children should include an `items` array. Set `expanded: true` to show children initially.
-- `expandableButton="action"` renders an interactive expand/collapse button. Use `"decorative"` for a non-interactive indicator where the row click toggles expansion.
-- `showLines="last"` draws a connector line from the parent to the last child in each group. Use `"all"` for connector lines to all items or `"none"` to hide lines.
+- The `model` property accepts an array of `TreeViewItemModel` objects. Each item needs an `id` and `caption`. Set `leaf: true` on items without children
+- Items with children should include an `items` array. Set `expanded: true` to show children initially
+- `expandableButton="action"` renders an interactive expand/collapse button. Use `"decorative"` for a non-interactive indicator where the row click toggles expansion
+- `showLines="last"` draws a connector line from the parent to the last child in each group. Use `"all"` for connector lines to all items or `"none"` to hide lines
 
 ## Lazy Loading Children
 
-Demonstrates loading child items on demand when a node is expanded.
+Demonstrates loading child items on demand when a node is expanded
 
 ### HTML
 
@@ -114,15 +114,15 @@ tree.lazyLoadTreeItemsCallback = async (itemId) => {
 
 ### Key Points
 
-- Set `lazy: true` on items to defer loading their children until the user expands them.
-- Assign a `lazyLoadTreeItemsCallback` function that receives the item ID and returns a promise resolving to the child items array.
-- While loading, the item displays a downloading spinner (the `item__downloading` part).
-- Once loaded, the `item__group` part receives the `lazy-loaded` state part for targeted styling.
-- Lazy items that return an empty array become leaf nodes visually.
+- Set `lazy: true` on items to defer loading their children until the user expands them
+- Assign a `lazyLoadTreeItemsCallback` function that receives the item ID and returns a promise resolving to the child items array
+- While loading, the item displays a downloading spinner (the `item__downloading` part)
+- Once loaded, the `item__group` part receives the `lazy-loaded` state part for targeted styling
+- Lazy items that return an empty array become leaf nodes visually
 
 ## Drag-and-Drop Reordering
 
-Demonstrates enabling drag-and-drop to reorder nodes within the tree.
+Demonstrates enabling drag-and-drop to reorder nodes within the tree
 
 ### HTML
 
@@ -171,15 +171,15 @@ tree.addEventListener("itemDrop", (event) => {
 
 ### Key Points
 
-- Set `dropMode="above-below"` to enable drop zones above and below each item. Use `"above"` to only allow dropping onto items (reparenting).
-- Individual items can opt out of dragging with `dragDisabled: true` or dropping with `dropDisabled: true`.
-- The `itemDragStart` event fires when a drag begins. The `itemDrop` event fires when a drop is completed, providing the dragged item, the drop target, and the drop type (`"before"`, `"after"`, or `"above"`).
-- The `drag-preview` part can be styled to customize the drag preview appearance.
-- Selected items can be dragged together when using multi-selection mode.
+- Set `dropMode="above-below"` to enable drop zones above and below each item. Use `"above"` to only allow dropping onto items (reparenting)
+- Individual items can opt out of dragging with `dragDisabled: true` or dropping with `dropDisabled: true`
+- The `itemDragStart` event fires when a drag begins. The `itemDrop` event fires when a drop is completed, providing the dragged item, the drop target, and the drop type (`"before"`, `"after"`, or `"above"`)
+- The `drag-preview` part can be styled to customize the drag preview appearance
+- Selected items can be dragged together when using multi-selection mode
 
 ## Tree with Checkbox Selection
 
-Demonstrates a tree with tri-state checkboxes for multi-selection.
+Demonstrates a tree with tri-state checkboxes for multi-selection
 
 ### HTML
 
@@ -235,15 +235,15 @@ tree.addEventListener("checkedItemsChange", (event) => {
 
 ### Key Points
 
-- Set the `checkbox` attribute to display a checkbox on all items. Override per-item with `checkbox: true/false`.
-- `toggleCheckboxes` enables automatic parent-child checkbox propagation: checking a parent checks all children, and partially checked children cause the parent to show an indeterminate state.
-- Each item supports three checkbox states: `checked: true`, `checked: false`, and `indeterminate: true`.
-- The `checkedItemsChange` event fires whenever the checked state changes and its `detail` contains a Map of all checked item models.
-- Checkbox selection is independent from node selection (`selected` property).
+- Set the `checkbox` attribute to display a checkbox on all items. Override per-item with `checkbox: true/false`
+- `toggleCheckboxes` enables automatic parent-child checkbox propagation: checking a parent checks all children, and partially checked children cause the parent to show an indeterminate state
+- Each item supports three checkbox states: `checked: true`, `checked: false`, and `indeterminate: true`
+- The `checkedItemsChange` event fires whenever the checked state changes and its `detail` contains a Map of all checked item models
+- Checkbox selection is independent from node selection (`selected` property)
 
 ## Tree with Filter
 
-Demonstrates filtering tree items by caption to find nodes quickly.
+Demonstrates filtering tree items by caption to find nodes quickly
 
 ### HTML
 
@@ -295,23 +295,23 @@ filterInput.addEventListener("input", (event) => {
 
 ### Key Points
 
-- Set `filterType="caption"` to filter items whose captions match the `filter` property value. Other modes include `"metadata"`, `"list"`, `"checked"`, and `"unchecked"`.
-- The `filter` property accepts a string or RegExp. When a string is provided, it is matched as a case-insensitive substring by default.
-- Use `filterDebounce` (in milliseconds) to debounce rapid changes to the `filter` property and avoid excessive re-renders.
-- For `filterType="list"`, set the `filterList` property to an array of item IDs to display.
-- Parent items that contain matching children remain visible in the tree to preserve the hierarchy context.
-- Use `filterOptions` to customize filter behavior (e.g., case sensitivity, match mode).
+- Set `filterType="caption"` to filter items whose captions match the `filter` property value. Other modes include `"metadata"`, `"list"`, `"checked"`, and `"unchecked"`
+- The `filter` property accepts a string or RegExp. When a string is provided, it is matched as a case-insensitive substring by default
+- Use `filterDebounce` (in milliseconds) to debounce rapid changes to the `filter` property and avoid excessive re-renders
+- For `filterType="list"`, set the `filterList` property to an array of item IDs to display
+- Parent items that contain matching children remain visible in the tree to preserve the hierarchy context
+- Use `filterOptions` to customize filter behavior (e.g., case sensitivity, match mode)
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
 
 ### Don't
 
-- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead.
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

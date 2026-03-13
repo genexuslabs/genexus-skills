@@ -6,12 +6,12 @@
 
 ## 1. Preparation
 
-> [!IMPORTANT]  
-> This guide assumes you are using Mercury >= `0.36.0`, which is the minimum version for using the `vite-plugin-mercury` plugin.
+> [!IMPORTANT]
+> This guide assumes you are using Mercury >= `0.36.0`, which is the minimum version for using the `vite-plugin-mercury` plugin
 
 ### 1.1. Decide the assets paths
 
-First of all, you must decide the paths where the CSS bundles, font assets, and icon set will be contained in the `dist` folder of your final application. Keep them noted down, as we will refer to them in the next steps.
+First of all, you must decide the paths where the CSS bundles, font assets, and icon set will be contained in the `dist` folder of your final application. Keep them noted down, as we will refer to them in the next steps
 
 We will refer to those paths with the following names:
 
@@ -23,9 +23,9 @@ We will refer to those paths with the following names:
 
 ### 1.2. Install the dependencies
 
-1. If you haven't already, install Mercury and Chameleon: `npm i @genexus/chameleon-controls-library @genexus/mercury`.
+1. If you haven't already, install Mercury and Chameleon: `npm i @genexus/chameleon-controls-library @genexus/mercury`
 
-2. Install the `vite-plugin-mercury` devDependency that automates the Mercury setup process.
+2. Install the `vite-plugin-mercury` devDependency that automates the Mercury setup process
 
    ```bash
    npm i --save-dev @genexus/vite-plugin-mercury
@@ -68,7 +68,7 @@ export default defineConfig({
 
 ### 3.1. Import declarations and include base styles
 
-Include the required imports at the application's entry point to properly configure and bootstrap Mercury with Chameleon. To stay organized, use a separate file named `setupMercury.ts`, and then include it in the entry point.
+Include the required imports at the application's entry point to properly configure and bootstrap Mercury with Chameleon. To stay organized, use a separate file named `setupMercury.ts`, and then include it in the entry point
 
 `src/setupMercury.ts`
 
@@ -109,7 +109,7 @@ createRoot(document.getElementById("root")!).render(
 
 ### 3.2 Create React Web Component wrappers
 
-React wrappers enable smooth integration of Web Components into React by adapting their properties and events to React's props and event system.
+React wrappers enable smooth integration of Web Components into React by adapting their properties and events to React's props and event system
 
 Starting with Chameleon version `6.4.0`, there is a CLI to create React Web Component wrappers. To create the wrappers, run:
 
@@ -124,7 +124,7 @@ If no output flag is passed, the wrappers will be generated under `/src`:
 ```
 
 > [!TIP]
-> We recommend adding this command to your package.json file before running the dev server and production builds, as it takes less than 300ms to execute.
+> We recommend adding this command to your package.json file before running the dev server and production builds, as it takes less than 300ms to execute
 
 For example:
 
@@ -141,7 +141,7 @@ For example:
 
 ### 3.3. Set the dark/light mode
 
-Mercury supports both dark and light modes. Add the `light` or `dark` class on the `<html>` tag. This toggles the color scheme for all components and icons.
+Mercury supports both dark and light modes. Add the `light` or `dark` class on the `<html>` tag. This toggles the color scheme for all components and icons
 
 **Dark theme setup** — `index.html`
 
@@ -165,7 +165,7 @@ Mercury supports both dark and light modes. Add the `light` or `dark` class on t
 
 ### 3.4. Creating your components
 
-Example: a simple component that uses Mercury CSS bundles and `ch-theme`.
+Example: a simple component that uses Mercury CSS bundles and `ch-theme`
 
 `src/components/custom-dialog/CustomDialog.tsx` (example component)
 
@@ -196,7 +196,7 @@ export const CustomDialog = () => (
 );
 ```
 
-**Code explained:** The component imports `getBundles` to get the button and icon bundles `["components/button", "components/icon"]`, and `getIconPath` for the icon source. `ChTheme` (Chameleon's theme component) applies the CSS bundles. Use the **Component → bundles table** in this skill to choose which bundles to pass for each component; use the **Bundles index** for class names (e.g. `button-primary`, `button-icon-and-text`).
+**Code explained:** The component imports `getBundles` to get the button and icon bundles `["components/button", "components/icon"]`, and `getIconPath` for the icon source. `ChTheme` (Chameleon's theme component) applies the CSS bundles. Use the **Component → bundles table** in this skill to choose which bundles to pass for each component; use the **Bundles index** for class names (e.g. `button-primary`, `button-icon-and-text`)
 
 `src/App.tsx`
 
@@ -232,4 +232,4 @@ Expected structure:
 
 ## Next steps
 
-Use the **Component → Mercury CSS bundles table** and **Bundles index** in this skill to choose the right bundles and CSS classes for each Chameleon component you use.
+Use the **Component → Mercury CSS bundles table** and **Bundles index** in this skill to choose the right bundles and CSS classes for each Chameleon component you use

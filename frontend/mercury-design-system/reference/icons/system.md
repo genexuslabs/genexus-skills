@@ -1,6 +1,6 @@
 # System
 
-Comprehensive utility icons covering common actions — add, delete, search, settings, notifications, and more. **This is the primary icon category for most Mercury applications** (~95% of icons used).
+Comprehensive utility icons covering common actions — add, delete, search, settings, notifications, and more. **This is the primary icon category for most Mercury applications** (~95% of icons used)
 
 **Type:** Monochrome
 

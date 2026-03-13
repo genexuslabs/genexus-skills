@@ -71,7 +71,7 @@
 
 ### Dropdown Menu
 
-A floating panel positioned below a trigger button.
+A floating panel positioned below a trigger button
 
 ```css
 ch-popover {
@@ -88,7 +88,7 @@ ch-popover {
 
 ### Tooltip-like Popover
 
-A compact popover with an arrow-like appearance.
+A compact popover with an arrow-like appearance
 
 ```css
 ch-popover {
@@ -105,7 +105,7 @@ ch-popover {
 
 ### Constrained Scrollable Popover
 
-A popover that adds a scroll when content overflows.
+A popover that adds a scroll when content overflows
 
 ```css
 ch-popover {
@@ -121,7 +121,7 @@ ch-popover {
 
 ### Separation Between Action and Popover
 
-Add spacing between the trigger element and the popover.
+Add spacing between the trigger element and the popover
 
 ```css
 ch-popover {
@@ -132,7 +132,7 @@ ch-popover {
 
 ### Resizable Popover with Constraints
 
-Allow user resizing with minimum and maximum bounds.
+Allow user resizing with minimum and maximum bounds
 
 ```css
 ch-popover {
@@ -205,20 +205,20 @@ ch-popover::part(header) {
 }
 ```
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-popover__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-popover::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-popover__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-popover::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented

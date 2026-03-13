@@ -93,26 +93,26 @@ ch-progress {
 
 ## Anti-patterns
 
-- **Do not rely on internal DOM structure.** The component uses Shadow DOM with a slot; style your own projected content, not internal elements.
-- **Do not set `role` or `aria-value*` attributes on the host from outside.** The component manages all ARIA attributes (`role="progressbar"`, `aria-valuemin`, `aria-valuemax`, `aria-valuenow`, `aria-valuetext`) internally. Adding them externally will cause duplicates or conflicts.
-- **Do not use `ch-progress` purely for visual decoration without setting `accessible-name`.** The component will log an accessibility warning if no accessible name is provided.
+- **Do not rely on internal DOM structure.** The component uses Shadow DOM with a slot; style your own projected content, not internal elements
+- **Do not set `role` or `aria-value*` attributes on the host from outside.** The component manages all ARIA attributes (`role="progressbar"`, `aria-valuemin`, `aria-valuemax`, `aria-valuenow`, `aria-valuetext`) internally. Adding them externally will cause duplicates or conflicts
+- **Do not use `ch-progress` purely for visual decoration without setting `accessible-name`.** The component will log an accessibility warning if no accessible name is provided
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-progress__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-progress::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-progress__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-progress::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented
 
 ---
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)

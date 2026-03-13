@@ -8,7 +8,7 @@
 - [Custom Data Provider](#custom-data-provider)
 - [Do's and Don'ts](#dos-and-donts)
 
-> **Sizing behavior:** `ch-smart-grid` uses `contain: strict` when `autoGrow = false` (the default), which means it does **not** contribute to its parent's intrinsic size. The parent must establish its own size through layout. If the parent has no size, the component will be invisible.
+> **Sizing behavior:** `ch-smart-grid` uses `contain: strict` when `autoGrow = false` (the default), which means it does **not** contribute to its parent's intrinsic size. The parent must establish its own size through layout. If the parent has no size, the component will be invisible
 >
 > Set `autoGrow` to `true` to let the component size to its content, or place the component inside a grid or flex container that already has a defined size:
 >
@@ -22,7 +22,7 @@
 
 ## Basic Usage
 
-Demonstrates a simple infinite-scroll list that loads data progressively from a data source.
+Demonstrates a simple infinite-scroll list that loads data progressively from a data source
 
 ### HTML
 
@@ -90,15 +90,15 @@ grid.addEventListener("infiniteThresholdReached", async () => {
 
 ### Key Points
 
-- Set `data-provider` to enable infinite scrolling with a `ch-infinite-scroll` element rendered internally.
-- The `threshold` property controls how close to the edge the user must scroll before `infiniteThresholdReached` fires (e.g., `"100px"` or `"10%"`).
-- The `loadingState` property has three values: `"initial"` (shows placeholder), `"loading"` (shows spinner), and `"loaded"` (shows content).
-- The `items-count` property must be updated whenever the data set changes to trigger proper rendering of content vs. empty slots.
-- The `accessible-name` property maps to `aria-label` on the host, and `aria-live="polite"` announces content changes.
+- Set `data-provider` to enable infinite scrolling with a `ch-infinite-scroll` element rendered internally
+- The `threshold` property controls how close to the edge the user must scroll before `infiniteThresholdReached` fires (e.g., `"100px"` or `"10%"`)
+- The `loadingState` property has three values: `"initial"` (shows placeholder), `"loading"` (shows spinner), and `"loaded"` (shows content)
+- The `items-count` property must be updated whenever the data set changes to trigger proper rendering of content vs. empty slots
+- The `accessible-name` property maps to `aria-label` on the host, and `aria-live="polite"` announces content changes
 
 ## Inverse Loading
 
-Demonstrates a chat-like interface where content loads from the bottom up, with older messages loaded at the top via infinite scroll.
+Demonstrates a chat-like interface where content loads from the bottom up, with older messages loaded at the top via infinite scroll
 
 ### HTML
 
@@ -175,15 +175,15 @@ grid.addEventListener("infiniteThresholdReached", async () => {
 
 ### Key Points
 
-- Setting `inverse-loading` places the infinite-scroll trigger at the top of the grid and aligns content to the bottom.
-- The `auto-scroll` property controls scroll behavior when new content is added: `"at-scroll-end"` keeps the scroll at the bottom when the user is already there; `"never"` does not adjust the scroll position.
-- Content is prepended (not appended) to the `grid-content` slot so older messages appear above newer ones.
-- The component automatically manages scroll position to prevent layout shifts (CLS) during async loads, using `overflow-anchor: none` and internal position tracking.
-- Set `autoGrow` to `true` if you want the grid to expand to fit all content instead of being a fixed-height scrollable area.
+- Setting `inverse-loading` places the infinite-scroll trigger at the top of the grid and aligns content to the bottom
+- The `auto-scroll` property controls scroll behavior when new content is added: `"at-scroll-end"` keeps the scroll at the bottom when the user is already there; `"never"` does not adjust the scroll position
+- Content is prepended (not appended) to the `grid-content` slot so older messages appear above newer ones
+- The component automatically manages scroll position to prevent layout shifts (CLS) during async loads, using `overflow-anchor: none` and internal position tracking
+- Set `autoGrow` to `true` if you want the grid to expand to fit all content instead of being a fixed-height scrollable area
 
 ## Custom Data Provider
 
-Demonstrates using the data provider pattern with a virtual scroller for efficiently rendering very large datasets.
+Demonstrates using the data provider pattern with a virtual scroller for efficiently rendering very large datasets
 
 ### HTML
 
@@ -270,24 +270,24 @@ async function scrollToEntry(cellId) {
 
 ### Key Points
 
-- The `data-provider` property enables the infinite-scroll mechanism. The grid sets `loadingState` to `"loading"` automatically before emitting `infiniteThresholdReached`.
-- The consumer must set `loadingState` back to `"loaded"` after data is fetched and appended, which re-enables the scroll threshold.
-- Combining `ch-smart-grid` with `ch-virtual-scroller` enables rendering only visible items in the viewport, which is essential for datasets with thousands of entries.
-- The `scrollEndContentToPosition` method anchors a specific cell at the top or end of the viewport, with the component automatically reserving space below the last cell when using `position: "start"`.
-- Call `removeScrollEndContentReference()` to clear the anchor and the reserved space.
+- The `data-provider` property enables the infinite-scroll mechanism. The grid sets `loadingState` to `"loading"` automatically before emitting `infiniteThresholdReached`
+- The consumer must set `loadingState` back to `"loaded"` after data is fetched and appended, which re-enables the scroll threshold
+- Combining `ch-smart-grid` with `ch-virtual-scroller` enables rendering only visible items in the viewport, which is essential for datasets with thousands of entries
+- The `scrollEndContentToPosition` method anchors a specific cell at the top or end of the viewport, with the component automatically reserving space below the last cell when using `position: "start"`
+- Call `removeScrollEndContentReference()` to clear the anchor and the reserved space
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
-- Use named slots to provide custom content where supported.
-- Always provide an `accessibleName` or appropriate `aria-` attribute for screen reader support.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
+- Use named slots to provide custom content where supported
+- Always provide an `accessibleName` or appropriate `aria-` attribute for screen reader support
 
 ### Don't
 
-- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead.
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

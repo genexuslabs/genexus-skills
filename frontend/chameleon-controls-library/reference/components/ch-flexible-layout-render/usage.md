@@ -11,7 +11,7 @@
 
 ## Basic Usage
 
-Demonstrates a simple two-panel side-by-side layout with one widget in each panel.
+Demonstrates a simple two-panel side-by-side layout with one widget in each panel
 
 ### HTML
 
@@ -65,15 +65,15 @@ layout.renders = {
 
 ### Key Points
 
-- The `model` property defines the hierarchical layout tree. Groups contain items; leaves contain widgets.
-- The `direction` of a group controls whether children are laid out as `"columns"` (side by side) or `"rows"` (stacked).
-- The `size` property uses CSS grid track syntax (`"1fr"`, `"200px"`, `"auto"`, etc.).
-- The `renders` property is a dictionary mapping widget IDs to functions that return rendered content.
-- The `dragBar` property on each leaf enables the resizable splitter between panels.
+- The `model` property defines the hierarchical layout tree. Groups contain items; leaves contain widgets
+- The `direction` of a group controls whether children are laid out as `"columns"` (side by side) or `"rows"` (stacked)
+- The `size` property uses CSS grid track syntax (`"1fr"`, `"200px"`, `"auto"`, etc.)
+- The `renders` property is a dictionary mapping widget IDs to functions that return rendered content
+- The `dragBar` property on each leaf enables the resizable splitter between panels
 
 ## Tabbed Widgets
 
-Demonstrates a layout where one leaf hosts multiple widgets rendered as tabs.
+Demonstrates a layout where one leaf hosts multiple widgets rendered as tabs
 
 ### HTML
 
@@ -140,15 +140,15 @@ layout.renders = {
 
 ### Key Points
 
-- Set `type: "tabbed"` on a leaf to render its widgets as tabs.
-- The `selectedWidgetId` property determines which tab is initially active.
-- Each widget in the `widgets` array has an `id` (used to look up the render function) and a `name` (displayed in the tab button).
-- Widgets are lazily rendered: only the selected widget's render function is called until the user switches tabs.
-- The `renderedWidgetsChange` event fires whenever the set of visible widgets changes, useful for lazy-mounting expensive content.
+- Set `type: "tabbed"` on a leaf to render its widgets as tabs
+- The `selectedWidgetId` property determines which tab is initially active
+- Each widget in the `widgets` array has an `id` (used to look up the render function) and a `name` (displayed in the tab button)
+- Widgets are lazily rendered: only the selected widget's render function is called until the user switches tabs
+- The `renderedWidgetsChange` event fires whenever the set of visible widgets changes, useful for lazy-mounting expensive content
 
 ## Drag and Drop
 
-Demonstrates enabling tab reordering within a tabbed leaf and dragging widgets between leaves.
+Demonstrates enabling tab reordering within a tabbed leaf and dragging widgets between leaves
 
 ### HTML
 
@@ -223,15 +223,15 @@ layout.addEventListener("widgetClose", (event) => {
 
 ### Key Points
 
-- Setting `sortable` enables drag reordering of tabs within their tab list.
-- Setting `dragOutside` (requires `sortable`) allows dragging a tab out of one leaf and dropping it into another leaf's drop zone.
-- The `closeButton` property renders a close button on each tab. The `widgetClose` event is emitted when clicked.
-- Calling `event.preventDefault()` on the `widgetClose` event cancels the removal, enabling confirmation dialogs or save prompts.
-- When the last widget is dragged out of a leaf, the leaf is automatically removed and its space is given to the sibling.
+- Setting `sortable` enables drag reordering of tabs within their tab list
+- Setting `dragOutside` (requires `sortable`) allows dragging a tab out of one leaf and dropping it into another leaf's drop zone
+- The `closeButton` property renders a close button on each tab. The `widgetClose` event is emitted when clicked
+- Calling `event.preventDefault()` on the `widgetClose` event cancels the removal, enabling confirmation dialogs or save prompts
+- When the last widget is dragged out of a leaf, the leaf is automatically removed and its space is given to the sibling
 
 ## Dynamic Widgets
 
-Demonstrates adding and removing widgets programmatically via the component's public methods.
+Demonstrates adding and removing widgets programmatically via the component's public methods
 
 ### HTML
 
@@ -319,15 +319,15 @@ async function addSiblingPanel() {
 
 ### Key Points
 
-- `addWidget(leafId, widget, selectWidget)` adds a widget to an existing tabbed leaf. Set `selectWidget` to `true` to immediately switch to it.
-- The `renderId` property on a widget maps to a key in the `renders` dictionary, allowing multiple widgets to share a render function.
-- `removeWidget(widgetId)` removes a widget by its ID. If it was the last widget, the entire view is destroyed.
-- `addSiblingView(parentGroup, siblingItem, placement, viewInfo, takeHalfSpace)` creates a new leaf view as a sibling in the layout tree.
-- `removeView(leafId, removeRenderedWidgets)` removes an entire leaf and optionally destroys widget render state.
+- `addWidget(leafId, widget, selectWidget)` adds a widget to an existing tabbed leaf. Set `selectWidget` to `true` to immediately switch to it
+- The `renderId` property on a widget maps to a key in the `renders` dictionary, allowing multiple widgets to share a render function
+- `removeWidget(widgetId)` removes a widget by its ID. If it was the last widget, the entire view is destroyed
+- `addSiblingView(parentGroup, siblingItem, placement, viewInfo, takeHalfSpace)` creates a new leaf view as a sibling in the layout tree
+- `removeView(leafId, removeRenderedWidgets)` removes an entire leaf and optionally destroys widget render state
 
 ## Nested Groups
 
-Demonstrates a complex nested layout with groups inside groups, mimicking a typical IDE arrangement with sidebar, editor area, and bottom panel.
+Demonstrates a complex nested layout with groups inside groups, mimicking a typical IDE arrangement with sidebar, editor area, and bottom panel
 
 ### HTML
 
@@ -437,21 +437,21 @@ function makeWidget(text) {
 
 ### Key Points
 
-- Groups can be nested inside other groups. Each group specifies its own `direction` (`"columns"` or `"rows"`), enabling complex grid arrangements.
-- In this example, the root group splits horizontally (sidebar vs. main area). The main area group splits vertically (editors vs. bottom panel). The editor group further splits horizontally (two side-by-side editor tabs).
-- The `tabListPosition` property on a tabbed leaf controls where the tab buttons appear (`"block-start"`, `"block-end"`, `"inline-start"`, or `"inline-end"`).
-- Each widget can display an icon via the `startImgSrc` property, rendered in the tab button.
-- Fixed sizes (`"220px"`, `"200px"`) and flexible sizes (`"1fr"`, `"3fr"`) can be mixed within the same group to create fixed sidebars alongside fluid content areas.
+- Groups can be nested inside other groups. Each group specifies its own `direction` (`"columns"` or `"rows"`), enabling complex grid arrangements
+- In this example, the root group splits horizontally (sidebar vs. main area). The main area group splits vertically (editors vs. bottom panel). The editor group further splits horizontally (two side-by-side editor tabs)
+- The `tabListPosition` property on a tabbed leaf controls where the tab buttons appear (`"block-start"`, `"block-end"`, `"inline-start"`, or `"inline-end"`)
+- Each widget can display an icon via the `startImgSrc` property, rendered in the tab button
+- Fixed sizes (`"220px"`, `"200px"`) and flexible sizes (`"1fr"`, `"3fr"`) can be mixed within the same group to create fixed sidebars alongside fluid content areas
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
 
 ### Don't
 
-- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

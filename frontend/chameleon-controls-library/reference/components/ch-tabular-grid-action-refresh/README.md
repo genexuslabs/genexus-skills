@@ -10,7 +10,7 @@
 
 ## Overview
 
-The `ch-tabular-grid-action-refresh` component represents a refresh button for a grid action bar.
+The `ch-tabular-grid-action-refresh` component represents a refresh button for a grid action bar
 
 ## Properties
 

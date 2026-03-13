@@ -1,8 +1,8 @@
 # Mercury Compatibility Table
 
-Use this table when installing or validating a Mercury project to confirm that all packages are on compatible versions. **Always prefer the latest versions** of every package unless there's a specific reason to pin to an older one.
+Use this table when installing or validating a Mercury project to confirm that all packages are on compatible versions. **Always prefer the latest versions** of every package unless there's a specific reason to pin to an older one
 
-> **How to check installed versions:** run `npm ls @genexus/mercury @genexus/chameleon-controls-library @genexus/vite-plugin-mercury @genexus/mercury-cli 2>/dev/null` (adjust for pnpm/yarn).
+> **How to check installed versions:** run `npm ls @genexus/mercury @genexus/chameleon-controls-library @genexus/vite-plugin-mercury @genexus/mercury-cli 2>/dev/null` (adjust for pnpm/yarn)
 
 ---
 
@@ -47,8 +47,8 @@ After installing, confirm each installed version falls within the compatible ran
    ```bash
    npm ls @genexus/mercury @genexus/chameleon-controls-library @genexus/vite-plugin-mercury @genexus/mercury-cli 2>/dev/null
    ```
-2. Look up the installed Mercury version in the tables above.
-3. If any package is outside the compatible range, update it to a compatible version — preferably the latest.
+2. Look up the installed Mercury version in the tables above
+3. If any package is outside the compatible range, update it to a compatible version — preferably the latest
 
 ### Common fixes
 

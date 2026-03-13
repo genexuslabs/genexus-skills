@@ -15,7 +15,7 @@
 
 ## Overview
 
-The `ch-tabular-grid-column` component represents a grid column.
+The `ch-tabular-grid-column` component represents a grid column
 
 ## Properties
 

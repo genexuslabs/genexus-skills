@@ -42,34 +42,34 @@
 
 ## Overview
 
-The `ch-tabular-grid` component is a full-featured, accessible data grid and tree grid for displaying, selecting, and interacting with tabular data.
+The `ch-tabular-grid` component is a full-featured, accessible data grid and tree grid for displaying, selecting, and interacting with tabular data
 
 ## Features
- - Single and multiple row selection, cell-level selection, and row marking (checkboxes).
- - Row and cell highlighting on hover.
- - Full keyboard navigation (Arrow keys, Home/End, PageUp/PageDown, Enter, Space, +/- for tree expand/collapse).
- - Column reordering via drag-and-drop (controlled by `allowColumnReorder`).
- - Column resizing in `"single"` or `"splitter"` mode.
- - Row expand/collapse for hierarchical tree data.
- - Context menus and row actions via slotted content.
- - Touch support for mobile devices (tap-to-select).
- - Built-in settings panel for column visibility.
- - Rich set of public methods and events for programmatic control.
+ - Single and multiple row selection, cell-level selection, and row marking (checkboxes)
+ - Row and cell highlighting on hover
+ - Full keyboard navigation (Arrow keys, Home/End, PageUp/PageDown, Enter, Space, +/- for tree expand/collapse)
+ - Column reordering via drag-and-drop (controlled by `allowColumnReorder`)
+ - Column resizing in `"single"` or `"splitter"` mode
+ - Row expand/collapse for hierarchical tree data
+ - Context menus and row actions via slotted content
+ - Touch support for mobile devices (tap-to-select)
+ - Built-in settings panel for column visibility
+ - Rich set of public methods and events for programmatic control
 
 ## Use when
- - Displaying and interacting with structured tabular or hierarchical data.
- - Users need to select, sort, reorder, or resize columns interactively.
- - The data has a tree/hierarchy that benefits from inline expand/collapse.
+ - Displaying and interacting with structured tabular or hierarchical data
+ - Users need to select, sort, reorder, or resize columns interactively
+ - The data has a tree/hierarchy that benefits from inline expand/collapse
 
 ## Do not use when
- - Displaying a simple list or card layout -- use `ch-smart-grid` instead.
- - Simple display-only lists without interactivity -- use a semantic `<table>` or `ch-action-list-render` instead.
+ - Displaying a simple list or card layout -- use `ch-smart-grid` instead
+ - Simple display-only lists without interactivity -- use a semantic `<table>` or `ch-action-list-render` instead
 
 ## Accessibility
- - Full keyboard navigation: Arrow keys to move between cells, Home/End for row boundaries, PageUp/PageDown for vertical scrolling, Enter for row press, Space for toggle/mark, +/- for tree expand/collapse.
- - Supports row and cell selection semantics with configurable selection modes (`rowSelectionMode`).
- - Hierarchical tree-grid rows support expand/collapse via keyboard.
- - Focus is managed on the host element; row and cell focus states are tracked internally and exposed via CSS classes.
+ - Full keyboard navigation: Arrow keys to move between cells, Home/End for row boundaries, PageUp/PageDown for vertical scrolling, Enter for row press, Space for toggle/mark, +/- for tree expand/collapse
+ - Supports row and cell selection semantics with configurable selection modes (`rowSelectionMode`)
+ - Hierarchical tree-grid rows support expand/collapse via keyboard
+ - Focus is managed on the host element; row and cell focus states are tracked internally and exposed via CSS classes
 
 ## Properties
 
@@ -103,7 +103,7 @@ The `ch-tabular-grid` component is a full-featured, accessible data grid and tre
 
 ### `cellEnsureVisible(cellId: string) => Promise<void>`
 
-Ensures that the cell is visible within the control, scrolling the contents of the control if necessary.
+Ensures that the cell is visible within the control, scrolling the contents of the control if necessary
 
 #### Parameters
 
@@ -117,8 +117,8 @@ Type: `Promise<void>`
 
 ### `collapseRow(rowId: string) => Promise<void>`
 
-Collapses a hierarchical (tree-grid) row, hiding its children.
-No-ops if the row is not found or is not collapsible.
+Collapses a hierarchical (tree-grid) row, hiding its children
+No-ops if the row is not found or is not collapsible
 
 #### Parameters
 
@@ -132,8 +132,8 @@ Type: `Promise<void>`
 
 ### `expandRow(rowId: string) => Promise<void>`
 
-Expands a hierarchical (tree-grid) row, showing its children.
-No-ops if the row is not found or is not expandable.
+Expands a hierarchical (tree-grid) row, showing its children
+No-ops if the row is not found or is not expandable
 
 #### Parameters
 
@@ -147,7 +147,7 @@ Type: `Promise<void>`
 
 ### `getFocusedCell() => Promise<{ cellId: string; rowId: string; columnId: string; }>`
 
-Retrieves information about the currently focused cell.
+Retrieves information about the currently focused cell
 
 #### Returns
 
@@ -155,7 +155,7 @@ Type: `Promise<{ cellId: string; rowId: string; columnId: string; }>`
 
 ### `getFocusedRow() => Promise<string>`
 
-Retrieves the rowId of the currently focused row.
+Retrieves the rowId of the currently focused row
 
 #### Returns
 
@@ -163,7 +163,7 @@ Type: `Promise<string>`
 
 ### `getHoveredRow() => Promise<string>`
 
-Retrieves the rowId of the currently hovered row.
+Retrieves the rowId of the currently hovered row
 
 #### Returns
 
@@ -171,7 +171,7 @@ Type: `Promise<string>`
 
 ### `getMarkedRows() => Promise<string[]>`
 
-Retrieves the list of rowId of the marked rows.
+Retrieves the list of rowId of the marked rows
 
 #### Returns
 
@@ -179,7 +179,7 @@ Type: `Promise<string[]>`
 
 ### `getNextCell() => Promise<{ cellId: string; rowId: string; columnId: string; }>`
 
-Retrieves information about the next cell relative to the currently selected cell.
+Retrieves information about the next cell relative to the currently selected cell
 
 #### Returns
 
@@ -187,7 +187,7 @@ Type: `Promise<{ cellId: string; rowId: string; columnId: string; }>`
 
 ### `getNextRow() => Promise<string | void>`
 
-Retrieves the rowId of the next row relative to the currently selected cell.
+Retrieves the rowId of the next row relative to the currently selected cell
 
 #### Returns
 
@@ -195,7 +195,7 @@ Type: `Promise<string | void>`
 
 ### `getPreviousCell() => Promise<{ cellId: string; rowId: string; columnId: string; }>`
 
-Retrieves information about the previous cell relative to the currently selected cell.
+Retrieves information about the previous cell relative to the currently selected cell
 
 #### Returns
 
@@ -203,7 +203,7 @@ Type: `Promise<{ cellId: string; rowId: string; columnId: string; }>`
 
 ### `getPreviousRow() => Promise<string | void>`
 
-Retrieves the rowId of the previous row relative to the currently selected cell.
+Retrieves the rowId of the previous row relative to the currently selected cell
 
 #### Returns
 
@@ -211,7 +211,7 @@ Type: `Promise<string | void>`
 
 ### `getSelectedCell() => Promise<{ cellId: string; rowId: string; columnId: string; }>`
 
-Retrieves information about the currently selected cell.
+Retrieves information about the currently selected cell
 
 #### Returns
 
@@ -219,7 +219,7 @@ Type: `Promise<{ cellId: string; rowId: string; columnId: string; }>`
 
 ### `getSelectedRows() => Promise<string[]>`
 
-Retrieves the list of rowId of the selected rows.
+Retrieves the list of rowId of the selected rows
 
 #### Returns
 
@@ -227,9 +227,9 @@ Type: `Promise<string[]>`
 
 ### `markAllRows(marked?: boolean) => Promise<void>`
 
-Marks or unmarks all rows at once.
+Marks or unmarks all rows at once
 Only has effect when the column selector's `richRowSelectorMode` is
-`"mark"`. Triggers the `rowMarkingChanged` event.
+`"mark"`. Triggers the `rowMarkingChanged` event
 
 #### Parameters
 
@@ -243,10 +243,10 @@ Type: `Promise<void>`
 
 ### `markRow(rowId: string, marked?: boolean) => Promise<void>`
 
-Mark or unmark a row via its checkbox selector.
+Mark or unmark a row via its checkbox selector
 Only has effect when the column selector's `richRowSelectorMode` is
-`"mark"`. No-ops if the row is not found or marking is not enabled.
-Triggers the `rowMarkingChanged` event.
+`"mark"`. No-ops if the row is not found or marking is not enabled
+Triggers the `rowMarkingChanged` event
 
 #### Parameters
 
@@ -261,7 +261,7 @@ Type: `Promise<void>`
 
 ### `rowEnsureVisible(rowId: string) => Promise<void>`
 
-Ensures that the row is visible within the control, scrolling the contents of the control if necessary.
+Ensures that the row is visible within the control, scrolling the contents of the control if necessary
 
 #### Parameters
 
@@ -275,7 +275,7 @@ Type: `Promise<void>`
 
 ### `selectAllRows(selected?: boolean) => Promise<void>`
 
-Selects or deselects all rows.
+Selects or deselects all rows
 
 #### Parameters
 
@@ -289,9 +289,9 @@ Type: `Promise<void>`
 
 ### `selectCell(cellId?: string, rowId?: string, columnId?: string, selected?: boolean) => Promise<void>`
 
-Select or deselect a cell.
+Select or deselect a cell
 The cell can be identified by the cellId parameter or
-by using the rowId and columnId pair.
+by using the rowId and columnId pair
 
 #### Parameters
 
@@ -308,7 +308,7 @@ Type: `Promise<void>`
 
 ### `selectRow(rowId: string, selected?: boolean) => Promise<void>`
 
-Selects or deselects a row.
+Selects or deselects a row
 
 #### Parameters
 
@@ -325,7 +325,7 @@ Type: `Promise<void>`
 
 Synchronizes the selection, marking, and selector state of a row with
 the grid's internal state. Call this after programmatically changing
-a row's `selected` or `marked` attributes outside the grid's API.
+a row's `selected` or `marked` attributes outside the grid's API
 
 #### Parameters
 

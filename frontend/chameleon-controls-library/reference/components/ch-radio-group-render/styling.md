@@ -55,7 +55,7 @@
 
 ### Custom Radio Appearance
 
-Style the radio buttons with a branded color scheme.
+Style the radio buttons with a branded color scheme
 
 ```css
 ch-radio-group-render {
@@ -79,7 +79,7 @@ ch-radio-group-render::part(radio__option checked) {
 
 ### Focus Ring
 
-Add a visible focus ring when navigating with the keyboard.
+Add a visible focus ring when navigating with the keyboard
 
 ```css
 ch-radio-group-render::part(radio__input):focus-visible {
@@ -92,7 +92,7 @@ ch-radio-group-render::part(radio__input):focus-visible {
 
 ### Horizontal Spacing
 
-Control the gap between items when using horizontal layout.
+Control the gap between items when using horizontal layout
 
 ```css
 ch-radio-group-render {
@@ -106,7 +106,7 @@ ch-radio-group-render::part(radio-item) {
 
 ### Card-style Radio Items
 
-Make each radio item look like a selectable card.
+Make each radio item look like a selectable card
 
 ```css
 ch-radio-group-render::part(radio-item) {
@@ -171,20 +171,20 @@ ch-radio-group-render::part(radio__option checked) {
 }
 ```
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-radio-group__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-radio-group::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-radio-group__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-radio-group::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented

@@ -97,26 +97,26 @@ ch-slider {
 
 ## Anti-patterns
 
-- **Do not hide the native `<input type="range">` with CSS from outside the shadow DOM.** The component already manages the native input's visibility internally; overriding it can break interaction and accessibility.
-- **Do not set `appearance` on the host element.** The native range input appearance reset is handled inside the shadow DOM.
-- **Do not use `::part(track__selected)` and `::part(track__unselected)` with percentage widths.** Their widths are computed dynamically via internal CSS variables tied to the component value. Use background-color and opacity instead.
+- **Do not hide the native `<input type="range">` with CSS from outside the shadow DOM.** The component already manages the native input's visibility internally; overriding it can break interaction and accessibility
+- **Do not set `appearance` on the host element.** The native range input appearance reset is handled inside the shadow DOM
+- **Do not use `::part(track__selected)` and `::part(track__unselected)` with percentage widths.** Their widths are computed dynamically via internal CSS variables tied to the component value. Use background-color and opacity instead
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-slider__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-slider::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-slider__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-slider::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented
 
 ---
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)

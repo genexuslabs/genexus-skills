@@ -1,13 +1,13 @@
 # Figma Token Mapping
 
-How to translate Figma design values into Mercury design tokens and CSS classes.
+How to translate Figma design values into Mercury design tokens and CSS classes
 
 ## Primitive vs Semantic Tokens
 
 Mercury has two token layers:
 
-- **Primitive tokens** — Raw color/size values: `--color-azure-600`, `--color-neutral-1400`, `--color-avocado-600`, `--size-16`, etc. These are internal to the design system and **must never be used in code**.
-- **Semantic tokens** — Purpose-driven tokens: `--color-accent-primary-default`, `--color-text-neutral-default`, `--icon-m`, `--spacing-padding-xl`, etc. These are the public API of the design system.
+- **Primitive tokens** — Raw color/size values: `--color-azure-600`, `--color-neutral-1400`, `--color-avocado-600`, `--size-16`, etc. These are internal to the design system and **must never be used in code**
+- **Semantic tokens** — Purpose-driven tokens: `--color-accent-primary-default`, `--color-text-neutral-default`, `--icon-m`, `--spacing-padding-xl`, etc. These are the public API of the design system
 
 **Always use semantic tokens.** If a Figma design or user input references a primitive token, translate it to its semantic equivalent:
 
@@ -17,7 +17,7 @@ Mercury has two token layers:
 | `--color-neutral-1400` | `--color-text-neutral-default` (Globant) | Look up which semantic token references this primitive in the variant's base.css |
 | `--size-16` | `--icon-m` or `--spacing-padding-xl` | Depends on context — icon sizing vs spacing |
 
-Primitive tokens change between theme variants (Mercury uses `azure-*`, Globant uses `avocado-*`) and may change between versions. Semantic tokens remain stable.
+Primitive tokens change between theme variants (Mercury uses `azure-*`, Globant uses `avocado-*`) and may change between versions. Semantic tokens remain stable
 
 ## The Figma Font-Weight Bug
 
@@ -29,7 +29,7 @@ Primitive tokens change between theme variants (Mercury uses `azure-*`, Globant 
 | SemiBold (600) | Medium (500) | `var(--font-style-semi-bold)` |
 | Bold (700) | SemiBold (600) | `var(--font-style-bold)` |
 
-Never use raw `font-weight` values from Figma. Always use Mercury typography classes or CSS variables.
+Never use raw `font-weight` values from Figma. Always use Mercury typography classes or CSS variables
 
 ## Reconstructing Tokens from Hex Values
 
@@ -37,7 +37,7 @@ When a Figma design uses raw hex colors instead of named tokens, determine the c
 
 ### Step 1: Identify the CSS property
 
-| If the color is used for... | Token category | Pattern |
+| If the color is used for… | Token category | Pattern |
 |----------------------------|----------------|---------|
 | Text / font color | `text` | `--color-text-{subcategory}-{state}` |
 | Background / fill | `accent` | `--color-accent-{subcategory}-{state}` |
@@ -46,7 +46,7 @@ When a Figma design uses raw hex colors instead of named tokens, determine the c
 
 ### Step 2: Determine the subcategory
 
-| If the purpose is... | Subcategory |
+| If the purpose is… | Subcategory |
 |---------------------|-------------|
 | Brand action, CTA, primary emphasis | `primary` |
 | Standard content, neutral UI | `neutral` |
@@ -57,11 +57,11 @@ When a Figma design uses raw hex colors instead of named tokens, determine the c
 
 ### Step 3: Match the state
 
-Default → `default`, Hover → `hover`, Pressed → `pressed`, Focus → `focused` (borders only), Disabled → `disabled`.
+Default → `default`, Hover → `hover`, Pressed → `pressed`, Focus → `focused` (borders only), Disabled → `disabled`
 
 ### Step 4: Find the closest token by hex value
 
-Use the tables below to match hex values to tokens. If there's no exact match, choose the semantically closest token.
+Use the tables below to match hex values to tokens. If there's no exact match, choose the semantically closest token
 
 ## Typography Mapping: Figma → Mercury Classes
 
@@ -87,13 +87,13 @@ Use the tables below to match hex values to tokens. If there's no exact match, c
 | `--font-size/caption/m` | 10px | `caption-regular-m` or `caption-semi-bold-m` | |
 | `--font-size/caption/s` | 8px | `caption-regular-s` or `caption-semi-bold-s` | |
 
-**Weight selection:** If Figma shows `Regular` → use `regular` variant. If Figma shows `Semi Bold` → use `semi-bold` variant. If Figma shows `Italic` → use `italic` variant (body only).
+**Weight selection:** If Figma shows `Regular` → use `regular` variant. If Figma shows `Semi Bold` → use `semi-bold` variant. If Figma shows `Italic` → use `italic` variant (body only)
 
 ## Color Token Mapping: Hex → Mercury Token
 
-**Important:** The two theme variants (Mercury and Globant) use different color primitives. Mercury uses blue-tinted neutrals and azure primary colors; Globant uses pure gray neutrals and avocado/olive primary colors. The tables below show hex values for **both variants** so you can identify the correct token regardless of which variant the Figma design uses.
+**Important:** The two theme variants (Mercury and Globant) use different color primitives. Mercury uses blue-tinted neutrals and azure primary colors; Globant uses pure gray neutrals and avocado/olive primary colors. The tables below show hex values for **both variants** so you can identify the correct token regardless of which variant the Figma design uses
 
-Feedback colors (error, success, warning) are **identical** across both variants.
+Feedback colors (error, success, warning) are **identical** across both variants
 
 ### Text Tokens
 
@@ -153,7 +153,7 @@ When matching a Figma hex color to a token, first determine which variant you're
 - **Blue-tinted neutrals** (e.g. `#2D3A48`, `#9DA9B6`, `#17273B`) + **azure primary** (`#0072F8`) → **Mercury** variant
 - **Pure gray neutrals** (e.g. `#3B3B3B`, `#A9A9A9`, `#262626`) + **green primary** (`#749519`) → **Globant** variant
 
-Then match the hex value against the correct variant's column in the tables above.
+Then match the hex value against the correct variant's column in the tables above
 
 ## When Figma Doesn't Use Tokens
 

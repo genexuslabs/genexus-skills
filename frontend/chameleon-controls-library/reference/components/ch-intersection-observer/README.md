@@ -18,31 +18,31 @@
 
 ## Overview
 
-The `ch-intersection-observer` component is a declarative wrapper around the native `IntersectionObserver` API that emits events when slotted content crosses visibility thresholds.
+The `ch-intersection-observer` component is a declarative wrapper around the native `IntersectionObserver` API that emits events when slotted content crosses visibility thresholds
 
 ## Features
- - Observes element visibility relative to a specified root element or the browser viewport.
- - Configurable visibility thresholds as comma-separated percentages (e.g., `"25%,50%,75%"`).
- - Root margins in device-independent pixels (dip) or percentages to expand or contract the intersection area.
- - Emits an `intersectionUpdate` event with full `IntersectionObserverEntry` details.
- - Automatically disconnects the observer when the component is removed from the DOM.
- - The host renders with `display: contents`, so it does not affect layout.
+ - Observes element visibility relative to a specified root element or the browser viewport
+ - Configurable visibility thresholds as comma-separated percentages (e.g., `"25%,50%,75%"`)
+ - Root margins in device-independent pixels (dip) or percentages to expand or contract the intersection area
+ - Emits an `intersectionUpdate` event with full `IntersectionObserverEntry` details
+ - Automatically disconnects the observer when the component is removed from the DOM
+ - The host renders with `display: contents`, so it does not affect layout
 
 ## Use when
- - Triggering actions when an element scrolls into or out of view.
- - Implementing lazy loading of images or components that should only load when scrolled into view.
- - Triggering animations or data fetching when an element enters the viewport.
+ - Triggering actions when an element scrolls into or out of view
+ - Implementing lazy loading of images or components that should only load when scrolled into view
+ - Triggering animations or data fetching when an element enters the viewport
 
 ## Do not use when
- - You need to observe element resizing — use a `ResizeObserver` instead.
- - Continuous scroll position tracking is needed — use a scroll event listener instead.
- - The target element uses `display: contents` — the observer skips elements with that display value and looks for the first descendant that has a box.
+ - You need to observe element resizing — use a `ResizeObserver` instead
+ - Continuous scroll position tracking is needed — use a scroll event listener instead
+ - The target element uses `display: contents` — the observer skips elements with that display value and looks for the first descendant that has a box
 
 ## Slots
- - `content`: The element to be observed for intersection changes. The observer targets the first child element whose computed `display` is not `contents`.
+ - `content`: The element to be observed for intersection changes. The observer targets the first child element whose computed `display` is not `contents`
 
 ## Accessibility
- - This component is purely behavioral and renders no visible UI of its own. It has no keyboard or ARIA implications.
+ - This component is purely behavioral and renders no visible UI of its own. It has no keyboard or ARIA implications
 
 ## Properties
 

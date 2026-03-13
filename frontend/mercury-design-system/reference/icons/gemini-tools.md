@@ -1,6 +1,6 @@
 # Gemini Tools
 
-Specialized tool icons within the Gemini framework for extending application capabilities.
+Specialized tool icons within the Gemini framework for extending application capabilities
 
 **Type:** Monochrome
 

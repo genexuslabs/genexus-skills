@@ -15,7 +15,7 @@
 
 Place the `ch-shortcuts` component anywhere in your page and point its `src`
 property to a JSON file that describes the keyboard shortcuts. Press the trigger
-key (default **F10**) to toggle visual hints next to every target element.
+key (default **F10**) to toggle visual hints next to every target element
 
 ### HTML
 
@@ -44,18 +44,18 @@ key (default **F10**) to toggle visual hints next to every target element.
 ### Key Points
 
 - The `src` property is **required** and must point to a valid JSON file that
-  returns an array of shortcut definitions.
+  returns an array of shortcut definitions
 - The component fetches the JSON at `componentDidLoad`, so it can be added to
-  the DOM at any time.
-- Press **F10** (the default `show-key`) to toggle the on-screen shortcut hints.
-  Press any non-modifier key while hints are visible to dismiss them.
+  the DOM at any time
+- Press **F10** (the default `show-key`) to toggle the on-screen shortcut hints
+  Press any non-modifier key while hints are visible to dismiss them
 - The component uses `ch-window` internally to position each tooltip next to its
-  target element.
+  target element
 
 ## Shortcut Definitions File
 
-The JSON file referenced by `src` must contain an array of shortcut objects.
-Each object describes one keyboard shortcut binding.
+The JSON file referenced by `src` must contain an array of shortcut objects
+Each object describes one keyboard shortcut binding
 
 ### Schema
 
@@ -95,12 +95,12 @@ Each object describes one keyboard shortcut binding.
 - **Modifier + key:** `"Ctrl+S"`, `"Alt+N"`, `"Shift+Tab"`
 - **Multiple modifiers:** `"Ctrl+Shift+K"`
 - **Alternative bindings** (separated by space): `"Alt+N Alt+n"` -- both
-  alternatives are registered as separate shortcuts pointing to the same target.
+  alternatives are registered as separate shortcuts pointing to the same target
 
 ## Trigger Key Configuration
 
 By default, pressing **F10** toggles shortcut hint tooltips. Change this via the
-`show-key` property.
+`show-key` property
 
 ### HTML
 
@@ -116,16 +116,16 @@ By default, pressing **F10** toggles shortcut hint tooltips. Change this via the
 
 - The `show-key` value must match a valid
   [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key)
-  string.
-- When the trigger key is pressed a second time, the hints are dismissed.
-- Pressing any non-modifier key while hints are visible also dismisses them.
+  string
+- When the trigger key is pressed a second time, the hints are dismissed
+- Pressing any non-modifier key while hints are visible also dismisses them
 - The trigger key press calls `preventDefault()` to avoid browser-default
-  behavior (e.g., F10 opening the browser menu bar).
+  behavior (e.g., F10 opening the browser menu bar)
 
 ## Actions: Focus vs Click
 
 Each shortcut definition can specify an `action` that determines what happens
-when the key combination is pressed.
+when the key combination is pressed
 
 ### HTML
 
@@ -156,14 +156,14 @@ when the key combination is pressed.
 ### Key Points
 
 - `"focus"` (default) -- calls `element.focus()` on the target. Ideal for input
-  fields and navigation.
+  fields and navigation
 - `"click"` -- dispatches a synthetic `click` event on the target. Ideal for
-  buttons and actionable elements.
+  buttons and actionable elements
 
 ## Conditional Shortcuts
 
 Shortcut definitions support a `conditions` object that restricts when a
-shortcut fires based on the current focus context.
+shortcut fires based on the current focus context
 
 ### JSON
 
@@ -199,16 +199,16 @@ shortcut fires based on the current focus context.
 ### Key Points
 
 - `focusInclude` and `focusExclude` accept comma-separated selectors, just like
-  `querySelectorAll`.
+  `querySelectorAll`
 - When `focusInclude` is set, the shortcut tooltip is **not shown** in the
-  visual overlay (since it is context-dependent).
+  visual overlay (since it is context-dependent)
 - `focusHost` is useful when multiple `ch-shortcuts` instances exist inside
-  different shadow roots, ensuring shortcuts only trigger in their own context.
+  different shadow roots, ensuring shortcuts only trigger in their own context
 
 ## Suspending Shortcuts at Runtime
 
 Set the `suspend` property to `true` to temporarily disable all shortcut
-handling without removing the component from the DOM.
+handling without removing the component from the DOM
 
 ### HTML
 
@@ -238,17 +238,17 @@ toggleBtn.addEventListener("click", () => {
 ### Key Points
 
 - When `suspend` is `true`, the component unloads its shortcut registrations
-  from the internal manager. The trigger key is also ignored.
+  from the internal manager. The trigger key is also ignored
 - When `suspend` returns to `false`, the shortcuts are re-registered without
-  re-fetching the JSON file.
+  re-fetching the JSON file
 - Use this to disable shortcuts during modal dialogs, inline editing, or any
-  context where global key bindings would interfere.
+  context where global key bindings would interfere
 
 ## Listening for Shortcut Events
 
 Every time a shortcut fires, a `keyShortcutPressed` custom event is dispatched
 on the root node (document or shadow root). Use this to run custom logic or
-override the default action.
+override the default action
 
 ### JavaScript
 
@@ -266,7 +266,7 @@ document.addEventListener("keyShortcutPressed", (event) => {
 
 Call `preventDefault()` on the `keyShortcutPressed` event to cancel the
 component's built-in focus/click action while still intercepting the key
-combination.
+combination
 
 ```js
 document.addEventListener("keyShortcutPressed", (event) => {
@@ -292,24 +292,24 @@ document.addEventListener("keyShortcutPressed", (event) => {
 ### Do
 
 - Keep shortcut definitions in a separate JSON file so they can be managed and
-  updated independently of the application code.
+  updated independently of the application code
 - Provide an `id` for each shortcut definition to make `keyShortcutPressed`
-  event handling straightforward.
+  event handling straightforward
 - Use `conditions.focusExclude` to prevent shortcuts from firing inside
   text inputs where the key combination has a natural meaning (e.g., `Enter`
-  inside a textarea).
-- Use the `suspend` property to disable shortcuts during modal workflows.
+  inside a textarea)
+- Use the `suspend` property to disable shortcuts during modal workflows
 - Pair `ch-shortcuts` with `aria-keyshortcuts` attributes on target elements for
-  accessibility.
+  accessibility
 
 ### Don't
 
 - Don't use `ch-shortcuts` to **define** keyboard behavior -- it only
-  visualizes and dispatches pre-configured shortcut bindings.
+  visualizes and dispatches pre-configured shortcut bindings
 - Don't place multiple `ch-shortcuts` instances pointing to the same `src` in
-  the same root; this would register duplicate shortcut handlers.
+  the same root; this would register duplicate shortcut handlers
 - Don't use browser-reserved key combinations (e.g., `Ctrl+T`, `Ctrl+W`) as
-  shortcut bindings -- the browser will intercept them before the component can.
+  shortcut bindings -- the browser will intercept them before the component can
 - Don't rely on `ch-shortcuts` for critical-path functionality without a
   fallback; keyboard shortcuts are a power-user convenience, not a primary
-  interaction method.
+  interaction method

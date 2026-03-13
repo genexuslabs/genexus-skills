@@ -35,7 +35,7 @@
 
 ## Case 1: Full layout (all controls)
 
-Controls rendered depend on the `controlsOrder` property. Each control is optional.
+Controls rendered depend on the `controlsOrder` property. Each control is optional
 
 ```
 <ch-paginator-render>

@@ -1,6 +1,6 @@
 # General
 
-Broad-purpose icons for various tasks, including platform references (Java, C#, databases) and general operations.
+Broad-purpose icons for various tasks, including platform references (Java, C#, databases) and general operations
 
 **Type:** Multicolor
 

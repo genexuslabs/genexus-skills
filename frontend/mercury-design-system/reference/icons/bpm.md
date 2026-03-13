@@ -1,6 +1,6 @@
 # BPM
 
-Business Process Management icons representing workflow elements, task types, gateways, and events for designing and executing processes.
+Business Process Management icons representing workflow elements, task types, gateways, and events for designing and executing processes
 
 **Type:** Monochrome
 

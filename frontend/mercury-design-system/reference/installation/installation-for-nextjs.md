@@ -6,12 +6,12 @@
 
 ## 1. Preparation
 
-> [!IMPORTANT]  
-> This guide assumes you are using Mercury >= `0.36.0`, which is the minimum version for using the `@genexus/mercury-cli` package.
+> [!IMPORTANT]
+> This guide assumes you are using Mercury >= `0.36.0`, which is the minimum version for using the `@genexus/mercury-cli` package
 
 ### 1.1. Decide the assets paths
 
-First of all, you must decide the paths where the CSS bundles, font assets, and icon set will be contained in the final application. Keep them noted down.
+First of all, you must decide the paths where the CSS bundles, font assets, and icon set will be contained in the final application. Keep them noted down
 
 We will refer to those paths with the following names:
 
@@ -23,7 +23,7 @@ We will refer to those paths with the following names:
 
 ### 1.2. Build Mercury before starting dev server or prod builds
 
-1. If you haven't already, install Mercury and Chameleon: `npm i @genexus/chameleon-controls-library @genexus/mercury`.
+1. If you haven't already, install Mercury and Chameleon: `npm i @genexus/chameleon-controls-library @genexus/mercury`
 
 2. Install the `@genexus/mercury-cli` devDependency:
 
@@ -43,7 +43,7 @@ We will refer to those paths with the following names:
    }
    ```
 
-4. Run the build script to execute `build.mercury`.
+4. Run the build script to execute `build.mercury`
 
 If `build.mercury` succeeds, you will find under your project root:
 
@@ -66,7 +66,7 @@ If `build.mercury` succeeds, you will find under your project root:
 
 ## 2. Copy the assets to the dev server and prod builds
 
-Copy the custom fonts, icons, and CSS bundles to the dev and prod builds. Turbopack does not support copying files during the build like Webpack. Use a tool such as `cpx` in your `package.json` scripts.
+Copy the custom fonts, icons, and CSS bundles to the dev and prod builds. Turbopack does not support copying files during the build like Webpack. Use a tool such as `cpx` in your `package.json` scripts
 
 Install cpx:
 
@@ -99,7 +99,7 @@ After a build, check the `/public` folder. You should see something like:
     └── 📁 icons
 ```
 
-> NOTE In Next.js, static files must be in `/public`. They are served at the root URL. Because Turbopack does not copy assets during the build, we use `cpx` to copy Mercury assets into `/public` before the app is served.
+> NOTE In Next.js, static files must be in `/public`. They are served at the root URL. Because Turbopack does not copy assets during the build, we use `cpx` to copy Mercury assets into `/public` before the app is served
 
 ---
 
@@ -107,7 +107,7 @@ After a build, check the `/public` folder. You should see something like:
 
 ### 3.1. Import declarations and include base styles
 
-Create a `setupMercury.ts` file with the required imports and logic, then run it from a client component so it executes in the browser.
+Create a `setupMercury.ts` file with the required imports and logic, then run it from a client component so it executes in the browser
 
 `src/setupMercury.ts`
 
@@ -186,7 +186,7 @@ export default function RootLayout({
 }
 ```
 
-> [!IMPORTANT] `setBundleMapping` and `bundleToHashMappings` must run before any Mercury or Chameleon usage. That is why `setupMercury` is run in a client component that wraps the app.
+> [!IMPORTANT] `setBundleMapping` and `bundleToHashMappings` must run before any Mercury or Chameleon usage. That is why `setupMercury` is run in a client component that wraps the app
 
 ### 3.2 Create React Web Component wrappers
 
@@ -196,10 +196,10 @@ Starting with Chameleon `6.4.0`, use the CLI to generate React wrappers for Web 
 npx chameleon-generate-react <output dir (optional)>
 ```
 
-If no output dir is passed, wrappers are generated under `./src/chameleon-components`.
+If no output dir is passed, wrappers are generated under `./src/chameleon-components`
 
 > [!TIP]
-> Add this to your package.json scripts before dev/build (e.g. `"build.chameleon": "chameleon-generate-react"`). It runs in under ~300ms.
+> Add this to your package.json scripts before dev/build (e.g. `"build.chameleon": "chameleon-generate-react"`). It runs in under ~300ms
 
 Example scripts:
 
@@ -214,7 +214,7 @@ Example scripts:
 
 ### 3.3. Set the dark/light mode
 
-Add the `light` or `dark` class on the `<html>` element in your root layout.
+Add the `light` or `dark` class on the `<html>` element in your root layout
 
 **Dark** — `src/app/layout.tsx`
 
@@ -274,7 +274,7 @@ export const CustomDialog = () => (
 );
 ```
 
-**Code explained:** `getBundles` returns the theme model for the button and icon bundles. `ChTheme` applies those CSS bundles. `getIconPath` provides the icon source. Use the **Component → bundles table** in this skill to choose which bundles to request; use the **Bundles index** for class names.
+**Code explained:** `getBundles` returns the theme model for the button and icon bundles. `ChTheme` applies those CSS bundles. `getIconPath` provides the icon source. Use the **Component → bundles table** in this skill to choose which bundles to request; use the **Bundles index** for class names
 
 Expected structure:
 
@@ -308,4 +308,4 @@ export default function Home() {
 
 ## Next steps
 
-Use the **Component → Mercury CSS bundles table** and **Bundles index** in this skill to choose the right bundles and CSS classes for each Chameleon component you use.
+Use the **Component → Mercury CSS bundles table** and **Bundles index** in this skill to choose the right bundles and CSS classes for each Chameleon component you use

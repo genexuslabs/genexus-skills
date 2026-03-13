@@ -16,34 +16,34 @@
 
 ## Overview
 
-The `ch-progress` component displays the progress status for long-running tasks, supporting both determinate and indeterminate modes.
+The `ch-progress` component displays the progress status for long-running tasks, supporting both determinate and indeterminate modes
 
 ## Features
- - Determinate mode with explicit `min`, `max`, and `value`.
- - Indeterminate mode for activities whose duration is unknown.
- - Full WAI-ARIA `progressbar` pattern (`role`, `aria-valuemin`, `aria-valuemax`, `aria-valuenow`, `aria-valuetext`).
- - Validates accessible name via `accessibleName` or external `<label>`.
- - Automatic `aria-busy` and `aria-describedby` management on a referenced loading region.
- - Fully customizable rendering through `renderType` (default `"custom"` projects the slot with built-in accessibility).
+ - Determinate mode with explicit `min`, `max`, and `value`
+ - Indeterminate mode for activities whose duration is unknown
+ - Full WAI-ARIA `progressbar` pattern (`role`, `aria-valuemin`, `aria-valuemax`, `aria-valuenow`, `aria-valuetext`)
+ - Validates accessible name via `accessibleName` or external `<label>`
+ - Automatic `aria-busy` and `aria-describedby` management on a referenced loading region
+ - Fully customizable rendering through `renderType` (default `"custom"` projects the slot with built-in accessibility)
 
 ## Use when
- - You need progress bars, loading spinners, or any indicator that represents ongoing work with measurable progress.
- - An operation takes more than ~5 seconds and progress can be measured or approximated.
- - Showing upload, download, file transfer, or installation progress.
+ - You need progress bars, loading spinners, or any indicator that represents ongoing work with measurable progress
+ - An operation takes more than ~5 seconds and progress can be measured or approximated
+ - Showing upload, download, file transfer, or installation progress
 
 ## Do not use when
- - You need a simple loading indicator without numeric progress (e.g., a spinner on a button) -- prefer `ch-status` instead.
- - The operation completes in under 5 seconds — prefer a spinner (`ch-status`) instead.
- - A determinate bar is used when actual progress cannot be calculated — it misleads users.
- - Step-by-step wizard progress is needed — use a stepper/progress-indicator pattern instead.
+ - You need a simple loading indicator without numeric progress (e.g., a spinner on a button) -- prefer `ch-status` instead
+ - The operation completes in under 5 seconds — prefer a spinner (`ch-status`) instead
+ - A determinate bar is used when actual progress cannot be calculated — it misleads users
+ - Step-by-step wizard progress is needed — use a stepper/progress-indicator pattern instead
 
 ## Accessibility
- - `role="progressbar"` is set on the host element in `connectedCallback`.
- - `aria-valuemin`, `aria-valuemax`, `aria-valuenow`, and `aria-valuetext` are managed dynamically on every render based on the current `min`, `max`, `value`, and `indeterminate` properties.
- - In indeterminate mode, ALL `aria-value*` attributes are omitted per the ARIA specification.
- - Resolves its accessible name from an external `<label>` element or the `accessibleName` property.
- - `aria-busy` and `aria-describedby` are set on the `loadingRegionRef` element while the progress is active, and cleaned up when complete or disconnected.
- - No keyboard interaction — the component is a passive indicator, not an interactive control.
+ - `role="progressbar"` is set on the host element in `connectedCallback`
+ - `aria-valuemin`, `aria-valuemax`, `aria-valuenow`, and `aria-valuetext` are managed dynamically on every render based on the current `min`, `max`, `value`, and `indeterminate` properties
+ - In indeterminate mode, ALL `aria-value*` attributes are omitted per the ARIA specification
+ - Resolves its accessible name from an external `<label>` element or the `accessibleName` property
+ - `aria-busy` and `aria-describedby` are set on the `loadingRegionRef` element while the progress is active, and cleaned up when complete or disconnected
+ - No keyboard interaction — the component is a passive indicator, not an interactive control
 
 ## Properties
 

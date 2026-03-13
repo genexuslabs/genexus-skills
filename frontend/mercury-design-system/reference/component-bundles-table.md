@@ -1,6 +1,6 @@
 # Component → Mercury CSS bundles
 
-This table lists which Mercury CSS bundles apply to each Chameleon component or native element. Use it to know which bundles to pass to `getBundles()` when using a given component.
+This table lists which Mercury CSS bundles apply to each Chameleon component or native element. Use it to know which bundles to pass to `getBundles()` when using a given component
 
 **36 components/elements mapped to 28 component bundles + 6 utility bundles.**
 
@@ -45,14 +45,14 @@ This table lists which Mercury CSS bundles apply to each Chameleon component or 
 | `label` | "utils/form" |
 
 **Notes:**
-- `ch-combo-box-render`: Use `"components/combo-box"` for the standard dropdown combo-box. Use `"components/pills"` instead when styling the combo-box as a pill selector. They are two distinct visual variants — don't include both unless you have both styles in the same view.
-- `ch-action-menu-render`: The `"components/dropdown"` bundle is specifically for action menus. Don't use it for regular buttons.
-- `a` and `button`: Only need `"components/button"`. Add `"components/chat"` only when buttons are inside `ch-chat`, or `"components/dropdown"` only when inside `ch-action-menu-render`. For styled links (`a`), also use `"utils/link"` (provides `link-primary`, `link-secondary`, `link-tertiary`).
-- `div` bundles: Most `div` bundles are contextual — only include the ones relevant to what's inside the div (e.g., `"utils/typography"` for text content, `"components/widget"` for flexible-layout widgets, `"components/ticket-list"` for ticket list items).
+- `ch-combo-box-render`: Use `"components/combo-box"` for the standard dropdown combo-box. Use `"components/pills"` instead when styling the combo-box as a pill selector. They are two distinct visual variants — don't include both unless you have both styles in the same view
+- `ch-action-menu-render`: The `"components/dropdown"` bundle is specifically for action menus. Don't use it for regular buttons
+- `a` and `button`: Only need `"components/button"`. Add `"components/chat"` only when buttons are inside `ch-chat`, or `"components/dropdown"` only when inside `ch-action-menu-render`. For styled links (`a`), also use `"utils/link"` (provides `link-primary`, `link-secondary`, `link-tertiary`)
+- `div` bundles: Most `div` bundles are contextual — only include the ones relevant to what's inside the div (e.g., `"utils/typography"` for text content, `"components/widget"` for flexible-layout widgets, `"components/ticket-list"` for ticket list items)
 
 ## Component → CSS class quick reference
 
-The Mercury CSS class on a component does **not** always match the bundle name. This table gives the primary class for each component — check the bundle `.md` for the full list of classes (variants, error states, etc.).
+The Mercury CSS class on a component does **not** always match the bundle name. This table gives the primary class for each component — check the bundle `.md` for the full list of classes (variants, error states, etc.)
 
 | Component | Bundle | Primary CSS class(es) |
 | --------- | ------ | -------------------- |
@@ -110,4 +110,4 @@ Mercury provides a structured form layout system through the `utils/form` bundle
 </form>
 ```
 
-The detailed documentation and CSS for each bundle are in `reference/bundles/<category>/` — the `.md` and `.css` files live in the same folder (e.g. `bundles/components/button.md` and `bundles/components/button.css`).
+The detailed documentation and CSS for each bundle are in `reference/bundles/<category>/` — the `.md` and `.css` files live in the same folder (e.g. `bundles/components/button.md` and `bundles/components/button.css`)

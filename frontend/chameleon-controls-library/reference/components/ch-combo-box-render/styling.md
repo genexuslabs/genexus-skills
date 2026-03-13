@@ -233,7 +233,7 @@ ch-combo-box-render::part(expandable) {
 
 ### Using max-height instead of the custom property for the popover
 
-The popover is rendered inside the shadow DOM. External `max-height` will not reach it. Use the dedicated custom property instead.
+The popover is rendered inside the shadow DOM. External `max-height` will not reach it. Use the dedicated custom property instead
 
 ```css
 /* Avoid */
@@ -249,7 +249,7 @@ ch-combo-box-render {
 
 ### Setting the picker size to 0 to hide it
 
-Setting `--ch-combo-box__picker-size: 0px` hides the picker but leaves the grid column, potentially causing alignment issues. If you need a suggest-only mode, use the `suggest` property on the component instead.
+Setting `--ch-combo-box__picker-size: 0px` hides the picker but leaves the grid column, potentially causing alignment issues. If you need a suggest-only mode, use the `suggest` property on the component instead
 
 ```css
 /* Avoid */
@@ -263,7 +263,7 @@ ch-combo-box-render {
 
 ### Overriding popover separation with margin or padding
 
-The popover positioning is calculated internally. Using margin or padding on the host to create separation between the combo-box and its popover will misalign the popover. Use the separation custom properties instead.
+The popover positioning is calculated internally. Using margin or padding on the host to create separation between the combo-box and its popover will misalign the popover. Use the separation custom properties instead
 
 ```css
 /* Avoid */
@@ -281,18 +281,18 @@ ch-combo-box-render {
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-combo-box__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-combo-box::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-combo-box__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-combo-box::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented
 
 ---
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)

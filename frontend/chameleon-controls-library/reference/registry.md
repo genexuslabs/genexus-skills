@@ -1,6 +1,6 @@
 # Registry Property System
 
-Chameleon's registry property system provides a way to set configuration callbacks **globally** on `window.chameleonControlsLibrary`, so that every component can read them without requiring per-instance prop binding.
+Chameleon's registry property system provides a way to set configuration callbacks **globally** on `window.chameleonControlsLibrary`, so that every component can read them without requiring per-instance prop binding
 
 ## Table of Contents
 
@@ -45,7 +45,7 @@ registryProperty("getImagePathCallback", {
 
 ### `registryProperty(propertyName, value)`
 
-Sets the entire callback map for a property across all controls at once.
+Sets the entire callback map for a property across all controls at once
 
 ```typescript
 import { registryProperty } from "@genexus/chameleon-controls-library/dist/collection/index";
@@ -66,7 +66,7 @@ registryProperty("getImagePathCallback", {
 
 ### `registryControlProperty(propertyName, controlName, value)`
 
-Sets a callback for a **specific control** without overwriting the entire map. Useful for registering or updating resolvers incrementally.
+Sets a callback for a **specific control** without overwriting the entire map. Useful for registering or updating resolvers incrementally
 
 ```typescript
 import { registryControlProperty } from "@genexus/chameleon-controls-library/dist/collection/index";
@@ -86,7 +86,7 @@ registryControlProperty("getImagePathCallback", "ch-image", src => ({
 
 ### `getControlRegisterProperty(propertyName, controlName)`
 
-Reads the registered callback for a specific component. This function is used **internally** by Chameleon components — you typically do not need to call it directly.
+Reads the registered callback for a specific component. This function is used **internally** by Chameleon components — you typically do not need to call it directly
 
 ```typescript
 import { getControlRegisterProperty } from "@genexus/chameleon-controls-library/dist/collection/index";
@@ -144,7 +144,7 @@ The following components support `getImagePathCallback` via the registry:
 | `ch-tab-render`             | `(imgSrc: string) => GxImageMultiState`                                       |
 | `ch-tree-view-render`       | `(imgSrc: string) => GxImageMultiState`                                       |
 
-> **Note:** `ch-combo-box-render` has a different callback signature — it receives the full item model and the icon direction (`"start"` or `"end"`) instead of just the source string.
+> **Note:** `ch-combo-box-render` has a different callback signature — it receives the full item model and the icon direction (`"start"` or `"end"`) instead of just the source string
 
 ## Complete example
 
@@ -209,12 +209,12 @@ const items = [
 
 If you are building a design system on top of Chameleon, **using the registry is strongly recommended** when your components use icons. It provides:
 
-1. **Simplified source values** — Use short keys like `"settings"` instead of full paths like `"assets/icons/light/settings-24x24.svg"`.
-2. **Centralized resolution logic** — Change icon paths, naming conventions, or CDN URLs in one place.
-3. **Automatic multi-state support** — The resolver can generate hover, active, focus, and disabled variants from a single key.
-4. **No prop threading** — Components throughout the application resolve icons without explicit prop binding.
+1. **Simplified source values** — Use short keys like `"settings"` instead of full paths like `"assets/icons/light/settings-24x24.svg"`
+2. **Centralized resolution logic** — Change icon paths, naming conventions, or CDN URLs in one place
+3. **Automatic multi-state support** — The resolver can generate hover, active, focus, and disabled variants from a single key
+4. **No prop threading** — Components throughout the application resolve icons without explicit prop binding
 
-The registry is not mandatory — you can always pass `getImagePathCallback` as an instance prop, or skip it entirely and pass full icon paths directly. But for any application with more than a handful of icon-bearing components, the registry significantly reduces boilerplate and improves maintainability.
+The registry is not mandatory — you can always pass `getImagePathCallback` as an instance prop, or skip it entirely and pass full icon paths directly. But for any application with more than a handful of icon-bearing components, the registry significantly reduces boilerplate and improves maintainability
 
 > **Tip:** A good pattern for resolvers is to fall back to the raw `src` when the key is not found in the design system's icon set. This allows custom icons outside the design system to work by simply passing a full path as the source:
 >

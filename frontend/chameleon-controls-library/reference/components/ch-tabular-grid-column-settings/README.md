@@ -13,7 +13,7 @@
 
 ## Overview
 
-The `ch-tabular-grid-column-settings` component represents a settings window for a column.
+The `ch-tabular-grid-column-settings` component represents a settings window for a column
 
 ## Properties
 

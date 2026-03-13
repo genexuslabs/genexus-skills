@@ -20,41 +20,41 @@
 
 ## Overview
 
-The `ch-radio-group-render` component renders a group of mutually exclusive radio options, allowing users to select exactly one value from a short list.
+The `ch-radio-group-render` component renders a group of mutually exclusive radio options, allowing users to select exactly one value from a short list
 
 ## Features
- - Mutually exclusive selection from a set of options.
- - Horizontal or vertical layout via the `direction` property.
- - Individual item disabling.
- - Accessible labels for each option.
- - Form-associated via `ElementInternals`.
+ - Mutually exclusive selection from a set of options
+ - Horizontal or vertical layout via the `direction` property
+ - Individual item disabling
+ - Accessible labels for each option
+ - Form-associated via `ElementInternals`
 
 ## Use when
- - A small, static set of options where all choices should be visible at once.
- - Exactly one option must be selected from the group.
- - The user must choose exactly one option from 2–7 mutually exclusive choices.
- - All options should be visible simultaneously so users can compare before deciding.
- - The choice is part of a form that requires a submit step.
+ - A small, static set of options where all choices should be visible at once
+ - Exactly one option must be selected from the group
+ - The user must choose exactly one option from 2–7 mutually exclusive choices
+ - All options should be visible simultaneously so users can compare before deciding
+ - The choice is part of a form that requires a submit step
 
 ## Do not use when
- - The option list is long or searchable — prefer `ch-combo-box-render` instead.
- - Multiple options can be selected — prefer `ch-checkbox` instead.
- - More than 7–8 options are available — prefer `ch-combo-box-render`.
- - The setting takes immediate effect — prefer `ch-switch`.
- - A single radio button is used in isolation — radio inputs must always work as a group and cannot be unchecked once selected.
+ - The option list is long or searchable — prefer `ch-combo-box-render` instead
+ - Multiple options can be selected — prefer `ch-checkbox` instead
+ - More than 7–8 options are available — prefer `ch-combo-box-render`
+ - The setting takes immediate effect — prefer `ch-switch`
+ - A single radio button is used in isolation — radio inputs must always work as a group and cannot be unchecked once selected
 
 ## Slots
- - No slots. All content is rendered from the `model` property.
+ - No slots. All content is rendered from the `model` property
 
 ## Accessibility
- - Form-associated via `ElementInternals` — participates in native form validation and submission.
- - Delegates focus into the shadow DOM (`delegatesFocus: true`).
- - Uses native `<input type="radio">` elements grouped by a shared `name` attribute, so the browser provides built-in keyboard navigation: Arrow keys move between options and select them, Space selects the focused option, and Tab moves focus in and out of the group.
- - The host element has `role="radiogroup"`.
- - Each option uses a native `<input type="radio">` with a linked `<label>`.
- - When no caption is provided, the radio input receives an `aria-label` from the item's `accessibleName`.
- - Each item's decorative option overlay is hidden from assistive technology with `aria-hidden`.
- - No group-level accessible name property exists on this component; wrap it in a `<fieldset>` / `<legend>` to provide a group label for screen readers.
+ - Form-associated via `ElementInternals` — participates in native form validation and submission
+ - Delegates focus into the shadow DOM (`delegatesFocus: true`)
+ - Uses native `<input type="radio">` elements grouped by a shared `name` attribute, so the browser provides built-in keyboard navigation: Arrow keys move between options and select them, Space selects the focused option, and Tab moves focus in and out of the group
+ - The host element has `role="radiogroup"`
+ - Each option uses a native `<input type="radio">` with a linked `<label>`
+ - When no caption is provided, the radio input receives an `aria-label` from the item's `accessibleName`
+ - Each item's decorative option overlay is hidden from assistive technology with `aria-hidden`
+ - No group-level accessible name property exists on this component; wrap it in a `<fieldset>` / `<legend>` to provide a group label for screen readers
 
 ## Properties
 

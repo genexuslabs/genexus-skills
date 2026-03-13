@@ -99,7 +99,7 @@
 
 ### Context Menu Appearance
 
-A floating context menu with rounded corners and shadow.
+A floating context menu with rounded corners and shadow
 
 ```css
 ch-action-menu-render {
@@ -133,7 +133,7 @@ ch-action-menu-render::part(separator) {
 
 ### Keyboard Shortcut Labels
 
-Style the shortcut text that appears at the end of menu items.
+Style the shortcut text that appears at the end of menu items
 
 ```css
 ch-action-menu-render::part(shortcut) {
@@ -146,7 +146,7 @@ ch-action-menu-render::part(shortcut) {
 
 ### Disabled Menu Items
 
-Visually differentiate disabled items.
+Visually differentiate disabled items
 
 ```css
 ch-action-menu-render::part(button disabled) {
@@ -199,20 +199,20 @@ ch-action-menu-render::part(button) {
 }
 ```
 
-For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md).
+For more details on shadow parts best practices, see the [CSS Shadow Parts Guide](../../css-shadow-parts-guide.md)
 
 ## Do's and Don'ts
 
 ### Do
 
-- Prefer CSS custom properties (e.g., `--ch-action-menu__*`) over `::part()` for simple theming.
-- Use class selectors on the host (e.g., `.my-action-menu::part(...)`) instead of tag names.
-- Use state part intersections (e.g., `::part(element state)`) for conditional styling.
-- Test styling changes across all component states (hover, focus, disabled, etc.).
+- Prefer CSS custom properties (e.g., `--ch-action-menu__*`) over `::part()` for simple theming
+- Use class selectors on the host (e.g., `.my-action-menu::part(...)`) instead of tag names
+- Use state part intersections (e.g., `::part(element state)`) for conditional styling
+- Test styling changes across all component states (hover, focus, disabled, etc.)
 
 ### Don't
 
-- Don't chain `::part()` selectors — use `exportparts` if needed.
-- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`.
-- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`.
-- Don't override internal CSS custom properties that are not documented.
+- Don't chain `::part()` selectors — use `exportparts` if needed
+- Don't use combinators (` `, `>`, `+`, `~`) after `::part()`
+- Don't use structural pseudo-classes (`:first-child`, `:nth-child()`, etc.) with `::part()`
+- Don't override internal CSS custom properties that are not documented

@@ -10,7 +10,7 @@
 
 ## Basic Usage
 
-Demonstrates rendering a simple Markdown string as rich HTML with GFM support.
+Demonstrates rendering a simple Markdown string as rich HTML with GFM support
 
 ### HTML
 
@@ -29,7 +29,7 @@ const viewer = document.querySelector("#md-viewer");
 // Update the markdown content dynamically
 viewer.value = `# Updated Content
 
-The markdown viewer re-parses and re-renders on every \`value\` change.
+The markdown viewer re-parses and re-renders on every \`value\` change
 
 1. First item
 2. Second item
@@ -79,15 +79,15 @@ viewer.renderCode = (code, language, showIndicator) => {
 
 ### Key Points
 
-- Fenced code blocks (triple backticks with a language identifier) are automatically rendered using `ch-code` with syntax highlighting.
-- Language grammars are loaded on demand at runtime, supporting all highlight.js languages.
-- The `renderCode` property allows replacing the default code block renderer with a custom function that returns a Lit `TemplateResult`.
-- Code blocks inside the markdown viewer inherit the streaming indicator properties (`--ch-markdown-viewer-indicator-color`, etc.) from the parent.
-- The default code renderer uses `ch-code` internally, so all `ch-code` CSS custom properties for token colors can be set on the `ch-markdown-viewer` host.
+- Fenced code blocks (triple backticks with a language identifier) are automatically rendered using `ch-code` with syntax highlighting
+- Language grammars are loaded on demand at runtime, supporting all highlight.js languages
+- The `renderCode` property allows replacing the default code block renderer with a custom function that returns a Lit `TemplateResult`
+- Code blocks inside the markdown viewer inherit the streaming indicator properties (`--ch-markdown-viewer-indicator-color`, etc.) from the parent
+- The default code renderer uses `ch-code` internally, so all `ch-code` CSS custom properties for token colors can be set on the `ch-markdown-viewer` host
 
 ## Streaming Indicator
 
-Demonstrates the streaming indicator for real-time AI-generated content, where Markdown is received incrementally.
+Demonstrates the streaming indicator for real-time AI-generated content, where Markdown is received incrementally
 
 ### HTML
 
@@ -134,7 +134,7 @@ Demonstrates using the built-in theme system and preventing flash of unstyled co
   avoid-flash-of-unstyled-content
   value="# Themed Content
 
-This markdown is rendered with the **default theme** applied.
+This markdown is rendered with the **default theme** applied
 
 ### JavaScript
 
@@ -162,22 +162,22 @@ viewer.extensions = [myCustomExtension];
 
 ### Key Points
 
-- The `theme` property specifies the theme model name. When set, a `ch-theme` element is rendered inside the shadow DOM to load the theme stylesheet.
-- Setting `avoid-flash-of-unstyled-content` to `true` visually hides the content until the theme stylesheet has loaded, preventing a flash of unstyled content (FOUC). Only takes effect when `theme` is set.
-- When `theme` is `undefined`, no theme element is rendered and only the component's base styles apply.
-- The `raw-html` property enables rendering of raw HTML blocks in the Markdown source. When `false` (default), HTML blocks are ignored.
-- Custom extensions can be provided via the `extensions` property to add new syntax (tokenizer), AST mappings, and Lit renders.
+- The `theme` property specifies the theme model name. When set, a `ch-theme` element is rendered inside the shadow DOM to load the theme stylesheet
+- Setting `avoid-flash-of-unstyled-content` to `true` visually hides the content until the theme stylesheet has loaded, preventing a flash of unstyled content (FOUC). Only takes effect when `theme` is set
+- When `theme` is `undefined`, no theme element is rendered and only the component's base styles apply
+- The `raw-html` property enables rendering of raw HTML blocks in the Markdown source. When `false` (default), HTML blocks are ignored
+- Custom extensions can be provided via the `extensions` property to add new syntax (tokenizer), AST mappings, and Lit renders
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
 
 ### Don't
 
-- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead.
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't set complex model/items data via HTML attributes — use JavaScript property assignment instead
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

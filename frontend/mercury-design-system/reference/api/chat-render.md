@@ -1,6 +1,6 @@
 # @genexus/mercury/components/chat/render.js
 
-Mercury-specific render functions for the Chameleon chat component. Pass these to the chat component’s render slots.
+Mercury-specific render functions for the Chameleon chat component. Pass these to the chat component’s render slots
 
 ## renderItem
 
@@ -31,4 +31,4 @@ renderItem: {
 sendContainerLayout: ChatSendContainerLayout
 ```
 
-Layout configuration for the send container. Use with Chameleon chat’s `sendContainerLayout` prop.
+Layout configuration for the send container. Use with Chameleon chat’s `sendContainerLayout` prop

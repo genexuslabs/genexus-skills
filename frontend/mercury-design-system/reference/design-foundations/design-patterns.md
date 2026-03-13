@@ -1,10 +1,10 @@
 # Design Patterns
 
-Mercury design patterns for building consistent, accessible UIs. Use these patterns when vibe coding without a Figma design, or to validate Figma implementations.
+Mercury design patterns for building consistent, accessible UIs. Use these patterns when vibe coding without a Figma design, or to validate Figma implementations
 
 ## Buttons
 
-Mercury provides 5 button variants plus modifiers. Use the `components/button` bundle.
+Mercury provides 5 button variants plus modifiers. Use the `components/button` bundle
 
 ### Button Hierarchy
 
@@ -18,11 +18,11 @@ Mercury provides 5 button variants plus modifiers. Use the `components/button` b
 
 ### Button Rules
 
-- **Only one primary button per page/view.** Multiple primary buttons confuse the user about what the main action is.
-- Use `button-icon-and-text` modifier when combining icon + text.
-- Use `button-icon-only` modifier for icon-only buttons (must have accessible name).
-- Use link classes (`link-primary`, `link-secondary`, `link-tertiary`) for navigation actions (requires `utils/link` bundle).
-- Never write custom button CSS — Mercury handles all states (hover, pressed, focused, disabled).
+- **Only one primary button per page/view.** Multiple primary buttons confuse the user about what the main action is
+- Use `button-icon-and-text` modifier when combining icon + text
+- Use `button-icon-only` modifier for icon-only buttons (must have accessible name)
+- Use link classes (`link-primary`, `link-secondary`, `link-tertiary`) for navigation actions (requires `utils/link` bundle)
+- Never write custom button CSS — Mercury handles all states (hover, pressed, focused, disabled)
 
 ### Button States
 
@@ -147,7 +147,7 @@ Two variants available via the `components/accordion` bundle:
 
 ## Spacing
 
-Mercury uses a **4pt grid** system. All spacing values must be multiples of 4.
+Mercury uses a **4pt grid** system. All spacing values must be multiples of 4
 
 **Prefer semantic spacing tokens** over raw px values. Mercury provides two token families:
 
@@ -166,11 +166,11 @@ Mercury uses a **4pt grid** system. All spacing values must be multiples of 4.
 | 24 | `--spacing-padding-xxl` | `--spacing-gap-xxl` | Spacious: section separation |
 | 32 | `--spacing-padding-xxxl` | `--spacing-gap-xxxl` | Large: major section breaks |
 
-For values not in the token scale (e.g. 20px, 40px), use `calc()` with tokens or fall back to px from the 4pt grid.
+For values not in the token scale (e.g. 20px, 40px), use `calc()` with tokens or fall back to px from the 4pt grid
 
-**Never use `em` or `rem` units.** Always use Mercury spacing tokens/classes or `px` values from this scale. See [Spacing system](spacing-system.md) for full details.
+**Never use `em` or `rem` units.** Always use Mercury spacing tokens/classes or `px` values from this scale. See [Spacing system](spacing-system.md) for full details
 
-The `spacing-body-*` utility classes (bundle: `utils/spacing`) are **restricted to specific contexts** — they require a parent container that defines spacing custom properties (e.g., inside Mercury dialogs, tabs, accordions, or IDE/shell plugins). Do not use them for general-purpose spacing. See [Spacing system](spacing-system.md) for details.
+The `spacing-body-*` utility classes (bundle: `utils/spacing`) are **restricted to specific contexts** — they require a parent container that defines spacing custom properties (e.g., inside Mercury dialogs, tabs, accordions, or IDE/shell plugins). Do not use them for general-purpose spacing. See [Spacing system](spacing-system.md) for details
 
 ### Spacing Principles
 
@@ -189,7 +189,7 @@ Mercury uses a responsive grid system. Key rules:
 
 ## Icons
 
-Mercury uses **Material Symbols** as its icon system.
+Mercury uses **Material Symbols** as its icon system
 
 - Base size: 12px, but follow the 4pt grid (12, 16, 20, 24px recommended)
 - Touch areas: Minimum 24px, ideally 44px for mobile

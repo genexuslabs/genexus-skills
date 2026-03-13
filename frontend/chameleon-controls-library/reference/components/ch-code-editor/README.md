@@ -16,26 +16,26 @@
 
 ## Overview
 
-The `ch-code-editor` component provides a fully-featured code editing experience powered by the [Monaco Editor](https://microsoft.github.io/monaco-editor/).
+The `ch-code-editor` component provides a fully-featured code editing experience powered by the [Monaco Editor](https://microsoft.github.io/monaco-editor/)
 
 ## Features
- - IntelliSense, syntax highlighting, and configurable themes via Monaco Editor.
- - Support for any text-based language (source code, JSON, YAML, etc.).
- - YAML schema validation via `yamlSchemaUri`.
- - Monaco chunks are pre-bundled with Vite to avoid issues with StencilJS' Rollup configuration.
- - Automatic resize handling via `ResizeObserver`.
+ - IntelliSense, syntax highlighting, and configurable themes via Monaco Editor
+ - Support for any text-based language (source code, JSON, YAML, etc.)
+ - YAML schema validation via `yamlSchemaUri`
+ - Monaco chunks are pre-bundled with Vite to avoid issues with StencilJS' Rollup configuration
+ - Automatic resize handling via `ResizeObserver`
 
 ## Use when
- - Users need to author or edit source code, JSON, YAML, or other text-based languages.
- - Providing an in-app code editing experience with syntax highlighting, IntelliSense, and language support.
+ - Users need to author or edit source code, JSON, YAML, or other text-based languages
+ - Providing an in-app code editing experience with syntax highlighting, IntelliSense, and language support
 
 ## Do not use when
- - Read-only code display is sufficient -- prefer `ch-code` (lightweight, no Monaco dependency).
- - Comparing two code versions -- prefer `ch-code-diff-editor`.
+ - Read-only code display is sufficient -- prefer `ch-code` (lightweight, no Monaco dependency)
+ - Comparing two code versions -- prefer `ch-code-diff-editor`
 
 ## Accessibility
- - Monaco Editor provides built-in keyboard accessibility, screen reader support, and ARIA attributes for the editing surface.
- - The component does not use Shadow DOM (`shadow: false`), so the Monaco editor's native accessibility features are fully available.
+ - Monaco Editor provides built-in keyboard accessibility, screen reader support, and ARIA attributes for the editing surface
+ - The component does not use Shadow DOM (`shadow: false`), so the Monaco editor's native accessibility features are fully available
 
 ## Configuration Required
 
@@ -87,7 +87,7 @@ export const config: Config = {
 
 ### `updateOptions(options: CodeEditorOptions) => Promise<void>`
 
-Update the editor's options after the editor has been created.
+Update the editor's options after the editor has been created
 
 #### Parameters
 

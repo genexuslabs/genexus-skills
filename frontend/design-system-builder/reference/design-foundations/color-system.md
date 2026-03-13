@@ -1,6 +1,6 @@
 # Color System
 
-How to define a complete, accessible color system for a design system.
+How to define a complete, accessible color system for a design system
 
 ## Design Principles
 
@@ -21,7 +21,7 @@ Organize colors into 4 functional categories:
 
 ## Token Categories (by CSS Property)
 
-**Critical rule:** Always match the token category to the CSS property it applies to. Never cross categories.
+**Critical rule:** Always match the token category to the CSS property it applies to. Never cross categories
 
 | CSS property | Token category | Pattern | Example |
 |-------------|----------------|---------|---------|
@@ -36,7 +36,7 @@ Organize colors into 4 functional categories:
 - Don't use `--color-accent-*` for text color
 - Don't use `--color-text-*` for icon fills — use `--color-icon-*`
 
-This separation ensures that each CSS property can be independently themed and that dark/light mode inversions work correctly (text and backgrounds need opposite adjustments).
+This separation ensures that each CSS property can be independently themed and that dark/light mode inversions work correctly (text and backgrounds need opposite adjustments)
 
 ## Interaction States
 
@@ -53,7 +53,7 @@ Every token subcategory supports these states:
 | On-hover | `-on-hover` | Content color ON the hover-state surface |
 | On-pressed | `-on-pressed` | Content color ON the pressed-state surface |
 
-The DS CSS handles interaction state styling automatically through its classes. Consuming apps should not write custom `:hover`, `:focus`, or `:disabled` color styles.
+The DS CSS handles interaction state styling automatically through its classes. Consuming apps should not write custom `:hover`, `:focus`, or `:disabled` color styles
 
 ## Surfaces and Elevation
 
@@ -66,9 +66,9 @@ Define elevation levels for layered UIs:
 | `--color-accent-surface-elevation-2` | Dropdowns, popovers |
 | `--color-accent-surface-elevation-3` | Dialogs, modals |
 
-Higher elevation = closer to the user. In light mode, higher elevation is typically lighter or has subtle shadows. In dark mode, higher elevation is typically lighter (lifted surfaces).
+Higher elevation = closer to the user. In light mode, higher elevation is typically lighter or has subtle shadows. In dark mode, higher elevation is typically lighter (lifted surfaces)
 
-Use a `utils/elevation` bundle for elevation CSS classes.
+Use a `utils/elevation` bundle for elevation CSS classes
 
 ## Semantic Color Usage Template
 
@@ -120,7 +120,7 @@ The same token name produces different values per mode. Guidelines for defining 
 - **Feedback colors:** Error/success/warning may need lighter or more saturated variants in dark mode for readability
 - **Disabled states:** Should remain visually muted in both modes (often the same mid-tone value)
 
-Set the mode via CSS class on `<html>` (e.g., `class="dark"` or `class="light"`). Components never contain theme logic — all switching happens at the scope/theme layer.
+Set the mode via CSS class on `<html>` (e.g., `class="dark"` or `class="light"`). Components never contain theme logic — all switching happens at the scope/theme layer
 
 ## Defining Your Color Palette
 
@@ -131,4 +131,4 @@ When creating a new DS, collect:
 3. **Feedback colors** — Red (error), green (success), yellow/amber (warning) with 3-5 shades each
 4. **Surface colors** — Background values for each elevation level per mode (light + dark)
 
-Map these primitives to semantic tokens across all 4 categories (text, accent, border, icon) and all relevant states. This mapping lives in `scope/theme-{brand}.css` for multi-brand DSs or in `base/base.css` for single-brand DSs.
+Map these primitives to semantic tokens across all 4 categories (text, accent, border, icon) and all relevant states. This mapping lives in `scope/theme-{brand}.css` for multi-brand DSs or in `base/base.css` for single-brand DSs

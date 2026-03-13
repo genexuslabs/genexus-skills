@@ -1,6 +1,6 @@
 # Accessibility best practices
 
-Apply these practices when building UIs with Chameleon components.
+Apply these practices when building UIs with Chameleon components
 
 ## Accessible names
 
@@ -40,4 +40,4 @@ disableAccessibilityReports();
 
 ## Translations
 
-Many components accept a `translations` prop with `accessibleName` literals (e.g. "Clear search", "Show password"). Provide localized strings for your app's language.
+Many components accept a `translations` prop with `accessibleName` literals (e.g. "Clear search", "Show password"). Provide localized strings for your app's language

@@ -8,7 +8,7 @@
 
 ## Basic Usage
 
-Demonstrates rendering a simple LaTeX math expression as typeset mathematics.
+Demonstrates rendering a simple LaTeX math expression as typeset mathematics
 
 ### HTML
 
@@ -47,15 +47,15 @@ viewer.value = `\\int_0^\\infty e^{-x^2} dx = \\frac{\\sqrt{\\pi}}{2}
 
 ### Key Points
 
-- The `value` property accepts LaTeX math syntax. Delimiters (`$$`, `\[...\]`, `\(...\)`, `$...$`) are automatically stripped before rendering.
-- Multiple math blocks can be separated by blank lines (double newlines); each block is rendered independently.
-- KaTeX renders both HTML and MathML output, so screen readers can read mathematical expressions natively.
-- If a LaTeX expression fails to parse, the raw source text is rendered in a `<span part="error">` with the error message in `aria-description` and `title`.
-- The `value` property is runtime-changeable; changing it triggers a full re-parse and re-render.
+- The `value` property accepts LaTeX math syntax. Delimiters (`$$`, `\[...\]`, `\(...\)`, `$...$`) are automatically stripped before rendering
+- Multiple math blocks can be separated by blank lines (double newlines); each block is rendered independently
+- KaTeX renders both HTML and MathML output, so screen readers can read mathematical expressions natively
+- If a LaTeX expression fails to parse, the raw source text is rendered in a `<span part="error">` with the error message in `aria-description` and `title`
+- The `value` property is runtime-changeable; changing it triggers a full re-parse and re-render
 
 ## Display Mode
 
-Demonstrates the difference between block (display) and inline rendering modes.
+Demonstrates the difference between block (display) and inline rendering modes
 
 ### HTML
 
@@ -105,21 +105,21 @@ mathViewer.displayMode = "inline"; // or "block"
 
 ### Key Points
 
-- `display-mode="block"` (default) renders display-style math: centered, larger, with vertical spacing. The host element uses `display: block`.
-- `display-mode="inline"` renders inline math that flows with surrounding text. The host element uses `display: inline-block`.
-- The `display-mode` attribute is reflected on the host element, enabling CSS selectors like `ch-math-viewer[display-mode="inline"]`.
-- Individual math blocks may auto-detect as block-style if they start with `\[`, `$$`, `\begin`, or contain alignment operators (`&=`, `^`), overriding the component-level setting for that block.
-- For mixed content (text with inline equations), place `ch-math-viewer` elements with `display-mode="inline"` inside paragraph elements.
+- `display-mode="block"` (default) renders display-style math: centered, larger, with vertical spacing. The host element uses `display: block`
+- `display-mode="inline"` renders inline math that flows with surrounding text. The host element uses `display: inline-block`
+- The `display-mode` attribute is reflected on the host element, enabling CSS selectors like `ch-math-viewer[display-mode="inline"]`
+- Individual math blocks may auto-detect as block-style if they start with `\[`, `$$`, `\begin`, or contain alignment operators (`&=`, `^`), overriding the component-level setting for that block
+- For mixed content (text with inline equations), place `ch-math-viewer` elements with `display-mode="inline"` inside paragraph elements
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Always provide an `accessibleName` or appropriate `aria-` attribute for screen reader support.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Always provide an `accessibleName` or appropriate `aria-` attribute for screen reader support
 
 ### Don't
 
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

@@ -18,26 +18,26 @@
 
 ## Overview
 
-The `ch-barcode-scanner` component provides real-time barcode and QR code scanning through the device camera, with support for file-based scanning.
+The `ch-barcode-scanner` component provides real-time barcode and QR code scanning through the device camera, with support for file-based scanning
 
 ## Features
- - Real-time barcode and QR code scanning via the device camera using the `html5-qrcode` library.
- - File-based scanning through the `scan()` method, which accepts a `File` object and returns a decoded string.
- - Automatic camera enumeration with front-facing (`"FrontCamera"`), rear-facing (`"BackCamera"`), or specific camera selection by ID (`cameraId`).
- - Adaptive layout via a built-in `ResizeObserver` that restarts the scanner when the component is resized.
- - Configurable debouncing (`readDebounce`) to prevent duplicate `read` events for the same code.
- - Emits a `cameras` event on first render with the list of available camera IDs.
+ - Real-time barcode and QR code scanning via the device camera using the `html5-qrcode` library
+ - File-based scanning through the `scan()` method, which accepts a `File` object and returns a decoded string
+ - Automatic camera enumeration with front-facing (`"FrontCamera"`), rear-facing (`"BackCamera"`), or specific camera selection by ID (`cameraId`)
+ - Adaptive layout via a built-in `ResizeObserver` that restarts the scanner when the component is resized
+ - Configurable debouncing (`readDebounce`) to prevent duplicate `read` events for the same code
+ - Emits a `cameras` event on first render with the list of available camera IDs
 
 ## Use when
- - Scanning barcodes or QR codes from a live camera feed.
- - Decoding barcodes from uploaded image files via the `scan()` method.
+ - Scanning barcodes or QR codes from a live camera feed
+ - Decoding barcodes from uploaded image files via the `scan()` method
 
 ## Do not use when
- - Only generating QR codes for display — use `ch-qr` instead.
- - The target device has no camera and file-based scanning is not needed.
+ - Only generating QR codes for display — use `ch-qr` instead
+ - The target device has no camera and file-based scanning is not needed
 
 ## Accessibility
- - This component renders a camera video feed inside a `<div>` without shadow DOM. It does not provide built-in keyboard controls for the camera. Ensure the surrounding UI provides accessible controls for starting/stopping the scanner.
+ - This component renders a camera video feed inside a `<div>` without shadow DOM. It does not provide built-in keyboard controls for the camera. Ensure the surrounding UI provides accessible controls for starting/stopping the scanner
 
 ## Properties
 
@@ -63,7 +63,7 @@ The `ch-barcode-scanner` component provides real-time barcode and QR code scanni
 
 Scans a barcode or QR code from an image file and returns a promise that
 resolves with the decoded text string. The scanner does not need to be
-actively scanning (`scanning` can be `false`) for this method to work.
+actively scanning (`scanning` can be `false`) for this method to work
 
 #### Parameters
 
@@ -76,7 +76,7 @@ actively scanning (`scanning` can be `false`) for this method to work.
 Type: `Promise<string>`
 
 A promise that resolves with the decoded text, or rejects if no
-barcode is found in the image.
+barcode is found in the image
 
 ----------------------------------------------
 

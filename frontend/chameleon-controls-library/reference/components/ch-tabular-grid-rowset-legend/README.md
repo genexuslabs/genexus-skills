@@ -14,7 +14,7 @@
 
 ## Overview
 
-The `ch-tabular-grid-rowset-legend` component represents a caption for the `ch-tabular-grid-rowset` element.
+The `ch-tabular-grid-rowset-legend` component represents a caption for the `ch-tabular-grid-rowset` element
 
 ## Properties
 

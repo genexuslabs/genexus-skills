@@ -19,28 +19,28 @@
 
 ## Overview
 
-The `ch-theme` component loads and manages named stylesheets that can be shared and reused across the Document or any Shadow Root via the `adoptedStyleSheets` API.
+The `ch-theme` component loads and manages named stylesheets that can be shared and reused across the Document or any Shadow Root via the `adoptedStyleSheets` API
 
 ## Features
- - Themes specified by name (resolved from a registry), by URL, or as inline `CSSStyleSheet` instances.
- - Configurable loading timeout with `Promise.allSettled` — partial failures do not block other themes from loading.
- - Automatic attachment and detachment of stylesheets on connect/disconnect.
- - Built-in flash-of-unstyled-content (FOUC) prevention that hides the host until themes finish loading.
- - Toggle stylesheet attachment via the `attachStyleSheets` property.
- - Attaches to the nearest `Document` or `ShadowRoot` via `adoptedStyleSheets`, enabling cross-component theme sharing.
+ - Themes specified by name (resolved from a registry), by URL, or as inline `CSSStyleSheet` instances
+ - Configurable loading timeout with `Promise.allSettled` — partial failures do not block other themes from loading
+ - Automatic attachment and detachment of stylesheets on connect/disconnect
+ - Built-in flash-of-unstyled-content (FOUC) prevention that hides the host until themes finish loading
+ - Toggle stylesheet attachment via the `attachStyleSheets` property
+ - Attaches to the nearest `Document` or `ShadowRoot` via `adoptedStyleSheets`, enabling cross-component theme sharing
 
 ## Use when
- - Applying shared design tokens or theme stylesheets across components.
- - Loading external CSS themes by URL at runtime.
- - Loading one or more CSS theme files lazily at runtime (e.g., dark mode, brand themes, component skins).
- - Preventing flash of unstyled content before themes are applied.
+ - Applying shared design tokens or theme stylesheets across components
+ - Loading external CSS themes by URL at runtime
+ - Loading one or more CSS theme files lazily at runtime (e.g., dark mode, brand themes, component skins)
+ - Preventing flash of unstyled content before themes are applied
 
 ## Do not use when
- - Styling a single component with scoped CSS — use the component's own `styleUrl` instead.
- - Styles can be included as a static stylesheet link at build time — no runtime loading needed.
+ - Styling a single component with scoped CSS — use the component's own `styleUrl` instead
+ - Styles can be included as a static stylesheet link at build time — no runtime loading needed
 
 ## Accessibility
- - The host element is hidden (`hidden` attribute) and does not render visible content. It is a purely structural theming component.
+ - The host element is hidden (`hidden` attribute) and does not render visible content. It is a purely structural theming component
 
 ## Properties
 

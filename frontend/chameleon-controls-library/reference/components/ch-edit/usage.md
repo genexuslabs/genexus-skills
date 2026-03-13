@@ -11,7 +11,7 @@
 
 ## Basic Usage
 
-A simple `ch-edit` text input with a placeholder, a visible label, and basic input handling.
+A simple `ch-edit` text input with a placeholder, a visible label, and basic input handling
 
 ### HTML
 
@@ -41,14 +41,14 @@ edit.value = "john.doe";
 
 ### Key Points
 
-- The `type` property defaults to `"text"`, so it can be omitted for plain text inputs.
-- Always pair `ch-edit` with a visible `<label>` element. The component is form-associated via `ElementInternals`, so the `<label for="...">` pattern resolves the accessible name automatically.
-- The `input` event fires on every keystroke; the `change` event fires only when the user commits the value (e.g., on blur).
-- Use the `placeholder` property for hint text, but never as a substitute for a visible label.
+- The `type` property defaults to `"text"`, so it can be omitted for plain text inputs
+- Always pair `ch-edit` with a visible `<label>` element. The component is form-associated via `ElementInternals`, so the `<label for="...">` pattern resolves the accessible name automatically
+- The `input` event fires on every keystroke; the `change` event fires only when the user commits the value (e.g., on blur)
+- Use the `placeholder` property for hint text, but never as a substitute for a visible label
 
 ## Password Input with Show/Hide Toggle
 
-A password field with a built-in button that lets the user toggle password visibility.
+A password field with a built-in button that lets the user toggle password visibility
 
 ### HTML
 
@@ -84,16 +84,16 @@ edit.showPassword = true;
 
 ### Key Points
 
-- Set `type="password"` and `showPasswordButton="true"` to render the toggle button inside the input.
-- The toggle button has its own `aria-label` (defaults to "Show password" / "Hide password") for screen reader users.
-- The `showPassword` property is mutable: the component updates it internally when the button is clicked, and you can also set it programmatically.
-- The `passwordVisibilityChange` event fires when the toggle is clicked, with `event.detail` containing the new boolean state.
-- Use `autocomplete="current-password"` or `"new-password"` to help browsers and password managers.
-- Style the toggle button via the `show-password-button` CSS part. The `password-displayed` and `password-hidden` parts indicate the current state.
+- Set `type="password"` and `showPasswordButton="true"` to render the toggle button inside the input
+- The toggle button has its own `aria-label` (defaults to "Show password" / "Hide password") for screen reader users
+- The `showPassword` property is mutable: the component updates it internally when the button is clicked, and you can also set it programmatically
+- The `passwordVisibilityChange` event fires when the toggle is clicked, with `event.detail` containing the new boolean state
+- Use `autocomplete="current-password"` or `"new-password"` to help browsers and password managers
+- Style the toggle button via the `show-password-button` CSS part. The `password-displayed` and `password-hidden` parts indicate the current state
 
 ## Multiline Textarea with Auto-Grow
 
-A multiline text area that automatically expands its height to fit the content, ideal for chat inputs or comment fields.
+A multiline text area that automatically expands its height to fit the content, ideal for chat inputs or comment fields
 
 ### HTML
 
@@ -126,16 +126,16 @@ edit.addEventListener("change", () => {
 
 ### Key Points
 
-- Setting `multiline="true"` renders a `<textarea>` instead of an `<input>`.
-- The `autoGrow` property only takes effect when `multiline` is `true`. The textarea height increases as the user types and shrinks when content is removed.
-- Use `maxLength` to cap the number of characters the user can enter.
-- The `mode` (inputMode) property has no effect when `multiline` is `true`.
-- When `autoGrow` is `true`, the component renders a hidden helper `<div>` to measure content height. This helper is `aria-hidden`.
-- If you combine `autoGrow` with additional content slots, the textarea is wrapped in a container to support both features simultaneously.
+- Setting `multiline="true"` renders a `<textarea>` instead of an `<input>`
+- The `autoGrow` property only takes effect when `multiline` is `true`. The textarea height increases as the user types and shrinks when content is removed
+- Use `maxLength` to cap the number of characters the user can enter
+- The `mode` (inputMode) property has no effect when `multiline` is `true`
+- When `autoGrow` is `true`, the component renders a hidden helper `<div>` to measure content height. This helper is `aria-hidden`
+- If you combine `autoGrow` with additional content slots, the textarea is wrapped in a container to support both features simultaneously
 
 ## Debounced Search Input
 
-A search input with debounced `input` events to avoid firing requests on every keystroke, plus a built-in clear button.
+A search input with debounced `input` events to avoid firing requests on every keystroke, plus a built-in clear button
 
 ### HTML
 
@@ -184,15 +184,15 @@ edit.addEventListener("change", () => {
 
 ### Key Points
 
-- The `debounce` property (in milliseconds) delays the `input` event emission. If the user keeps typing within the debounce window, the timer resets. Only the final value is emitted.
-- The `change` event is never debounced by this property. It fires when the control loses focus.
-- When `type="search"`, the component renders a clear button (the `clear-button` CSS part) whenever the input has a value. Clicking it clears the value and re-emits the `input` event (with an empty string).
-- The clear button has its own `aria-label` (defaults to "Clear search") for accessibility.
-- Combine `debounce` with a server-side search endpoint to reduce unnecessary network requests.
+- The `debounce` property (in milliseconds) delays the `input` event emission. If the user keeps typing within the debounce window, the timer resets. Only the final value is emitted
+- The `change` event is never debounced by this property. It fires when the control loses focus
+- When `type="search"`, the component renders a clear button (the `clear-button` CSS part) whenever the input has a value. Clicking it clears the value and re-emits the `input` event (with an empty string)
+- The clear button has its own `aria-label` (defaults to "Clear search") for accessibility
+- Combine `debounce` with a server-side search endpoint to reduce unnecessary network requests
 
 ## Using Before/After Additional Content Slots
 
-The `ch-edit` component provides two named slots to inject custom elements before and after the input content, such as icons, buttons, or badges.
+The `ch-edit` component provides two named slots to inject custom elements before and after the input content, such as icons, buttons, or badges
 
 ### HTML
 
@@ -228,23 +228,23 @@ function showCurrencyHint(show) {
 
 ### Key Points
 
-- The `additional-content-before` slot renders only when `showAdditionalContentBefore` is `true`. Likewise, `additional-content-after` renders only when `showAdditionalContentAfter` is `true`.
-- Slot content is placed inside the component's shadow DOM boundary, so it appears visually inside the input frame.
-- You can place any HTML element in the slot: icons, text badges, buttons, or other web components.
-- When `multiline="true"` and `autoGrow="false"`, the textarea renders inline alongside the slot content. When `autoGrow="true"`, the textarea is wrapped in a container to support auto-grow alongside the slotted elements.
-- Use the `mode` property to control the virtual keyboard for mobile devices (e.g., `"decimal"` for numeric inputs with a decimal point).
+- The `additional-content-before` slot renders only when `showAdditionalContentBefore` is `true`. Likewise, `additional-content-after` renders only when `showAdditionalContentAfter` is `true`
+- Slot content is placed inside the component's shadow DOM boundary, so it appears visually inside the input frame
+- You can place any HTML element in the slot: icons, text badges, buttons, or other web components
+- When `multiline="true"` and `autoGrow="false"`, the textarea renders inline alongside the slot content. When `autoGrow="true"`, the textarea is wrapped in a container to support auto-grow alongside the slotted elements
+- Use the `mode` property to control the virtual keyboard for mobile devices (e.g., `"decimal"` for numeric inputs with a decimal point)
 
 ## Do's and Don'ts
 
 ### Do
 
-- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes.
-- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions.
-- Use named slots to provide custom content where supported.
-- Always provide an `accessibleName` or appropriate `aria-` attribute for screen reader support.
+- Set properties via JavaScript for complex types (objects, arrays) rather than HTML attributes
+- Use the component's custom events (e.g., `input`, `change`) for reacting to user interactions
+- Use named slots to provide custom content where supported
+- Always provide an `accessibleName` or appropriate `aria-` attribute for screen reader support
 
 ### Don't
 
-- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access.
-- Don't manipulate the component's internal Shadow DOM elements directly.
-- Don't use `innerHTML` to set component content when properties or slots are available.
+- Don't rely on HTML attribute reflection for reading dynamic state — use JavaScript property access
+- Don't manipulate the component's internal Shadow DOM elements directly
+- Don't use `innerHTML` to set component content when properties or slots are available

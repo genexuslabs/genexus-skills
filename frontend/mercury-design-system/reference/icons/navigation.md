@@ -1,6 +1,6 @@
 # Navigation
 
-Navigation flow icons including arrows, chevrons, and directional indicators.
+Navigation flow icons including arrows, chevrons, and directional indicators
 
 **Type:** Monochrome
 
