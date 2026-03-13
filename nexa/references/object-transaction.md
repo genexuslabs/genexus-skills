@@ -50,7 +50,7 @@ Where:
 - `<rules>`: Business rules governing Transaction behavior (see [RULES](#rules))
 - `<events>`: Transaction lifecycle event handlers (see [EVENTS](#events))
 - `<variables>`: Variables (mandatory `DataType`; see [ATTRIBUTE/VARIABLE](#attributevariable))
-- `<properties>`: Optional object properties in TOML syntax
+- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-transaction.md))
 - `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
 
 ---

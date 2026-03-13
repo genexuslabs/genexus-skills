@@ -56,13 +56,15 @@ Each reference has specific purpose
 			- `Autentication`: Requires a logged-in user, without permission checks
 			- `Authorization`: Requires authentication and permission checks
 		+ Requires `GeneXusSecurity` module installed
+- `properties-*.md`: Property definitions for GeneXus objects and environments (id, type, default, values, description)
 
 Resource selection protocol:
 1. Pick target `object-*.md` files from user intent
 2. Load `global-*.md` only for artifact create/update
 3. Load only required `common-*` dependencies for selected objects
-4. Scan relevant sections first (`SYNTAX`, `CONSTRAINTS`, target feature) for long references
-5. Keep context minimal and task-driven
+4. Load `properties-*.md` when user asks about object/environment properties, defaults, or configuration options
+5. Scan relevant sections first (`SYNTAX`, `CONSTRAINTS`, target feature) for long references
+6. Keep context minimal and task-driven
 
 ---
 
@@ -228,6 +230,13 @@ Quick reference for appropriate use of each object type
 - Purpose: Integration wrapper exposing external libraries/services to GeneXus through methods, properties, events, and types
 - Use when: Calling platform APIs, SDKs, native utilities, or external contracts not implemented as GeneXus objects
 - Reference: [ExternalObject object](references/object-external-object.md)
+
+---
+
+# PROPERTIES KNOWLEDGE
+Property definitions use a common schema and index in [properties](references/properties.md)
+
+Load object-specific property files through each corresponding `object-*.md` reference
 
 ---
 
