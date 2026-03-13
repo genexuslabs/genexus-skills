@@ -14,7 +14,7 @@ Data elements including `Attributes` (stored), `Variables` (in-memory), and `Mem
 	Description = '<description>',
 	DataType = '<type>',
 	Collection = '<boolean>',  // only for collection variables
-	<other-properties>
+	<properties>
 ]
 ~~~
 
@@ -22,6 +22,7 @@ Where:
 - `<name>`: Alphanumeric or underscore, starting with letter
 - `<description>`: Purpose of element (optional but recommended)
 - `<type>`: Mandatory data type definition (see [DATA TYPE PRIORITY](#data-type-priority))
+- `<properties>`: Other properties (see [properties](./properties-object-attribute.md))
 
 ---
 
