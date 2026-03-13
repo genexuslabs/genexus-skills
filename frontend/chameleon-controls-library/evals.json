@@ -1,0 +1,93 @@
+{
+  "skill_name": "chameleon-controls-library",
+  "evals": [
+    {
+      "id": 1,
+      "name": "settings-panel",
+      "prompt": "Build a settings panel with sidebar navigation, collapsible groups, toggles, dropdowns, slider, and search bar using Chameleon.",
+      "expected_output": "Uses ch-sidebar, ch-navigation-list-render, ch-accordion-render, ch-switch, ch-combo-box-render, ch-slider, ch-edit with type=search",
+      "assertions": [
+        {"text": "Uses ch-accordion-render for collapsible sections (not ch-accordion)", "type": "component_name"},
+        {"text": "Uses ch-switch for toggles (not ch-toggle)", "type": "component_name"},
+        {"text": "Uses ch-combo-box-render for dropdowns (not ch-select or ch-dropdown)", "type": "component_name"},
+        {"text": "Uses ch-sidebar for the sidebar", "type": "component_name"},
+        {"text": "Uses ch-edit for search input (not ch-input or ch-search)", "type": "component_name"},
+        {"text": "Uses ch-slider for font size", "type": "component_name"},
+        {"text": "Uses native <button> for any buttons (not ch-button)", "type": "native_html"},
+        {"text": "No hallucinated component names", "type": "correctness"}
+      ]
+    },
+    {
+      "id": 2,
+      "name": "dashboard-grid-chat",
+      "prompt": "Build a CRM dashboard with resizable split, data grid with pagination, AI chat panel, toolbar, and progress bar using Chameleon.",
+      "expected_output": "Uses ch-layout-splitter, ch-tabular-grid, ch-paginator-render, ch-chat, ch-action-group-render, ch-progress",
+      "assertions": [
+        {"text": "Uses ch-tabular-grid for the data grid (not ch-grid or ch-data-grid)", "type": "component_name"},
+        {"text": "Uses ch-chat for the AI assistant panel", "type": "component_name"},
+        {"text": "Uses ch-layout-splitter for resizable split", "type": "component_name"},
+        {"text": "Uses ch-paginator-render for pagination (not ch-pagination)", "type": "component_name"},
+        {"text": "Uses ch-progress for loading indicator (not ch-progress-bar)", "type": "component_name"},
+        {"text": "No hallucinated component names", "type": "correctness"}
+      ]
+    },
+    {
+      "id": 3,
+      "name": "file-explorer-editor",
+      "prompt": "Build an IDE panel with tree view file explorer, tabbed code editors, and diff viewer using Chameleon.",
+      "expected_output": "Uses ch-tree-view-render, ch-code-editor, ch-code-diff-editor, ch-flexible-layout-render or ch-layout-splitter, ch-tab-render",
+      "assertions": [
+        {"text": "Uses ch-tree-view-render for file tree (not ch-tree or ch-tree-view)", "type": "component_name"},
+        {"text": "Uses ch-code-editor for the editor (not ch-editor or ch-monaco)", "type": "component_name"},
+        {"text": "Uses ch-code-diff-editor for diffs (not ch-diff)", "type": "component_name"},
+        {"text": "Uses ch-tab-render for editor tabs (not ch-tabs)", "type": "component_name"},
+        {"text": "Uses ch-flexible-layout-render or ch-layout-splitter for layout", "type": "component_name"},
+        {"text": "No hallucinated component names", "type": "correctness"}
+      ]
+    },
+    {
+      "id": 4,
+      "name": "registration-form",
+      "prompt": "Build a registration form with text fields, dropdown, radio buttons, checkbox, color field, rating, and submit button using Chameleon.",
+      "expected_output": "Uses ch-edit, ch-combo-box-render, ch-radio-group-render, ch-checkbox, ch-color-field, ch-rating, native <button>",
+      "assertions": [
+        {"text": "Uses ch-edit for text inputs (not ch-input or ch-text-field)", "type": "component_name"},
+        {"text": "Uses ch-combo-box-render for country dropdown", "type": "component_name"},
+        {"text": "Uses ch-radio-group-render for account type (not ch-radio-group)", "type": "component_name"},
+        {"text": "Uses ch-checkbox for terms", "type": "component_name"},
+        {"text": "Uses ch-color-field for theme color", "type": "component_name"},
+        {"text": "Uses ch-rating for star rating", "type": "component_name"},
+        {"text": "Uses native <button> for submit (not ch-button)", "type": "native_html"},
+        {"text": "Includes accessible-name on form controls", "type": "accessibility"}
+      ]
+    },
+    {
+      "id": 5,
+      "name": "navigation-app-shell",
+      "prompt": "Build an app shell with collapsible sidebar, hierarchical nav menu, responsive top action bar, and tabbed content using Chameleon.",
+      "expected_output": "Uses ch-sidebar, ch-navigation-list-render, ch-action-group-render, ch-tab-render",
+      "assertions": [
+        {"text": "Uses ch-sidebar for collapsible sidebar", "type": "component_name"},
+        {"text": "Uses ch-navigation-list-render for hierarchical nav (not ch-nav or ch-menu)", "type": "component_name"},
+        {"text": "Uses ch-action-group-render for responsive toolbar (not ch-toolbar)", "type": "component_name"},
+        {"text": "Uses ch-tab-render for tabs (not ch-tabs)", "type": "component_name"},
+        {"text": "No hallucinated component names", "type": "correctness"}
+      ]
+    },
+    {
+      "id": 6,
+      "name": "content-viewer-feedback",
+      "prompt": "Build a doc viewer with markdown, code blocks, collapsible sections, progress bar, loading spinner, and tooltips using Chameleon.",
+      "expected_output": "Uses ch-markdown-viewer, ch-code, ch-accordion-render, ch-progress, ch-status, ch-tooltip",
+      "assertions": [
+        {"text": "Uses ch-markdown-viewer for markdown (not ch-markdown)", "type": "component_name"},
+        {"text": "Uses ch-code for code blocks (not ch-code-block)", "type": "component_name"},
+        {"text": "Uses ch-accordion-render for collapsible sections", "type": "component_name"},
+        {"text": "Uses ch-progress for progress bar (not ch-progress-bar)", "type": "component_name"},
+        {"text": "Uses ch-status for loading spinner (not ch-spinner or ch-loading)", "type": "component_name"},
+        {"text": "Uses ch-tooltip for tooltips", "type": "component_name"},
+        {"text": "No hallucinated component names", "type": "correctness"}
+      ]
+    }
+  ]
+}

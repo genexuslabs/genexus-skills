@@ -13,11 +13,15 @@ Root
 │  │  └─ object-*.md         : object-specific specifications
 │  └─ SKILL.md               : skill definition and workflow
 │
-├─ other-skill/              : additional skills
-│  ├─ references/            : references for that skill
-│  ├─ scripts/               : optional helpers
-│  ├─ assets/                : optional templates/assets
-│  └─ SKILL.md               : specific skill definition
+├─ other-skills/             : additional skill groups
+│  ├─ skill-a/               : individual skill
+│  │  ├─ references/         : references for that skill
+│  │  ├─ scripts/            : optional helpers
+│  │  ├─ assets/             : optional templates/assets
+│  │  └─ SKILL.md            : specific skill definition
+│  ├─ skill-b/
+│  │  └─ ...
+│  └─ README.md              : group description
 │
 ├─ .gitignore                : repository ignore patterns
 └─ README.md                 : repository entry point
