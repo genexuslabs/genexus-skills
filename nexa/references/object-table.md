@@ -38,7 +38,7 @@ Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
 - `<attributes>`: Attribute list, one attribute per line
 - `<indexes>`: Index names referenced by the table, one per line
-- `<properties>`: Optional object properties in TOML syntax
+- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-table.md))
 - `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
 
 Notes:

@@ -67,10 +67,10 @@ Each platform handles skills with small differences. This repository follows a p
 	* **Codex (OpenAI)**
 		- Windows: `%USERPROFILE%\.codex\skills`
 		- macOS/Linux: `~/.codex/skills`
-	* **CODA-CLI (beta)**
+	* **CODA-CLI**
 		- Windows: `%USERPROFILE%\.coda\skills`
 		- macOS/Linux: `~/.coda/skills`
-		- Note: Skills support requires `beta` version
+		- Note: Require version `1.5.0` or higher
 	* **OpenCode**
 		- Windows: `%USERPROFILE%\.config\opencode\skills`
 		- macOS/Linux: `~/.config/opencode/skills`
