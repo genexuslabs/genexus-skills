@@ -28,7 +28,7 @@ Domain <name>
 
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
-- `<properties>`: Optional object properties in TOML syntax
+- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-domain.md))
 - `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
 
 ---

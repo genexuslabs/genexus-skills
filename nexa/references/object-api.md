@@ -74,7 +74,7 @@ Where:
 - `<argument-list-i>`: Comma-separated variables or constants for implementation call
 - `<events>`: Event handlers (Before, After, service-specific)
 - `<variables>`: Variable definitions with mandatory `DataType`
-- `<properties>`: Optional object properties in TOML syntax
+- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-api.md))
 - `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
 
 
