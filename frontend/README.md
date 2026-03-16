@@ -47,15 +47,3 @@ This directory contains a set of AI skills to enhance and assist in developing f
 **What is for:** Rapid UI implementation from design images — extracts design tokens, generates semantic specs, creates mock servers, and validates output via screenshot comparison. Supports Angular and React (Vite).
 
 **Usage:** Provide UI screenshot images and/or an OpenAPI spec, and specify the target framework (Angular or React). The skill will generate the frontend application — app shell, routing, services connected to the backend defined by the OpenAPI spec, and page components — and validate the result visually.
-
----
-
-### 5. WW Builder
-
-**What it is:** A skill for generating complete Work With (master-detail CRUD) interfaces for business entities using Angular or React + Chameleon.
-
-**What is for:** Produces full CRUD UIs from entity definitions with enforced enterprise UX patterns — FK navigation, dialog-based forms, embedded collections, keyboard accessibility, and comprehensive audit rules.
-
-**Usage:** Describe your business entities and their fields, and specify the target framework (Angular or React). The skill will generate complete master-detail CRUD interfaces with mock data, navigation, and forms.
-
-**Depends on:** `chameleon-controls-library`, `design-system-builder`
