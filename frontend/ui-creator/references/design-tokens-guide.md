@@ -2,11 +2,11 @@
 
 ## When to Use
 
-Use this guide when extracting design tokens from UI images to create the global `:root` CSS custom properties for the project. When no images are provided, use the default tokens below.
+Use this guide when extracting design tokens from UI images to create the global `:root` CSS custom properties. When no images are provided, use the default tokens below
 
 ## Default tokens (no images)
 
-When no UI images are provided, use the values shown in each section below as-is. They form a neutral, clean, professional theme. Use Material Icons (outlined) as the default icon library.
+When no UI images are provided, use the values shown in each section below as-is. They form a neutral, clean, professional theme. Use Material Icons (outlined) as the default icon library
 
 ## Process (with images)
 
@@ -73,9 +73,9 @@ Border radius, shadows, transitions:
 
 ### 5. Icons
 
-Identify the icon library used in the screenshots by analyzing icon shapes and style (e.g., Material Icons, Font Awesome, Lucide, etc.). List all distinct icons observed.
+Identify the icon library from the screenshots by analyzing icon shapes and style (e.g., Material Icons, Font Awesome, Lucide). List all distinct icons observed
 
-Check whether icons appear in **both outlined and filled (solid) variants** — e.g., the same icon shown as an outline in one state and solid-filled in another. If both variants are present, both font families must be imported.
+Check whether icons appear in **both outlined and filled (solid) variants** — e.g., the same icon shown as an outline in one state and solid-filled in another. If both variants are present, both font families must be imported
 
 ```
 Library: [identified from screenshots]
@@ -84,7 +84,7 @@ Icons (outlined): [list observed icons]
 Icons (filled):   [list observed icons]
 ```
 
-Import **all** required variants in the global stylesheet, using the correct CDN URL for the identified library.
+Import **all** required variants in the global stylesheet, using the correct CDN URL for the identified library
 
 ### 6. Layout
 
@@ -116,7 +116,7 @@ Identify recurring UI elements and document their token composition. These are n
 --input-border: 1px solid var(--color-border);
 ```
 
-Look for: button variants (primary, secondary, ghost), card styles, input fields, badges, tags, and any other element that appears on multiple pages. These patterns are used as **style reference** during the image-to-component procedure for consistency.
+Look for: button variants (primary, secondary, ghost), card styles, input fields, badges, tags, and any other element that appears on multiple pages. These patterns are used as **style reference** during the image-to-component procedure for consistency
 
 ## Rules
 

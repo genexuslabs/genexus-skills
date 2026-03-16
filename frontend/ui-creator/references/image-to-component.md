@@ -9,7 +9,7 @@
 5. **Dev server URL** (required) — full URL to the page, e.g. `http://localhost:4200/home`
 6. **Component context** (optional) — data bindings and helpers available in the template (signal names, variable names, helper methods, types)
 7. **Layout exclusions** (optional) — shared layout elements already rendered by the app shell (e.g. "header and footer are in the shared layout — generate only the `<main>` content")
-8. **Style reference** (optional) — component-level CSS patterns discovered from a previously generated reference page (e.g. button styles, card layouts, form elements). When provided, use these patterns to ensure visual consistency across pages.
+8. **Style reference** (optional) — component-level CSS patterns discovered from a previously generated reference page (e.g. button styles, card layouts, form elements). When provided, use these patterns to ensure visual consistency across pages
 
 ## Prerequisites
 
@@ -19,11 +19,11 @@
 
 ## Workflow
 
-**IMPORTANT**: Always use **forward slashes** (`/`) in all bash command paths.
+**IMPORTANT**: Always use **forward slashes** (`/`) in all bash command paths
 
 ### Phase 1: Analyze & Generate
 
-**View** the target UI image once with your vision capabilities. From this single analysis, generate all outputs below.
+**View** the target UI image once with your vision capabilities. From this single analysis, generate all outputs below
 
 #### Step 1: Create Semantic Specification
 
@@ -31,27 +31,27 @@ Create `semantic-spec.json` in the component directory:
 
 ```json
 {
-  "layout": {
-    "sections": [
-      {
-        "id": "unique-section-id",
-        "semanticType": "header|nav|main|article|aside|footer",
-        "elements": [
-          {
-            "id": "unique-element-id",
-            "type": "button|input|image|text|heading|list|...",
-            "content": "Exact visible text",
-            "requiredFeatures": ["primary", "clickable", "aria-label:description"],
-            "visualStyle": {
-              "bg": "--color-text-primary",
-              "text": "--color-bg-primary",
-              "border": "--color-border"
-            }
-          }
-        ]
-      }
-    ]
-  }
+	"layout": {
+		"sections": [
+			{
+				"id": "unique-section-id",
+				"semanticType": "header|nav|main|article|aside|footer",
+				"elements": [
+					{
+						"id": "unique-element-id",
+						"type": "button|input|image|text|heading|list|…",
+						"content": "Exact visible text",
+						"requiredFeatures": ["primary", "clickable", "aria-label:description"],
+						"visualStyle": {
+							"bg": "--color-text-primary",
+							"text": "--color-bg-primary",
+							"border": "--color-border"
+						}
+					}
+				]
+			}
+		]
+	}
 }
 ```
 
@@ -63,13 +63,13 @@ Create `semantic-spec.json` in the component directory:
 
 **Critical rules:**
 - **Strict Fidelity**: Only include elements actually visible in the image
-  - Do NOT add "standard" elements (search bars, social icons) if not present
-  - Do NOT turn a simple section into a full app
+	- Do NOT add "standard" elements (search bars, social icons) if not present
+	- Do NOT turn a simple section into a full app
 - **Exact Counts**: If a grid shows 4 columns, spec must have 4 columns (not 3, not 6)
-- **Repeated elements**: For grids/lists with many identical items (e.g. 42 product cards), spec ONE representative item and note the repeat pattern: `"repeats": "~42 items, 6-column grid"`. Do NOT enumerate every item — it wastes tokens without adding information. In the template, use the platform's loop construct over the data binding. Mock data should contain 6-8 representative items — enough to validate the grid layout.
-- **Visual style mapping**: For elements with prominent visual styling (buttons, badges, banners, highlighted sections), include `visualStyle` mapping observed colors to the closest design token variable names. This anchors color decisions in the spec so CSS generation uses the correct tokens. Omit `visualStyle` for plain text elements where defaults apply.
+- **Repeated elements**: For grids/lists with many identical items (e.g. 42 product cards), spec ONE representative item and note the repeat pattern: `"repeats": "~42 items, 6-column grid"`. Do NOT enumerate every item — it wastes tokens without adding information. In the template, use the platform's loop construct over the data binding. Mock data should contain 6–8 representative items — enough to validate the grid layout
+- **Visual style mapping**: For elements with prominent visual styling (buttons, badges, banners, highlighted sections), include `visualStyle` mapping observed colors to the closest design token variable names. This anchors color decisions in the spec so CSS generation uses the correct tokens. Omit `visualStyle` for plain text elements where defaults apply
 - **Unique elements**: List every distinct element individually (no shortcuts)
-- **Layout exclusions**: If the caller specified layout exclusions (e.g. "header and footer are shared"), still note them in the spec but mark them `"excluded": true`. Generate component files for the non-excluded content only.
+- **Layout exclusions**: If the caller specified layout exclusions (e.g. "header and footer are shared"), still note them in the spec but mark them `"excluded": true`. Generate component files for the non-excluded content only
 - **Pure JSON**: No markdown, no comments
 
 #### Step 2: Generate Component Files
@@ -78,20 +78,20 @@ Based on the platform, generate only the **view/template and styles** files:
 
 | Platform | Files generated |
 |---|---|
-| Angular | `{name}.component.html` + `{name}.component.scss` |
-| React | JSX return block in `{Name}.tsx` + `{Name}.module.css` |
+| Angular | `<name>.component.html` + `<name>.component.scss` |
+| React | JSX return block in `<Name>.tsx` + `<Name>.module.css` |
 
 **If component context was provided**, use the specified data bindings in the template:
 - Angular: `@for (item of items(); track item.id)`, `{{ title() }}`, `@if (loading())`
-- React: `{items.map(item => (...))}`, `{title}`, `{loading && ...}`
+- React: `{items.map(item => (…))}`, `{title}`, `{loading && …}`
 
-**If no component context**, generate static markup matching the image exactly.
+**If no component context**, generate static markup matching the image exactly
 
 **CSS rules:**
 - USE design tokens from the project's global styles: `color: var(--color-text-primary);`
 - FORBIDDEN: hardcoded values like `color: #333333;` or `padding: 16px;`
 - Exception: values not covered by existing tokens (use a CSS comment noting the raw value)
-- **If style reference was provided**, apply those patterns for matching UI elements (buttons, cards, forms, etc.) instead of re-interpreting them from the image. This ensures consistency across pages.
+- **If style reference was provided**, apply those patterns for matching UI elements (buttons, cards, forms, etc.) instead of re-interpreting them from the image. This ensures consistency across pages
 
 ### Phase 2: Evaluate & Correct
 
@@ -110,13 +110,13 @@ npx tsx <skillDirectory>/scripts/capture-screenshot.ts http://localhost:4200/hom
 
 1. **View** both the original UI image and the captured screenshot
 2. **Compare** for differences in:
-   - **Layout**: Alignment, spacing, sizing, column counts
-   - **Styling**: Color accuracy, font weights, border styles, shadows
-   - **Content**: Missing elements, incorrect text, broken images
-   - **Semantics**: Wrong tags, missing ARIA attributes
+	- **Layout**: Alignment, spacing, sizing, column counts
+	- **Styling**: Color accuracy, font weights, border styles, shadows
+	- **Content**: Missing elements, incorrect text, broken images
+	- **Semantics**: Wrong tags, missing ARIA attributes
 3. If differences found, **fix** the template and/or styles directly, then repeat Step A
 4. If no significant differences, the component is complete
-5. **Maximum 3 iterations** of the capture-compare-fix cycle. After 3 iterations, accept the result and move on.
+5. **Maximum 3 iterations** of the capture-compare-fix cycle. After 3 iterations, accept the result and move on
 
 ## Common Pitfalls
 
