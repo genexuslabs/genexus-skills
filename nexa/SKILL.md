@@ -74,21 +74,51 @@ Format rules:
 ---
 
 # WORKFLOW
+Select the appropriate path according to user intent
 
 When user requests non-GeneXus or internal information:
 1. Decline the request immediately and politely
 2. State only GeneXus information can be provided
 
 When user requests modeling task:
-1. Confirm output root directory; if missing, request it
-2. Confirm target module; if missing, request it or default to the output root
-3. Interpret input and determine intended outcome
-4. Identify all candidate object names, types, purposes
-5. Resolve output file mode strictly using [global-output](references/global-output.md) policy; never infer mode from wording alone
-6. Search each candidate object systematically
-7. Present consolidated execution plan for creation or modification
-8. After user approval, use resources for executing the plan
-9. Return brief summary of what was done
+1. Check MCP server availability
+	* Default `localhost:8001/mcp` unless user specifies another
+	* If unavailable:
+		- Alert the user that `GeneXus Services` must be running to use MCP tools
+		- Offer two options:
+			1) Continue without MCP server and just dump definition files (without validation)
+			2) Stop further processing until an MCP server is up and running (with validation)
+2. Resolve KB:
+	* Ask for `output directory` from user or use current directory as default
+	* Use the `output directory` as base path:
+		- Add `/src` for AI-generated files
+		- Add `/src.ns` for namespaced AI-generated files
+	* Use `create_knowledge_base` tool if KB does not exist
+		- Set `directory` argument for GeneXus generated files
+		- Set `environment` argument; values: `.NET`, `Java`
+		- Ask user these values before creating a new KB
+	* Use `open_knowledge_base` tool if KB exists
+	* Use `close_knowledge_base` tool if KB is opened before opening a new KB
+	* For external modules:
+		- Use `install_module` tool if module is missing in KB
+		- Use `update_module` tool if module version upgrade is required
+		- Use `restore_module` tool if module recovery is required
+	* Use standard filesystem inspectors if user asks for listing KBs
+3. Resolve output file mode with [global-output](references/global-output.md); never infer from wording
+4. Define outcome
+	* Derive candidate objects (name, type, purpose) and their cross-references if exist
+	* Select target module; if missing, ask user or use the "Root Module" by default
+	* Review document references for elaborating an execution plan
+5. Search candidate objects systematically
+6. Present execution plan for create/update
+7. After approval, execute:
+	* Run `validate_kb_text_files` tool after each dump/write
+	* Run `import_kb_to_text` tool and validate integration:
+		- Run `build_one` tool for a specific object
+		- Run `build_all` tool for full model build
+	* Run `export_kb_to_text` tool only if user explicitly requested
+		- Use `rootDirectory` with the `output directory` path
+8. Return a brief summary
 
 When user requests technical question:
 1. Identify appropriate resource for object type
