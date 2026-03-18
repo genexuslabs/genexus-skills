@@ -2,8 +2,8 @@
 name: mercury-design-system
 description: Applies Mercury Design System styling to UIs built with Chameleon. Use when the user mentions Mercury, @genexus/mercury, getBundles, ch-theme, Mercury tokens, or Globant theme — or when styling Chameleon components with a design system.
 metadata:
-  version: "0.2.0"
-  dependencies: "skill:chameleon-controls-library@~0.2.0"
+  version: "0.3.0"
+  dependencies: "skill:chameleon-controls-library@~0.3.0"
 ---
 
 # Mercury Design System
@@ -21,7 +21,7 @@ Choose the path that matches the user's request:
 1. **Detect the theme variant (FIRST)** — Look at the primary action color in the design (buttons, links, focus indicators). Blue → Mercury (default). Green → Globant (`theme: "globant"`). See [How to detect the variant](#how-to-detect-the-variant-from-a-figma-design-or-image). **This determines the `theme` value in `vite-plugin-mercury` and must be resolved before writing any code**
 2. **Set up the project with the correct theme** — If scaffolding a new project or the project doesn't exist yet, configure `vite-plugin-mercury` with the detected theme: `mercury({ theme: "mercury" })` or `mercury({ theme: "globant" })`. If the project already exists, verify the theme in `vite.config.ts` matches the design
 3. **Analyze the design** — Identify components, layout structure, colors, typography, spacing, and interaction states
-4. **Map Figma values to Mercury tokens** — Use [Figma token mapping](reference/design-foundations/figma-token-mapping.md) to translate Figma variables, hex values, and font specs into Mercury tokens and classes. **Critical:** Figma font-weights are +100 higher than real — always subtract 100
+4. **Map Figma values to Mercury tokens** — Use [Figma token mapping](references/design-foundations/figma-token-mapping.md) to translate Figma variables, hex values, and font specs into Mercury tokens and classes. **Critical:** Figma font-weights are +100 higher than real — always subtract 100
 
 Then continue with [Common steps](#common-steps-both-paths)
 
@@ -29,8 +29,8 @@ Then continue with [Common steps](#common-steps-both-paths)
 
 1. **Understand intent** — Clarify the UI's purpose and key interactions
 2. **Determine the theme** — Ask the user if not specified. Default to Mercury. Configure `vite-plugin-mercury` with the correct `theme` value before writing any component code
-3. **Choose design patterns** — Consult [Design patterns](reference/design-foundations/design-patterns.md) for Mercury-idiomatic layouts, forms, buttons, and typography hierarchy
-4. **Apply design foundations** — Use Mercury [typography](reference/design-foundations/typography-system.md), [color](reference/design-foundations/color-system.md), and [spacing](reference/design-foundations/spacing-system.md) systems
+3. **Choose design patterns** — Consult [Design patterns](references/design-foundations/design-patterns.md) for Mercury-idiomatic layouts, forms, buttons, and typography hierarchy
+4. **Apply design foundations** — Use Mercury [typography](references/design-foundations/typography-system.md), [color](references/design-foundations/color-system.md), and [spacing](references/design-foundations/spacing-system.md) systems
 
 Then continue with [Common steps](#common-steps-both-paths)
 
@@ -39,8 +39,8 @@ Then continue with [Common steps](#common-steps-both-paths)
 5. **Load the Chameleon skill** — Invoke `Skill: chameleon-controls-library`. Then use its component references to select the right `ch-*` components and read their exact APIs (props, events, slots, models) for every component you plan to use
 6. **Build UI with Chameleon** — Assemble the component tree using the APIs loaded in step 5. Use native `<button>` and `<a>` for buttons and links
 7. **Apply Mercury styling** — Import `getBundles`, load required bundles, place `<ch-theme>`, apply CSS classes and design tokens
-8. **Use Mercury icons** — For any icon in the UI, use `getIconPath` or `getIconPathExpanded` from `@genexus/mercury/assets-manager.js`. Never hardcode icon paths. See [Mercury Icons](reference/icons/README.md) for the full catalog, colorType reference, and usage examples
-9. **Validate package versions** — If you installed or updated packages in this session, check that all installed versions are mutually compatible. Read [Compatibility table](reference/installation/compatibility.md) and run `npm ls @genexus/mercury @genexus/chameleon-controls-library @genexus/vite-plugin-mercury @genexus/mercury-cli 2>/dev/null`. Always prefer the latest versions
+8. **Use Mercury icons** — For any icon in the UI, use `getIconPath` or `getIconPathExpanded` from `@genexus/mercury/assets-manager.js`. Never hardcode icon paths. See [Mercury Icons](references/icons/README.md) for the full catalog, colorType reference, and usage examples
+9. **Validate package versions** — If you installed or updated packages in this session, check that all installed versions are mutually compatible. Read [Compatibility table](references/installation/compatibility.md) and run `npm ls @genexus/mercury @genexus/chameleon-controls-library @genexus/vite-plugin-mercury @genexus/mercury-cli 2>/dev/null`. Always prefer the latest versions
 10. **Validate** — Run through the [Do's and Don'ts](#dos-and-donts) checklist below
 
 ## Mercury Fundamentals
@@ -63,7 +63,7 @@ These rules are non-negotiable. Violating them produces broken or inconsistent U
 ### MUST DO
 
 - **Detect and configure the correct theme before writing any code.** Blue accents → `mercury({ theme: "mercury" })`. Green accents → `mercury({ theme: "globant" })`. The theme determines which `base/base` CSS is injected (color palette, tokens). Getting this wrong means all colors will be incorrect
-- Load ALL required bundles for every component used (consult [Component → bundles table](reference/component-bundles-table.md))
+- Load ALL required bundles for every component used (consult [Component → bundles table](references/component-bundles-table.md))
 - Apply Mercury CSS classes on every Chameleon component that has a corresponding bundle
 - Use design tokens (`--color-*`, typography classes) — never raw hex/px values
 - Use form utilities (`field`, `field-block`, `field-inline`, `field-group`, `label`, `input`) for every form (bundle: `utils/form`)
@@ -98,7 +98,7 @@ These rules are non-negotiable. Violating them produces broken or inconsistent U
 
 ## ch-theme and getBundles
 
-- **`getBundles(bundleNames, basePath)`** — Returns the theme model for those CSS bundles. See full signature and types in [reference/api/bundles.md](reference/api/bundles.md).
+- **`getBundles(bundleNames, basePath)`** — Returns the theme model for those CSS bundles. See full signature and types in [references/api/bundles.md](references/api/bundles.md).
   - `bundleNames` accepts only **`MercuryBundleFull`** identifiers — component, scope, and util bundles (e.g. `["components/button", "components/edit", "utils/form"]`).
   - **`base/base`, `base/icons`, and `resets/box-sizing` must NOT be passed to `getBundles`.** These are injected automatically by `vite-plugin-mercury` (or the Mercury CLI). Passing them manually causes duplicate injection and broken styles.
   - `basePath` is the public path where Mercury CSS files are served (e.g. `/assets/css/`).
@@ -134,11 +134,11 @@ These rules are non-negotiable. Violating them produces broken or inconsistent U
   <ch-theme model="{bundles}"> <div>…</div> </ch-theme>
   ```
 
-  > **CSS class ≠ bundle name.** Example: `ch-edit` uses bundle `"components/edit"` but the CSS class is `input`, not `edit`. Always check the bundle's `.md` doc. See [Bundles index](reference/bundles-index.md)
+  > **CSS class ≠ bundle name.** Example: `ch-edit` uses bundle `"components/edit"` but the CSS class is `input`, not `edit`. Always check the bundle's `.md` doc. See [Bundles index](references/bundles-index.md)
 
 ## Which bundles to request
 
-Use the **[Component → bundles table](reference/component-bundles-table.md)** to find which bundles apply to each Chameleon component or native element. Request every bundle listed for the components in your view
+Use the **[Component → bundles table](references/component-bundles-table.md)** to find which bundles apply to each Chameleon component or native element. Request every bundle listed for the components in your view
 
 Mercury has **39 bundles** across 6 categories:
 
@@ -151,7 +151,7 @@ Mercury has **39 bundles** across 6 categories:
 | Scope      | 2     | Theme tokens for multi-theme apps only (`scope/theme-mercury`, `scope/theme-globant`)                                                                                                                                                                                                                                             |
 | Utils      | 6     | Cross-component utilities: elevation, form, layout, link, spacing, typography                                                                                                                                                                                                                                                     |
 
-For the full list: **[Bundles index](reference/bundles-index.md)**
+For the full list: **[Bundles index](references/bundles-index.md)**
 
 ## Buttons and links
 
@@ -254,7 +254,7 @@ Mercury uses **blue-tinted grays** (`#2D3A48`, `#9DA9B6`). Globant uses **pure g
 3. If still ambiguous, check neutral grays → Blue-tinted or pure?
 4. If all signals point the same way → use that theme. If signals conflict, **ask the user**
 
-See [Themes and variants](reference/themes-and-variants.md)
+See [Themes and variants](references/themes-and-variants.md)
 
 ## Body and root container styles
 
@@ -361,16 +361,16 @@ A negative offset equal to the outline thickness pulls the ring inward so it sit
 
 `npm i @genexus/chameleon-controls-library @genexus/mercury`
 
-Framework guides: [Installation index](reference/installation/README.md) — React (Vite), Angular, Next.js (Turbopack), Stencil
+Framework guides: [Installation index](references/installation/README.md) — React (Vite), Angular, Next.js (Turbopack), Stencil
 
-After installing, always verify that the installed versions are mutually compatible. See [Compatibility table](reference/installation/compatibility.md) — it covers Mercury ↔ Chameleon, Mercury ↔ `vite-plugin-mercury`, and Mercury ↔ Mercury CLI. Always prefer the latest versions of all packages
+After installing, always verify that the installed versions are mutually compatible. See [Compatibility table](references/installation/compatibility.md) — it covers Mercury ↔ Chameleon, Mercury ↔ `vite-plugin-mercury`, and Mercury ↔ Mercury CLI. Always prefer the latest versions of all packages
 
 ## References
 
-- **[Mercury Icons](reference/icons/README.md)** — Complete icon catalog (17 categories, 500+ icons), `getIconPath`/`getIconPathExpanded` usage, colorType reference
-- **[Design foundations](reference/design-foundations/)** — Typography, color, spacing, icon sizing/color tokens, Figma token mapping, design patterns
-- [Component → bundles table](reference/component-bundles-table.md) — which bundles per component
-- [Bundles index](reference/bundles-index.md) — all bundle docs and CSS
-- [Themes and variants](reference/themes-and-variants.md) — mercury vs globant, dark/light
-- [API reference](reference/api/README.md) — JS modules
-- [Installation by framework](reference/installation/README.md) — setup guides
+- **[Mercury Icons](references/icons/README.md)** — Complete icon catalog (17 categories, 500+ icons), `getIconPath`/`getIconPathExpanded` usage, colorType reference
+- **[Design foundations](references/design-foundations/)** — Typography, color, spacing, icon sizing/color tokens, Figma token mapping, design patterns
+- [Component → bundles table](references/component-bundles-table.md) — which bundles per component
+- [Bundles index](references/bundles-index.md) — all bundle docs and CSS
+- [Themes and variants](references/themes-and-variants.md) — mercury vs globant, dark/light
+- [API reference](references/api/README.md) — JS modules
+- [Installation by framework](references/installation/README.md) — setup guides

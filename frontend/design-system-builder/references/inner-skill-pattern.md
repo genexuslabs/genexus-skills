@@ -7,7 +7,7 @@ Every DS built with this builder MUST include a vibe-code skill inside `docs/` t
 ```
 docs/
 ├── SKILL.md                            # Entry point
-├── reference/
+├── references/
 │   ├── component-bundles-table.md      # Component → bundle mapping
 │   ├── bundles-index.md                # Master index of all bundles
 │   ├── themes-and-variants.md          # Theme documentation
@@ -63,9 +63,9 @@ Apply {DS Name} Design System styling to UIs built with Chameleon. This skill co
 
 2. **Add {DS Name} styling**
    - Import `getBundles` from `@{ds-name}/design-system/bundles.js`.
-   - Call `getBundles(bundleNames, basePath)` with the bundles required by the components you use (see [Component → bundles table](reference/component-bundles-table.md)).
+   - Call `getBundles(bundleNames, basePath)` with the bundles required by the components you use (see [Component → bundles table](references/component-bundles-table.md)).
    - Wrap the root of the view with `<ch-theme [model]="bundles">`.
-   - Apply {DS Name} CSS classes to elements as documented in the bundle docs (see [Bundles index](reference/bundles-index.md)).
+   - Apply {DS Name} CSS classes to elements as documented in the bundle docs (see [Bundles index](references/bundles-index.md)).
 
 ## ch-theme and getBundles
 
@@ -79,11 +79,11 @@ Apply {DS Name} Design System styling to UIs built with Chameleon. This skill co
 
 Use the **Component → {DS Name} CSS bundles** table to see which bundles apply to each Chameleon component or native element you use.
 
-Table: [Component → bundles table](reference/component-bundles-table.md)
+Table: [Component → bundles table](references/component-bundles-table.md)
 
 ## Bundle and class details
 
-- For the list of bundles and links to each bundle's docs: [Bundles index](reference/bundles-index.md).
+- For the list of bundles and links to each bundle's docs: [Bundles index](references/bundles-index.md).
 - Open the relevant bundle `.md` when you need exact class names and which elements they apply to.
 
 ## Dark / light mode
@@ -100,12 +100,12 @@ Table: [Component → bundles table](reference/component-bundles-table.md)
 
 {DS Name} defines a complete design language. See the foundation docs for detailed guidance:
 
-- [Color system](reference/design-foundations/color-system.md) — Color categories, interaction states, elevation
-- [Typography system](reference/design-foundations/typography-system.md) — Roles, class naming, line-heights
-- [Spacing system](reference/design-foundations/spacing-system.md) — Grid base, padding/gap tokens, border-radius
-- [Icons system](reference/design-foundations/icons-system.md) — Icon sizes, classes, icon colors, resolver setup, icon keys
-- [Design patterns](reference/design-foundations/design-patterns.md) — Buttons, forms, typography hierarchy
-- [Figma token mapping](reference/design-foundations/figma-token-mapping.md) — How to translate Figma designs to tokens
+- [Color system](references/design-foundations/color-system.md) — Color categories, interaction states, elevation
+- [Typography system](references/design-foundations/typography-system.md) — Roles, class naming, line-heights
+- [Spacing system](references/design-foundations/spacing-system.md) — Grid base, padding/gap tokens, border-radius
+- [Icons system](references/design-foundations/icons-system.md) — Icon sizes, classes, icon colors, resolver setup, icon keys
+- [Design patterns](references/design-foundations/design-patterns.md) — Buttons, forms, typography hierarchy
+- [Figma token mapping](references/design-foundations/figma-token-mapping.md) — How to translate Figma designs to tokens
 
 ## Body and Root Container
 
@@ -145,11 +145,11 @@ Table: [Component → bundles table](reference/component-bundles-table.md)
 
 ## References
 
-- [Component → bundles table](reference/component-bundles-table.md)
-- [Bundles index](reference/bundles-index.md)
-- [Themes and variants](reference/themes-and-variants.md)
-- [Design foundations](reference/design-foundations/)
-- [Installation by framework](reference/installation/README.md)
+- [Component → bundles table](references/component-bundles-table.md)
+- [Bundles index](references/bundles-index.md)
+- [Themes and variants](references/themes-and-variants.md)
+- [Design foundations](references/design-foundations/)
+- [Installation by framework](references/installation/README.md)
 ```
 
 ## component-bundles-table.md Template
@@ -167,7 +167,7 @@ Table: [Component → bundles table](reference/component-bundles-table.md)
 | *Typography* | `utils/typography` |
 | *Elevation (cards)* | `utils/elevation` |
 
-> Bundle docs are in `reference/bundles/{category}/{name}.md`.
+> Bundle docs are in `references/bundles/{category}/{name}.md`.
 ```
 
 ## bundles-index.md Template

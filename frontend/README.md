@@ -18,7 +18,7 @@ This directory contains a set of AI skills to enhance and assist in developing f
 
 ### 2. Design System Builder
 
-**What it is:** A skill for scaffolding and evolving enterprise CSS Design Systems on top of Chameleon using the ITCG layered pattern (Tokens → Foundations → Resets → Base → Scope → Overrides → Utilities → Components).
+**What it is:** A skill for scaffolding and evolving enterprise CSS Design Systems on top of Chameleon using the ITCSS layered pattern (Tokens → Foundations → Resets → Base → Scope → Overrides → Utilities → Components).
 
 **What is for:** Produces consistent, multi-brand, dark/light themed design systems with pure CSS — no runtime JS. Generates living documentation, showcase apps, and inner skills for consumption.
 

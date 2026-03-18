@@ -110,4 +110,4 @@ Mercury provides a structured form layout system through the `utils/form` bundle
 </form>
 ```
 
-The detailed documentation and CSS for each bundle are in `reference/bundles/<category>/` — the `.md` and `.css` files live in the same folder (e.g. `bundles/components/button.md` and `bundles/components/button.css`)
+The detailed documentation and CSS for each bundle are in `references/bundles/<category>/` — the `.md` and `.css` files live in the same folder (e.g. `bundles/components/button.md` and `bundles/components/button.css`)

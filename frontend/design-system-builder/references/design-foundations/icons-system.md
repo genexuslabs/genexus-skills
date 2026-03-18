@@ -147,7 +147,7 @@ Most icons in a DS are decorative (they embellish the UI but don't carry meaning
 - **Decorative icons via CSS** — For icons that don't need Chameleon's multi-state support, use CSS pseudo-elements (`::before`/`::after`) with `mask-image` (monochrome) or `background-image` (multicolor). This is the lightest approach — no DOM node created
 - **Semantic images** — Use `<img>` with a descriptive `alt` attribute. Examples: company logos, product photos, charts
 
-> **You MUST read the chameleon-controls-library skill** — specifically `reference/icons-and-images.md` — before implementing any icon or image in the DS. It covers semantic vs decorative decisions, `mask-image` techniques, responsive images, `ch-image` usage, and `startImgSrc`/`endImgSrc` in component models. The summary above is not a substitute for the full guide
+> **You MUST read the chameleon-controls-library skill** — specifically `references/icons-and-images.md` — before implementing any icon or image in the DS. It covers semantic vs decorative decisions, `mask-image` techniques, responsive images, `ch-image` usage, and `startImgSrc`/`endImgSrc` in component models. The summary above is not a substitute for the full guide
 
 ## Global Icon Resolution
 
@@ -186,7 +186,7 @@ registryProperty("getImagePathCallback", {
 
 This registration should happen once during the DS's installation/bootstrap step. After registration, every Chameleon component that supports `getImagePathCallback` automatically resolves icon paths — no per-instance prop binding needed
 
-> **You MUST read the chameleon-controls-library skill** — specifically `reference/registry.md` — before implementing icon resolution. It documents the full Registry Property System: per-component callback signatures, supported components, and the `GxImageMultiState` type. The example above is a starting point, not the complete picture
+> **You MUST read the chameleon-controls-library skill** — specifically `references/registry.md` — before implementing icon resolution. It documents the full Registry Property System: per-component callback signatures, supported components, and the `GxImageMultiState` type. The example above is a starting point, not the complete picture
 
 ## Icons in Component Models
 

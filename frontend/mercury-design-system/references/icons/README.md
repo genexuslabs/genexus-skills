@@ -15,11 +15,11 @@ registerMercury();
 registryProperty("getImagePathCallback", getImagePathCallbackDefinitions);
 ```
 
-This registers Mercury's icon resolver globally via Chameleon's Registry Property System (documented in the **chameleon-controls-library** skill under `reference/registry.md`). After this setup, every Chameleon component that supports `getImagePathCallback` (`ch-image`, `ch-tree-view-render`, `ch-combo-box-render`, `ch-accordion-render`, etc.) automatically resolves Mercury icon paths — no per-instance prop binding needed
+This registers Mercury's icon resolver globally via Chameleon's Registry Property System (documented in the **chameleon-controls-library** skill under `references/registry.md`). After this setup, every Chameleon component that supports `getImagePathCallback` (`ch-image`, `ch-tree-view-render`, `ch-combo-box-render`, `ch-accordion-render`, etc.) automatically resolves Mercury icon paths — no per-instance prop binding needed
 
 When Mercury's resolver receives an icon path that doesn't match any internal Mercury mapping, it falls back to `{ base: <the raw path> }`, so custom icons outside Mercury's set still work in Chameleon components
 
-> For the general approach to icons and images (semantic vs decorative, `mask-image`, `<img>`, CSS pseudo-elements), see the **chameleon-controls-library** skill — specifically `reference/icons-and-images.md`
+> For the general approach to icons and images (semantic vs decorative, `mask-image`, `<img>`, CSS pseudo-elements), see the **chameleon-controls-library** skill — specifically `references/icons-and-images.md`
 
 ## Using Mercury icons
 
@@ -78,7 +78,7 @@ getIconPathExpanded(
 ## Important limitations
 
 - Mercury does **not** currently support using its icons directly as `background-image`, `mask-image`, or `<img src>` URLs. Always go through `getIconPath`/`getIconPathExpanded` + Chameleon components
-- If you need general-purpose icon/image techniques (CSS pseudo-elements, `mask-image` for custom icons outside Mercury), see the **chameleon-controls-library** skill — specifically `reference/icons-and-images.md`
+- If you need general-purpose icon/image techniques (CSS pseudo-elements, `mask-image` for custom icons outside Mercury), see the **chameleon-controls-library** skill — specifically `references/icons-and-images.md`
 
 ## Icon categories
 

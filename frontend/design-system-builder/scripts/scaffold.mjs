@@ -58,16 +58,16 @@ const directories = [
   "components",
   "utils",
   "docs",
-  "docs/reference",
-  "docs/reference/installation",
-  "docs/reference/bundles",
-  "docs/reference/bundles/base",
-  "docs/reference/bundles/scope",
-  "docs/reference/bundles/chameleon",
-  "docs/reference/bundles/components",
-  "docs/reference/bundles/utils",
-  "docs/reference/bundles/resets",
-  "docs/reference/design-foundations",
+  "docs/references",
+  "docs/references/installation",
+  "docs/references/bundles",
+  "docs/references/bundles/base",
+  "docs/references/bundles/scope",
+  "docs/references/bundles/chameleon",
+  "docs/references/bundles/components",
+  "docs/references/bundles/utils",
+  "docs/references/bundles/resets",
+  "docs/references/design-foundations",
 ];
 
 // ── File templates ──────────────────────────────────────────────────
@@ -660,9 +660,9 @@ Apply ${titleName} Design System styling to UIs built with Chameleon. This skill
 
 2. **Add ${titleName} styling**
    - Import \`getBundles\` from \`@${dsName}/design-system/bundles.js\`.
-   - Call \`getBundles(bundleNames, basePath)\` with the bundles required by the components you use (see [Component → bundles table](reference/component-bundles-table.md)).
+   - Call \`getBundles(bundleNames, basePath)\` with the bundles required by the components you use (see [Component → bundles table](references/component-bundles-table.md)).
    - Wrap the root of the view with \`<ch-theme [model]="bundles">\` (or the framework equivalent: \`model={bundles}\`, \`[model]="bundles"\`, etc.).
-   - Apply ${titleName} CSS classes to elements as documented in the bundle docs (see [Bundles index](reference/bundles-index.md)).
+   - Apply ${titleName} CSS classes to elements as documented in the bundle docs (see [Bundles index](references/bundles-index.md)).
 
 ## ch-theme and getBundles
 
@@ -688,13 +688,13 @@ Apply ${titleName} Design System styling to UIs built with Chameleon. This skill
 - Use the **Component → ${titleName} CSS bundles** table to see which bundles apply to each Chameleon component or native element you use.
 - Request every bundle that appears in the table for the components in your view.
 
-Table: [Component → bundles table](reference/component-bundles-table.md)
+Table: [Component → bundles table](references/component-bundles-table.md)
 
 ## Bundle and class details
 
-- For the list of bundles and links to each bundle's markdown (classes and "Applies to"): [Bundles index](reference/bundles-index.md).
+- For the list of bundles and links to each bundle's markdown (classes and "Applies to"): [Bundles index](references/bundles-index.md).
 - Open the relevant bundle \`.md\` when you need exact class names and which elements they apply to.
-- The CSS of each bundle is in the same folder as its \`.md\`; see [Bundles index](reference/bundles-index.md) for concrete rules.
+- The CSS of each bundle is in the same folder as its \`.md\`; see [Bundles index](references/bundles-index.md) for concrete rules.
 
 ## Dark / light mode
 
@@ -710,7 +710,7 @@ ${titleName} implements ${brands.length} brand variant${brands.length > 1 ? "s" 
 
 ${brands.map((b) => `- **${b}** — \`scope/theme-${b}.css\` defines CSS variables for this brand (light + dark)`).join("\n")}
 
-See [Themes and variants](reference/themes-and-variants.md) for details.
+See [Themes and variants](references/themes-and-variants.md) for details.
 
 ## Design context
 
@@ -720,12 +720,12 @@ See [Themes and variants](reference/themes-and-variants.md) for details.
 
 ${titleName} defines a complete design language:
 
-- [Color system](reference/design-foundations/color-system.md) — Color categories, states, elevation
-- [Typography system](reference/design-foundations/typography-system.md) — Roles, classes, line-heights
-- [Spacing system](reference/design-foundations/spacing-system.md) — Grid, tokens, border-radius
-- [Icons system](reference/design-foundations/icons-system.md) — Sizes, classes, icon colors
-- [Design patterns](reference/design-foundations/design-patterns.md) — Buttons, forms, hierarchy
-- [Figma token mapping](reference/design-foundations/figma-token-mapping.md) — Figma → token translation
+- [Color system](references/design-foundations/color-system.md) — Color categories, states, elevation
+- [Typography system](references/design-foundations/typography-system.md) — Roles, classes, line-heights
+- [Spacing system](references/design-foundations/spacing-system.md) — Grid, tokens, border-radius
+- [Icons system](references/design-foundations/icons-system.md) — Sizes, classes, icon colors
+- [Design patterns](references/design-foundations/design-patterns.md) — Buttons, forms, hierarchy
+- [Figma token mapping](references/design-foundations/figma-token-mapping.md) — Figma → token translation
 
 ## Do's and Don'ts
 
@@ -748,11 +748,11 @@ ${titleName} defines a complete design language:
 
 ## References (one level)
 
-- [Component → ${titleName} CSS bundles table](reference/component-bundles-table.md) — which bundles to pass to \`getBundles\` per component.
-- [Bundles index](reference/bundles-index.md) — links to each bundle's doc and CSS (same folder). Each bundle folder contains the \`.md\` (classes and usage) and the \`.css\` (implementation).
-- [Design foundations](reference/design-foundations/) — Color, typography, spacing, icons, patterns, Figma mapping.
-- [Themes and variants](reference/themes-and-variants.md) — available brands and how to switch.
-- [Installation by framework](reference/installation/README.md) — React, Angular, Vanilla/Lit.
+- [Component → ${titleName} CSS bundles table](references/component-bundles-table.md) — which bundles to pass to \`getBundles\` per component.
+- [Bundles index](references/bundles-index.md) — links to each bundle's doc and CSS (same folder). Each bundle folder contains the \`.md\` (classes and usage) and the \`.css\` (implementation).
+- [Design foundations](references/design-foundations/) — Color, typography, spacing, icons, patterns, Figma mapping.
+- [Themes and variants](references/themes-and-variants.md) — available brands and how to switch.
+- [Installation by framework](references/installation/README.md) — React, Angular, Vanilla/Lit.
 
 ## Installation
 
@@ -762,7 +762,7 @@ Install Chameleon and ${titleName}:
 npm install @${dsName}/design-system @genexus/chameleon-controls-library
 \`\`\`
 
-Then follow the guide for your framework: [Installation index](reference/installation/README.md)
+Then follow the guide for your framework: [Installation index](references/installation/README.md)
 `;
 }
 
@@ -786,7 +786,7 @@ function componentBundlesTable() {
 | *Elevation (cards)* | \`utils/elevation\` |
 | *Forms* | \`utils/form\` |
 
-> Bundle docs are in \`reference/bundles/{category}/{name}.md\`.
+> Bundle docs are in \`references/bundles/{category}/{name}.md\`.
 `;
 }
 
@@ -1785,10 +1785,10 @@ async function main() {
 
     // Docs — Inner vibe-code skill
     ["docs/SKILL.md", skillMd()],
-    ["docs/reference/component-bundles-table.md", componentBundlesTable()],
-    ["docs/reference/bundles-index.md", bundlesIndex()],
-    ["docs/reference/themes-and-variants.md", themesAndVariants()],
-    ["docs/reference/installation/README.md", installationReadme()],
+    ["docs/references/component-bundles-table.md", componentBundlesTable()],
+    ["docs/references/bundles-index.md", bundlesIndex()],
+    ["docs/references/themes-and-variants.md", themesAndVariants()],
+    ["docs/references/installation/README.md", installationReadme()],
 
     // New CSS files — components and utilities
     ["components/button.css", buttonCss()],
@@ -1798,22 +1798,22 @@ async function main() {
     ["utils/elevation.css", elevationCss()],
 
     // Bundle docs — co-located .md for each CSS bundle
-    ["docs/reference/bundles/base/base.md", baseBundleMd()],
-    ["docs/reference/bundles/resets/box-sizing.md", resetBundleMd()],
-    ["docs/reference/bundles/chameleon/scrollbar.md", scrollbarBundleMd()],
-    ["docs/reference/bundles/components/button.md", buttonBundleMd()],
-    ["docs/reference/bundles/components/icon.md", iconBundleMd()],
-    ["docs/reference/bundles/utils/typography.md", typographyBundleMd()],
-    ["docs/reference/bundles/utils/form.md", formBundleMd()],
-    ["docs/reference/bundles/utils/elevation.md", elevationBundleMd()],
+    ["docs/references/bundles/base/base.md", baseBundleMd()],
+    ["docs/references/bundles/resets/box-sizing.md", resetBundleMd()],
+    ["docs/references/bundles/chameleon/scrollbar.md", scrollbarBundleMd()],
+    ["docs/references/bundles/components/button.md", buttonBundleMd()],
+    ["docs/references/bundles/components/icon.md", iconBundleMd()],
+    ["docs/references/bundles/utils/typography.md", typographyBundleMd()],
+    ["docs/references/bundles/utils/form.md", formBundleMd()],
+    ["docs/references/bundles/utils/elevation.md", elevationBundleMd()],
     ...brands.map((b) => [
-      `docs/reference/bundles/scope/theme-${b}.md`,
+      `docs/references/bundles/scope/theme-${b}.md`,
       scopeBundleMd(b),
     ]),
 
     // Design foundations templates for inner skill
     ...["color-system", "typography-system", "spacing-system", "icons-system", "design-patterns", "figma-token-mapping"].map(
-      (name) => [`docs/reference/design-foundations/${name}.md`, designFoundationTemplate(name, titleName)]
+      (name) => [`docs/references/design-foundations/${name}.md`, designFoundationTemplate(name, titleName)]
     ),
   ];
 

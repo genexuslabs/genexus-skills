@@ -45,7 +45,7 @@ Create `docs/SKILL.md` as the entry point for both humans and AI agents:
 
 ```
 docs/SKILL.md (entry point)
-├── reference/
+├── references/
 │   ├── component-bundles-table.md    ← Component → bundles mapping
 │   ├── bundles-index.md              ← Index with links to all bundle docs
 │   ├── themes-and-variants.md        ← Theme documentation

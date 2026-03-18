@@ -33,7 +33,7 @@ Every DS built with this skill MUST follow this structure. All files and folders
 │   └── link.css
 ├── docs/
 │   ├── SKILL.md                # Entry-point for humans and AI agents
-│   └── reference/
+│   └── references/
 │       ├── component-bundles-table.md
 │       ├── bundles-index.md
 │       ├── themes-and-variants.md

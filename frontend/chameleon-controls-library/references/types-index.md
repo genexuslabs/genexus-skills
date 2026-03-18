@@ -16,7 +16,7 @@ import type { AccordionModel, AccordionItemModel } from "@genexus/chameleon-cont
 2. **See which types** that component uses (model, events, callbacks, etc.)
 3. **View the type definition** by clicking the link to see its exact shape (properties, unions, etc.)
 
-Each type file in `reference/types/` is a `.ts` file named after the type. For example, `AccordionModel.ts` defines the `AccordionModel` type
+Each type file in `references/types/` is a `.ts` file named after the type. For example, `AccordionModel.ts` defines the `AccordionModel` type
 
 ---
 

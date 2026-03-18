@@ -2,8 +2,8 @@
 name: design-system-builder
 description: "Builds and evolves enterprise-quality CSS Design Systems based on Chameleon web components. Use when the user wants to create, scaffold, or evolve a DS, add components/tokens/themes. Triggers on: 'design system', 'DS', 'design tokens', 'theme system', 'build a DS', 'scaffold DS', 'create design system'."
 metadata:
-  version: "0.2.0"
-  dependencies: "skill:chameleon-controls-library@~0.2.0"
+  version: "0.3.0"
+  dependencies: "skill:chameleon-controls-library@~0.3.0"
 ---
 
 # Design System Builder
@@ -82,20 +82,20 @@ Use the scaffold script to create the initial DS structure:
 node <path-to-skill>/scripts/scaffold.mjs --name <ds-name> --dir <target-dir> --brands <brand1,brand2>
 ```
 
-If the script is not available or fails, create the structure manually following the [Directory Structure Reference](reference/directory-structure.md)
+If the script is not available or fails, create the structure manually following the [Directory Structure Reference](references/directory-structure.md)
 
 ### Phase 4 — Build Incrementally
 
 Build the DS layer by layer, **always in this order** (ITCSS):
 
-1. **Tokens** — Define the 3-tier token architecture. See [Tokens Reference](reference/tokens.md)
-2. **Design Foundations** — Define the color system (4 token categories by CSS property, interaction states, elevation), typography system (4 roles, class naming), spacing system (grid base, padding/gap tokens), and icons system (size tokens, classes, icon implementation patterns, and global icon resolver registration). Follow the [Design Foundations](reference/design-foundations/) references
+1. **Tokens** — Define the 3-tier token architecture. See [Tokens Reference](references/tokens.md)
+2. **Design Foundations** — Define the color system (4 token categories by CSS property, interaction states, elevation), typography system (4 roles, class naming), spacing system (grid base, padding/gap tokens), and icons system (size tokens, classes, icon implementation patterns, and global icon resolver registration). Follow the [Design Foundations](references/design-foundations/) references
 3. **Resets** — box-sizing reset (usually already scaffolded)
 4. **Base** — Generate `base.css` using the `generate-base.mjs` script. See below for the two workflows (with/without Figma input)
-5. **Scope** — Tier 2 semantic tokens per brand/theme. See [Theming Reference](reference/theming.md)
+5. **Scope** — Tier 2 semantic tokens per brand/theme. See [Theming Reference](references/theming.md)
 6. **Chameleon overrides** — scrollbar styling and web component-level overrides
-7. **Utilities** — spacing, typography, elevation, layout, form, link. See [Performance Reference](reference/performance.md) for loading strategy
-8. **Components** — One CSS + one MD per component. See [Component CSS Reference](reference/component-css.md)
+7. **Utilities** — spacing, typography, elevation, layout, form, link. See [Performance Reference](references/performance.md) for loading strategy
+8. **Components** — One CSS + one MD per component. See [Component CSS Reference](references/component-css.md)
 
 After each layer, update the architecture diagram (generate a `architecture.md` Mermaid diagram in the DS root)
 
@@ -139,18 +139,18 @@ If any violation is found, fix it immediately before moving to the next phase
 
 ### Phase 5 — Documentation
 
-For each component built, create co-located `.md` documentation. See [Documentation Reference](reference/documentation.md)
+For each component built, create co-located `.md` documentation. See [Documentation Reference](references/documentation.md)
 
 ### Phase 6 — Generate the DS Vibe-Code Skill
 
-Every DS built with this skill MUST include an inner skill at `docs/` that enables AI agents (and developers) to **use** the DS for vibe coding. This skill follows the reference pattern defined in [Inner Skill Pattern](reference/inner-skill-pattern.md) and must be generated/updated every time the DS evolves
+Every DS built with this skill MUST include an inner skill at `docs/` that enables AI agents (and developers) to **use** the DS for vibe coding. This skill follows the reference pattern defined in [Inner Skill Pattern](references/inner-skill-pattern.md) and must be generated/updated every time the DS evolves
 
 The inner skill lives at `{ds-root}/docs/` and includes:
 
 ```
 docs/
 ├── SKILL.md                            # Entry point — how to use this DS
-├── reference/
+├── references/
 │   ├── component-bundles-table.md      # Component → bundle mapping table
 │   ├── bundles-index.md                # Index of all bundles with links
 │   ├── themes-and-variants.md          # Theme documentation
@@ -189,12 +189,12 @@ docs/
 11. **Design decisions** — any important context the user shared during the DS creation process
 12. **Icon system** — document the DS's icon resolver (`getImagePathCallback` registration), available icon keys, and how consumers reference icons in `ch-image` and component item models
 
-See [Usage & Consumption Reference](reference/usage-and-consumption.md) for the detailed `ch-theme`/`getBundles` patterns to document in the inner skill
+See [Usage & Consumption Reference](references/usage-and-consumption.md) for the detailed `ch-theme`/`getBundles` patterns to document in the inner skill
 
 **Rules for the inner skill:**
 
 - Follow the reference inner skill pattern exactly (same SKILL.md structure, same reference organization)
-- Every component CSS file in `components/` MUST have a corresponding `.md` in `docs/reference/bundles/components/` documenting its classes, "Applies to", tokens consumed, and states
+- Every component CSS file in `components/` MUST have a corresponding `.md` in `docs/references/bundles/components/` documenting its classes, "Applies to", tokens consumed, and states
 - The `component-bundles-table.md` must list every component and its required bundles
 - The `bundles-index.md` must link to every bundle's `.md` and `.css`
 - Update the inner skill every time a component, utility, or theme is added/modified
@@ -213,11 +213,11 @@ node <path-to-skill>/scripts/scaffold-showcase.mjs --ds-dir <ds-root> --ds-name 
 
 3. **Temporary styles workflow**: Components not yet styled in the DS get temporary styles in `showcase/src/styles/showcase-overrides.scss`. Each block is marked with `TEMP: {component}` comments. When the DS adds the component's CSS file, the corresponding temporary block MUST be removed from the showcase
 
-See [Showcase App Reference](reference/showcase-app.md) for full details on structure, Kasstor patterns, and the temporary styles workflow
+See [Showcase App Reference](references/showcase-app.md) for full details on structure, Kasstor patterns, and the temporary styles workflow
 
 ### Phase 7 — Validate
 
-Check each component against the 10 acceptance criteria. See [Quality Gates Reference](reference/quality-gates.md)
+Check each component against the 10 acceptance criteria. See [Quality Gates Reference](references/quality-gates.md)
 
 ## Component Selection Guide
 
@@ -261,10 +261,10 @@ When the user points to an existing DS directory:
 - **Logical properties** — Use `padding-block`, `inline-size`, etc. for RTL support
 - **No `!important`** — Ever
 - **Flat selectors** — No BEM. Pattern: `{component}-{variant}`
-- **No em/rem** — Never use `em` or `rem` units. All sizing uses design tokens or px from the 4pt grid. Only exception: user explicitly requests em/rem. See [Spacing System](reference/design-foundations/spacing-system.md)
+- **No em/rem** — Never use `em` or `rem` units. All sizing uses design tokens or px from the 4pt grid. Only exception: user explicitly requests em/rem. See [Spacing System](references/design-foundations/spacing-system.md)
 - **Valid parts only** — NEVER write a `::part()` selector without first checking the component's `styling.md` (consult the **chameleon-controls-library** skill). Invalid parts silently fail and produce dead CSS
-- **Token fidelity** — When a Figma token export exists, never invent tokens beyond what Figma defines. Only spacing tokens may be added if they follow the 4pt grid. When no Figma export exists, follow the naming conventions in the [Design Foundations](reference/design-foundations/) references. See [Token Fidelity](reference/tokens.md#figma-token-fidelity)
-- **CSS optimization** — No redundant selectors, group shared properties with comma-separated selectors, no duplicate declarations. See [CSS Optimization](reference/css-optimization.md)
+- **Token fidelity** — When a Figma token export exists, never invent tokens beyond what Figma defines. Only spacing tokens may be added if they follow the 4pt grid. When no Figma export exists, follow the naming conventions in the [Design Foundations](references/design-foundations/) references. See [Token Fidelity](references/tokens.md#figma-token-fidelity)
+- **CSS optimization** — No redundant selectors, group shared properties with comma-separated selectors, no duplicate declarations. See [CSS Optimization](references/css-optimization.md)
 - **No internet font search** — Never search the internet for font files under any circumstance. Free fonts: the user provides the files or they are downloaded from a known source (e.g., Google Fonts API) during scaffolding. Paid fonts: the user MUST provide the files. Fonts should be stored locally in the DS `fonts/` directory, partitioned by unicode-range subsets for optimal loading
 - **No DS-name prefix on classes or tokens** — Classes use flat names like `button-primary`, `accordion-filled`. Tokens use semantic names like `--color-accent-primary-default`, `--spacing-padding-xl`. NEVER prefix with the DS name (e.g., ~~`nova-btn-primary`~~, ~~`--nova-green-300`~~). Primitive tokens in `base.css` may use a neutral color-scale naming (e.g., `--green-300`, `--neutral-950`) but never the DS brand name
 - **Classes on the component, not wrapper divs** — Always apply CSS classes directly on the Chameleon host element: `<ch-edit class="input">`, NOT `<div class="input"><ch-edit></ch-edit></div>`. CSS selectors target the class on the host, and `::part()` selectors descend from that class. No wrapper-then-descendant selectors
@@ -282,24 +282,24 @@ When the user points to an existing DS directory:
 
 Consult these reference files for detailed guidance on each topic:
 
-| Topic                                               | Reference                                                                                              |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Directory structure & layers                        | [reference/directory-structure.md](reference/directory-structure.md)                                   |
-| Design tokens (3-tier DTCG)                         | [reference/tokens.md](reference/tokens.md)                                                             |
-| Component CSS patterns                              | [reference/component-css.md](reference/component-css.md)                                               |
-| Theming (multi-brand, dark/light)                   | [reference/theming.md](reference/theming.md)                                                           |
-| Accessibility (WCAG AA)                             | [reference/accessibility.md](reference/accessibility.md)                                               |
-| Performance & loading strategy                      | [reference/performance.md](reference/performance.md)                                                   |
-| Documentation standards                             | [reference/documentation.md](reference/documentation.md)                                               |
-| Quality gates & testing                             | [reference/quality-gates.md](reference/quality-gates.md)                                               |
-| Usage & consumption (ch-theme, getBundles, classes) | [reference/usage-and-consumption.md](reference/usage-and-consumption.md)                               |
-| Inner skill pattern                                 | [reference/inner-skill-pattern.md](reference/inner-skill-pattern.md)                                   |
-| Color system                                        | [reference/design-foundations/color-system.md](reference/design-foundations/color-system.md)           |
-| Typography system                                   | [reference/design-foundations/typography-system.md](reference/design-foundations/typography-system.md) |
-| Spacing system                                      | [reference/design-foundations/spacing-system.md](reference/design-foundations/spacing-system.md)       |
-| Icons system                                        | [reference/design-foundations/icons-system.md](reference/design-foundations/icons-system.md)           |
-| Design patterns (buttons, forms, etc.)              | [reference/design-foundations/design-patterns.md](reference/design-foundations/design-patterns.md)     |
-| Figma token mapping                                 | [reference/design-foundations/figma-mapping.md](reference/design-foundations/figma-mapping.md)         |
-| Chameleon component styling                         | Consult the **chameleon-controls-library** skill's per-component `styling.md` files                    |
-| CSS optimization                                    | [reference/css-optimization.md](reference/css-optimization.md)                                         |
-| Showcase app                                        | [reference/showcase-app.md](reference/showcase-app.md)                                                 |
+| Topic                                               | Reference                                                                                                |
+| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Directory structure & layers                        | [references/directory-structure.md](references/directory-structure.md)                                   |
+| Design tokens (3-tier DTCG)                         | [references/tokens.md](references/tokens.md)                                                             |
+| Component CSS patterns                              | [references/component-css.md](references/component-css.md)                                               |
+| Theming (multi-brand, dark/light)                   | [references/theming.md](references/theming.md)                                                           |
+| Accessibility (WCAG AA)                             | [references/accessibility.md](references/accessibility.md)                                               |
+| Performance & loading strategy                      | [references/performance.md](references/performance.md)                                                   |
+| Documentation standards                             | [references/documentation.md](references/documentation.md)                                               |
+| Quality gates & testing                             | [references/quality-gates.md](references/quality-gates.md)                                               |
+| Usage & consumption (ch-theme, getBundles, classes) | [references/usage-and-consumption.md](references/usage-and-consumption.md)                               |
+| Inner skill pattern                                 | [references/inner-skill-pattern.md](references/inner-skill-pattern.md)                                   |
+| Color system                                        | [references/design-foundations/color-system.md](references/design-foundations/color-system.md)           |
+| Typography system                                   | [references/design-foundations/typography-system.md](references/design-foundations/typography-system.md) |
+| Spacing system                                      | [references/design-foundations/spacing-system.md](references/design-foundations/spacing-system.md)       |
+| Icons system                                        | [references/design-foundations/icons-system.md](references/design-foundations/icons-system.md)           |
+| Design patterns (buttons, forms, etc.)              | [references/design-foundations/design-patterns.md](references/design-foundations/design-patterns.md)     |
+| Figma token mapping                                 | [references/design-foundations/figma-mapping.md](references/design-foundations/figma-mapping.md)         |
+| Chameleon component styling                         | Consult the **chameleon-controls-library** skill's per-component `styling.md` files                      |
+| CSS optimization                                    | [references/css-optimization.md](references/css-optimization.md)                                         |
+| Showcase app                                        | [references/showcase-app.md](references/showcase-app.md)                                                 |
