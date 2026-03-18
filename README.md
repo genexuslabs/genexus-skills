@@ -13,6 +13,21 @@ Root
 │  │  └─ object-*.md         : object-specific specifications
 │  └─ SKILL.md               : skill definition and workflow
 │
+├─ frontend/                 : Frontend skills group
+│  ├─ chameleon-controls-library/
+│  │  ├─ references/         : 58 web component docs
+│  │  └─ SKILL.md
+│  ├─ design-system-builder/
+│  │  ├─ references/         : DS architecture guides
+│  │  └─ SKILL.md
+│  ├─ mercury-design-system/
+│  │  ├─ references/         : Mercury tokens, bundles, icons
+│  │  └─ SKILL.md
+│  ├─ ui-creator/
+│  │  ├─ references/         : UI generation templates
+│  │  └─ SKILL.md
+│  └─ README.md              : group description
+│
 ├─ other-skills/             : additional skill groups
 │  ├─ skill-a/               : individual skill
 │  │  ├─ references/         : references for that skill
