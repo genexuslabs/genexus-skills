@@ -1,9 +1,9 @@
 ---
-name: properties-model
-description: Configurable model properties
+name: properties-environment
+description: Configurable environment properties for deployment target configuration
 ---
 
-Use this file to select editable properties, defaults, and valid options for this target
+Use this file to select editable properties, defaults, and valid options for an Environment deployment target
 
 ---
 
@@ -46,7 +46,6 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Type: `string`
 - Default: `0000`
 
-
 ---
 
 # TRANSACTION INTEGRITY
@@ -58,7 +57,6 @@ Use this file to select editable properties, defaults, and valid options for thi
 	* `Yes`: Enables this behavior
 	* `No`: Disables this behavior
 - Default: `Yes`
-
 
 ---
 
@@ -85,7 +83,6 @@ Use this file to select editable properties, defaults, and valid options for thi
 	* `Medium`: Uses the medium level for this setting
 - Default: `High`
 
-
 ---
 
 # HTTP ERRORS HANDLERS
@@ -99,7 +96,6 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Description: Maps HTTP status codes to handler objects
 - Type: `string`
 
-
 ---
 
 # DOCKER
@@ -112,7 +108,6 @@ Use this file to select editable properties, defaults, and valid options for thi
 	* `No`: Disables this behavior
 - Default: `No`
 
-
 ---
 
 # LOCATION CONFIGURATION
@@ -120,7 +115,6 @@ Use this file to select editable properties, defaults, and valid options for thi
 ## Google API Key
 - Description: API key for Google Location services
 - Type: `string`
-
 
 ---
 
@@ -148,7 +142,6 @@ Use this file to select editable properties, defaults, and valid options for thi
 - Type: `string`
 - Default: `Microsoft Sans Serif,8`
 
-
 ---
 
 # DEFAULTS
@@ -156,7 +149,6 @@ Use this file to select editable properties, defaults, and valid options for thi
 ## User-Agent header
 - Description: Default User-Agent header sent in outgoing HTTP requests
 - Type: `string`
-
 
 ---
 
@@ -169,3 +161,48 @@ Use this file to select editable properties, defaults, and valid options for thi
 	* `Named`: Uses named parameter passing
 	* `Positional`: Uses positional parameter passing
 - Default: `Named`
+
+---
+
+# BACKEND
+
+## Generator
+- Description: Target code generation platform
+- Type: `enum{.NET,Java}`
+- Options:
+	* `.NET`: Generates C# code targeting .NET platform
+	* `Java`: Generates Java code targeting JVM platform
+
+## DBMS
+- Description: Database management system for the default data store
+- Type: `enum{SQL Server,PostgreSQL,MySQL,Oracle,SQLite,Informix,DB2 UDB,Dameng}`
+- Options:
+	* `SQL Server`: Microsoft SQL Server
+	* `PostgreSQL`: PostgreSQL database
+	* `MySQL`: MySQL database
+	* `Oracle`: Oracle database
+	* `SQLite`: SQLite embedded database
+	* `Informix`: IBM Informix
+	* `DB2 UDB`: IBM DB2 Universal Database
+	* `Dameng`: Dameng database
+
+---
+
+# BACKEND LOCAL
+These properties are stored in the `.local.gx` companion file and are machine-specific (typically gitignored)
+
+## Database Name
+- Description: Local database name for the default data store
+- Type: `string`
+
+## Server Name
+- Description: Database server hostname or address
+- Type: `string`
+
+## User Id
+- Description: Database user identifier
+- Type: `string`
+
+## Password
+- Description: Database password
+- Type: `string`

@@ -113,9 +113,26 @@ When user requests modeling task:
 6. Present execution plan for create/update
 7. After approval, execute:
 	* Run `validate_kb_text_files` tool after each dump/write
-	* Run `import_kb_to_text` tool and validate integration:
+	* Run `import_text_to_kb` tool and validate integration:
+		- Before running `build_one`, `build_all`, or `create_or_impact_database`:
+			1) Detect the environment name from `src.ns/Preferences/<name>.environment.main.gx`
+			2) Check if `src.ns/Preferences/<name>.environment.local.gx` exists
+			3) If it exists, read the file and verify that `DatabaseName`, `ServerName`, `UserId`, and `UserPassword` have non-empty values
+			4) If the file does not exist OR any of those four values are missing or empty:
+				a) Ask the user if they want to configure the database connection values now
+				b) If the user agrees, ask for: `DatabaseName`, `ServerName`, `UserId`, `UserPassword`
+				c) Create or update the `<name>.environment.local.gx` file following the `.local.gx` syntax defined in [object-environment](references/object-environment.md)
+				d) Run `import_text_to_kb` with `names: ["environment:*"]` to apply changes
+				e) Then proceed with the build or database operation
+			5) If the user declines, proceed with the build or database operation without modifying the connection configuration
 		- Run `build_one` tool for a specific object
 		- Run `build_all` tool for full model build
+		- Before `create_or_impact_database`, ensure the environment `.local.gx` has `DatabaseName`, `ServerName`, `UserId`, and `UserPassword` set; this is mandatory and cannot be skipped for database operations
+	* When user requests database connection configuration (server, user, password, database name):
+		- NEVER use `set_kb_property` MCP tool for these values
+		- Instead, directly edit or create the `<name>.environment.local.gx` file in `src.ns/Preferences/`
+		- Follow the `.local.gx` syntax defined in [object-environment](references/object-environment.md)
+		- After writing the file, run `import_text_to_kb` with `names: ["environment:*"]` to apply changes
 	* Run `export_kb_to_text` tool only if user explicitly requested
 		- Use `rootDirectory` with the `output directory` path
 8. Return a brief summary
@@ -251,6 +268,21 @@ Quick reference for appropriate use of each object type
 - Purpose: Integration wrapper exposing external libraries/services to GeneXus through methods, properties, events, and types
 - Use when: Calling platform APIs, SDKs, native utilities, or external contracts not implemented as GeneXus objects
 - Reference: [ExternalObject object](references/object-external-object.md)
+
+## KnowledgeBase (KB)
+- Purpose: KB-level metadata defining global settings like language, numeric length, and image paths
+- Use when: Configuring KB-wide properties or creating a new knowledge base
+- Reference: [KnowledgeBase object](references/object-knowledgebase.md)
+
+## Version
+- Purpose: Design model metadata within the KB defining version-level defaults like styles
+- Use when: Configuring version design properties or reviewing version settings
+- Reference: [Version object](references/object-version.md)
+
+## Environment
+- Purpose: Deployment target configuration defining generator, data store, and runtime settings
+- Use when: Configuring environment targets (.NET/Java), database connections, or deployment settings
+- Reference: [Environment object](references/object-environment.md)
 
 ---
 

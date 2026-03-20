@@ -53,8 +53,9 @@ Use this file as the common entry point for property definitions and type semant
 - [URL Rewrite](./properties-object-url-rewrite.md)
 
 ## Other Properties
-- [Model](./properties-model.md)
 - [Knowledge Base](./properties-knowledge-base.md)
+- [Version](./properties-version.md)
+- [Environment](./properties-environment.md)
 
 ## Shared Properties
 - [Integrated Security](./properties-common-integrated-security.md)
