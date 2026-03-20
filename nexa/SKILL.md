@@ -116,6 +116,7 @@ When user requests modeling task:
 	* Run `import_kb_to_text` tool and validate integration:
 		- Run `build_one` tool for a specific object
 		- Run `build_all` tool for full model build
+		- Before `create_or_impact_database`, ensure the environment `.local.gx` has `Database Name`, `Server Name`, `User Id`, and `Password` set; ask the user for these values if not provided
 	* Run `export_kb_to_text` tool only if user explicitly requested
 		- Use `rootDirectory` with the `output directory` path
 8. Return a brief summary
@@ -251,6 +252,21 @@ Quick reference for appropriate use of each object type
 - Purpose: Integration wrapper exposing external libraries/services to GeneXus through methods, properties, events, and types
 - Use when: Calling platform APIs, SDKs, native utilities, or external contracts not implemented as GeneXus objects
 - Reference: [ExternalObject object](references/object-external-object.md)
+
+## KnowledgeBase (KB)
+- Purpose: KB-level metadata defining global settings like language, numeric length, and image paths
+- Use when: Configuring KB-wide properties or creating a new knowledge base
+- Reference: [KnowledgeBase object](references/object-knowledgebase.md)
+
+## Version
+- Purpose: Design model metadata within the KB defining version-level defaults like styles
+- Use when: Configuring version design properties or reviewing version settings
+- Reference: [Version object](references/object-version.md)
+
+## Environment
+- Purpose: Deployment target configuration defining generator, data store, and runtime settings
+- Use when: Configuring environment targets (.NET/Java), database connections, or deployment settings
+- Reference: [Environment object](references/object-environment.md)
 
 ---
 
