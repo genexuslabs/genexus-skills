@@ -100,7 +100,7 @@ Each platform handles skills with small differences. This repository follows a p
 		```
 	* Windows example:
 		```cmd
-		mklink /J %USERPROFILE%\.coda\skills %USERPROFILE%\workspace\genexus-skills\nexa
+		mklink /J %USERPROFILE%\.coda\skills\nexa %USERPROFILE%\workspace\genexus-skills\nexa
 		```
 	* ⚠️ Update both the provider skill path and the skill folder name in each command as needed
 
