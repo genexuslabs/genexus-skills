@@ -248,7 +248,7 @@ API CustomerAPI
 	#End
 
 	#Properties
-		"Main Program" = true
+		MainProgram = true
 	#End
 }
 ~~~

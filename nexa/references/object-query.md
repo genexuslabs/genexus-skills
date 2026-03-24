@@ -158,7 +158,7 @@ Query AvgUserAgeByGender
 
 	#Properties
 		"Title" = "Average user age by gender"
-		"Output Type" = "Card"
+		OutputType = "Card"
 	#End
 }
 ~~~
@@ -187,7 +187,7 @@ Query MonthlySales
 
 	#Properties
 		"Title" = "Monthly sales in date range"
-		"Output Type" = "Pivot Table"
+		OutputType = "Pivot Table"
 	#End
 }
 ~~~
@@ -210,7 +210,7 @@ Query CustomersWithSales
 
 	#Properties
 		"Title" = "Number of customers with sales"
-		"Output Type" = "Chart"
+		OutputType = "Chart"
 	#End
 }
 ~~~
@@ -235,7 +235,7 @@ Query DeathsPerYearAndCountry
 
 	#Properties
 		"Title" = "Total deaths by year and country"
-		"Output Type" = "Chart"
+		OutputType = "Chart"
 	#End
 }
 ~~~

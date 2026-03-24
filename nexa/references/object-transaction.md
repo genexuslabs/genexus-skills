@@ -248,7 +248,7 @@ Transaction Product
 	#End
 
 	#Properties
-		"Business Component" = true
+		BusinessComponent = true
 	#End
 }
 ~~~
@@ -285,7 +285,7 @@ Transaction Order
 	#End
 
 	#Properties
-		"Business Component" = true
+		BusinessComponent = true
 	#End
 }
 ~~~

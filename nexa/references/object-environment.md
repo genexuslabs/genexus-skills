@@ -105,12 +105,12 @@ The `.local.gx` file contains machine-specific settings (database credentials, s
 Environment NETDev
 {
 	#Properties
-		"Startup Object" = "MainPanel"
-		"Reorganization Generator" = "Default"
-		"Preserve Table Casing" = true
-		"Business Component" = false
-		"Commit on exit" = "Yes"
-		"Use Docker containers" = "No"
+		StartupObject = "MainPanel"
+		ReorganizationGenerator = "Default"
+		PreserveTableCasing = true
+		BusinessComponent = false
+		CommitOnExit = "Yes"
+		UseDockerContainers = "No"
 	#End
 
 	#Backend
@@ -165,9 +165,9 @@ Java environment with PostgreSQL
 Environment JavaProd
 {
 	#Properties
-		"Startup Object" = "MainPanel"
-		"Preserve Table Casing" = true
-		"Commit on exit" = "Yes"
+		StartupObject = "MainPanel"
+		PreserveTableCasing = true
+		CommitOnExit = "Yes"
 	#End
 
 	#Backend

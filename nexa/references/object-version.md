@@ -52,7 +52,7 @@ Version with default style setting
 Version MyAppVersion
 {
 	#Properties
-		"Default Style" = "GeneXusX"
+		DefaultStyle = "GeneXusX"
 	#End
 }
 ~~~

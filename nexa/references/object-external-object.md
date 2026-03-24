@@ -322,8 +322,8 @@ ExternalObject DeviceTelemetryEO
 		Description = "Telemetry bridge for tracking and querying device metrics"
 		".NET Framework External Name" = "TelemetryBridge"
 		".NET External Name" = "TelemetryBridge"
-		"Java External Name" = "TelemetryBridge"
-		"External Package Name" = "com.contoso.telemetry"
+		JavaExternalName = "TelemetryBridge"
+		ExternalPackageName = "com.contoso.telemetry"
 	#End
 }
 ~~~

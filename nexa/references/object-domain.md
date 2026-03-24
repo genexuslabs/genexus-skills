@@ -70,7 +70,7 @@ Simple Domain
 Domain ProductPrice
 {
 	#Properties
-		"Data Type" = "Numeric(10.2)"
+		DataType = "Numeric(10.2)"
 		"Signed" = false
 	#End
 }
@@ -82,8 +82,8 @@ String Domain with Validation
 Domain ProductCode
 {
 	#Properties
-		"Data Type" = "VarChar(32)"
-		"Regular Expression" = "^[A-Z0-9_-]{3,32}$"
+		DataType = "VarChar(32)"
+		RegularExpression = "^[A-Z0-9_-]{3,32}$"
 	#End
 }
 ~~~
@@ -105,7 +105,7 @@ Extending Domain
 Domain PositiveInteger
 {
 	#Properties
-		"Data Type" = "Numeric(10.0)"
+		DataType = "Numeric(10.0)"
 		"Signed" = false
 	#End
 }
@@ -113,7 +113,7 @@ Domain PositiveInteger
 Domain ProductQuantity
 {
 	#Properties
-		"Data Type" = "PositiveInteger"
+		DataType = "PositiveInteger"
 	#End
 }
 ~~~
@@ -124,7 +124,7 @@ Domain with Picture
 Domain NationalId
 {
 	#Properties
-		"Data Type" = "Numeric(11.0)"
+		DataType = "Numeric(11.0)"
 		"Picture" = "99.999.999-9"
 	#End
 }

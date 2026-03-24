@@ -197,8 +197,8 @@ Procedure ListCustomers
 	#End
 
 	#Properties
-		"Expose as Web Service" = true
-		"Web Service Protocol" = "REST Protocol"
+		ExposeAsWebService = true
+		WebServiceProtocol = "REST Protocol"
 	#End
 }
 ~~~
@@ -590,8 +590,8 @@ Procedure GetGitVersion
 	#End
 
 	#Properties
-		"Main Program" = true
-		"Call Protocol" = "Command Line"
+		MainProgram = true
+		CallProtocol = "Command Line"
 	#End
 }
 ~~~

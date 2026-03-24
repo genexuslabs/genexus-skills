@@ -211,7 +211,7 @@ DataProvider LoadChartConstants
 	#End
 
 	#Properties
-		"Infer Structure" = "Yes, if SDT is dynamic"
+		InferStructure = "Yes, if SDT is dynamic"
 	#End
 }
 ~~~
@@ -250,7 +250,7 @@ DataProvider LoadTabs
 	#Properties
 		"Output" = "Tab" // an existing SDT element
 		"Collection" = true
-		"Collection Name" = "Tabs"
+		CollectionName = "Tabs"
 	#End
 }
 ~~~
@@ -317,9 +317,9 @@ DataProvider Employees
 	#End
 
 	#Properties
-		"Infer Structure" = "Yes, if SDT is dynamic"
-		"Expose as Web Service" = true
-		"Web Service Protocol" = "REST Protocol"
+		InferStructure = "Yes, if SDT is dynamic"
+		ExposeAsWebService = true
+		WebServiceProtocol = "REST Protocol"
 	#End
 }
 ~~~
@@ -443,7 +443,7 @@ DataProvider GetSimilarCountries
 	#Properties
 		"Output" = "CountryData" // an existing SDT element
 		"Collection" = true
-		"Collection Name" = "CountryCollection"
+		CollectionName = "CountryCollection"
 	#End
 }
 ~~~

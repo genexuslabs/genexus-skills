@@ -53,8 +53,8 @@ KnowledgeBase MyApp
 {
 	#Properties
 		KbLanguage = "English"
-		"Maximum numeric length" = 18
-		"Base image path" = "resources/images"
+		MaximumNumericLength = 18
+		BaseImagePath = "resources/images"
 	#End
 }
 ~~~
