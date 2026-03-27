@@ -95,7 +95,8 @@ Enumeration Domain
 Domain OrderStatus
 {
 	#Properties
-		"EnumValues" = "Pending, Order is pending, Pending; Confirmed, Order confirmed, Confirmed; Shipped, Order shipped, Shipped; Delivered, Order delivered, Delivered; Cancelled, Order cancelled, Cancelled"
+		DataType = "Character(20)"
+		EnumValues = 'Pending, Order is pending, Pending; Confirmed, Order confirmed, Confirmed; Shipped, Order shipped, Shipped; Delivered, Order delivered, Delivered; Cancelled, Order cancelled, Cancelled'
 	#End
 }
 ~~~

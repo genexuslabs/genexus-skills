@@ -20,6 +20,7 @@ Where
 
 Example:
 ~~~
+DataType = "Numeric(1.0)"
 EnumValues = 'Success, Process success, 1; Failure, Process failed, 2; Started, Process started, 3; Aborted, Process aborted, 4'
 ~~~
 
@@ -67,4 +68,4 @@ msg(&Description, status) // prints 'Process aborted'
 - Each entry must comply with `<name>, <description>, <value>` syntax
 - Each `<name>` and `<value>` must be unique
 - All `<value>` entries must share the same primitive type
-- Base `DataType` and `Length` are inferred from the largest `<value>`
+- `DataType` property is mandatory and must be defined before `EnumValues`
