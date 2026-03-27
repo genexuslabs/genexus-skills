@@ -96,7 +96,7 @@ Domain OrderStatus
 {
 	#Properties
 		DataType = "Character(20)"
-		EnumValues = 'Pending, Order is pending, Pending; Confirmed, Order confirmed, Confirmed; Shipped, Order shipped, Shipped; Delivered, Order delivered, Delivered; Cancelled, Order cancelled, Cancelled'
+		EnumValues = "Pending, Order is pending, Pending; Confirmed, Order confirmed, Confirmed; Shipped, Order shipped, Shipped; Delivered, Order delivered, Delivered; Cancelled, Order cancelled, Cancelled"
 	#End
 }
 ~~~
