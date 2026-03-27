@@ -116,22 +116,29 @@ When user requests modeling task:
 	* Run `import_text_to_kb` tool and validate integration:
 		- Before running `build_one`, `build_all`, or `create_or_impact_database`:
 			1) Detect the environment name from `src.ns/Preferences/<name>.environment.main.gx`
-			2) Check if `src.ns/Preferences/<name>.environment.local.gx` exists
-			3) If it exists, read the file and verify that `DatabaseName`, `ServerName`, `UserId`, and `UserPassword` have non-empty values
-			4) If the file does not exist OR any of those four values are missing or empty:
+			2) Read the environment main file to determine the generator (`.NET` or `Java`)
+			3) Check if `src.ns/Preferences/<name>.environment.local.gx` exists
+			4) If it exists, read the file and verify that connection values are properly configured:
+				- `DatabaseName` and `ServerName` must have non-empty values
+				- For authentication, either `UseTrustedConnection = 'Yes'` must be set, OR both `UserId` and `UserPassword` must have non-empty values
+			5) If the file does not exist OR required values are missing or empty:
 				a) Ask the user if they want to configure the database connection values now
-				b) If the user agrees, ask for: `DatabaseName`, `ServerName`, `UserId`, `UserPassword`
-				c) Create or update the `<name>.environment.local.gx` file following the `.local.gx` syntax defined in [object-environment](references/object-environment.md)
-				d) Run `import_text_to_kb` with `names: ["environment:*"]` to apply changes
-				e) Then proceed with the build or database operation
-			5) If the user declines, proceed with the build or database operation without modifying the connection configuration
+				b) If the user agrees, ask for: `DatabaseName`, `ServerName`
+				c) If the generator is `.NET`, ask the user to choose between **Integrated Security** (Windows Authentication) or **SQL Server Authentication** (user and password):
+					- If Integrated Security: set `UseTrustedConnection = 'Yes'` and leave `UserId`/`UserPassword` empty
+					- If SQL Server Authentication: ask for `UserId` and `UserPassword`
+				d) If the generator is `Java`, always ask for `UserId` and `UserPassword` (Integrated Security is not applicable)
+				e) Create or update the `<name>.environment.local.gx` file following the `.local.gx` syntax defined in [object-environment](references/object-environment.md)
+				f) Run `import_text_to_kb` with `names: ["environment:*"]` to apply changes
+				g) Then proceed with the build or database operation
+			6) If the user declines, proceed with the build or database operation without modifying the connection configuration
 		- NEVER run `build_one`, `build_all`, `create_or_impact_database`, or `reorganize` automatically
 		- These operations ALWAYS require explicit user request or explicit user confirmation before execution
 		- If you consider a build or database operation is needed, ask the user first before proceeding
 		- Run `build_one` tool for a specific object (only when user requests)
 		- Run `build_all` tool for full model build (only when user requests)
 		- NEVER pass `doNotExecuteReorg: true` to `build_all` or `build_one` by default; only set it to `true` if the user explicitly requests a build without reorganization
-		- Before `create_or_impact_database`, ensure the environment `.local.gx` has `DatabaseName`, `ServerName`, `UserId`, and `UserPassword` set; this is mandatory and cannot be skipped for database operations
+		- Before `create_or_impact_database`, ensure the environment `.local.gx` has `DatabaseName`, `ServerName`, and valid authentication (`UseTrustedConnection = 'Yes'` or `UserId`/`UserPassword`) set; this is mandatory and cannot be skipped for database operations
 	* When user requests database connection configuration (server, user, password, database name):
 		- NEVER use `set_kb_property` MCP tool for these values
 		- Instead, directly edit or create the `<name>.environment.local.gx` file in `src.ns/Preferences/`
