@@ -125,8 +125,12 @@ When user requests modeling task:
 				d) Run `import_text_to_kb` with `names: ["environment:*"]` to apply changes
 				e) Then proceed with the build or database operation
 			5) If the user declines, proceed with the build or database operation without modifying the connection configuration
-		- Run `build_one` tool for a specific object
-		- Run `build_all` tool for full model build
+		- NEVER run `build_one`, `build_all`, `create_or_impact_database`, or `reorganize` automatically
+		- These operations ALWAYS require explicit user request or explicit user confirmation before execution
+		- If you consider a build or database operation is needed, ask the user first before proceeding
+		- Run `build_one` tool for a specific object (only when user requests)
+		- Run `build_all` tool for full model build (only when user requests)
+		- NEVER pass `doNotExecuteReorg: true` to `build_all` or `build_one` by default; only set it to `true` if the user explicitly requests a build without reorganization
 		- Before `create_or_impact_database`, ensure the environment `.local.gx` has `DatabaseName`, `ServerName`, `UserId`, and `UserPassword` set; this is mandatory and cannot be skipped for database operations
 	* When user requests database connection configuration (server, user, password, database name):
 		- NEVER use `set_kb_property` MCP tool for these values
