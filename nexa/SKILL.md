@@ -191,6 +191,7 @@ Quick reference for appropriate use of each object type
 ## Procedure (PRC)
 - Purpose: Procedural algorithm as sequence of statements
 - Use when: Writing procedural logic, operating CRUD over data, consuming REST services, etc
+- Execution: When running a main procedure, consult the COMMAND LINE EXECUTION section in the reference for the target environment; do NOT use the MCP `run` tool
 - Reference: [Procedure object](references/object-procedure.md)
 
 ## Structured Data Type (SDT)

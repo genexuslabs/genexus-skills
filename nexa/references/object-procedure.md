@@ -94,6 +94,49 @@ Choose one exposure mode:
 
 ---
 
+# COMMAND LINE EXECUTION
+When a procedure has `MainProgram = true` and `CallProtocol = "Command Line"`, it can be executed directly after a successful build
+
+## Java Environment
+The MCP `run` tool requires a GUID (`objectKey`) which may not be available. Execute the compiled class directly using `java`:
+
+~~~
+java -cp "build/classes/java/main;build/resources/main;lib/*;build/dependency/*" com.<package>.<procedurename>
+~~~
+
+Where:
+- `<package>`: Java package derived from KB name in lowercase without special characters (check `JAVA_PACKAGE_NAME_FOLDER` in `gradle.properties` and replace `\\` with `.`)
+- `<procedurename>`: Procedure name in lowercase
+
+Path resolution:
+1. Read the environment main file at `src.ns/Preferences/<env-name>.environment.main.gx` and obtain the `TargetPath` property value
+2. The working directory is `<KB-root>/<TargetPath>/web`
+3. Read `gradle.properties` in that directory to obtain `JAVA_PACKAGE_NAME_FOLDER`
+4. Derive package name: replace `\\` with `.` in `JAVA_PACKAGE_NAME_FOLDER`
+5. Execute the `java` command from `<KB-root>/<TargetPath>/web`
+
+Note: On Unix/Linux systems use `:` instead of `;` as classpath separator
+
+## .NET Environment
+Execute the compiled assembly directly using `dotnet`:
+
+~~~
+dotnet ./bin/a<procedurename>.dll
+~~~
+
+Where:
+- `<procedurename>`: Procedure name in lowercase
+- GeneXus prefixes the generated assembly with `a` (e.g., `LoadTestData` becomes `aloadtestdata.dll`)
+
+Path resolution:
+1. Read the environment main file at `src.ns/Preferences/<env-name>.environment.main.gx` and obtain the `TargetPath` property value
+2. The working directory is `<KB-root>/<TargetPath>/web`
+3. Execute the `dotnet` command from `<KB-root>/<TargetPath>/web`
+
+Alternative: run the generated executable directly with `./bin/a<procedurename>.exe`
+
+---
+
 # REPORT LAYOUT
 Declarative XML-based report layout schema used in `#Layout` section
 
