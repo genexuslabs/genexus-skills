@@ -347,3 +347,46 @@ API BookAPI
 	#End
 }
 ~~~
+
+---
+
+# RUNTIME URL
+Describes how to construct the runtime invocation URL for an `API` object service
+
+## URL pattern
+~~~
+<server>:<port>/<APIObjectName><RestPath>
+~~~
+
+Where:
+- `<server>:<port>`: Server host and port where the application is deployed (e.g. `http://localhost:8080`)
+- `<APIObjectName>`: Name from the `API` object declaration (first line: `API <name>`)
+- `<RestPath>`: Value from the `[RestPath(...)]` annotation of the target service; path variables `{&varname}` are replaced with actual values
+
+## How to resolve
+1. Read the `API` object definition
+2. Extract `<APIObjectName>` from the first line (`API <name>`)
+3. Locate the target service and read its `[RestMethod(<method>)]` annotation for the HTTP verb
+4. Read its `[RestPath(<path>)]` annotation for the path segment
+5. Compose the URL as `<server>:<port>/<APIObjectName><RestPath>`
+
+## Example
+Given:
+~~~
+API CustomerAPI
+{
+	CustomerAPI
+	{
+		[RestMethod(GET)]
+		[RestPath("/customers/{&CustomerId}")]
+		GetCustomer(in: &CustomerId, out: &CustomerInfo)
+			=> GetCustomer(&CustomerId, &CustomerInfo);
+	}
+	...
+}
+~~~
+
+The runtime URL for getting customer with Id 5:
+~~~
+GET http://localhost:8080/CustomerAPI/customers/5
+~~~
