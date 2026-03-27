@@ -137,6 +137,12 @@ When user requests modeling task:
 		- Use `rootDirectory` with the `output directory` path
 8. Return a brief summary
 
+When `create_or_impact_database` may be involved:
+- This is a DANGEROUS operation that can DELETE ALL DATA in the database
+- NEVER execute this operation unless the user explicitly requests it
+- NEVER suggest this operation unless you are 100% certain the application database does not exist yet
+- Before execution, ALWAYS warn the user that this operation can delete all existing data and ask for explicit confirmation
+
 When user requests technical question:
 1. Identify appropriate resource for object type
 2. Elaborate an answer based on:
