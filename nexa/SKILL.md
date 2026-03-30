@@ -148,6 +148,27 @@ When user requests modeling task:
 		- Use `rootDirectory` with the `output directory` path
 8. Return a brief summary
 
+When a new environment is created:
+- Create the environment `.main.gx` and `.local.gx` files in `src.ns/Preferences/`
+- Add the new environment name to the `#Environments` section in `src.ns/Preferences/Design.version.main.gx` (one environment name per line)
+- Set the new environment as `CurrentEnvironment` (see below)
+- After importing environment files, run `import_text_to_kb` with `names: ["environment:*"]` to apply changes
+
+When a new environment is created or user requests changing the current environment:
+- NEVER use `set_kb_property` MCP tool for this
+- Edit or create `src.ns/Preferences/Design.version.local.gx` to set `CurrentEnvironment` to the target environment name
+- If the file does not exist, create it with the syntax:
+	```
+	Version Design
+	{
+		#Properties.Local
+			CurrentEnvironment = "<environment-name>"
+		#End
+	}
+	```
+- If the file exists, update the `CurrentEnvironment` value
+- After writing the file(s), run `import_text_to_kb` with `names: ["version:*"]` to apply changes
+
 When `create_or_impact_database` may be involved:
 - This is a DANGEROUS operation that can DELETE ALL DATA in the database
 - NEVER execute this operation unless the user explicitly requests it
