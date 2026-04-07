@@ -129,7 +129,7 @@ Use this file to select editable Version properties and metadata
 
 # USER INTERFACE
 
-## Default Theme
+## Default Style
 - Type: `string`
 
 ## Default Form Layout
