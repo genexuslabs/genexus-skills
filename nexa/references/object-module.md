@@ -19,7 +19,7 @@ Module <name>
 	#Properties
 		"Description" = "<description>"
 		"Version" = "<version>"
-		"Object Visibility" = "<visibility>"
+		ObjectVisibility = "<visibility>"
     <properties>
 	#End
 
@@ -104,7 +104,7 @@ Module ECommerce
 	#Properties
 		"Description" = "E-commerce platform"
 		"Version" = "3.0.0"
-		"Object Visibility" = "Private"
+		ObjectVisibility = "Private"
 	#End
 
 	#Documentation
@@ -160,7 +160,7 @@ Module PaymentSDK
 	#Properties
 		"Description" = "Payment processing SDK"
 		"Version" = "2.1.0"
-		"Object Visibility" = "Private"
+		ObjectVisibility = "Private"
 	#End
 	#Documentation
 		# Payment SDK
