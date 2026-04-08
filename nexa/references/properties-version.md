@@ -64,6 +64,7 @@ Use this file to select editable Version properties and metadata
 - Type: `string`
 
 ## Enable Integrated Security
+- Description: Enables GAM integrated security for the version
 - Type: `boolean`
 - Default: `False`
 
