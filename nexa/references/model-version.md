@@ -1,6 +1,6 @@
 ---
 name: model-version
-description: Definition file for Version setup in a Knowledge Base
+description: Design model metadata within the Knowledge Base defining version-level settings like styles
 ---
 
 Generates or inteprets a `Version` definition file
@@ -8,7 +8,7 @@ Generates or inteprets a `Version` definition file
 ---
 
 # DEFINITION
-A `Version` model file captures version-level properties and the set of `Environment` contained in the Knowledge Base
+A `Version` model captures version-level properties and includes a collection of [Environment](./model-environment.md) contained in the [Knowledge Base](./model-knowledge-base.md) definition
 
 ---
 
@@ -28,58 +28,51 @@ Version <name>
 
 Where:
 - `<name>`: Version name using alphanumeric or underscore, starting with letter
-- `<properties>`: Version properties in TOML syntax
-- `<environments>`: List of [Environment](./model-environment.md) definition files (`*.environment.main.gx`), one per line
+- `<properties>`: Version-level properties in TOML syntax; see [properties](./properties-version.md)
+- `<environments>`: Breakline separated list of [Environment](./model-environment.md) names
 
----
-
-# PROPERTIES
-Version properties available in GeneXus:
-- `Enable Integrated Security`: Enables GAM integrated security for the version
-- `Theme` or `Design System`: Default theme/design system for Web objects
-- `Master Page`: Default master page for Web objects
-- `Stop on Error`: Stops execution when the application encounters an error
-- `Validation Message Position`: Default position for validation messages
-- `Automatic Refresh`: Enables automatic refresh behavior for Web objects
+Important:
+- All `Version` definitions are implicitly referenced by the [Knowledge Base](./model-knowledge-base.md) definition
 
 ---
 
 # OUTPUT
 Use [global-output](./global-output.md) with `<type>` value: `version`
 
+IMPORTANT: 
+- Must use `single-file` mode only
+- Must save the file in `<output-directory>/src.ns/Preferences` directory
+
 ---
 
 # CONSTRAINTS
 - Use [global-constraints](./global-constraints.md)
-- Define at least one `Environment` under the version
-- Keep version property names aligned with GeneXus property labels
-
----
-
-# REMARKS
-- Versions group environment definitions and their generators, datastores, and deployment settings
+- Default `Version` is created automatically when a `KnowledgeBase` is created
+- Define at least one `Environment` for each `Version` definition file
+- Never create or delete `Version` objects manually; only modify properties
 
 ---
 
 # EXAMPLES
 
 ## Example 1
-Version with two Environment files
+Version with default style setting and integrated security enabled
 ~~~
-Version PlantCareVersion
+Version MyAppVersion
 {
 	#Properties
-		"Enable Integrated Security" = true
-		"Theme" = "PlantCareDS"
-		"Master Page" = "MainMasterPage"
-		"Stop on Error" = true
-		"Validation Message Position" = "Bottom"
-		"Automatic Refresh" = true
+		DefaultStyle = "MyAppDesignSystem"
+		EnableIntegratedSecurity" = true
 	#End
 
 	#Environments
-		NETSQLServer.environment.main.gx
-		JavaPostgreSQL.environment.main.gx
+		NETSQLServer
+		JavaPostgreSQL
 	#End
 }
+~~~
+
+Saved as:
+~~~
+MyApp/src.ns/Preferences/MyAppVersion.version.main.gx
 ~~~

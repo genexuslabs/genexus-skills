@@ -197,21 +197,21 @@ When user requests technical question:
 Quick reference for model setup; stored in `/src.ns` sub directory
 
 ## Knowledge Base
-- Purpose: Knowledge Base definition file with version file references and KB creation properties
+- Purpose: Knowledge Base metadata with global settings like language, numeric length, and image paths
 - Constraint: Must be unique by Knowledge Base definition
-- Use when: Creating or validating KB model files and references to Version files
+- Use when: Creating or validating Knowledge Base properties
 - Reference: [Model Knowledge Base](references/model-knowledge-base.md)
 
 ## Version
-- Purpose: Version definition file with environment file references and version properties
+- Purpose: Design model metadata within the Knowledge Base defining version-level settings like styles
 - Constraint: Must be referenced by Knowledge Base definition file
-- Use when: Creating or validating Version model files and references to Environment files
+- Use when: Creating or validating Version properties
 - Reference: [Model Version](references/model-version.md)
 
 ## Environment
-- Purpose: Environment definition file with generators, datastores, services, and deployment settings
+- Purpose: Environment metadata withing a Version defining generator, data store, and runtime settings
 - Constraint: Must be referenced by only one Version definition file
-- Use when: Creating or validating Environment model files and generator or datastore properties
+- Use when: Creating or validating Environment properties
 - Reference: [Model Environment](references/model-environment.md)
 
 ---
@@ -332,21 +332,6 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Purpose: Integration wrapper exposing external libraries/services to GeneXus through methods, properties, events, and types
 - Use when: Calling platform APIs, SDKs, native utilities, or external contracts not implemented as GeneXus objects
 - Reference: [ExternalObject object](references/object-external-object.md)
-
-## KnowledgeBase (KB)
-- Purpose: KB-level metadata defining global settings like language, numeric length, and image paths
-- Use when: Configuring KB-wide properties or creating a new knowledge base
-- Reference: [KnowledgeBase object](references/object-knowledgebase.md)
-
-## Version
-- Purpose: Design model metadata within the KB defining version-level defaults like styles
-- Use when: Configuring version design properties or reviewing version settings
-- Reference: [Version object](references/object-version.md)
-
-## Environment
-- Purpose: Deployment target configuration defining generator, data store, and runtime settings
-- Use when: Configuring environment targets (.NET/Java), database connections, or deployment settings
-- Reference: [Environment object](references/object-environment.md)
 
 ---
 
