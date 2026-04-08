@@ -185,24 +185,3 @@ Use this file to select editable properties, defaults, and valid options for an 
 	* `Informix`: IBM Informix
 	* `DB2 UDB`: IBM DB2 Universal Database
 	* `Dameng`: Dameng database
-
----
-
-# BACKEND LOCAL
-These properties are stored in the `.local.gx` companion file and are machine-specific (typically gitignored)
-
-## Database Name
-- Description: Local database name for the default data store
-- Type: `string`
-
-## Server Name
-- Description: Database server hostname or address
-- Type: `string`
-
-## User Id
-- Description: Database user identifier
-- Type: `string`
-
-## Password
-- Description: Database password
-- Type: `string`
