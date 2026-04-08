@@ -113,6 +113,22 @@ Use this file to select editable properties, defaults, and valid options for an 
 
 ---
 
+# COMMON
+
+## Use decimal arithmetic
+- Description: Use decimal arithmetic in generated code
+- Type: `boolean`
+
+## Transaction integrity
+- Description: Generate transactional integrity in data access
+- Type: `string`
+
+## Initialize not referenced attributes
+- Description: Initialize attributes not referenced in the load
+- Type: `boolean`
+
+---
+
 # ANDROID SPECIFIC
 
 ## Android SDK Directory
@@ -138,18 +154,6 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## Java package name
 - Description: Set the Android application package identifier
 - Type: `string`
-
-## Use decimal arithmetic
-- Description: Use decimal arithmetic in generated code
-- Type: `boolean`
-
-## Transaction integrity
-- Description: Generate transactional integrity in data access
-- Type: `string`
-
-## Initialize not referenced attributes
-- Description: Initialize attributes not referenced in the load
-- Type: `boolean`
 
 ## Classpath
 - Description: Set extra classpath entries for Android build
@@ -210,18 +214,6 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## Mac Password
 - Description: Set the Mac user password for remote build
 - Type: `string`
-
-## Use decimal arithmetic
-- Description: Use decimal arithmetic in generated code
-- Type: `boolean`
-
-## Transaction integrity
-- Description: Generate transactional integrity in data access
-- Type: `string`
-
-## Initialize not referenced attributes
-- Description: Initialize attributes not referenced in the load
-- Type: `boolean`
 
 ---
 
