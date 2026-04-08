@@ -56,6 +56,9 @@ Use this file as the common entry point for property definitions and type semant
 - [Knowledge Base](./properties-knowledge-base.md)
 - [Version](./properties-version.md)
 - [Environment](./properties-environment.md)
+- [Backend Generator](./properties-environment-backend.md)
+- [Frontend Generator](./properties-environment-frontend.md)
+- [Data Store](./properties-environment-datastore.md)
 
 ## Shared Properties
 - [Integrated Security](./properties-common-integrated-security.md)
