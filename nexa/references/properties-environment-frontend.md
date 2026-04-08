@@ -1,6 +1,6 @@
 ---
 name: properties-environment-frontend
-description: 
+description: Configurable frontend generator properties
 ---
 
 Use this file to select editable properties, defaults, and valid options for an backend `Generator` from `Environment` deployment target

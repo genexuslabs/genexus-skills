@@ -1,6 +1,6 @@
 ---
 name: properties-environment-datastore
-description: 
+description: Configurable data store properties
 ---
 
 Use this file to select editable properties, defaults, and valid options for an backend `DataStore` from `Environment` deployment target
