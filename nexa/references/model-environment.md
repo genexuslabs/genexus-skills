@@ -95,7 +95,7 @@ IMPORTANT:
 - Must use `single-file` mode only
 - Must save the file in `<output-directory>/src.ns/Preferences` directory
 - Must include a `.local.gx` sibling file for extending/overriding `.main.gx` definition
-	* May contain sensitive data; e.g. credentials, connection info, etc
+	* Always include properties with sensitive values; e.g. password, conenction info, etc
 	* Typically included in the `.gitignore` file
 
 ---
