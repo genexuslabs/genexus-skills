@@ -162,7 +162,7 @@ When a new environment is created or user requests changing the current environm
 	```
 	Version Design
 	{
-		#Properties.Local
+		#Properties
 			CurrentEnvironment = "<environment-name>"
 		#End
 	}
