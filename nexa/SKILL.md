@@ -129,7 +129,7 @@ When user requests modeling task:
 					- If Integrated Security: set `UseTrustedConnection = 'Yes'` and leave `UserId`/`UserPassword` empty
 					- If SQL Server Authentication: ask for `UserId` and `UserPassword`
 				d) If the generator is `Java`, always ask for `UserId` and `UserPassword` (Integrated Security is not applicable)
-				e) Create or update the `<name>.environment.local.gx` file following the `.local.gx` syntax defined in [object-environment](references/object-environment.md)
+				e) Create or update the `<name>.environment.local.gx` file following the `.local.gx` syntax defined in [object-environment](references/model-environment.md)
 				f) Run `import_text_to_kb` with `names: ["environment:*"]` to apply changes
 				g) Then proceed with the build or database operation
 			6) If the user declines, proceed with the build or database operation without modifying the connection configuration
@@ -143,7 +143,7 @@ When user requests modeling task:
 	* When user requests database connection configuration (server, user, password, database name):
 		- NEVER use `set_kb_property` MCP tool for these values
 		- Instead, directly edit or create the `<name>.environment.local.gx` file in `src.ns/Preferences/`
-		- Follow the `.local.gx` syntax defined in [object-environment](references/object-environment.md)
+		- Follow the `.local.gx` syntax defined in [object-environment](references/model-environment.md)
 		- After writing the file, run `import_text_to_kb` with `names: ["environment:*"]` to apply changes
 	* Run `export_kb_to_text` tool only if user explicitly requested
 		- Use `rootDirectory` with the `output directory` path
