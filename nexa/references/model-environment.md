@@ -151,16 +151,16 @@ Environment NETSQLServer
 	#FrontEnd
 		Android
 		[
-			"Gradle Options" = "-Xmx2048m"
-			"Java package name" = "com.example.netsqlserver"
+			GradleOptions = "-Xmx2048m"
+			JavaPackageName = "com.example.netsqlserver"
 		]
 
 		Apple
 		[
-			"Mac Host" = "mac-builder.local"
-			"Mac User" = "builder"
-			"Execution Type" = "Simulator (Mac)"
-			"Simulator" = "iPhone Retina (4.7-inch 64-bits)"
+			MacHost = "mac-builder.local"
+			MacUser = "builder"
+			ExecutionType = "Simulator (Mac)"
+			Simulator = "iPhone Retina (4.7-inch 64-bits)"
 		]
 	#End
 }
