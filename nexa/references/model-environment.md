@@ -191,6 +191,26 @@ Environment NETSQLServer
 }
 ~~~
 
+Or, alternatively, with Trusted Connection (Windows Authentication)
+~~~
+Environment NETSQLServer
+{
+	#Backend
+		DataStores
+		{
+			Default
+			[
+				DatabaseName = 'MyAppDB',
+				ServerName = "my-server-name.local",
+				UseTrustedConnection = 'Yes',
+				UserId = '',
+				UserPassword = ''
+		    ]
+		}
+	#End
+}
+~~~
+
 Saved as:
 ~~~
 src.ns/Preferences/NETSQLServer.environment.local.gx
