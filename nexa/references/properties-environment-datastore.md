@@ -189,8 +189,9 @@ Use this file to select editable properties, defaults, and valid options for an 
 - Type: `boolean`
 
 ## Use trusted connection
-- Description: Enable Windows authentication
+- Description: Enable Windows authentication instead of using user/password
 - Type: `boolean`
+- Constraint: Only applicable for `.NET` environments with `SQL Server` data store
 
 ## SQL server version
 - Description: Set the SQL Server version for SQL generation
