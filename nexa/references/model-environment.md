@@ -148,7 +148,7 @@ Environment NETSQLServer
 		}
 	#End
 
-	#FrontEnd
+	#Frontend
 		Android
 		[
 			GradleOptions = "-Xmx2048m"
@@ -157,8 +157,6 @@ Environment NETSQLServer
 
 		Apple
 		[
-			MacHost = "mac-builder.local"
-			MacUser = "builder"
 			ExecutionType = "Simulator (Mac)"
 			Simulator = "iPhone Retina (4.7-inch 64-bits)"
 		]
@@ -187,6 +185,14 @@ Environment NETSQLServer
 				UserPassword = "myPa$$W0rd"
 			]
 		}
+	#End
+
+	#Frontend
+		Apple
+		[
+			MacHost = "mac-builder.local"
+			MacUser = "builder"
+		]
 	#End
 }
 ~~~
