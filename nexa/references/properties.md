@@ -52,7 +52,7 @@ Use this file as the common entry point for property definitions and type semant
 - [Transaction](./properties-object-transaction.md)
 - [URL Rewrite](./properties-object-url-rewrite.md)
 
-## Other Properties
+## Model Properties
 - [Knowledge Base](./properties-knowledge-base.md)
 - [Version](./properties-version.md)
 - [Environment](./properties-environment.md)
