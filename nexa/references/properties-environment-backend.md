@@ -280,6 +280,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## Web Root
 - Description: Set the web root URL
 - Type: `string`
+- Location: `.local.gx`
 
 ---
 
@@ -388,6 +389,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## AI Provider API Key
 - Description: Set the AI provider API key
 - Type: `string`
+- Location: `.local.gx`
 
 ## AI Provider Project Id
 - Description: Set the AI provider project id
