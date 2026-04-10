@@ -63,6 +63,7 @@ Version MyAppVersion
 	#Properties
 		DefaultStyle = "MyAppDesignSystem"
 		EnableIntegratedSecurity" = true
+		CurrentEnvironment = "NETSQLServer"
 	#End
 
 	#Environments
