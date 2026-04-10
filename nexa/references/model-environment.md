@@ -92,7 +92,6 @@ Where:
 Use [global-output](./global-output.md) with `<type>` value: `environment`
 
 IMPORTANT: 
-- Must use `single-file` mode only
 - Must save the file in `<output-directory>/src.ns/Preferences` directory
 - Must include a `.local.gx` sibling file for extending/overriding `.main.gx` definition
 	* Always include properties with sensitive values; e.g. password, conenction info, etc
