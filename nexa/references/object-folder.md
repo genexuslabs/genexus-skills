@@ -30,14 +30,6 @@ Use [global-output](./global-output.md) with `<type>` value: `folder`
 - Folders do not provide encapsulation or visibility control
 - Folders are part of the hierarchical tree where the `Root Module` is the root
 - Folders can be converted into Modules by adding the `<name>.module.yaml` file
-
----
-
-# HIERARCHY RULES
-- Root Module (always exists)
-	* Can contain: Modules, Folders, Objects- Module
-	* Can contain: Modules, Folders, Objects- Folder
-	* Can contain: Folders, Objects (NOT Modules)
 ---
 
 # EXAMPLES
