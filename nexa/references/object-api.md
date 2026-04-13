@@ -351,27 +351,28 @@ API BookAPI
 ---
 
 # RUNTIME URL
-Describes how to construct the runtime invocation URL for an `API` object service
+Guideline for building the invocation URL for an `API` object service
 
-## URL pattern
+Pattern:
 ~~~
-<server>:<port>/<APIObjectName><RestPath>
+<host>:<port>/<name><path>
 ~~~
 
 Where:
-- `<server>:<port>`: Server host and port where the application is deployed (e.g. `http://localhost:8080`)
-- `<APIObjectName>`: Name from the `API` object declaration (first line: `API <name>`)
-- `<RestPath>`: Value from the `[RestPath(...)]` annotation of the target service; path variables `{&varname}` are replaced with actual values
+- `<host>:<port>`: Host and port where the app is deployed; e.g. `http://localhost:8080`
+- `<name>`: Name from the target `API` object
+- `<path>`: Path given by `RestPath` annotation value for the target service
 
-## How to resolve
+Steps:
 1. Read the `API` object definition
-2. Extract `<APIObjectName>` from the first line (`API <name>`)
-3. Locate the target service and read its `[RestMethod(<method>)]` annotation for the HTTP verb
-4. Read its `[RestPath(<path>)]` annotation for the path segment
-5. Compose the URL as `<server>:<port>/<APIObjectName><RestPath>`
+2. Take `<name>` from `API <name>` header
+3. Find target service
+4. Read `<method>` from `[RestMethod(<method>)]`
+5. Read `<path>` from `[RestPath(<path>)]`
+6. Fill `{&VarName}` placeholders in `<path>` with proper values
+7. Build `<server>:<port>/<name><path>` as invocation URL
 
-## Example
-Given:
+Example:
 ~~~
 API CustomerAPI
 {

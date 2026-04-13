@@ -26,5 +26,7 @@ Shared constraints for `references/object-*.md`
 - Forbid `!` prefix in translatable literals; `!"APP_SAVE"` (✘) → `"APP_SAVE"` (✓)
 - Allow `!` prefix only in non-translatable literals; `"www.example.com"` (✘) → `!"www.example.com"` (✓)
 - Allow enum domain dot (`.`) notation only; `!"COSMETICS"` (✘) → `ProductCategoryType.Cosmetics`
-- Property names in `.gx` files must use PascalCase without spaces or quotes; when a property is documented with spaces (e.g., `"Maximum numeric length"`), convert it by removing spaces and capitalizing each word: `"Maximum numeric length"` (✘) → `MaximumNumericLength` (✓), `"Business Component"` (✘) → `BusinessComponent` (✓)
-- When asked to read or modify a property value, always use the corresponding `.gx` file directly instead of MCP tools like `get_kb_property` or `set_kb_property`; KB/Environment/Version properties are in `src.ns/Preferences/`, while object properties (transactions, procedures, panels, etc.) are in the object's own `.gx` file within `src/`; after modifying, run `import_text_to_kb` to apply the change to the KB
+- Define all properties in `.gx` files using PascalCase without quotes; `"Maximum numeric length"` (✘) → `MaximumNumericLength` (✓)
+- Read/write properties via `.gx` files only; never use `get_kb_property` or `set_kb_property` tools
+- Find model properties in `src.ns/Preferences/*` and object properties in `src/**`
+- Execute `import_text_to_kb` after modifying any `.gx` file

@@ -105,8 +105,8 @@ Module with visibility control and sub-modules
 Module ECommerce
 {
 	#Properties
-		"Description" = "E-commerce platform"
-		"Version" = "3.0.0"
+		Description = "E-commerce platform"
+		Version = "3.0.0"
 		ObjectVisibility = "Private"
 	#End
 
@@ -117,7 +117,7 @@ Module ECommerce
 }
 ~~~
 
-Defined in:
+KB Structure:
 ~~~
 Root Module
 └── ECommerce (Module)
@@ -161,8 +161,8 @@ Module for distribution with Public API
 Module PaymentSDK
 {
 	#Properties
-		"Description" = "Payment processing SDK"
-		"Version" = "2.1.0"
+		Description = "Payment processing SDK"
+		Version = "2.1.0"
 		ObjectVisibility = "Private"
 	#End
 
@@ -177,7 +177,7 @@ Module PaymentSDK
 }
 ~~~
 
-Defined in:
+KB Structure:
 ~~~
 Root Module
 └── PaymentSDK (Module)
