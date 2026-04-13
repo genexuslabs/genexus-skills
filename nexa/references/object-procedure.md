@@ -95,7 +95,11 @@ Choose one exposure mode:
 ---
 
 # COMMAND LINE EXECUTION
-A `Procedure` object with `MainProgram = true` and `CallProtocol = "Command Line"` can be executed after a successful build
+Allows direct command-line execution after build (specification, generation, and compilation) using the target environment runtime
+
+Requires:
+- `MainProgram = true`
+- `CallProtocol = "Command Line"`
 
 Working directory resolution:
 1. Read `src.ns/Preferences/<ver-name>.version.main.gx` file
