@@ -369,7 +369,7 @@ Steps:
 3. Find target service
 4. Read `<method>` from `[RestMethod(<method>)]`
 5. Read `<path>` from `[RestPath(<path>)]`
-6. Fill `{&variable}` placeholders in `<path>` with proper values
+6. Fill `{&VarName}` placeholders in `<path>` with proper values
 7. Build `<server>:<port>/<name><path>` as invocation URL
 
 Example:
