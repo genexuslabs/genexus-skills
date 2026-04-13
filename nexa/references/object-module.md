@@ -68,7 +68,7 @@ Use [global-output](./global-output.md) with `<type>` value: `module`
 ## Example 1
 Simple organization with Folders
 
-Defined in:
+KB Structure:
 ~~~
 Root Module
 ├── Entities (Folder)
@@ -115,7 +115,7 @@ Module ECommerce
 }
 ~~~
 
-Defined in:
+KB Structure:
 ~~~
 Root Module
 └── ECommerce (Module)
@@ -176,7 +176,7 @@ Module PaymentSDK
 }
 ~~~
 
-Defined in:
+KB Structure:
 ~~~
 Root Module
 └── PaymentSDK (Module)
