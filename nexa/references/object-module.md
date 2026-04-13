@@ -55,8 +55,10 @@ Use [global-output](./global-output.md) with `<type>` value: `module`
 - Modules can be distributed and installed in other Knowledge Bases
 - Modules allow same object name in different modules
 - Modules must contain the `<name>.module.yaml` properties definition
-- Modules can be converted into Folders by deleting the `<name>.module.yaml` file
-- Folders cannot contain modules (only modules can contain modules)
+- Modules can be converted into `Folder` objects by:
+	1. Deleting the `<name>.module.yaml` file
+	2. Placing `@` prefix in the directory name
+- Folders cannot contain modules; only modules can contain other modules
 - Define `Root.module.yaml` file for the `Root Module` if missing in the output folder specified by the user
 - All objects belong to a module; defaults to `Root Module` if not specified
 - All objects in modules use the fully qualified name syntax `[<module>.]*<name>`, excluding folders; e.g. `Sales.CreateOrder`
@@ -86,13 +88,13 @@ Saved as:
 ~~~
 <output-directory>/
 	Root.module.yaml
-	Entities/
+	@Entities/
 		Customer.transaction.main.gx
 		Product.transaction.main.gx
-	CustomerApi/
+	@CustomerApi/
 		CustomerList.procedure.gx
 		CustomerDetail.procedure.gx
-	ProductApi/
+	@ProductApi/
 		ProductList.procedure.gx
 		ProductDetail.procedure.gx
 ~~~
@@ -148,7 +150,7 @@ Saved as:
 			AddToCart.procedure.gx
 			GetCart.procedure.gx
 			CartItem.sdt.gx
-		Shared/
+		@Shared/
 			Logger.procedure.gx
 			EmailService.procedure.gx
 ~~~
@@ -197,14 +199,14 @@ Saved as:
 	Root.module.yaml
 	PaymentSDK/
 		PaymentSDK.module.gx
-		API/
+		@API/
 			ProcessPayment.procedure.gx
 			GetPaymentStatus.procedure.gx
 			RequestRefund.procedure.gx
-		Models/
+		@Models/
 			PaymentInfo.sdt.gx
 			RefundInfo.sdt.gx
-		Internal/
+		@Internal/
 			ValidateCard.procedure.gx
 			EncryptData.procedure.gx
 ~~~

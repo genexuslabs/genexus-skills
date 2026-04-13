@@ -18,7 +18,7 @@ N/A
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `folder`
+Define filesystem directory using `@<name>` pattern where `<name>` is the `Folder` object name
 
 ---
 
@@ -51,10 +51,10 @@ Root Module
 Saved as:
 ~~~
 <output-directory>/
-	Customers/
+	@Customers/
 		CustomerList.procedure.gx
 		CustomerDetail.procedure.gx
-	Products/
+	@Products/
 		ProductList.procedure.gx
 		ProductDetail.procedure.gx
 ~~~
@@ -77,11 +77,11 @@ Root Module
 Saved as:
 ~~~
 <output-directory>/
-	Sales/
-		Reports/
+	@Sales/
+		@Reports/
 			SalesReport.procedure.gx
 			MonthlyReport.procedure.gx
-		Transactions/
+		@Transactions/
 			CreateOrder.transaction.main.gx
 			UpdateOrder.transaction.main.gx
 ~~~
@@ -103,7 +103,7 @@ Saved as:
 <output-directory>/
 	Inventory/
 		Inventory.module.gx
-		Panels/
+		@Panels/
 			ProductList.webpanel.gx
 			ProductDetail.webpanel.gx
 ~~~
@@ -126,11 +126,11 @@ Root Module
 Saved as:
 ~~~
 <output-directory>/
-	BusinessLogic
-		Model/
+	@BusinessLogic
+		@Model/
 			Customer.transaction.main.gx
-		Services/
+		@Services/
 			CustomerService.api.gx
-		Utilities/
+		@Utilities/
 			StringHelper.procedure.gx
 ~~~
