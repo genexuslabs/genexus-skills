@@ -17,8 +17,8 @@ A `Module` object is a GeneXus object designed to group objects from the Knowled
 Module <name>
 {
 	#Properties
-		"Description" = "<description>"
-		"Version" = "<version>"
+		Description = "<description>"
+		Version = "<version>"
 		ObjectVisibility = "<visibility>"
     <properties>
 	#End
@@ -102,8 +102,8 @@ Module with visibility control and sub-modules
 Module ECommerce
 {
 	#Properties
-		"Description" = "E-commerce platform"
-		"Version" = "3.0.0"
+		Description = "E-commerce platform"
+		Version = "3.0.0"
 		ObjectVisibility = "Private"
 	#End
 
@@ -158,8 +158,8 @@ Module for distribution with Public API
 Module PaymentSDK
 {
 	#Properties
-		"Description" = "Payment processing SDK"
-		"Version" = "2.1.0"
+		Description = "Payment processing SDK"
+		Version = "2.1.0"
 		ObjectVisibility = "Private"
 	#End
 	#Documentation

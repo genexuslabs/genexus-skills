@@ -248,8 +248,8 @@ DataProvider LoadTabs
 	#End
 
 	#Properties
-		"Output" = "Tab" // an existing SDT element
-		"Collection" = true
+		Output = "Tab" // an existing SDT element
+		Collection = true
 		CollectionName = "Tabs"
 	#End
 }
@@ -289,7 +289,7 @@ DataProvider LoadRSS
 	#End
 
 	#Properties
-		"Output" = "RSS" // an existing SDT element
+		Output = "RSS" // an existing SDT element
 	#End
 }
 ~~~
@@ -356,7 +356,7 @@ DataProvider ListActivePartners
 	#End
 
 	#Properties
-		"Output" = "PartnerCollection" // an existing SDT defined as a collection with items defined as 'PartnerCollectionItem'
+		Output = "PartnerCollection" // an existing SDT defined as a collection with items defined as 'PartnerCollectionItem'
 	#End
 }
 ~~~
@@ -441,8 +441,8 @@ DataProvider GetSimilarCountries
 	#End
 
 	#Properties
-		"Output" = "CountryData" // an existing SDT element
-		"Collection" = true
+		Output = "CountryData" // an existing SDT element
+		Collection = true
 		CollectionName = "CountryCollection"
 	#End
 }
@@ -477,7 +477,7 @@ DataProvider LoadSubEmployees
 	#End
 
 	#Properties
-		"Output" = "SubEmployees" // an existing SDT element
+		Output = "SubEmployees" // an existing SDT element
 	#End
 }
 ~~~

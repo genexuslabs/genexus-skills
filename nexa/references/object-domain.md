@@ -72,7 +72,7 @@ Domain ProductPrice
 {
 	#Properties
 		DataType = "Numeric(10.2)"
-		"Signed" = false
+		Signed = false
 	#End
 }
 ~~~
@@ -108,7 +108,7 @@ Domain PositiveInteger
 {
 	#Properties
 		DataType = "Numeric(10.0)"
-		"Signed" = false
+		Signed = false
 	#End
 }
 
@@ -127,7 +127,7 @@ Domain NationalId
 {
 	#Properties
 		DataType = "Numeric(11.0)"
-		"Picture" = "99.999.999-9"
+		Picture = "99.999.999-9"
 	#End
 }
 ~~~

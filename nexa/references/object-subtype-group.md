@@ -120,7 +120,7 @@ Group SubstituteTechnician
 
 	SubstituteTechnicianName : TechnicianName
 	#Properties
-		"Description" = "Represents the substitute technician role"
+		Description = "Represents the substitute technician role"
 	#End
 }
 ~~~
@@ -170,7 +170,7 @@ Group DepartureAirport
 	]
 
 	#Properties
-		"Description" = "Represents the airport from which the flight departs"
+		Description = "Represents the airport from which the flight departs"
 	#End
 }
 ~~~
@@ -189,7 +189,7 @@ Group ArrivalAirport
 	]
 
 	#Properties
-		"Description" = "Represents the airport at which the flight arrives"
+		Description = "Represents the airport at which the flight arrives"
 	#End
 }
 ~~~
@@ -325,7 +325,7 @@ Group Student
 	]
 
 	#Properties
-		"Description" = "Represents a student as a specialized type of person"
+		Description = "Represents a student as a specialized type of person"
 	#End
 }
 ~~~
@@ -344,7 +344,7 @@ Group Employee
 	]
 
 	#Properties
-		"Description" = "Represents an employee as a specialized type of person"
+		Description = "Represents an employee as a specialized type of person"
 	#End
 }
 ~~~

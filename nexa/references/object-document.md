@@ -155,7 +155,7 @@ Document Structure_Objects
 	| _…_                                 | _…_         | _Add other custom or utility objects._ |
 
 	#Properties
-		"Description" = "Object table of contents"
+		Description = "Object table of contents"
 	#End
 }
 ~~~
@@ -235,7 +235,7 @@ Document Spec_Requirements_Functional
 	| Real-time Catalog Updates        | Powered by [[DataProvider.PopulateCountries]]                       |
 
 	#Properties
-		"Description" = "Functional requirements description"
+		Description = "Functional requirements description"
 	#End
 }
 ~~~
