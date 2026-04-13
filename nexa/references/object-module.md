@@ -20,7 +20,7 @@ Module <name>
 		Description = "<description>"
 		Version = "<version>"
 		ObjectVisibility = "<visibility>"
-    <properties>
+		<properties>
 	#End
 
 	#Documentation
@@ -67,33 +67,34 @@ Use [global-output](./global-output.md) with `<type>` value: `module`
 
 ## Example 1
 Simple organization with Folders
-~~~
+
 Defined in:
+~~~
 Root Module
 ├── Entities (Folder)
-│   ├── Customer (Transaction)
-│   └── Product (Transaction)
+│	├── Customer (Transaction)
+│	└── Product (Transaction)
 ├── CustomerApi (Folder)
-│   ├── CustomerList (Procedure)
-│   └── CustomerDetail (Procedure)
+│	├── CustomerList (Procedure)
+│	└── CustomerDetail (Procedure)
 └── ProductApi (Folder)
-    ├── ProductList (Procedure)
-    └── ProductDetail (Procedure)
+		├── ProductList (Procedure)
+		└── ProductDetail (Procedure)
 ~~~
 
 Saved as:
 ~~~
 <output-directory>/
-  Root.module.yaml
-  Entities/
-    Customer.transaction.main.gx
-    Product.transaction.main.gx
-  CustomerApi/
-    CustomerList.procedure.gx
-    CustomerDetail.procedure.gx
-  ProductApi/
-    ProductList.procedure.gx
-    ProductDetail.procedure.gx
+	Root.module.yaml
+	Entities/
+		Customer.transaction.main.gx
+		Product.transaction.main.gx
+	CustomerApi/
+		CustomerList.procedure.gx
+		CustomerDetail.procedure.gx
+	ProductApi/
+		ProductList.procedure.gx
+		ProductDetail.procedure.gx
 ~~~
 
 ## Example 2
@@ -118,38 +119,38 @@ Defined in:
 ~~~
 Root Module
 └── ECommerce (Module)
-    ├── Catalog (Module)
-    │   ├── ProductSearch (DataProvider, Public)
-    │   ├── ProductDetails (Procedure, Public)
-    │   └── ProductInfo (SDT, Public)
-    ├── Cart (Module)
-    │   ├── AddToCart (Procedure, Public)
-    │   ├── GetCart (Procedure, Public)
-    │   └── CartItem (SDT, Public)
-    └── Shared (Folder)
-        ├── Logger (Procedure, Private)
-        └── EmailService (Procedure, Private)
+	├── Catalog (Module)
+	│	├── ProductSearch (DataProvider, Public)
+	│	├── ProductDetails (Procedure, Public)
+	│	└── ProductInfo (SDT, Public)
+	├── Cart (Module)
+	│	├── AddToCart (Procedure, Public)
+	│	├── GetCart (Procedure, Public)
+	│	└── CartItem (SDT, Public)
+	└── Shared (Folder)
+			├── Logger (Procedure, Private)
+			└── EmailService (Procedure, Private)
 ~~~
 
 Saved as:
 ~~~
 <output-directory>/
-  Root.module.yaml
-  ECommerce/
-    ECommerce.module.gx
-    Catalog/
-      Catalog.module.gx
-      ProductSearch.dp.gx
-      ProductDetails.procedure.gx
-      ProductInfo.sdt.gx
-    Cart/
-      Cart.module.gx
-      AddToCart.procedure.gx
-      GetCart.procedure.gx
-      CartItem.sdt.gx
-    Shared/
-      Logger.procedure.gx
-      EmailService.procedure.gx
+	Root.module.yaml
+	ECommerce/
+		ECommerce.module.gx
+		Catalog/
+			Catalog.module.gx
+			ProductSearch.dp.gx
+			ProductDetails.procedure.gx
+			ProductInfo.sdt.gx
+		Cart/
+			Cart.module.gx
+			AddToCart.procedure.gx
+			GetCart.procedure.gx
+			CartItem.sdt.gx
+		Shared/
+			Logger.procedure.gx
+			EmailService.procedure.gx
 ~~~
 
 ## Example 3
@@ -162,6 +163,7 @@ Module PaymentSDK
 		Version = "2.1.0"
 		ObjectVisibility = "Private"
 	#End
+
 	#Documentation
 		# Payment SDK
 
@@ -178,32 +180,32 @@ Defined in:
 ~~~
 Root Module
 └── PaymentSDK (Module)
-    ├── API (Folder)
-    │   ├── ProcessPayment (Procedure, Public)
-    │   ├── GetPaymentStatus (Procedure, Public)
-    │   └── RequestRefund (Procedure, Public)
-    ├── Models (Folder)
-    │   ├── PaymentInfo (SDT, Public)
-    │   └── RefundInfo (SDT, Public)
-    └── Internal (Folder)
-        ├── ValidateCard (Procedure, Private)
-        └── EncryptData (Procedure, Private)
+	├── API (Folder)
+	│	├── ProcessPayment (Procedure, Public)
+	│	├── GetPaymentStatus (Procedure, Public)
+	│	└── RequestRefund (Procedure, Public)
+	├── Models (Folder)
+	│	├── PaymentInfo (SDT, Public)
+	│	└── RefundInfo (SDT, Public)
+	└── Internal (Folder)
+			├── ValidateCard (Procedure, Private)
+			└── EncryptData (Procedure, Private)
 ~~~
 
 Saved as:
 ~~~
 <output-directory>/
-  Root.module.yaml
-  PaymentSDK/
-    PaymentSDK.module.gx
-    API/
-      ProcessPayment.procedure.gx
-      GetPaymentStatus.procedure.gx
-      RequestRefund.procedure.gx
-    Models/
-      PaymentInfo.sdt.gx
-      RefundInfo.sdt.gx
-    Internal/
-      ValidateCard.procedure.gx
-      EncryptData.procedure.gx
+	Root.module.yaml
+	PaymentSDK/
+		PaymentSDK.module.gx
+		API/
+			ProcessPayment.procedure.gx
+			GetPaymentStatus.procedure.gx
+			RequestRefund.procedure.gx
+		Models/
+			PaymentInfo.sdt.gx
+			RefundInfo.sdt.gx
+		Internal/
+			ValidateCard.procedure.gx
+			EncryptData.procedure.gx
 ~~~
