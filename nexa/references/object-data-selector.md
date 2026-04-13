@@ -8,7 +8,7 @@ Defines reusable filters for data queries with parameters and conditions
 ---
 
 # DEFINITION
-A `DataSelector` object defines reusable filter applied to data queries
+A `DataSelector` object (or `DS`) defines reusable filter applied to data queries
 
 ---
 

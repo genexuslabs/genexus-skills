@@ -8,7 +8,7 @@ Defines a `Deployment Unit` object (`DeploymentUnitCategory`) as a deployable gr
 ---
 
 # DEFINITION
-A `Deployment Unit` object defines a set of objects to be deployed together
+A `Deployment Unit` object (or `DPU`) defines a set of objects to be deployed together
 
 Typically, applications split deployment units by layers such as front office, backend, and services
 

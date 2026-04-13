@@ -9,7 +9,7 @@ Defines executable code for business logic and data manipulation
 
 # DEFINITION
 
-A `Procedure` object contains executable code for business logic, data manipulation, and service implementation
+A `Procedure` object (or `PRC`) contains executable code for business logic, data manipulation, and service implementation
 
 ---
 

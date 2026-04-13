@@ -8,7 +8,7 @@ Defines design system for consistent UI styling across application
 ---
 
 # DEFINITION
-A `DesignSystem` object defines UI design system with styles, themes, and components
+A `DesignSystem` object (or `DSO`) defines UI design system with styles, themes, and components
 
 ---
 
