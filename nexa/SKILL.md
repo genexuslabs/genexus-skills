@@ -279,8 +279,7 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 
 ## API
 - Purpose: REST API endpoint definition with HTTP methods
-- Use when: Exposing business logic as RESTful services, integrating with external systems, or enabling third-party integrations
-- Runtime URL construction: See [RUNTIME URL](references/object-api.md#runtime-url) section for how to build invocation URLs
+- Use when: Exposing business logic as RESTful services, integrating with external systems, enabling third-party integrations, or building invocation URLs for services defined in this object
 - Reference: [API object](references/object-api.md)
 
 ## Query
