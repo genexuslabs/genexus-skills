@@ -8,6 +8,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 ---
 
 # GENERAL
+Include [General](./properties-common.md) properties
 
 ## Encrypt URL parameters
 - Description: Keep target web objects with URL parameter encryption disabled

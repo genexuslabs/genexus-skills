@@ -54,8 +54,8 @@ Where:
 - `<elements>`: Assignments to SDT members or BC properties; must belong to the corresponding structure
 - `<rules>`: Business rules globally applied; includes parameter definitions and other logic
 - `<variables>`: All variables used in the object; each must define the mandatory `DataType` property
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-data-provider.md))
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-data-provider.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 Notes:
 - Groups must always be defined in terms of an existing SDT or BC structure

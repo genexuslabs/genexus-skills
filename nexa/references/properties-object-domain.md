@@ -8,6 +8,7 @@ Use this file to select editable Domain properties
 ---
 
 # GENERAL
+Include [General](./properties-common.md) properties
 
 ## Data Type
 - Description: Logical type used for storage and validation

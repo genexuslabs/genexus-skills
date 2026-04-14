@@ -8,6 +8,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 ---
 
 # GENERAL
+Include [General](./properties-common.md) properties
 
 ## Expose as Web Service
 - Description: Publishes the object as a web service endpoint

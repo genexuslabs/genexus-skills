@@ -8,6 +8,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 ---
 
 # GENERAL
+Include [General](./properties-common.md) properties
 
 ## Storage area
 - Description: Physical storage area used by the DBMS
