@@ -52,8 +52,8 @@ Where:
 - `<conditions>`: Conditional rules with when clauses
 - `<variables>`: Variable definitions with `DataType`
 - `<layout>`: Optional report layout definition in GXML when using `Print`, `Header`, or `Footer`
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-procedure.md))
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-procedure.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 ---
 

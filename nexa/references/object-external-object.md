@@ -104,8 +104,8 @@ Where:
 - `<event-spec-k>`: External event properties; see [EXTERNAL EVENTS](#external-events)
 	* `<event-parm-name-l>`: Event parameter name
 	* `<event-parm-spec-l>`: Event parameter properties
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-external-object.md))
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-external-object.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 ---
 
