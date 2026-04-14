@@ -64,7 +64,7 @@ Priority order for consistency:
 	* Use ` ` for entries: `1 3 5` (only 1,3,5), `"Yes" "No"` (only Yes,No)
 	* Combined: `:1 3:5 7:` (≤1, 3-5, 7+)
 - Domain as `DataType` must match suffix and requirements: `ClientEmail [ DataType = 'Email, GeneXus' ]`
-- Domain as `DataType` must not redefine domain properties: if `Id` domain has `Autonumber = 'True'`, don't redefine
+- Domain as `DataType` must not redefine domain properties at the attribute level
 - Domain usage omits "Root Module" part
 
 ---

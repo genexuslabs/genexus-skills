@@ -248,7 +248,7 @@ API CustomerAPI
 	#End
 
 	#Properties
-		"Main Program" = true
+		MainProgram = true
 	#End
 }
 ~~~
@@ -346,4 +346,48 @@ API BookAPI
 		UserId [ DataType = 'Attribute:UserId' ]
 	#End
 }
+~~~
+
+---
+
+# RUNTIME URL
+Guideline for building the invocation URL for an `API` object service
+
+Pattern:
+~~~
+<host>:<port>/<name><path>
+~~~
+
+Where:
+- `<host>:<port>`: Host and port where the app is deployed; e.g. `http://localhost:8080`
+- `<name>`: Name from the target `API` object
+- `<path>`: Path given by `RestPath` annotation value for the target service
+
+Steps:
+1. Read the `API` object definition
+2. Take `<name>` from `API <name>` header
+3. Find target service
+4. Read `<method>` from `[RestMethod(<method>)]`
+5. Read `<path>` from `[RestPath(<path>)]`
+6. Fill `{&VarName}` placeholders in `<path>` with proper values
+7. Build `<server>:<port>/<name><path>` as invocation URL
+
+Example:
+~~~
+API CustomerAPI
+{
+	CustomerAPI
+	{
+		[RestMethod(GET)]
+		[RestPath("/customers/{&CustomerId}")]
+		GetCustomer(in: &CustomerId, out: &CustomerInfo)
+			=> GetCustomer(&CustomerId, &CustomerInfo);
+	}
+	...
+}
+~~~
+
+The runtime URL for getting customer with Id 5:
+~~~
+GET http://localhost:8080/CustomerAPI/customers/5
 ~~~

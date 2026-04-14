@@ -205,6 +205,7 @@ EndEvent
 - Only one description attribute (`!`) allowed
 - Surrogate PK when no natural identifier exists
 - Surrogate PK uses pattern `<name>Id` with `'Autonumber': 'True'`
+- `Autonumber` is only allowed on first-level primary key attributes; sublevel keys must NOT use `Autonumber`
 - Description attribute for user-friendly record display
 - Extended attributes infer properties from referenced transaction
 - FK attributes declared with empty brackets `[]`
@@ -248,7 +249,7 @@ Transaction Product
 	#End
 
 	#Properties
-		"Business Component" = true
+		BusinessComponent = true
 	#End
 }
 ~~~
@@ -265,7 +266,7 @@ Transaction Order
 
 	OrderLine
 	{
-		OrderLineId* [ DataType = 'Numeric(10.0)', Autonumber = 'True' ]
+		OrderLineId* [ DataType = 'Numeric(10.0)' ]
 		ProductId []
 		ProductName []
 		Quantity [ DataType = 'Numeric(5.0)' ]
@@ -285,7 +286,7 @@ Transaction Order
 	#End
 
 	#Properties
-		"Business Component" = true
+		BusinessComponent = true
 	#End
 }
 ~~~

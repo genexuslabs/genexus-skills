@@ -342,8 +342,8 @@ Panel CustomerList
 	#End
 
 	#Properties
-		"Caption" = "Products List"
-		"Style" = "MyDesignSystem"
+		Caption = "Products List"
+		Style = "MyDesignSystem"
 	#End
 }
 ~~~
@@ -436,8 +436,8 @@ Panel ProductDetail
 	#End
 
 	#Properties
-		"Caption" = "Product Detail"
-		"Style" = "MyDesignSystem"
+		Caption = "Product Detail"
+		Style = "MyDesignSystem"
 	#End
 }
 ~~~

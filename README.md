@@ -10,14 +10,34 @@ Root
 │  ├─ references/
 │  │  ├─ common-*.md         : shared components over other references
 │  │  ├─ global-*.md         : shared global definitions
+│  │  ├─ model-*.md          : shared model definitions
 │  │  └─ object-*.md         : object-specific specifications
 │  └─ SKILL.md               : skill definition and workflow
 │
-├─ other-skill/              : additional skills
-│  ├─ references/            : references for that skill
-│  ├─ scripts/               : optional helpers
-│  ├─ assets/                : optional templates/assets
-│  └─ SKILL.md               : specific skill definition
+├─ frontend/                 : Frontend skills group
+│  ├─ chameleon-controls-library/
+│  │  ├─ references/         : 58 web component docs
+│  │  └─ SKILL.md
+│  ├─ design-system-builder/
+│  │  ├─ references/         : DS architecture guides
+│  │  └─ SKILL.md
+│  ├─ mercury-design-system/
+│  │  ├─ references/         : Mercury tokens, bundles, icons
+│  │  └─ SKILL.md
+│  ├─ ui-creator/
+│  │  ├─ references/         : UI generation templates
+│  │  └─ SKILL.md
+│  └─ README.md              : group description
+│
+├─ other-skills/             : additional skill groups
+│  ├─ skill-a/               : individual skill
+│  │  ├─ references/         : references for that skill
+│  │  ├─ scripts/            : optional helpers
+│  │  ├─ assets/             : optional templates/assets
+│  │  └─ SKILL.md            : specific skill definition
+│  ├─ skill-b/
+│  │  └─ ...
+│  └─ README.md              : group description
 │
 ├─ .gitignore                : repository ignore patterns
 └─ README.md                 : repository entry point
@@ -81,7 +101,7 @@ Each platform handles skills with small differences. This repository follows a p
 		```
 	* Windows example:
 		```cmd
-		mklink /J %USERPROFILE%\.coda\skills %USERPROFILE%\workspace\genexus-skills\nexa
+		mklink /J %USERPROFILE%\.coda\skills\nexa %USERPROFILE%\workspace\genexus-skills\nexa
 		```
 	* ⚠️ Update both the provider skill path and the skill folder name in each command as needed
 
