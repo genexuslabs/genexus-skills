@@ -7,6 +7,11 @@ Use this file to select editable Module properties
 
 ---
 
+# GENERAL
+Include [General](./properties-common.md) properties
+
+---
+
 # MODULE MANAGER INFORMATION
 
 ## Package Name

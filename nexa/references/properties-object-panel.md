@@ -8,6 +8,7 @@ Use this file to select editable Panel properties and apply target-specific sett
 ---
 
 # GENERAL
+Include [General](./properties-common.md) properties
 
 ## Folder
 - Description: Folder where the object is organized in the KB

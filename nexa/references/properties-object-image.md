@@ -8,11 +8,4 @@ Use this file to select editable properties, defaults, and valid options for thi
 ---
 
 # GENERAL
-
-## Theme Dependant
-- Description: Uses theme-specific variant at runtime
-- Type: `boolean`
-
-## Language Dependant
-- Description: Uses language-specific variant at runtime
-- Type: `boolean`
+Include [General](./properties-common.md) properties

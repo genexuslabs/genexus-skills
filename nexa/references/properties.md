@@ -61,6 +61,7 @@ Use this file as the common entry point for property definitions and type semant
 - [Data Store](./properties-environment-datastore.md)
 
 ## Shared Properties
+- [General](./properties-common.md)
 - [Integrated Security](./properties-common-integrated-security.md)
 - [Network](./properties-common-network.md)
 - [Observability](./properties-common-observability.md)

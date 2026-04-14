@@ -8,6 +8,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 ---
 
 # GENERAL
+Include [General](./properties-common.md) properties
 
 ## External File Name
 - Description: Name of the file when it is extracted from the Knowledge Base to the file system
