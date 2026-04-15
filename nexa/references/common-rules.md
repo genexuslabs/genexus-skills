@@ -129,18 +129,18 @@ NoAccept(CustomerPassword) IF &IsGuest;
 ~~~
 
 ## Serial
-Assigns unique sequential value to `<attribute>` using `<attribute>` with `<default>` fallback
+Assigns unique sequential value to `<attribute>` using `<pivot>` with `<step>` increment
 
-Syntax: `Serial(<attribute>, <source>, <step>)`
+Syntax: `Serial(<attribute>, <pivot>, <step>)`
 
 Where:
-- `<attribute>`: Target attribute that identifies the parent or grouping level
-- `<source>`: Source attribute to which the serial number is assigned
+- `<attribute>`: Target attribute to be incremented
+- `<pivot>`: Base attribute storing the last assigned value in the sequence
 - `<step>`: Increment value for numbering (usually 1)
 
 Example:
 ~~~
-Serial(InvoiceNumber, InvoiceNumberSeq, 1);
+Serial(InvoiceItemId, InvoiceLastLine, 1);
 ~~~
 
 ## Add
