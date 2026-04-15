@@ -263,6 +263,7 @@ Transaction Order
 	CustomerId []
 	CustomerName []
 	OrderDate [ DataType = 'Date' ]
+	OrderLastLine [ DataType = 'Numeric(10.0)' ]
 
 	OrderLine
 	{
@@ -276,6 +277,7 @@ Transaction Order
 
 	#Rules
 		Default(OrderDate, Today());
+		Serial(OrderLineId, OrderLastLine, 1);
 		LineTotal = Quantity * UnitPrice;
 	#End
 
