@@ -206,8 +206,7 @@ EndEvent
 - Only use surrogate PK with `<name>Id` name pattern when no natural identifier exists
 - Only use `Autonumber = 'True'` on first-level PK attributes with `Numeric(X.0)` data type
 - Only use `Serial` rule for autonumbering nested-level PK attributes
-- Extended attributes infer properties from referenced transaction
-- FK attributes declared with empty brackets `[]`
+- Every extended attribute (including FK) must be declared with empty brackets `[]`; properties inferred from referenced transaction
 - Never duplicate attribute names within transaction including sublevels
 - Never include properties for FK, Extended, or Subtyped attributes
 - Rules use syntax: `<rule> [IF <condition>] [ON <trigger>];`
