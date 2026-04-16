@@ -141,66 +141,179 @@ Notes:
 # REPORT LAYOUT
 Declarative XML-based report layout schema used in `#Layout` section
 
-Guideline:
-1. Define the layout hierarchy as `layout` → `printBlock` → report controls
-2. Use one `printBlock` per printed section and keep block names aligned with `Print` commands in code
-3. All numeric values must not include unit
-4. All color values must use hex representation, no alpha channel allowed; e.g. `#FF0000`
+## Rules
+- Hierarchy: `layout` root → `printBlock` bands → report controls
+- One `printBlock` per printed section; `name` matches `Print` command
+- Numeric values: no unit suffix
+- Colors values: hex or `Transparent` only, no alpha; e.g. `#FF0000`
+- Escape XML special characters; e.g. `&amp;` not `&`
 
-Nodes:
-- `layout`: Root report container
-	* Required: `type` (with `Report` value)
-	* Optional:
-		+ `paperSize`: `Custom` (default), `Letter`, `Legal`, `Executive`, `A3`, `A4`, `A5`
-		+ `paperOrientation`: `Portrait` (default), `Landscape`
-		+ `rightMargin`
-		+ `width`, `height`: Only when `paperSize="Custom"`
-		+ `attributeFont`, `textBlockFont`: Format `<font-family-name>, <font-size>`
-- `printBlock`: Report band/section printed by `Print <block-name>`
-	* Required: `name`
-	* Optional:
-		+ `height`
-- `reportLabel`: Static text control
-	* Required: `name`, `text`
-	* Optional:
-		+ `x`, `y`
-		+ `width`, `height`, `borderWidth`
-		+ `backColor`, `foreColor`, `borderColor`
-		+ `borders`: `None` (default), `Top`, `Bottom`, `Left`, `Right`, `All`
-		+ `alignment`: `TopLeft` (deafult), `TopCenter`, `TopRight`, `MiddleLeft`, `MiddleCenter`, `MiddleRight`, `BottomLeft`, `BottomCenter`, `BottomRight`, `TopJustify`, `MiddleJustify`, `BottomJustify`
-		+ `font`: Syntax `<font-family>, <font-size>`
-		+ `format`: `Text` (deault), `HTML` (enables HTML tags)
-		+ `wordWrap`: `False` (default), `True`
-- `reportAttribute`: Data-bound control
-	* Required: `name`, `attribute` (Attribute object name)
-	* Optional:
-		+ Same as `reportLabel`
-- `reportImage`: Image control
-	* Required: `name`, `image` (Image object name)
-	* Optional:
-		+ `x`, `y`
-		+ `width`, `height`
-- `reportLine`: Line control
-	* Required: `name`
-	* Optional:
-		+ `x`, `y`
-		+ `width`, `lineWidth`
-		+ `lineDirection`: `Horizontal`, `Vertical`
-		+ `foreColor`
-		+ `borderStyle`
-- `reportRectangle`: Rectangle control
-	* Required: `name`
-	* Optional:
-		+ `x`, `y`
-		+ `width`, `height`, `borderWidth`
-		+ `backColor`, `borderColor`
-		+ `borderStyle(Top|Bottom|Left|Right)`
-		+ `borderRadius(TopLeft|TopRight|BottomLeft|BottomRight)`
+## Elements
+Layout elements with allowed attributes in XML definition
 
-Note:
-- Escape XML special characters in text-like values; e.g. use `&amp;` and not `&`
+### layout
+Root report container
 
-Minimal example:
+- `type` (required)
+    * Description: Identifies layout type
+    * Type: `enum{"Report"}`
+
+- `paperSize`
+    * Description: Physical paper size
+    * Type: `enum{"Custom","Letter","Legal","Executive","A3","A4","A5"}`
+    * Default: `"Custom"`
+
+- `paperOrientation`
+    * Description: Page orientation
+    * Type: `enum{"Portrait","Landscape"}`
+    * Default: `"Portrait"`
+
+- `width`, `height`
+    * Description: Paper dimensions; only if `paperSize="Custom"`
+    * Type: `int`
+
+- `rightMargin`
+    * Description: Right margin size
+    * Type: `int`
+
+- `attributeFont`, `textBlockFont`
+    * Description: Default font for data‑bound / text controls
+    * Type: `string`, format `"<family>, <size>"`; e.g. `"Arial, 10"`
+
+### printBlock
+Band printed by `Print <name>` command in source
+
+- `name` (required)
+    * Description: Unique block name
+    * Type: `string`
+
+- `height`
+    * Description: Fixed band height; auto if omitted
+    * Type: `int`
+
+### label / attribute
+Static or dynamic (by Attribute value) text control
+
+- `name` (required)
+    * Description: Unique control name within block
+    * Type: `string`
+
+- `text` (required for `reportLabel` element)
+    * Description: Static text to display
+    * Type: `string`
+
+- `attribute` (required for `reportAttribute` element)
+    * Description: Attribute object name to bind
+    * Type: `string`
+
+- `x`, `y`, `width`, `height`
+    * Description: Position and size
+    * Type: `int`
+
+- `font`
+    * Description: Overrides block‑level font
+    * Type: `string` format `"<family>, <size>"`
+
+- `foreColor`, `backColor`, `borderColor`
+    * Description: Text, background, and border colors
+    * Type: `string`, format `"#RRGGBB"` (no alpha allowed); e.g. `"#FF0000"`
+
+- `borderWidth`
+    * Description: Border thickness
+    * Type: `int`
+
+- `borders`
+    * Description: Which sides render border
+    * Type: `enum{"None","Top","Bottom","Left","Right","All"}`
+    * Default: `"None"`
+
+- `alignment`
+    * Description: Content alignment within bounds
+    * Type: `enum{"TopLeft","TopCenter","TopRight","MiddleLeft","MiddleCenter","MiddleRight","BottomLeft","BottomCenter","BottomRight","TopJustify","MiddleJustify","BottomJustify"}`
+    * Default: `"TopLeft"`
+
+- `format`
+    * Description: Text interpretation (`Text` or `HTML`)
+    * Type: `enum{"Text","HTML"}`
+    * Default: `"Text"`
+
+- `wordWrap`
+    * Description: Wrap text when exceeding width
+    * Type: `enum{"False","True"}`
+    * Default: `"False"`
+
+### image
+Image control
+
+- `name` (required)
+    * Description: Unique control name within block
+    * Type: `string`
+
+- `image` (required)
+    * Description: Image object name to render
+    * Type: `string`
+
+- `x`, `y`, `width`, `height`
+    * Description: Same as in `reportLabel`
+    * Type: `int`
+
+### line
+Line control
+
+- `name` (required)
+    * Description: Unique control name within block
+    * Type: `string`
+
+- `x`, `y`, `width`
+    * Description: Position and length
+    * Type: `int`
+
+- `lineWidth`
+    * Description: Line thickness
+    * Type: `int`
+
+- `lineDirection`
+    * Description: Horizontal or vertical
+    * Type: `enum{"Horizontal","Vertical"}`
+
+- `foreColor`
+    * Description: Line color
+    * Type: `string`, format `"#RRGGBB"` (no alpha allowed); e.g. `"#00FF00"`
+
+- `borderStyle`
+    * Description: Dash style
+    * Type: `enum{"Solid","Dotted","Dashed","LongDashed","LongDotDashed"}`
+	* Default: `"Solid"`
+
+### rectangle
+Rectangle control
+
+- `name` (required)
+    * Description: Unique control name within block
+    * Type: `string`
+
+- `x`, `y`, `width`, `height`
+    * Description: Position and dimensions
+    * Type: `int`
+
+- `borderWidth`
+    * Description: Border thickness (all sides)
+    * Type: `int`
+
+- `backColor`, `borderColor`
+    * Description: Fill and border colors
+    * Type: `string`, format `"#RRGGBB"` (no alpha allowed); e.g. `"#0000FF"`
+
+- `borderStyle(Top|Bottom|Left|Right)`
+    * Description: Per‑side border dash style
+    * Type: `enum{"Solid","None","Dotted","Dashed","LongDashed","LongDotDashed"}`
+	* Default: `"Solid"`
+
+- `borderRadius(TopLeft|TopRight|BottomLeft|BottomRight)`
+    * Description: Per‑corner rounding radius
+    * Type: `int`
+
+## Example
 ~~~xml
 <layout name="SalesReport" paperSize="A4">
 	<printBlock name="Header" height="60">
