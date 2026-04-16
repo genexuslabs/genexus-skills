@@ -203,9 +203,9 @@ EndEvent
 - Every attribute must be prefixed by Transaction or sublevel name
 - Primary key required (at least one attribute with `*`)
 - Only one description attribute (`!`) allowed
-- Surrogate PK when no natural identifier exists
-- Surrogate PK uses pattern `<name>Id` with `'Autonumber': 'True'`
-- `Autonumber` is only allowed on first-level primary key attributes; sublevel keys must NOT use `Autonumber`
+- Only use surrogate PK with `<name>Id` name pattern when no natural identifier exists
+- Only use `Autonumber = 'True'` on first-level PK attributes with `Numeric(X.0)` data type
+- Only use `Serial` rule for autonumbering nested-level PK attributes
 - Description attribute for user-friendly record display
 - Extended attributes infer properties from referenced transaction
 - FK attributes declared with empty brackets `[]`
