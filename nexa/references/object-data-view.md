@@ -53,8 +53,8 @@ Where:
 - `<external-index-j>`: Physical index name in the external source
 - `<platform-name-i>`: Target platform entry (for example `SQLServer`, `MySQL`, `PostgreSQL`)
 - `<external-table-name-i>`: Physical external table name for selected platform
-- `<properties>`: Optional object properties in TOML syntax
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-data-view.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 ---
 
