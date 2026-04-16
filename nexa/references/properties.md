@@ -41,6 +41,7 @@ Use this file as the common entry point for property definitions and type semant
 - [File](./properties-object-file.md)
 - [Image](./properties-object-image.md)
 - [Index](./properties-object-index.md)
+- [Language](./properties-object-language.md)
 - [Module](./properties-object-module.md)
 - [Panel](./properties-object-panel.md)
 - [Procedure](./properties-object-procedure.md)
