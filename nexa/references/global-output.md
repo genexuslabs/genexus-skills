@@ -82,7 +82,7 @@ Transaction MyEntity
 	#End
 
 	#Properties
-		"Business Component" = true
+		BusinessComponent = true
 	#End
 
 	#Documentation
@@ -120,7 +120,7 @@ Transaction MyEntity
 
 `Customer.transaction.properties.toml`:
 ```
-"Business Component" = true
+BusinessComponent = true
 ```
 
 `Customer.transaction.documentation.md`:

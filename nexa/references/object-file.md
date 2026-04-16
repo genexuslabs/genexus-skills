@@ -31,8 +31,8 @@ File <name>
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
 - `<content>`: File object content in UTF-8 encoding (plain, JSON, XML, INI, etc)
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-file.md))
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-file.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 ---
 
@@ -62,7 +62,7 @@ File ApiKeyFile.txt
 	sk-51a8bX7nPqv9ZbS4rTmJ2LgDkEfYx1zQ9wVrR0tTnF1A7Fhj
 
 	#Properties
-		"Description" = "Service API Key"
+		Description = "Service API Key"
 	#End
 }
 ~~~
@@ -84,7 +84,7 @@ File AppSettingsFile.json
 	}
 
 	#Properties
-		"Description" = "Appliction settings file"
+		Description = "Appliction settings file"
 	#End
 }
 ~~~
@@ -107,7 +107,7 @@ File AppSettingsFile.xml
 	</Settings>
 
 	#Properties
-		"Description" = "Application settings file"
+		Description = "Application settings file"
 	#End
 }
 ~~~
@@ -128,7 +128,7 @@ File AppConfig.ini
 	FilePath=./logs/app.log
 
 	#Properties
-		"Description" = "Application configuration file"
+		Description = "Application configuration file"
 	#End
 }
 ~~~

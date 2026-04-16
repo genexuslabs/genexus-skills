@@ -38,8 +38,8 @@ Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with a letter
 - `<rewrites>`: Rewrite rules `<source> => <target>`; mapping URL paths to GeneXus objects or invocations
 - `<variables>`: Variable definitions used by route placeholders with mandatory `DataType`
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-url-rewrite.md))
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-url-rewrite.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 ---
 

@@ -17,10 +17,10 @@ A `Module` object is a GeneXus object designed to group objects from the Knowled
 Module <name>
 {
 	#Properties
-		"Description" = "<description>"
-		"Version" = "<version>"
-		"Object Visibility" = "<visibility>"
-    <properties>
+		Description = "<description>"
+		Version = "<version>"
+		ObjectVisibility = "<visibility>"
+		<properties>
 	#End
 
 	#Documentation
@@ -38,8 +38,8 @@ Where:
 	* `Knowledge Base`: Accessible from any module in the same KB, cannot be distributed
 	* `Internal`: Only accessible by objects with a common root module, cannot be distributed
 	* `Private`: Only accessible within the same module and its sub-modules, cannot be distributed
-- `<properties>`: Optional object properties (see [properties](./properties-object-module.md))
-- `<documentation>`: Optional module documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties; see [properties](./properties-object-module.md)
+- `<documentation>`: Optional module documentation; check [common-markdown](./common-markdown.md)
 
 ---
 
@@ -67,33 +67,34 @@ Use [global-output](./global-output.md) with `<type>` value: `module`
 
 ## Example 1
 Simple organization with Folders
+
+KB Structure:
 ~~~
-Defined in:
 Root Module
 ├── Entities (Folder)
-│   ├── Customer (Transaction)
-│   └── Product (Transaction)
+│	├── Customer (Transaction)
+│	└── Product (Transaction)
 ├── CustomerApi (Folder)
-│   ├── CustomerList (Procedure)
-│   └── CustomerDetail (Procedure)
+│	├── CustomerList (Procedure)
+│	└── CustomerDetail (Procedure)
 └── ProductApi (Folder)
-    ├── ProductList (Procedure)
-    └── ProductDetail (Procedure)
+		├── ProductList (Procedure)
+		└── ProductDetail (Procedure)
 ~~~
 
 Saved as:
 ~~~
 <output-directory>/
-  Root.module.yaml
-  Entities/
-    Customer.transaction.main.gx
-    Product.transaction.main.gx
-  CustomerApi/
-    CustomerList.procedure.gx
-    CustomerDetail.procedure.gx
-  ProductApi/
-    ProductList.procedure.gx
-    ProductDetail.procedure.gx
+	Root.module.yaml
+	Entities/
+		Customer.transaction.main.gx
+		Product.transaction.main.gx
+	CustomerApi/
+		CustomerList.procedure.gx
+		CustomerDetail.procedure.gx
+	ProductApi/
+		ProductList.procedure.gx
+		ProductDetail.procedure.gx
 ~~~
 
 ## Example 2
@@ -102,9 +103,9 @@ Module with visibility control and sub-modules
 Module ECommerce
 {
 	#Properties
-		"Description" = "E-commerce platform"
-		"Version" = "3.0.0"
-		"Object Visibility" = "Private"
+		Description = "E-commerce platform"
+		Version = "3.0.0"
+		ObjectVisibility = "Private"
 	#End
 
 	#Documentation
@@ -114,42 +115,42 @@ Module ECommerce
 }
 ~~~
 
-Defined in:
+KB Structure:
 ~~~
 Root Module
 └── ECommerce (Module)
-    ├── Catalog (Module)
-    │   ├── ProductSearch (DataProvider, Public)
-    │   ├── ProductDetails (Procedure, Public)
-    │   └── ProductInfo (SDT, Public)
-    ├── Cart (Module)
-    │   ├── AddToCart (Procedure, Public)
-    │   ├── GetCart (Procedure, Public)
-    │   └── CartItem (SDT, Public)
-    └── Shared (Folder)
-        ├── Logger (Procedure, Private)
-        └── EmailService (Procedure, Private)
+	├── Catalog (Module)
+	│	├── ProductSearch (DataProvider, Public)
+	│	├── ProductDetails (Procedure, Public)
+	│	└── ProductInfo (SDT, Public)
+	├── Cart (Module)
+	│	├── AddToCart (Procedure, Public)
+	│	├── GetCart (Procedure, Public)
+	│	└── CartItem (SDT, Public)
+	└── Shared (Folder)
+			├── Logger (Procedure, Private)
+			└── EmailService (Procedure, Private)
 ~~~
 
 Saved as:
 ~~~
 <output-directory>/
-  Root.module.yaml
-  ECommerce/
-    ECommerce.module.gx
-    Catalog/
-      Catalog.module.gx
-      ProductSearch.dp.gx
-      ProductDetails.procedure.gx
-      ProductInfo.sdt.gx
-    Cart/
-      Cart.module.gx
-      AddToCart.procedure.gx
-      GetCart.procedure.gx
-      CartItem.sdt.gx
-    Shared/
-      Logger.procedure.gx
-      EmailService.procedure.gx
+	Root.module.yaml
+	ECommerce/
+		ECommerce.module.gx
+		Catalog/
+			Catalog.module.gx
+			ProductSearch.dp.gx
+			ProductDetails.procedure.gx
+			ProductInfo.sdt.gx
+		Cart/
+			Cart.module.gx
+			AddToCart.procedure.gx
+			GetCart.procedure.gx
+			CartItem.sdt.gx
+		Shared/
+			Logger.procedure.gx
+			EmailService.procedure.gx
 ~~~
 
 ## Example 3
@@ -158,10 +159,11 @@ Module for distribution with Public API
 Module PaymentSDK
 {
 	#Properties
-		"Description" = "Payment processing SDK"
-		"Version" = "2.1.0"
-		"Object Visibility" = "Private"
+		Description = "Payment processing SDK"
+		Version = "2.1.0"
+		ObjectVisibility = "Private"
 	#End
+
 	#Documentation
 		# Payment SDK
 
@@ -174,36 +176,36 @@ Module PaymentSDK
 }
 ~~~
 
-Defined in:
+KB Structure:
 ~~~
 Root Module
 └── PaymentSDK (Module)
-    ├── API (Folder)
-    │   ├── ProcessPayment (Procedure, Public)
-    │   ├── GetPaymentStatus (Procedure, Public)
-    │   └── RequestRefund (Procedure, Public)
-    ├── Models (Folder)
-    │   ├── PaymentInfo (SDT, Public)
-    │   └── RefundInfo (SDT, Public)
-    └── Internal (Folder)
-        ├── ValidateCard (Procedure, Private)
-        └── EncryptData (Procedure, Private)
+	├── API (Folder)
+	│	├── ProcessPayment (Procedure, Public)
+	│	├── GetPaymentStatus (Procedure, Public)
+	│	└── RequestRefund (Procedure, Public)
+	├── Models (Folder)
+	│	├── PaymentInfo (SDT, Public)
+	│	└── RefundInfo (SDT, Public)
+	└── Internal (Folder)
+			├── ValidateCard (Procedure, Private)
+			└── EncryptData (Procedure, Private)
 ~~~
 
 Saved as:
 ~~~
 <output-directory>/
-  Root.module.yaml
-  PaymentSDK/
-    PaymentSDK.module.gx
-    API/
-      ProcessPayment.procedure.gx
-      GetPaymentStatus.procedure.gx
-      RequestRefund.procedure.gx
-    Models/
-      PaymentInfo.sdt.gx
-      RefundInfo.sdt.gx
-    Internal/
-      ValidateCard.procedure.gx
-      EncryptData.procedure.gx
+	Root.module.yaml
+	PaymentSDK/
+		PaymentSDK.module.gx
+		API/
+			ProcessPayment.procedure.gx
+			GetPaymentStatus.procedure.gx
+			RequestRefund.procedure.gx
+		Models/
+			PaymentInfo.sdt.gx
+			RefundInfo.sdt.gx
+		Internal/
+			ValidateCard.procedure.gx
+			EncryptData.procedure.gx
 ~~~

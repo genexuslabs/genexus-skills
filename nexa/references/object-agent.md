@@ -46,7 +46,7 @@ Where:
 - `<rules>`: Business logic rules (parm, context, use)
 - `<variables>`: Variable definitions with mandatory `DataType`
 - `<properties>`: Optional object properties in TOML syntax
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 ---
 

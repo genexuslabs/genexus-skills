@@ -46,8 +46,8 @@ Where:
 - `<parameters>`: Input parameter list, possibly empty, including names and definitions
 - `<filters>`: Boolean filter (comparisons, operators, formulas, functions, methods)
 - `<orders>`: Sorting expression combining attributes and formulas
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-query.md))
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-query.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 Notes:
 - Attributes specified in the `<expressions>`, `<filters>`, and `<orders>` sections must be previously defined in Transaction objects
@@ -157,8 +157,8 @@ Query AvgUserAgeByGender
     #End
 
 	#Properties
-		"Title" = "Average user age by gender"
-		"Output Type" = "Card"
+		Title = "Average user age by gender"
+		OutputType = "Card"
 	#End
 }
 ~~~
@@ -186,8 +186,8 @@ Query MonthlySales
     #End
 
 	#Properties
-		"Title" = "Monthly sales in date range"
-		"Output Type" = "Pivot Table"
+		Title = "Monthly sales in date range"
+		OutputType = "Pivot Table"
 	#End
 }
 ~~~
@@ -209,8 +209,8 @@ Query CustomersWithSales
     #End
 
 	#Properties
-		"Title" = "Number of customers with sales"
-		"Output Type" = "Chart"
+		Title = "Number of customers with sales"
+		OutputType = "Chart"
 	#End
 }
 ~~~
@@ -234,8 +234,8 @@ Query DeathsPerYearAndCountry
     #End
 
 	#Properties
-		"Title" = "Total deaths by year and country"
-		"Output Type" = "Chart"
+		Title = "Total deaths by year and country"
+		OutputType = "Chart"
 	#End
 }
 ~~~

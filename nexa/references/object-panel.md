@@ -56,8 +56,8 @@ Where:
 - `<conditions>`: Boolean filters (comparisons, operators, functions, formulas); multiple lines imply `AND`
 - `<variables>`: Variable definitions with `DataType`
 - `<layout>`: GXML layout definition (XML-based) for structure and control composition
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-panel.md))
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-panel.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 
 ---
@@ -342,8 +342,8 @@ Panel CustomerList
 	#End
 
 	#Properties
-		"Caption" = "Products List"
-		"Style" = "MyDesignSystem"
+		Caption = "Products List"
+		Style = "MyDesignSystem"
 	#End
 }
 ~~~
@@ -436,8 +436,8 @@ Panel ProductDetail
 	#End
 
 	#Properties
-		"Caption" = "Product Detail"
-		"Style" = "MyDesignSystem"
+		Caption = "Product Detail"
+		Style = "MyDesignSystem"
 	#End
 }
 ~~~

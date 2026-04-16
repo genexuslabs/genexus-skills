@@ -40,8 +40,8 @@ Where:
 - `<member>`: Member definition with `DataType` property
 - `<sub-item>`: Nested substructure following `<item-name>` syntax
 - `<collection>`: True if item is collection, False otherwise (omit brackets if False)
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-structured-data-type.md))
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-structured-data-type.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 ---
 

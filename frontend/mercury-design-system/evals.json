@@ -1,0 +1,91 @@
+{
+  "skill_name": "mercury-design-system",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a React app with Chameleon components: ch-sidebar with ch-navigation-list-render, ch-tab-render for content tabs, and a form with ch-edit, ch-checkbox, and ch-combo-box-render. I need to add Mercury styling. Show me the getBundles call with all the correct bundles and how to wire ch-theme.",
+      "expected_output": "Correct getBundles with sidebar, navigation-list, tab, edit, checkbox, combo-box, utils/form. ch-theme as sibling. CSS class 'input' on ch-edit. Label class on labels. field-group and field-block on form containers.",
+      "assertions": [
+        {"type": "contains", "value": "getBundles", "description": "Uses getBundles function"},
+        {"type": "contains", "value": "components/sidebar", "description": "Includes sidebar bundle"},
+        {"type": "contains", "value": "components/navigation-list", "description": "Includes navigation-list bundle"},
+        {"type": "contains", "value": "components/tab", "description": "Includes tab bundle"},
+        {"type": "contains", "value": "components/edit", "description": "Includes edit bundle"},
+        {"type": "contains", "value": "components/checkbox", "description": "Includes checkbox bundle"},
+        {"type": "contains", "value": "components/combo-box", "description": "Includes combo-box bundle"},
+        {"type": "contains", "value": "utils/form", "description": "Includes utils/form bundle for labels and field layout"},
+        {"type": "contains", "value": "class=\"input\"", "description": "Uses 'input' CSS class for ch-edit (not 'edit')"},
+        {"type": "contains", "value": "class=\"label\"", "description": "Uses 'label' CSS class on label elements"},
+        {"type": "contains", "value": "field-group", "description": "Uses field-group class for form container"},
+        {"type": "not_contains", "value": "components/tabular-grid", "description": "Does NOT include tabular-grid (not needed for ch-edit)"},
+        {"type": "not_contains", "value": "components/dropdown", "description": "Does NOT include dropdown (only for ch-action-menu-render)"},
+        {"type": "structural", "value": "ch-theme as sibling", "description": "ch-theme placed as sibling, not wrapping children"}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need to set up Mercury in a new Angular project from scratch. The app will use the Globant theme with dark mode support. Walk me through the full installation and configuration.",
+      "expected_output": "Complete Angular installation with correct imports, mercury CLI (not mercury-build), --globant flag, dark class on html.",
+      "assertions": [
+        {"type": "contains", "value": "@genexus/mercury", "description": "Installs Mercury package"},
+        {"type": "contains", "value": "registerMercury", "description": "Calls registerMercury"},
+        {"type": "contains", "value": "setBundleMapping", "description": "Sets bundle mapping"},
+        {"type": "contains", "value": "@genexus/chameleon-controls-library/dist/collection", "description": "Correct registryProperty import path"},
+        {"type": "contains", "value": "bundle-to-hash-mappings", "description": "Correct bundleToHashMappings import"},
+        {"type": "contains", "value": "--globant", "description": "Uses --globant flag for Globant theme"},
+        {"type": "contains", "value": "class=\"dark\"", "description": "Sets dark class on html tag"},
+        {"type": "not_contains", "value": "mercury-build", "description": "Does NOT use mercury-build (correct command is mercury)"}
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I'm building a chat interface with ch-chat that has a code block viewer (ch-code), a markdown response area (ch-markdown-viewer), and action buttons. I need all the Mercury bundles and the correct CSS classes for the buttons (primary action and secondary). What bundles do I need and what classes go on the buttons?",
+      "expected_output": "Bundles: components/chat, components/markdown-viewer, components/button. No components/code needed (markdown-viewer includes it). No separate send button (ch-chat has one). button-primary and button-secondary classes.",
+      "assertions": [
+        {"type": "contains", "value": "components/chat", "description": "Includes chat bundle"},
+        {"type": "contains", "value": "components/markdown-viewer", "description": "Includes markdown-viewer bundle"},
+        {"type": "contains", "value": "components/button", "description": "Includes button bundle"},
+        {"type": "contains", "value": "button-primary", "description": "Uses button-primary class"},
+        {"type": "contains", "value": "button-secondary", "description": "Uses button-secondary class"},
+        {"type": "not_contains", "value": "components/dropdown", "description": "Does NOT include dropdown for regular buttons"},
+        {"type": "structural", "value": "ch-theme as sibling", "description": "ch-theme placed as sibling, not wrapping children"}
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Build me a settings page with Mercury styling. It should have a page title, a subtitle explaining the page, a form with name, email, and role fields (role is a dropdown), and save/cancel buttons at the bottom. I don't have a Figma design — just vibe code it following Mercury guidelines.",
+      "expected_output": "Uses heading-1 or heading-2 for title, subtitle-* for description, form with field-group/field-block/label/input classes, ch-edit for inputs, ch-combo-box-render for role dropdown, button-primary for save, button-tertiary for cancel, proper typography classes, Mercury spacing, design tokens for colors.",
+      "assertions": [
+        {"type": "contains", "value": "heading-", "description": "Uses Mercury heading class (heading-1 or heading-2)"},
+        {"type": "contains", "value": "subtitle-", "description": "Uses Mercury subtitle class for page description"},
+        {"type": "contains", "value": "field-group", "description": "Uses field-group for form layout"},
+        {"type": "contains", "value": "field-block", "description": "Uses field-block for vertical label+control"},
+        {"type": "contains", "value": "class=\"label\"", "description": "Uses label class on form labels"},
+        {"type": "contains", "value": "class=\"input\"", "description": "Uses input class on ch-edit"},
+        {"type": "contains", "value": "ch-combo-box-render", "description": "Uses ch-combo-box-render for dropdown (not native select)"},
+        {"type": "contains", "value": "button-primary", "description": "Uses button-primary for Save"},
+        {"type": "contains", "value": "button-tertiary", "description": "Uses button-tertiary for Cancel"},
+        {"type": "contains", "value": "utils/typography", "description": "Includes typography bundle"},
+        {"type": "contains", "value": "utils/form", "description": "Includes form bundle"},
+        {"type": "not_contains", "value": "<select", "description": "Does NOT use native select element"},
+        {"type": "not_contains", "value": "<input", "description": "Does NOT use native input element"},
+        {"type": "not_contains", "value": "heading-h", "description": "Does NOT use wrong heading-h* class names"}
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "I have a Figma design where text uses font-size 14px with font-weight Regular (400), and a heading at 32px Bold (700). There's a border color #B3B3B3, a background #749519, and text color #3B3B3B. Convert these to Mercury classes and tokens.",
+      "expected_output": "body-regular-m for 14px text (noting Figma Regular 400 = Mercury Light 300), heading-2 for 32px heading, --color-border-neutral-default for #B3B3B3, --color-accent-primary-default for #749519, --color-text-neutral-default for #3B3B3B. Explains Figma font-weight bug.",
+      "assertions": [
+        {"type": "contains", "value": "body-regular-m", "description": "Maps 14px Regular to body-regular-m"},
+        {"type": "contains", "value": "heading-2", "description": "Maps 32px Bold to heading-2"},
+        {"type": "contains", "value": "--color-border-neutral-default", "description": "Maps #B3B3B3 to border-neutral-default"},
+        {"type": "contains", "value": "--color-accent-primary-default", "description": "Maps #749519 to accent-primary-default"},
+        {"type": "contains", "value": "--color-text-neutral-default", "description": "Maps #3B3B3B to text-neutral-default"},
+        {"type": "contains", "value": "100", "description": "Mentions the Figma font-weight -100 rule"},
+        {"type": "not_contains", "value": "heading-h2", "description": "Does NOT use wrong heading-h2 class name"},
+        {"type": "not_contains", "value": "font-weight: 400", "description": "Does NOT use raw Figma font-weight value"}
+      ]
+    }
+  ]
+}
