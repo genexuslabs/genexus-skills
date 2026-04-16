@@ -22,7 +22,7 @@ Syntax: Attribute name suffixed with asterisk `*`
 Keypoints:
 - Must be first attribute(s) in level
 - Cannot be null
-- Enforces uniqueness automatically
+- Enforces uniqueness; automatically raises errors on duplicates
 - Can be simple (single attribute) or compound (multiple attributes)
 
 Patterns:
