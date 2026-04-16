@@ -216,7 +216,7 @@ EndEvent
 	* STRONG: separate transactions with FK references
 	* WEAK: sublevel within transaction
 - Include [common-standard-variables](./common-standard-variables.md) according to transaction context
-- Business Component property enables programmatic access
+- Only enable `Business Component` property for programmatic access
 - Never place events, rules, triggers outside syntax scope
 - Never define attribute properties with `.` notation as they are design-time only
 - Only define `Table`/`Index` objects when requested or model-required
