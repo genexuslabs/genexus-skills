@@ -209,9 +209,6 @@ EndEvent
 - Every extended attribute (including FK) must be declared with empty brackets `[]`; properties inferred from referenced transaction
 - Never duplicate attribute names within transaction including sublevels
 - Never include properties for FK, Extended, or Subtyped attributes
-- Rules use syntax: `<rule> [IF <condition>] [ON <trigger>];`
-- Events use syntax: `Event <name> [<qualifier>]`
-- Qualifiers: `[WEB]`, `[WIN]`, `[TEXT]`, `[BC]`
 - Determine STRONG vs WEAK relationship based on entity independence:
 	* STRONG: separate transactions with FK references
 	* WEAK: sublevel within transaction
