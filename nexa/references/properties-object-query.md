@@ -8,6 +8,7 @@ Use this file to select editable Query properties
 ---
 
 # GENERAL
+Include [General](./properties-common.md) properties
 
 ## Title
 - Description: Label shown in generated UI and tooling

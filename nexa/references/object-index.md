@@ -37,7 +37,7 @@ Where:
 	* Use `I` when defining for PK index names
 	* Use `U` when defining for non-PK user or custom index names
 - `<attributes>`: Ordered attribute list, one attribute per line
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-index.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-index.md)
 - `<type>`: Defines index behavior; values:
 	* `Duplicate` (default): Can have duplicated values
 	* `NoDuplicate`: No PK but unique, exclusive for `DataView` objects

@@ -54,8 +54,8 @@ Where:
 - `<elements>`: Assignments to SDT members or BC properties; must belong to the corresponding structure
 - `<rules>`: Business rules globally applied; includes parameter definitions and other logic
 - `<variables>`: All variables used in the object; each must define the mandatory `DataType` property
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-data-provider.md))
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-data-provider.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 Notes:
 - Groups must always be defined in terms of an existing SDT or BC structure
@@ -211,7 +211,7 @@ DataProvider LoadChartConstants
 	#End
 
 	#Properties
-		"Infer Structure" = "Yes, if SDT is dynamic"
+		InferStructure = "Yes, if SDT is dynamic"
 	#End
 }
 ~~~
@@ -248,9 +248,9 @@ DataProvider LoadTabs
 	#End
 
 	#Properties
-		"Output" = "Tab" // an existing SDT element
-		"Collection" = true
-		"Collection Name" = "Tabs"
+		Output = "Tab" // an existing SDT element
+		Collection = true
+		CollectionName = "Tabs"
 	#End
 }
 ~~~
@@ -289,7 +289,7 @@ DataProvider LoadRSS
 	#End
 
 	#Properties
-		"Output" = "RSS" // an existing SDT element
+		Output = "RSS" // an existing SDT element
 	#End
 }
 ~~~
@@ -317,9 +317,9 @@ DataProvider Employees
 	#End
 
 	#Properties
-		"Infer Structure" = "Yes, if SDT is dynamic"
-		"Expose as Web Service" = true
-		"Web Service Protocol" = "REST Protocol"
+		InferStructure = "Yes, if SDT is dynamic"
+		ExposeAsWebService = true
+		WebServiceProtocol = "REST Protocol"
 	#End
 }
 ~~~
@@ -356,7 +356,7 @@ DataProvider ListActivePartners
 	#End
 
 	#Properties
-		"Output" = "PartnerCollection" // an existing SDT defined as a collection with items defined as 'PartnerCollectionItem'
+		Output = "PartnerCollection" // an existing SDT defined as a collection with items defined as 'PartnerCollectionItem'
 	#End
 }
 ~~~
@@ -441,9 +441,9 @@ DataProvider GetSimilarCountries
 	#End
 
 	#Properties
-		"Output" = "CountryData" // an existing SDT element
-		"Collection" = true
-		"Collection Name" = "CountryCollection"
+		Output = "CountryData" // an existing SDT element
+		Collection = true
+		CollectionName = "CountryCollection"
 	#End
 }
 ~~~
@@ -477,7 +477,7 @@ DataProvider LoadSubEmployees
 	#End
 
 	#Properties
-		"Output" = "SubEmployees" // an existing SDT element
+		Output = "SubEmployees" // an existing SDT element
 	#End
 }
 ~~~

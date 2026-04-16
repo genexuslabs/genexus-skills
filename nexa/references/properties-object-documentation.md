@@ -8,6 +8,7 @@ Use this file to select editable Documentation properties
 ---
 
 # GENERAL
+Include [General](./properties-common.md) properties
 
 ## Synchronize with External Wiki
 - Description: Synchronizes documentation with configured external wiki

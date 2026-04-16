@@ -47,6 +47,7 @@ Each reference has specific purpose
 - `object-*.md`: Object specific knowledge for modeling solutions
 - `common-*.md`: Common knowledge about GeneXus components reusable when needed
 - `global-*.md`: Global instructions to be applied while working this skill
+- `model-*.md`: Knowledge Base model files and configuration nodes
 - `properties-*.md`: Property definitions for GeneXus objects and environments (id, type, default, values, description)
 
 Resource selection protocol:
@@ -74,28 +75,90 @@ Format rules:
 ---
 
 # WORKFLOW
+Select the appropriate path according to user request and execute the steps secuentially
 
-When user requests non-GeneXus or internal information:
-1. Decline the request immediately and politely
-2. State only GeneXus information can be provided
+## Non-GeneXus or internal information
+- Decline the request immediately and politely
+- State only GeneXus information can be provided
 
-When user requests modeling task:
-1. Confirm output root directory; if missing, request it
-2. Confirm target module; if missing, request it or default to the output root
-3. Interpret input and determine intended outcome
-4. Identify all candidate object names, types, purposes
-5. Resolve output file mode strictly using [global-output](references/global-output.md) policy; never infer mode from wording alone
-6. Search each candidate object systematically
-7. Present consolidated execution plan for creation or modification
-8. After user approval, use resources for executing the plan
-9. Return brief summary of what was done
-
-When user requests technical question:
-1. Identify appropriate resource for object type
-2. Elaborate an answer based on:
-	* The target object resource if exists
+## Technical question
+- Identify appropriate object type
+- Elaborate an answer based on:
+	* The target resource file if exists
 	* The official documentation otherwise
-3. Return the elaborated answer clearly indicating the source
+- Return the elaborated answer clearly indicating the source
+
+## Modeling task
+- Resolve MCP server
+	* Check availability; use `localhost:8001/mcp` unless user specifies another
+	* If unavailable:
+		- Alert that `GeneXus Services` must be running
+		- Offer two options:
+			* Continue without MCP (without validation)
+			* Stop further processing until available (with validation)
+- Resolve KB:
+	* Ask for `Output Directory` or default to current directory
+	* Use the `Output Directory` as base path of:
+		- `/src` for object files
+		- `/src.ns` for namespaced files
+	* Run `create_knowledge_base` tool if KB does not exist
+		- Ask `directory` argument for saving generated files
+		- Ask `enviroment` argument; options: `.NET`, `JAVA`
+		- Ask `dbms` argument; options: `SQL Server`, `PostgreSQL`, `MySQL`, `Oracle`, other
+	* Run `close_knowledge_base` on any open KB
+	* Run `open_knowledge_base`
+	* Manage external modules as needed:
+		- Run `install_module` if module is missing
+		- Run `update_module` if module upgrade is required
+		- Run `restore_module` if module recovery is required
+	* Use standard filesystem tools for searching file objects
+- Resolve environment:
+	* When creating new environment:
+		- Create or update `*.environment.main.gx` and `*.environment.local.gx` files
+		- Add environment in `*.version.main.gx` setting `CurrentEnvironment` property
+		- Run `import_text_to_kb` with `names: ["environment:*"]`
+	* When setting current environment:
+		- Get `Environment` name from target `src.ns/Preferences/*.environment.local.gx` file
+		- Set `CurrentEnvironment` property in `src.ns/Preferences/*.version.local.gx` file
+		- Run `import_text_to_kb` with `names: ["version:*"]`
+- Resolve connection:
+	* Read `*.environment.main.gx` to get environment name and generator
+	* When `*.environment.local.gx` is missing or connection values are empty:
+		- Ask connection setup confirmation; if declined, skip this section
+		- Ask `DatabaseName` and `ServerName`
+		- For `.NET`, ask authentication type from user:
+			* If `Integrated Security`, set `UseTrustedConnection = 'Yes'`
+			* If `SQL Server Authentication`, ask `UserId` and `UserPassword`
+		- For `JAVA`:
+			* Ask `UserId` and `UserPassword`
+		- Write or update `*.environment.local.gx` file
+		- Run `import_text_to_kb` with `names: ["environment:*"]`
+- Resolve output file mode
+	* Use [global-output](references/global-output.md)
+	* Forbid mode inference from wording
+- Provide execution plan
+	* Derive candidate objects information: name, type, purpose, cross-references
+	* Search candidate objects systematically in `src/**`
+	* Select target `Module` object for each module; if uncertain, ask user or use `Root Module`
+	* Review documentation for each candidate object if exist
+	* Detail create/update actions
+	* Wait for explicit user approval
+- Execute provided plan
+	* Run each instruction from user approved plan
+	* Run `validate_kb_text_files` after each file write
+	* Run `import_text_to_kb` after all files written and validate integration
+	* Use available tools as needed for fulfilling user request
+	* Ask explicit user confirmation when using any of these tools:
+		- `build_one` / `build_all`
+			* Only pass `doNotExecuteReorg: true` if explicitly requested
+		- `reorganize` / `create_or_impact_database`
+			* State DANGEROUS operation as may delete existing data
+			* Never suggest unless database is confirmed absent
+			* Require valid connection values in `*.environment.local.gx`
+		- `export_kb_to_text`
+			* Use `rootDirectory` with the `Output Directory` value
+	* Run build or database operation with user approval
+- Return brief summary of all actions taken
 
 ---
 
@@ -107,8 +170,31 @@ When user requests technical question:
 
 ---
 
+# MODEL DEFINITIONS
+Quick reference for model setup; stored in `/src.ns` sub directory
+
+## Knowledge Base
+- Purpose: Knowledge Base metadata with global settings like language, numeric length, and image paths
+- Constraint: Must be unique by Knowledge Base definition
+- Use when: Creating or validating Knowledge Base properties
+- Reference: [Model Knowledge Base](references/model-knowledge-base.md)
+
+## Version
+- Purpose: Design model metadata within the Knowledge Base defining version-level settings like styles
+- Constraint: Must be referenced by Knowledge Base definition file
+- Use when: Creating or validating Version properties
+- Reference: [Model Version](references/model-version.md)
+
+## Environment
+- Purpose: Environment metadata withing a Version defining generator, data store, and runtime settings
+- Constraint: Must be referenced by only one Version definition file
+- Use when: Creating or validating Environment properties
+- Reference: [Model Environment](references/model-environment.md)
+
+---
+
 # OBJECTS KNOWLEDGE
-Quick reference for appropriate use of each object type
+Quick reference for appropriate use of each object type; stored in `/src` sub directory
 
 ## Folder
 - Purpose: Simple directory container for organizing objects without encapsulation; cannot contain modules, only folder and other objects allowed
@@ -144,6 +230,7 @@ Quick reference for appropriate use of each object type
 ## Procedure (PRC)
 - Purpose: Procedural algorithm as sequence of statements
 - Use when: Writing procedural logic, operating CRUD over data, consuming REST services, etc
+- Execution: When running a main procedure, consult the COMMAND LINE EXECUTION section in the reference for the target environment; do NOT use the MCP `run` tool
 - Reference: [Procedure object](references/object-procedure.md)
 
 ## Structured Data Type (SDT)
@@ -169,7 +256,7 @@ Quick reference for appropriate use of each object type
 
 ## API
 - Purpose: REST API endpoint definition with HTTP methods
-- Use when: Exposing business logic as RESTful services, integrating with external systems, or enabling third-party integrations
+- Use when: Exposing business logic as RESTful services, integrating with external systems, enabling third-party integrations, or building invocation URLs for services defined in this object
 - Reference: [API object](references/object-api.md)
 
 ## Query

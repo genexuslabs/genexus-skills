@@ -8,6 +8,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 ---
 
 # GENERAL
+Include [General](./properties-common.md) properties
 
 ## Type
 - Description: Integration kind used to consume the external implementation

@@ -8,10 +8,7 @@ Use this file to select editable Deployment Unit properties
 ---
 
 # GENERAL
-
-## Description
-- Description: Functional description used as metadata
-- Type: `string`
+Include [General](./properties-common.md) properties
 
 ## Version
 - Description: Deployment unit version used by release and deployment pipelines

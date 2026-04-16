@@ -8,7 +8,7 @@ Defines a `Deployment Unit` object (`DeploymentUnitCategory`) as a deployable gr
 ---
 
 # DEFINITION
-A `Deployment Unit` object defines a set of objects to be deployed together
+A `Deployment Unit` object (or `DPU`) defines a set of objects to be deployed together
 
 Typically, applications split deployment units by layers such as front office, backend, and services
 
@@ -33,8 +33,8 @@ DeploymentUnitCategory <name>
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
 - `<objects>`: List of object names to deploy together, one per line
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-deployment-unit.md))
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-deployment-unit.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 ---
 

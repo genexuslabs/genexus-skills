@@ -181,7 +181,7 @@ Transaction Attraction
 
 	Ticket
 	{
-		AttractionTicketId* [ DataType = 'Numeric(10.0)', Autonumber = 'True' ]
+		AttractionTicketId* [ DataType = 'Numeric(10.0)' ]
 		AttractionTicketType* [ DataType = 'TicketType' ]
 		AttractionTicketDescription [ DataType = 'VarChar(512)' ]
 		AttractionTicketPrice [ DataType = 'Numeric(7.3)' ]

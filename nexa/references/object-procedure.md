@@ -9,7 +9,7 @@ Defines executable code for business logic and data manipulation
 
 # DEFINITION
 
-A `Procedure` object contains executable code for business logic, data manipulation, and service implementation
+A `Procedure` object (or `PRC`) contains executable code for business logic, data manipulation, and service implementation
 
 ---
 
@@ -52,8 +52,8 @@ Where:
 - `<conditions>`: Conditional rules with when clauses
 - `<variables>`: Variable definitions with `DataType`
 - `<layout>`: Optional report layout definition in GXML when using `Print`, `Header`, or `Footer`
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-procedure.md))
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-procedure.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 ---
 
@@ -91,6 +91,50 @@ Choose one exposure mode:
 - Configure this object as a `Web Service` only when explicitly requested:
 	* Enable `Expose as Web Service` property
 	* Define `Web Service Protocol` property with the protocol requested
+
+---
+
+# COMMAND LINE EXECUTION
+Allows direct command-line execution after build (specification, generation, and compilation) using the target environment runtime
+
+Requires:
+- `MainProgram = true`
+- `CallProtocol = "Command Line"`
+
+Working directory resolution:
+1. Read `src.ns/Preferences/<ver-name>.version.main.gx` file
+2. Get `CurrentEnvironment` property value as `<env-name>`
+3. Read `src.ns/Preferences/<env-name>.environment.main.gx` file
+4. Get the `TargetPath` property value as `<target-path>`
+5. Navigate to `<kb-root>/<target-path>/web` as working directory
+
+## JAVA Environment
+```
+java -cp "build/classes/java/main;build/resources/main;lib/*;build/dependency/*" com.<package>.<prc-name>
+```
+
+Where:
+- `<package>`: Java package derived as follows:
+	1. Read the `gradle.properties` file
+	2. Get the `JAVA_PACKAGE_NAME_FOLDER` value
+	3. Replace `\\` with `.` from `JAVA_PACKAGE_NAME_FOLDER` value
+- `<prc-name>`: Procedure name in lowercase
+
+Notes:
+- On Unix/Linux use `:` instead of `;` as classpath separator
+
+## .NET Environment
+```
+dotnet ./bin/a<prc-name>.dll
+# or:
+./bin/a<prc-name>.exe
+```
+
+Where:
+- `<prc-name>`: Procedure name in lowercase
+
+Notes:
+- GeneXus prefixes the assembly with `a`; e.g. `LoadTestData` → `aloadtestdata.dll`
 
 ---
 
@@ -197,8 +241,8 @@ Procedure ListCustomers
 	#End
 
 	#Properties
-		"Expose as Web Service" = true
-		"Web Service Protocol" = "REST Protocol"
+		ExposeAsWebService = true
+		WebServiceProtocol = "REST Protocol"
 	#End
 }
 ~~~
@@ -590,8 +634,8 @@ Procedure GetGitVersion
 	#End
 
 	#Properties
-		"Main Program" = true
-		"Call Protocol" = "Command Line"
+		MainProgram = true
+		CallProtocol = "Command Line"
 	#End
 }
 ~~~

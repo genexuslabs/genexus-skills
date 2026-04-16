@@ -28,8 +28,8 @@ Domain <name>
 
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-domain.md))
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-domain.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 ---
 
@@ -59,6 +59,7 @@ Use [global-output](./global-output.md) with `<type>` value: `domain`
 - Define `Domain` object only under modules; folders are forbidden
 - Extend `Domain` object only from another domain; self-reference is forbidden
 - Reuse built-in [Semantic Domain objects](./common-semantic-types.md); no custom duplicates
+- `Autonumber` is NOT a valid `Domain` property; it is only available on `Attribute` definitions within a `Transaction`
 
 ---
 
@@ -70,8 +71,8 @@ Simple Domain
 Domain ProductPrice
 {
 	#Properties
-		"Data Type" = "Numeric(10.2)"
-		"Signed" = false
+		DataType = "Numeric(10.2)"
+		Signed = false
 	#End
 }
 ~~~
@@ -82,8 +83,8 @@ String Domain with Validation
 Domain ProductCode
 {
 	#Properties
-		"Data Type" = "VarChar(32)"
-		"Regular Expression" = "^[A-Z0-9_-]{3,32}$"
+		DataType = "VarChar(32)"
+		RegularExpression = "^[A-Z0-9_-]{3,32}$"
 	#End
 }
 ~~~
@@ -94,7 +95,8 @@ Enumeration Domain
 Domain OrderStatus
 {
 	#Properties
-		"EnumValues" = "Pending, Order is pending, Pending; Confirmed, Order confirmed, Confirmed; Shipped, Order shipped, Shipped; Delivered, Order delivered, Delivered; Cancelled, Order cancelled, Cancelled"
+		DataType = "Character(20)"
+		EnumValues = "Pending, Order is pending, Pending; Confirmed, Order confirmed, Confirmed; Shipped, Order shipped, Shipped; Delivered, Order delivered, Delivered; Cancelled, Order cancelled, Cancelled"
 	#End
 }
 ~~~
@@ -105,15 +107,15 @@ Extending Domain
 Domain PositiveInteger
 {
 	#Properties
-		"Data Type" = "Numeric(10.0)"
-		"Signed" = false
+		DataType = "Numeric(10.0)"
+		Signed = false
 	#End
 }
 
 Domain ProductQuantity
 {
 	#Properties
-		"Data Type" = "PositiveInteger"
+		DataType = "PositiveInteger"
 	#End
 }
 ~~~
@@ -124,8 +126,8 @@ Domain with Picture
 Domain NationalId
 {
 	#Properties
-		"Data Type" = "Numeric(11.0)"
-		"Picture" = "99.999.999-9"
+		DataType = "Numeric(11.0)"
+		Picture = "99.999.999-9"
 	#End
 }
 ~~~

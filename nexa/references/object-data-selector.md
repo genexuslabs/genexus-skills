@@ -8,7 +8,7 @@ Defines reusable filters for data queries with parameters and conditions
 ---
 
 # DEFINITION
-A `DataSelector` object defines reusable filter applied to data queries
+A `DataSelector` object (or `DS`) defines reusable filter applied to data queries
 
 ---
 
@@ -48,8 +48,8 @@ Where:
 - `<conditions>`: Boolean filters (comparisons, operators, functions, formulas); multiple lines imply `AND`
 - `<orders>`: Sorting attributes (comma-separated; compound allowed)
 - `<attributes>`: Attributes defining the base table when not inferred
-- `<properties>`: Optional object properties in TOML syntax (see [properties](./properties-object-data-selector.md))
-- `<documentation>`: Optional object documentation (check [common-markdown](./common-markdown.md))
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-data-selector.md)
+- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 Notes:
 - Attributes in `<conditions>`, `<orders>`, `<attributes>` must exist in Transactions
