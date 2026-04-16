@@ -94,6 +94,61 @@ Choose one exposure mode:
 
 ---
 
+# EMBEDDED NATIVE CODE
+Apply native code during target-specific code generation
+- Supported directives: `JAVA`, `CSHARP`; one per line
+- Use `[!&Var!]` syntax for embedding GeneXus variables
+
+Important:
+- Use only when strictly required for exceptional generator-specific logic
+- Primitive type mapping:
+	* `Boolean`:
+		* Java → `boolean`
+		* .NET → `bool`
+	* `Character`/`VarChar`/`LongVarChar`: 
+		* Java → `String`
+		* .NET → `string`
+	* `Numeric(X,Y)`:
+		- `Y > 0`:
+			* Java → `BigDecimal` if `UseDecimalArithmetic=Yes`, else `double`
+			* .NET → `decimal`
+		- `X <= 2`:
+			* Java → `byte`
+			* .NET → `short`
+		- `X <= 4`:
+			* Java → `short`
+			* .NET → `short`
+		- `X <= 9`:
+			* Java → `int`
+			* .NET → `int`
+		- `X <= 19`:
+			* Java → `long`
+			* .NET → `long`
+
+Example:
+~~~
+Procedure GetCurrentProcessId
+{
+	JAVA	[!&ProcessId!] = (int) ProcessHandle.current().pid();
+
+	CSHARP	#if NETCOREAPP
+	CSHARP	[!&ProcessId!] = System.Environment.ProcessId;
+	CSHARP	#else
+	CSHARP	[!&ProcessId!] = System.Diagnostics.Process.GetCurrentProcess().Id;
+	CSHARP	#endif
+
+	#Rules
+		parm(out: &ProcessId);
+	#End
+
+	#Variables
+		ProcessId [ DataType = 'Numeric(10.0)' ]
+	#End
+}
+~~~
+
+---
+
 # COMMAND LINE EXECUTION
 Allows direct command-line execution after build (specification, generation, and compilation) using the target environment runtime
 
