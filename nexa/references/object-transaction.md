@@ -202,23 +202,18 @@ EndEvent
 - Every attribute must have `DataType` property or empty brackets `[]`
 - Every attribute must be prefixed by Transaction or sublevel name
 - Primary key required (at least one attribute with `*`)
-- Only one description attribute (`!`) allowed
-- Surrogate PK when no natural identifier exists
-- Surrogate PK uses pattern `<name>Id` with `'Autonumber': 'True'`
-- `Autonumber` is only allowed on first-level primary key attributes; sublevel keys must NOT use `Autonumber`
-- Description attribute for user-friendly record display
-- Extended attributes infer properties from referenced transaction
-- FK attributes declared with empty brackets `[]`
+- Only one description attribute (`!`) allowed for user-friendly record display 
+- Only use surrogate PK with `<name>Id` name pattern when no natural identifier exists
+- Only use `Autonumber = 'True'` on first-level PK attributes with `Numeric(X.0)` data type
+- Only use `Serial` rule for autonumbering nested-level PK attributes
+- Every extended attribute (including FK) must be declared with empty brackets `[]`; properties inferred from referenced transaction
 - Never duplicate attribute names within transaction including sublevels
 - Never include properties for FK, Extended, or Subtyped attributes
-- Rules use syntax: `<rule> [IF <condition>] [ON <trigger>];`
-- Events use syntax: `Event <name> [<qualifier>]`
-- Qualifiers: `[WEB]`, `[WIN]`, `[TEXT]`, `[BC]`
 - Determine STRONG vs WEAK relationship based on entity independence:
 	* STRONG: separate transactions with FK references
 	* WEAK: sublevel within transaction
 - Include [common-standard-variables](./common-standard-variables.md) according to transaction context
-- Business Component property enables programmatic access
+- Only enable `Business Component` property for programmatic access
 - Never place events, rules, triggers outside syntax scope
 - Never define attribute properties with `.` notation as they are design-time only
 - Only define `Table`/`Index` objects when requested or model-required
@@ -263,6 +258,7 @@ Transaction Order
 	CustomerId []
 	CustomerName []
 	OrderDate [ DataType = 'Date' ]
+	OrderLastLine [ DataType = 'Numeric(10.0)' ]
 
 	OrderLine
 	{
@@ -276,6 +272,7 @@ Transaction Order
 
 	#Rules
 		Default(OrderDate, Today());
+		Serial(OrderLineId, OrderLastLine, 1);
 		LineTotal = Quantity * UnitPrice;
 	#End
 
