@@ -346,21 +346,6 @@ Rectangle control
     * Description: Per‑corner rounding radius
     * Type: `int`
 
-## Example
-~~~xml
-<layout type="Report" paperSize="A4">
-	<printBlock name="Header" height="60">
-		<label name="Title" text="Sales Report" x="20" y="20" width="240" height="16"/>
-		<image name="Logo" image="CompanyLogo" x="650" y="10" width="100" height="40"/>
-	</printBlock>
-	<printBlock name="Detail">
-		<line name="Separator" x="0" y="20" width="780" lineWidth="1"/>
-		<attribute name="InvoiceId" attribute="InvoiceId" x="20" y="4" width="120" height="14"/>
-		<attribute name="Amount" attribute="&amp;Amount" x="600" y="4" width="120" height="14" alignment="MiddleRight"/>
-	</printBlock>
-</layout>
-~~~
-
 ---
 
 # EXAMPLES
@@ -732,15 +717,36 @@ Procedure CustomerSalesReport
 	#Layout
 		<layout type="Report">
 			<printBlock name="Header" height="60">
-				<label name="Title" text="Customer Sales Report" x="20" y="20"/>
+				<label
+					name="Title"
+					text="Customer Sales Report"
+					x="20"
+					y="20"/>
 			</printBlock>
 			<printBlock name="ReportLine">
-				<attribute name="InvoiceId" attribute="InvoiceId" x="20" y="4"/>
-				<attribute name="InvoiceDate" attribute="InvoiceDate" x="180" y="4"/>
-				<attribute name="InvoiceAmount" attribute="InvoiceAmount" x="520" y="4" alignment="MiddleRight"/>
+				<attribute
+					name="InvoiceId"
+					attribute="InvoiceId"
+					x="20"
+					y="4"/>
+				<attribute
+					name="InvoiceDate"
+					attribute="InvoiceDate"
+					x="180"
+					y="4"/>
+				<attribute
+					name="InvoiceAmount"
+					attribute="InvoiceAmount"
+					x="520"
+					y="4"
+					alignment="MiddleRight"/>
 			</printBlock>
 			<printBlock name="Footer" height="40">
-				<label name="FooterText" text="Generated with GeneXus Procedure Layout" x="20" y="10"/>
+				<label
+					name="FooterText"
+					text="Generated with GeneXus Procedure Layout"
+					x="20"
+					y="10"/>
 			</printBlock>
 		</layout>
 	#End
