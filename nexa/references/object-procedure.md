@@ -179,7 +179,12 @@ Declarative XML-based report layout schema used in `#Layout` section
 - One `printBlock` per printed section; `name` matches `Print` command
 - Numeric values: no unit suffix
 - Colors values: hex or `Transparent` only, no alpha; e.g. `#FF0000`
-- Escape XML special characters; e.g. `&amp;` not `&`
+- Escape XML special characters; e.g. `&` (✘) → `&amp;` (✓)
+- Indent using tabs (`\t`); whitespaces forbidden
+- Indent attributes one tab deeper than the element
+- Expand element tags as multiline when more than two attributes
+- Place element name alone on opening line
+- Place one attribute per line
 
 ## Elements
 Layout elements with allowed attributes in XML definition
