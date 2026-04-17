@@ -125,28 +125,6 @@ Important:
 			* Java → `long`
 			* .NET → `long`
 
-Example:
-~~~
-Procedure GetCurrentProcessId
-{
-	JAVA	[!&ProcessId!] = (int) ProcessHandle.current().pid();
-
-	CSHARP	#if NETCOREAPP
-	CSHARP	[!&ProcessId!] = System.Environment.ProcessId;
-	CSHARP	#else
-	CSHARP	[!&ProcessId!] = System.Diagnostics.Process.GetCurrentProcess().Id;
-	CSHARP	#endif
-
-	#Rules
-		parm(out: &ProcessId);
-	#End
-
-	#Variables
-		ProcessId [ DataType = 'Numeric(10.0)' ]
-	#End
-}
-~~~
-
 ---
 
 # COMMAND LINE EXECUTION
@@ -804,6 +782,29 @@ Procedure GetGitVersion
 	#Properties
 		MainProgram = true
 		CallProtocol = "Command Line"
+	#End
+}
+~~~
+
+## Example 16
+Procedure with embedded native code
+~~~
+Procedure GetCurrentProcessId
+{
+	JAVA	[!&ProcessId!] = (int) ProcessHandle.current().pid();
+
+	CSHARP	#if NETCOREAPP
+	CSHARP	[!&ProcessId!] = System.Environment.ProcessId;
+	CSHARP	#else
+	CSHARP	[!&ProcessId!] = System.Diagnostics.Process.GetCurrentProcess().Id;
+	CSHARP	#endif
+
+	#Rules
+		parm(out: &ProcessId);
+	#End
+
+	#Variables
+		ProcessId [ DataType = 'Numeric(10.0)' ]
 	#End
 }
 ~~~
