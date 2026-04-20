@@ -201,12 +201,12 @@ Example:
 Transaction Invoice
 {
 	InvoiceId* [ DataType = 'Numeric(10.0)' ]
-	Subtotal [ DataType = 'Numeric(10.2)' ]
-	TaxRate [ DataType = 'Numeric(3.2)' ]
-	TotalAmount
+	InvoicePrice [ DataType = 'Numeric(10.2)' ]
+	InvoiceTaxRate [ DataType = 'Numeric(3.2)' ]
+	InvoiceTotalAmount
 	[
 		DataType = 'Numeric(10.2)',
-		Formula = 'Subtotal * (1 + TaxRate / 100)'
+		Formula = 'InvoicePrice * (1 + InvoiceTaxRate / 100)'
 	]
 }
 ~~~
