@@ -12,19 +12,19 @@ Synchronous request-response invocation
 
 Syntax:
 ~~~
-&Result = <agent-name>.Call([<arg-1>, …, <arg-N>] [, <chat-history>] [, <call-result>])
+&Result = <agent-name>.Call([<arg-1>, …, <arg-N, ]<chat-history>, <call-result>)
 ~~~
 
 Short syntax (equivalent, preferred when clear):
 ~~~
-&Result = <agent-name>([<arg-1>, …, <arg-N>] [, <chat-history>] [, <call-result>])
+&Result = <agent-name>([<arg-1>, …, <arg-N>, ]<chat-history>, <call-result>)
 ~~~
 
 Where:
 - `<agent-name>`: Existing `Agent` object
 - `<arg-i>`: Arguments aligned with agent `Parm` rule
-- `<chat-history>`: Optional variable based on `ChatMessage, GeneXus.ArtificialIntelligence` collection
-- `<call-result>`: Optional variable based on `CallResult, GeneXus.Common`
+- `<chat-history>`: Variable based on `ChatMessage, GeneXus.ArtificialIntelligence` collection
+- `<call-result>`: Variable based on `CallResult, GeneXus.Common`
 - `&Result`: Variable mapped to the `out:` parameter of the agent signature
 
 ---
@@ -34,13 +34,13 @@ Conversational invocation with context history
 
 Syntax:
 ~~~
-&ChatResult = <agent-name>.Chat([<arg-1>, …, <arg-N>, ]<chat-history>[, <call-result>])
+&ChatResult = <agent-name>.Chat([<arg-1>, …, <arg-N>, ]<chat-history>, <call-result>)
 ~~~
 
 Where:
 - `&ChatResult`: Variable based on `ChatResult, GeneXus.ArtificialIntelligence`
 - `<chat-history>`: Variable based on `ChatMessage, GeneXus.ArtificialIntelligence` collection
-- `<call-result>`: Optional variable based on `CallResult, GeneXus.Common`
+- `<call-result>`: Variable based on `CallResult, GeneXus.Common`
 
 ---
 
@@ -50,7 +50,7 @@ Where:
 
 Example:
 ~~~
-&Answer = MyAgent.Call(&Question, &CallResult)
+&Answer = MyAgent.Call(&Question, &ChatMessage, &CallResult)
 If &CallResult.Fail()
 	For &Message in &CallResult.GetMessages()
 		msg(Format(!"%2 (%1): %3", &Message.Id, &Message.Type, &Message.Description), status)
