@@ -312,9 +312,7 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 ---
 
 # PROPERTIES KNOWLEDGE
-Property definitions use a common schema and index in [properties](references/properties.md)
-
-Load object-specific property files through each corresponding `object-*.md` reference
+Check [properties](references/properties.md); load on-demand for each target `object-*.md` file
 
 ---
 
