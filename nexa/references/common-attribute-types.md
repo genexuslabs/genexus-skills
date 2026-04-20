@@ -182,7 +182,7 @@ Transaction Flight
 Virtual attribute whose value is calculated dynamically using expression
 
 Keypoints:
-- Not physically stored (unless Redundant property set)
+- Not physically stored unless `Redundant = 'True'`
 - Defined via `Formula` property
 - Recalculated on access
 - Can reference other attributes, variables, functions
@@ -221,10 +221,9 @@ Constraints:
 Formula or Extended attribute physically stored for performance
 
 Keypoints:
-- Either Formula or Extended marked as Redundant
+- Either Formula or Extended with `Redundant = 'True'`
 - Stored in table to avoid costly joins or recalculations
 - Automatically updated when source changes
-- Property: `Redundant = 'True'`
 
 Example (redundant formula):
 ~~~
