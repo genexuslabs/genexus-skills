@@ -200,6 +200,9 @@ Allowed event names:
 - `After Trn`
 - `Exit`
 - `'<custom-name>'`
+- `Insert`/`Update`/`Delete`
+	* Dynamic transaction only
+	* Optional `Messages` argument
 
 Example:
 ~~~
@@ -366,4 +369,106 @@ Saved as:
 Country.transaction.main.gx
 Country/
 └─ Country_DataProvider.dataprovider.main.gx
+~~~
+
+## Example 5
+Transaction with retrieve data (Dynamic Transaction) and updatable policy
+~~~
+Transaction Document
+{
+	DocumentType* [ DataType = 'DocType' ]
+	DocumentId* [ DataType = 'Numeric(8.0)' ]
+	DocumentDate [ DataType = 'Date' ]
+	DocumentAmount [ DataType = 'Numeric(10.2)' ]
+
+	#Properties
+		DataProvider = True
+		UsedTo = "Retrieve Data"
+		UpdatePolicy = "Updatable"
+	#End
+
+	#Variables
+		Invoice [ DataType = 'Invoice' ]
+		Receipt [ DataType = 'Receipt' ]
+		Messages [ DataType = 'Messages, GenXus.Common' ]
+	#End
+
+	#Events
+		Event Insert(&Messages)
+			Do Case
+				Case DocumentType = DocType.Invoice
+					&Invoice = new()
+					&Invoice.InvoiceDate = DocumentDate
+					&Invoice.InvoiceTotal = DocumentAmount
+					&Invoice.Insert()
+					&Messages = &Invoice.GetMessages()
+				Case DocumentType = DocType.Receipt
+					&Receipt = new()
+					&Receipt.ReceiptDate = DocumentDate
+					&Receipt.ReceiptTotal = DocumentAmount
+					&Receipt.Insert()
+					&Messages = &Receipt.GetMessages()
+			EndCase
+		EndEvent
+
+		Event Update(&Messages)
+			Do Case
+				Case DocumentType = DocType.Invoice
+					&Invoice.Load(DocumentId)
+					&Invoice.InvoiceDate = DocumentDate
+					&Invoice.InvoiceTotal = DocumentAmount
+					&Invoice.Update()
+					&Messages = &Invoice.GetMessages()
+				Case DocumentType = DocType.Receipt
+					&Receipt.Load(DocumentId)
+					&Receipt.ReceiptDate = DocumentDate
+					&Receipt.ReceiptTotal = DocumentAmount
+					&Receipt.Update()
+					&Messages = &Receipt.GetMessages()
+			EndCase
+		EndEvent
+
+		Event Delete(&Messages)
+			Do Case
+				Case DocumentType = DocType.Invoice
+					&Invoice.Load(DocumentId)
+					&Invoice.Delete()
+					&Messages = &Invoice.GetMessages()
+				Case DocumentType = DocType.Receipt
+					&Receipt.Load(DocumentId)
+					&Receipt.Delete()
+					&Messages = &Receipt.GetMessages()
+			EndCase
+		EndEvent
+	#End
+}
+~~~
+
+DataProvider with Invoice and Receipt tables retrieval
+~~~
+DataProvider Document_DataProvider
+{
+	Document from Invoice
+	{
+		DocumentType = 1
+		DocumentId = InvoiceId
+		DocumentDate = InvoiceDate
+		DocumentAmount = InvoiceTotal
+	}
+
+	Document from Receipt
+	{
+		DocumentType = 2
+		DocumentId = ReceiptId
+		DocumentDate = ReceiptDate
+		DocumentAmount = ReceiptTotal
+	}
+}
+~~~
+
+Saved as:
+~~~
+Document.transaction.main.gx
+Document/
+└─ Document_DataProvider.dataprovider.main.gx
 ~~~
