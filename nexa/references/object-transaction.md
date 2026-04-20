@@ -58,15 +58,14 @@ Where:
 # OUTPUT
 Use [global-output](./global-output.md) with `<type>` value: `transaction`
 
-Related artifacts:
-- `Table` artifacts must use `<name>` equal to the `Transaction` name
-- `Index` artifacts must use each index identifier (`<index-name>`) declared for owner tables
-- Single-file:
-	* `Table`: `<name>.table.main.gx`
-	* `Index`: `<index-name>.index.main.gx` (one index object per file)
-- Multi-file:
-	* `Table`: `<name>.table.main.gx`, `<name>.table.properties.toml`, `<name>.table.documentation.md`
-	* `Index`: `<index-name>.index.main.gx`, `<index-name>.index.properties.toml`
+Workflow:
+- Create or update `Transaction` artifact
+- Execute `import_text_to_kb` tool; on failure, stop
+- Execute `export_kb_to_text` tool
+- Inspect `<name>.table.main.gx` artifacts and read `#Index` section
+- Extract `Index` names and validate their `*.index.main.gx` artifacts
+- Create or update only user `Index` if requested or for 1:1 relationships (unique FK)
+- Update `Table` artifacts `#Indexes` section only with missing user `Index` names
 
 ---
 
@@ -85,7 +84,7 @@ Modeling rules:
 - Model 1:N with FK on the N-side `Transaction` using `[]` for inferred FK and extended attributes
 - Model 1:1 as 1:N plus a user `Index` defined as `Unique` on the FK key at N-side table
 
-Example:
+Example (1:N)
 ~~~
 Transaction Country
 {
@@ -93,12 +92,39 @@ Transaction Country
 	CountryName! [ DataType = 'VarChar(64)' ]
 }
 
-Transaction City
+Transaction User
 {
-	CityId* [ DataType = 'Numeric(10.0)' ]
-	CountryId* []
+	UserId* [ DataType = 'Numeric(10.0)' ]
+	UserName! [ DataType = 'VarChar(64)' ]
+	CountryId []
 	CountryName []
-	CityName! [ DataType = 'VarChar(64)' ]
+}
+~~~
+
+
+Example (1:1)
+~~~
+Transaction Order
+{
+	OrderId* [ DataType = 'Numeric(10.0)' ]
+	OrderDate [ DataType = 'Date' ]
+}
+
+Transaction Payment
+{
+	PaymentId* [ DataType = 'Numeric(10.0)' ]
+	OrderId* []
+	PaymentAmount [ DataType = 'Numeric(10.2)' ]
+}
+
+Index UPaymentByOrder
+{
+	OrderId
+
+	#Index
+		Source = "User"
+		Type = "Unique"
+	#End
 }
 ~~~
 
@@ -236,7 +262,6 @@ EndEvent
 - Never place events, rules, triggers outside syntax scope
 - Never define attribute properties with `.` notation as they are design-time only
 - Never combine `Formula` property and `Assign` rule over same attribute
-- Only define `Table`/`Index` objects when requested or model-required
 
 ---
 
