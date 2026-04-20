@@ -140,16 +140,32 @@ See [common-business-component](./common-business-component.md)
 
 ---
 
-# DYNAMIC TRANSACTION
-A dynamic transaction allows changing transaction behavior at runtime based on metadata and context when the `Dynamic Transaction` property is enabled
+# DATA PROVIDER ASSOCIATION
+Enable `DataProvider = True` to associate a `DataProvider` child object
 
-Use when:
-- Structure or behavior cannot be fully fixed at design time
-- Runtime metadata drives attribute participation, validation, or flow
+Modes:
+- `Populate Transaction`
+	* Purpose: Load seed/fixed data into physical tables
+	* Use when: Entity must preload persistent data after build
+	* Define `UsedTo = "Populate Data"`
+	* Requires idempotent `DataProvider` using explicit PKs or stable matching key
+	* Side effects: `BusinessComponent = True` (Transaction), `MainProgram = True` (DataProvider)
+- `Dynamic Transaction`
+	* Purpose: Retrieve data without creating physical tables
+	* Use when: Entity acts as a retrieval contract
+	* Define `UsedTo = "Retrieve Data"`
+	* Requires explicit `Insert`/`Update`/`Delete` event coding
+
+Structure:
+~~~
+<name>.transaction.main.gx
+<name>/
+	<name>_DataProvider.dataprovider.main.gx
+~~~
 
 Constraints:
-- Keep persistence semantics explicit
-- Keep rules and events deterministic
+- Keep `DataProvider` object structure aligned with `Transaction` structure
+- Read [Data Provider](./object-data-provider.md) file for object definition
 
 ---
 
@@ -172,7 +188,7 @@ Constraints:
 ---
 
 # RULES
-see [common-rules](./common-rules.md)
+See [common-rules](./common-rules.md)
 
 ---
 
@@ -310,4 +326,44 @@ Transaction StudentCourse
 	#Variables
 	#End
 }
+~~~
+
+## Example 4
+Transaction with populate data
+~~~
+Transaction Country
+{
+	CountryId* [ DataType = 'Numeric(4.0)' ]
+	CountryName! [ DataType = 'VarChar(40)' ]
+
+	#Properties
+		DataProvider = True
+		UsedTo = "Populate Data"
+	#End
+}
+~~~
+
+DataProvider with seed data
+~~~
+DataProvider Country_DataProvider
+{
+	Country
+	{
+		CountryId = 1
+		CountryName = !"Uruguay"
+	}
+
+	Country
+	{
+		CountryId = 2
+		CountryName = !"Argentina"
+	}
+}
+~~~
+
+Saved as:
+~~~
+Country.transaction.main.gx
+Country/
+└─ Country_DataProvider.dataprovider.main.gx
 ~~~
