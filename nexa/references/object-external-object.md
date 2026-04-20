@@ -214,6 +214,7 @@ Use [global-output](./global-output.md) with `<type>` value: `externalobject`
 # CONSTRAINTS
 - Use [global-constraints](./global-constraints.md)
 - Keep one clear mapping per member for each target platform
+- Every value inside `[…]` blocks must use `'single-quoted'` strings without `!` prefix
 - Every parameter must define `AccessType` and `Type`
 - Every event parameter should define `Type`
 - Define `Type` in a method only when return value exists
