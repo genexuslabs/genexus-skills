@@ -235,6 +235,7 @@ EndEvent
 - Only enable `Business Component` property for programmatic access
 - Never place events, rules, triggers outside syntax scope
 - Never define attribute properties with `.` notation as they are design-time only
+- Never combine `Formula` property and `Assign` rule over same attribute
 - Only define `Table`/`Index` objects when requested or model-required
 
 ---
@@ -277,6 +278,11 @@ Transaction Order
 	CustomerId []
 	CustomerName []
 	OrderDate [ DataType = 'Date' ]
+	OrderTotal
+	[
+		DataType = 'Numeric(10.2)',
+		Formula = 'Sum(LineTotal)'
+	]
 	OrderLastLine [ DataType = 'Numeric(10.0)' ]
 
 	OrderLine
@@ -286,13 +292,16 @@ Transaction Order
 		ProductName []
 		Quantity [ DataType = 'Numeric(5.0)' ]
 		UnitPrice [ DataType = 'Numeric(10.2)' ]
-		LineTotal [ DataType = 'Numeric(10.2)' ]
+		LineTotal
+		[
+			DataType = 'Numeric(10.2)',
+			Formula = 'Quantity * UnitPrice'
+		]
 	}
 
 	#Rules
 		Default(OrderDate, Today());
 		Serial(OrderLineId, OrderLastLine, 1);
-		LineTotal = Quantity * UnitPrice;
 	#End
 
 	#Events

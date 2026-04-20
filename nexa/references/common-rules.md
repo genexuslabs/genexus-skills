@@ -72,6 +72,9 @@ TotalPrice = ProductPrice * Quantity;
 FinalPrice = TotalPrice - DiscountAmount IF DiscountPercentage > 0;
 ~~~
 
+Notes:
+- Never combine with `Formula` property on same attribute
+
 ## Default
 Assigns default value for a target element
 

@@ -214,6 +214,7 @@ Transaction Invoice
 Constraints:
 - Expression must be valid and type-compatible
 - Cannot be directly assigned (read-only)
+- Never combine with `Assign` rule on same attribute
 
 ---
 
