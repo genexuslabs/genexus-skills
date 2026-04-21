@@ -36,56 +36,38 @@ Table <name>
 
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
-- `<attributes>`: Attribute list, one attribute per line
-- `<indexes>`: Index names referenced by the table, one per line
+- `<attributes>`: Attribute name list, one per line; automatilly derived (do not edit)
+- `<indexes>`: Index names list, one per line
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-table.md)
 - `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
 
 Notes:
 - Attribute markers: `*` primary key, `!` description, `?` nullable
-- Section `#Indexes` lists referenced `Index` object names
-- Use extra user indexes only for frequent filtering or ordering
-- Avoid redundant indexes due to insert/update/delete maintenance cost
 
 ---
 
 # OUTPUT
 Use [global-output](./global-output.md) with `<type>` value: `table`
 
-Scoped filename for single-file mode:
-- `<name>.table.main.gx`
-
-Scoped filename for multi-file mode:
-- `<name>.table.main.gx`
-- `<name>.table.properties.toml`
-- `<name>.table.documentation.md`
-
-Where:
-- `<name>` matches the owner `Transaction` or `Transaction + Level` name
+Note: `<name>` matches the owner `Transaction` or `Transaction + Level` name
 
 ---
 
 # CONSTRAINTS
 - Use [global-constraints](./global-constraints.md)
-- Use PascalCase singular noun for table name
-- Include at least one PK attribute with `*`
-- Place PK attributes first
-- Never duplicate attribute names
-- Define PK index in `#Indexes`
-- Define FK indexes when table has FK attributes
-- Reference only existing `Index` object names
-- Keep 1:1 mapping between `#Indexes` entries and owner-table `Index` definitions
-- Never duplicate names in `#Indexes` region
-- For 1:1 over FK, enforce uniqueness with related index configuration
-- Use `I` prefix for PK index names in `#Indexes`
-- Use `U` prefix for non-PK user/custom index names in `#Indexes`
+- Never create `Table` objects
+- Never modify `<attribute>` list; auto-derived from ownner `Transaction` object
+- Only update `<indexes>` list with existing user `Index` object names
+- Never duplicate names in `<indexes>` list
+- Avoid redundant indexes; reduce mantainance cost
+- Ensure `Unique` user index for 1:1 relationships over FK attributes
 
 ---
 
 # EXAMPLES
 
 ## Example 1
-Single-level transaction and derived table
+Single-level transaction
 ~~~
 Transaction Country
 {
@@ -103,6 +85,7 @@ Transaction Country
 }
 ~~~
 
+Derived table with auto index reference
 ~~~
 Table Country
 {
@@ -116,7 +99,7 @@ Table Country
 ~~~
 
 ## Example 2
-Two-level transaction and derived tables
+Two-level transaction
 ~~~
 Transaction Company
 {
@@ -141,6 +124,7 @@ Transaction Company
 }
 ~~~
 
+Derived outer table
 ~~~
 Table Company
 {
@@ -151,7 +135,10 @@ Table Company
 		ICompany
 	#End
 }
+~~~
 
+Derived inner table
+~~~
 Table CompanyBranch
 {
 	CompanyId*
@@ -167,7 +154,7 @@ Table CompanyBranch
 ~~~
 
 ## Example 3
-Table with FK
+Transaction with FK
 ~~~
 Transaction Customer
 {
@@ -187,6 +174,7 @@ Transaction Customer
 }
 ~~~
 
+Derived table
 ~~~
 Table Customer
 {

@@ -38,10 +38,9 @@ Include [General](./properties-common.md) properties
 
 ## Infer Structure
 - Description: Infers output SDT from assignment structure
-- Type: `enum{Yes,if SDT is dynamic,No}`
+- Type: `enum{Yes\, if SDT is dynamic,No}`
 - Options:
-	* `Yes`: Enables this behavior
-	* `if SDT is dynamic`: Applies only when the SDT is dynamic
+	* `Yes, if SDT is dynamic`: Enables this behavior
 	* `No`: Disables this behavior
 - Default: `No`
 
