@@ -34,8 +34,8 @@ Index <prefix><name>
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
 - `<prefix>`: Object purpose prefix
-	* Use `I` when defining for PK index names
-	* Use `U` when defining for non-PK user or custom index names
+	* Use `I` when defining for automatic indexes
+	* Use `U` when defining for user (custom) indexes; require `<source> = User`
 - `<attributes>`: Ordered attribute list, one attribute per line
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-index.md)
 - `<type>`: Defines index behavior; values:
@@ -47,69 +47,33 @@ Where:
 	* `User`: User custom index
 
 Notes:
+- Indexes are meant for frequent filtering, fast ordering, or ensure uniqueness
 - Attribute order defines key precedence
 - Attributes in `( )` indicate descending; e.g. `(ProductRate)`
 - Attributes defined as `Unique` represent CK constraints
-- User/custom indexes (with `U` prefix) must define `User` source
 
 ---
 
 # OUTPUT
 Use [global-output](./global-output.md) with `<type>` value: `index`
 
-Scoped filename for single-file mode:
-- `<name>.index.main.gx`
-
-Scoped filename for multi-file mode:
-- `<name>.index.main.gx`
-- `<name>.index.properties.toml`
-
-Where:
-- `<name>` matches the owner `Table` name (without purpose prefix)
+Note: `<name>` matches the owner `Table` name (without purpose prefix)
 
 ---
 
 # CONSTRAINTS
 - Use [global-constraints](./global-constraints.md)
+- Only create user `Index` objects (if justified)
+- Never create or update automatic `Index` objects
 - Never duplicate attributes in the same index
 - Use only attributes from owner table structure
-
----
-
-# DECISION RULES
-- Define one index for the table PK order
-- Add non-PK indexes only for frequent filter/join/order patterns
-- Order attributes by expected left-prefix usage
-- Use `Unique` for FK indexes that enforce 1:1 semantics
-- Never define `#Index` section when souce/type have default values
-- Never create indexes without a concrete navigation case
 
 ---
 
 # EXAMPLES
 
 ## Example 1
-Indexes for lookup and ordering patterns
-~~~
-Transaction Attraction
-{
-	AttractionId* [ DataType = 'Numeric(10.0)', Autonumber = 'True' ]
-	AttractionName! [ DataType = 'VarChar(80)' ]
-	AttractionPhoto [ DataType = 'Image' ]
-	CategoryId [ DataType = 'Numeric(4.0)' ]
-	CountryId [ DataType = 'Numeric(4.0)' ]
-
-	#Rules
-	#End
-
-	#Events
-	#End
-
-	#Variables
-	#End
-}
-~~~
-
+User indexes for lookup and ordering patterns
 ~~~
 Table Attraction
 {
@@ -128,19 +92,12 @@ Table Attraction
 ~~~
 
 ~~~
-Index IAttraction
-{
-	AttractionId
-}
-~~~
-
-~~~
 Index UAttractionByCategory
 {
 	CategoryId
 
 	#Index
-		"Source" = "User"
+		Source = "User"
 	#End
 }
 ~~~
@@ -151,7 +108,7 @@ Index UAttractionByCountry
 	CountryId
 
 	#Index
-		"Source" = "User"
+		Source = "User"
 	#End
 }
 ~~~
@@ -173,20 +130,13 @@ Table CustomerProfile
 ~~~
 
 ~~~
-Index ICustomerProfile
-{
-	CustomerProfileId
-}
-~~~
-
-~~~
 Index UCustomerProfileByCustomer
 {
 	CustomerId
 
 	#Index
-		"Source" = "User"
-		"Type" = "Unique"
+		Source = "User"
+		Type = "Unique"
 	#End
 }
 ~~~

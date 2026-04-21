@@ -219,12 +219,12 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 
 ## Table (TBL)
 - Purpose: Physical persistence object generated from Transaction structure and used as base for navigation
-- Use when: Defining or reviewing physical storage shape, keys, and index assignment for a Transaction
+- Use when: Reviewing physical data model, or editing user indexes references
 - Reference: [Table object](references/object-table.md)
 
 ## Index (IDX)
-- Purpose: User index over table attributes for access path control, ordering support, and uniqueness constraints
-- Use when: Optimizing navigation patterns or enforcing uniqueness semantics on table keys
+- Purpose: Table index definition; only user indexes are manually defined for access paths, ordering, and uniqueness constraints
+- Use when: Optimizing navigation patterns or enforcing uniqueness semantics on FK attributes
 - Reference: [Index object](references/object-index.md)
 
 ## Procedure (PRC)
@@ -314,12 +314,15 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Use when: Calling platform APIs, SDKs, native utilities, or external contracts not implemented as GeneXus objects
 - Reference: [ExternalObject object](references/object-external-object.md)
 
+## Language (LNG)
+- Purpose: Localized text resources and locale configuration per target language
+- Use when: Defining multilingual application texts and runtime language behavior
+- Reference: [Language object](references/object-language.md)
+
 ---
 
 # PROPERTIES KNOWLEDGE
-Property definitions use a common schema and index in [properties](references/properties.md)
-
-Load object-specific property files through each corresponding `object-*.md` reference
+Check [properties](references/properties.md); load on-demand for each target `object-*.md` file
 
 ---
 
@@ -331,7 +334,7 @@ Apply these rules strictly when modeling GeneXus Knowledge Base objects
 - Provide object creation tasks only when no existing object satisfies the required semantics
 - Reuse an existing object when the purpose, meaning, and responsibility match the requirement
 - Never create parallel or redundant objects with overlapping responsibility, meaning, or lifecycle
-- Ensure complete `Transaction → Table → Index` objects hierarchy always synchronized
+- Ensure `Transaction → Table → Index` objects are synced after modifications
 
 ## Data modeling
 - Prefix every `Attribute` with the owning `Transaction` or sublevel name
