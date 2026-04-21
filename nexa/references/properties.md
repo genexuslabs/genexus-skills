@@ -8,21 +8,11 @@ Use this file as the common entry point for property definitions and type semant
 ---
 
 # TYPE SEMANTICS
-
-## boolean
-- Description: Logical value enabled or disabled
-
-## string
-- Description: Free text value
-
-## integer
-- Description: Whole numeric value without decimal positions
-
-## number
-- Description: Numeric value that can include decimal positions
-
-## enum{...}
-- Description: Closed list of allowed literal values
+- `boolean`: Flag value
+- `string`: Text value
+- `integer`: Numeric value without decimals
+- `number`: Numeric value with optional decimals
+- `enum{...}`: Closed list of literal values
 
 ---
 

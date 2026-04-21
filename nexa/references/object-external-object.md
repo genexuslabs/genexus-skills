@@ -214,9 +214,10 @@ Use [global-output](./global-output.md) with `<type>` value: `externalobject`
 # CONSTRAINTS
 - Use [global-constraints](./global-constraints.md)
 - Keep one clear mapping per member for each target platform
+- Every value inside `[…]` blocks must use `'single-quoted'` strings without `!` prefix
 - Every parameter must define `AccessType` and `Type`
-- Every event parameter should define `Type`
-- Define `Type` in a method only when return value exists
+- Every event parameter must define `Type`
+- Every method must define `Type` only when returning value
 - Keep signatures synchronized with external contracts to avoid runtime binding errors
 - Keep EO spec names in `PascalCase` and mapping properties exactly as defined in syntax
 - Avoid platform-specific assumptions in GeneXus-facing names

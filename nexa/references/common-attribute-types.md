@@ -22,7 +22,7 @@ Syntax: Attribute name suffixed with asterisk `*`
 Keypoints:
 - Must be first attribute(s) in level
 - Cannot be null
-- Enforces uniqueness automatically
+- Enforces uniqueness; automatically raises errors on duplicates
 - Can be simple (single attribute) or compound (multiple attributes)
 
 Patterns:
@@ -182,7 +182,7 @@ Transaction Flight
 Virtual attribute whose value is calculated dynamically using expression
 
 Keypoints:
-- Not physically stored (unless Redundant property set)
+- Not physically stored unless `Redundant = 'True'`
 - Defined via `Formula` property
 - Recalculated on access
 - Can reference other attributes, variables, functions
@@ -201,12 +201,12 @@ Example:
 Transaction Invoice
 {
 	InvoiceId* [ DataType = 'Numeric(10.0)' ]
-	Subtotal [ DataType = 'Numeric(10.2)' ]
-	TaxRate [ DataType = 'Numeric(3.2)' ]
-	TotalAmount
+	InvoicePrice [ DataType = 'Numeric(10.2)' ]
+	InvoiceTaxRate [ DataType = 'Numeric(3.2)' ]
+	InvoiceTotalAmount
 	[
 		DataType = 'Numeric(10.2)',
-		Formula = 'Subtotal * (1 + TaxRate / 100)'
+		Formula = 'InvoicePrice * (1 + InvoiceTaxRate / 100)'
 	]
 }
 ~~~
@@ -214,6 +214,7 @@ Transaction Invoice
 Constraints:
 - Expression must be valid and type-compatible
 - Cannot be directly assigned (read-only)
+- Never combine with `Assign` rule on same attribute
 
 ---
 
@@ -221,10 +222,9 @@ Constraints:
 Formula or Extended attribute physically stored for performance
 
 Keypoints:
-- Either Formula or Extended marked as Redundant
+- Either Formula or Extended with `Redundant = 'True'`
 - Stored in table to avoid costly joins or recalculations
 - Automatically updated when source changes
-- Property: `Redundant = 'True'`
 
 Example (redundant formula):
 ~~~

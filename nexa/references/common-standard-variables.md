@@ -34,6 +34,7 @@ Optional runtime variables for `Procedure` object handling:
 - `Msg [ DataType = 'Character(70)' ]`: Standard output message variable
 - `Output [ DataType = 'Character(3)' ]`: Output device/type control
 - `Page [ DataType = 'Numeric(6.0)' ]`: Current output page number (report procedures)
+- `Line [ DataType = 'Numeric(6.0)' ]`: Current print line number (report procedures)
 
 Optional subroutine variables when `Error_Handler` rule is applied:
 - `Err [ DataType = 'Numeric(3.0)' ]`: Internal GeneXus error code

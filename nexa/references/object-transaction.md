@@ -58,15 +58,14 @@ Where:
 # OUTPUT
 Use [global-output](./global-output.md) with `<type>` value: `transaction`
 
-Related artifacts:
-- `Table` artifacts must use `<name>` equal to the `Transaction` name
-- `Index` artifacts must use each index identifier (`<index-name>`) declared for owner tables
-- Single-file:
-	* `Table`: `<name>.table.main.gx`
-	* `Index`: `<index-name>.index.main.gx` (one index object per file)
-- Multi-file:
-	* `Table`: `<name>.table.main.gx`, `<name>.table.properties.toml`, `<name>.table.documentation.md`
-	* `Index`: `<index-name>.index.main.gx`, `<index-name>.index.properties.toml`
+Workflow:
+- Create or update `Transaction` artifact
+- Execute `import_text_to_kb` tool; on failure, stop
+- Execute `export_kb_to_text` tool
+- Inspect `<name>.table.main.gx` artifacts and read `#Index` section
+- Extract `Index` names and validate their `*.index.main.gx` artifacts
+- Create or update only user `Index` if requested or for 1:1 relationships (unique FK)
+- Update `Table` artifacts `#Indexes` section only with missing user `Index` names
 
 ---
 
@@ -85,7 +84,7 @@ Modeling rules:
 - Model 1:N with FK on the N-side `Transaction` using `[]` for inferred FK and extended attributes
 - Model 1:1 as 1:N plus a user `Index` defined as `Unique` on the FK key at N-side table
 
-Example:
+Example (1:N)
 ~~~
 Transaction Country
 {
@@ -93,12 +92,39 @@ Transaction Country
 	CountryName! [ DataType = 'VarChar(64)' ]
 }
 
-Transaction City
+Transaction User
 {
-	CityId* [ DataType = 'Numeric(10.0)' ]
-	CountryId* []
+	UserId* [ DataType = 'Numeric(10.0)' ]
+	UserName! [ DataType = 'VarChar(64)' ]
+	CountryId []
 	CountryName []
-	CityName! [ DataType = 'VarChar(64)' ]
+}
+~~~
+
+
+Example (1:1)
+~~~
+Transaction Order
+{
+	OrderId* [ DataType = 'Numeric(10.0)' ]
+	OrderDate [ DataType = 'Date' ]
+}
+
+Transaction Payment
+{
+	PaymentId* [ DataType = 'Numeric(10.0)' ]
+	OrderId* []
+	PaymentAmount [ DataType = 'Numeric(10.2)' ]
+}
+
+Index UPaymentByOrder
+{
+	OrderId
+
+	#Index
+		Source = "User"
+		Type = "Unique"
+	#End
 }
 ~~~
 
@@ -140,16 +166,32 @@ See [common-business-component](./common-business-component.md)
 
 ---
 
-# DYNAMIC TRANSACTION
-A dynamic transaction allows changing transaction behavior at runtime based on metadata and context when the `Dynamic Transaction` property is enabled
+# DATA PROVIDER ASSOCIATION
+Enable `DataProvider = True` to associate a `DataProvider` child object
 
-Use when:
-- Structure or behavior cannot be fully fixed at design time
-- Runtime metadata drives attribute participation, validation, or flow
+Modes:
+- `Populate Transaction`
+	* Purpose: Load seed/fixed data into physical tables
+	* Use when: Entity must preload persistent data after build
+	* Define `UsedTo = "Populate Data"`
+	* Requires idempotent `DataProvider` using explicit PKs or stable matching key
+	* Side effects: `BusinessComponent = True` (Transaction), `MainProgram = True` (DataProvider)
+- `Dynamic Transaction`
+	* Purpose: Retrieve data without creating physical tables
+	* Use when: Entity acts as a retrieval contract
+	* Define `UsedTo = "Retrieve Data"`
+	* Requires explicit `Insert`/`Update`/`Delete` event coding
+
+Structure:
+~~~
+<name>.transaction.main.gx
+<name>/
+	<name>_DataProvider.dataprovider.main.gx
+~~~
 
 Constraints:
-- Keep persistence semantics explicit
-- Keep rules and events deterministic
+- Keep `DataProvider` object structure aligned with `Transaction` structure
+- Read [Data Provider](./object-data-provider.md) file for object definition
 
 ---
 
@@ -172,7 +214,7 @@ Constraints:
 ---
 
 # RULES
-see [common-rules](./common-rules.md)
+See [common-rules](./common-rules.md)
 
 ---
 
@@ -184,6 +226,9 @@ Allowed event names:
 - `After Trn`
 - `Exit`
 - `'<custom-name>'`
+- `Insert`/`Update`/`Delete`
+	* Dynamic transaction only
+	* Optional `Messages` argument
 
 Example:
 ~~~
@@ -202,26 +247,21 @@ EndEvent
 - Every attribute must have `DataType` property or empty brackets `[]`
 - Every attribute must be prefixed by Transaction or sublevel name
 - Primary key required (at least one attribute with `*`)
-- Only one description attribute (`!`) allowed
-- Surrogate PK when no natural identifier exists
-- Surrogate PK uses pattern `<name>Id` with `'Autonumber': 'True'`
-- `Autonumber` is only allowed on first-level primary key attributes; sublevel keys must NOT use `Autonumber`
-- Description attribute for user-friendly record display
-- Extended attributes infer properties from referenced transaction
-- FK attributes declared with empty brackets `[]`
+- Only one description attribute (`!`) allowed for user-friendly record display 
+- Only use surrogate PK with `<name>Id` name pattern when no natural identifier exists
+- Only use `Autonumber = 'True'` on first-level PK attributes with `Numeric(X.0)` data type
+- Only use `Serial` rule for autonumbering nested-level PK attributes
+- Every extended attribute (including FK) must be declared with empty brackets `[]`; properties inferred from referenced transaction
 - Never duplicate attribute names within transaction including sublevels
 - Never include properties for FK, Extended, or Subtyped attributes
-- Rules use syntax: `<rule> [IF <condition>] [ON <trigger>];`
-- Events use syntax: `Event <name> [<qualifier>]`
-- Qualifiers: `[WEB]`, `[WIN]`, `[TEXT]`, `[BC]`
 - Determine STRONG vs WEAK relationship based on entity independence:
 	* STRONG: separate transactions with FK references
 	* WEAK: sublevel within transaction
 - Include [common-standard-variables](./common-standard-variables.md) according to transaction context
-- Business Component property enables programmatic access
+- Only enable `Business Component` property for programmatic access
 - Never place events, rules, triggers outside syntax scope
 - Never define attribute properties with `.` notation as they are design-time only
-- Only define `Table`/`Index` objects when requested or model-required
+- Never combine `Formula` property and `Assign` rule over same attribute
 
 ---
 
@@ -263,6 +303,12 @@ Transaction Order
 	CustomerId []
 	CustomerName []
 	OrderDate [ DataType = 'Date' ]
+	OrderTotal
+	[
+		DataType = 'Numeric(10.2)',
+		Formula = 'Sum(LineTotal)'
+	]
+	OrderLastLine [ DataType = 'Numeric(10.0)' ]
 
 	OrderLine
 	{
@@ -271,12 +317,16 @@ Transaction Order
 		ProductName []
 		Quantity [ DataType = 'Numeric(5.0)' ]
 		UnitPrice [ DataType = 'Numeric(10.2)' ]
-		LineTotal [ DataType = 'Numeric(10.2)' ]
+		LineTotal
+		[
+			DataType = 'Numeric(10.2)',
+			Formula = 'Quantity * UnitPrice'
+		]
 	}
 
 	#Rules
 		Default(OrderDate, Today());
-		LineTotal = Quantity * UnitPrice;
+		Serial(OrderLineId, OrderLastLine, 1);
 	#End
 
 	#Events
@@ -313,4 +363,146 @@ Transaction StudentCourse
 	#Variables
 	#End
 }
+~~~
+
+## Example 4
+Transaction with populate data
+~~~
+Transaction Country
+{
+	CountryId* [ DataType = 'Numeric(4.0)' ]
+	CountryName! [ DataType = 'VarChar(40)' ]
+
+	#Properties
+		DataProvider = True
+		UsedTo = "Populate Data"
+	#End
+}
+~~~
+
+DataProvider with seed data
+~~~
+DataProvider Country_DataProvider
+{
+	Country
+	{
+		CountryId = 1
+		CountryName = !"Uruguay"
+	}
+
+	Country
+	{
+		CountryId = 2
+		CountryName = !"Argentina"
+	}
+}
+~~~
+
+Saved as:
+~~~
+Country.transaction.main.gx
+Country/
+└─ Country_DataProvider.dataprovider.main.gx
+~~~
+
+## Example 5
+Transaction with retrieve data (Dynamic Transaction) and updatable policy
+~~~
+Transaction Document
+{
+	DocumentType* [ DataType = 'DocType' ]
+	DocumentId* [ DataType = 'Numeric(8.0)' ]
+	DocumentDate [ DataType = 'Date' ]
+	DocumentAmount [ DataType = 'Numeric(10.2)' ]
+
+	#Properties
+		DataProvider = True
+		UsedTo = "Retrieve Data"
+		UpdatePolicy = "Updatable"
+	#End
+
+	#Variables
+		Invoice [ DataType = 'Invoice' ]
+		Receipt [ DataType = 'Receipt' ]
+		Messages [ DataType = 'Messages, GenXus.Common' ]
+	#End
+
+	#Events
+		Event Insert(&Messages)
+			Do Case
+				Case DocumentType = DocType.Invoice
+					&Invoice = new()
+					&Invoice.InvoiceDate = DocumentDate
+					&Invoice.InvoiceTotal = DocumentAmount
+					&Invoice.Insert()
+					&Messages = &Invoice.GetMessages()
+				Case DocumentType = DocType.Receipt
+					&Receipt = new()
+					&Receipt.ReceiptDate = DocumentDate
+					&Receipt.ReceiptTotal = DocumentAmount
+					&Receipt.Insert()
+					&Messages = &Receipt.GetMessages()
+			EndCase
+		EndEvent
+
+		Event Update(&Messages)
+			Do Case
+				Case DocumentType = DocType.Invoice
+					&Invoice.Load(DocumentId)
+					&Invoice.InvoiceDate = DocumentDate
+					&Invoice.InvoiceTotal = DocumentAmount
+					&Invoice.Update()
+					&Messages = &Invoice.GetMessages()
+				Case DocumentType = DocType.Receipt
+					&Receipt.Load(DocumentId)
+					&Receipt.ReceiptDate = DocumentDate
+					&Receipt.ReceiptTotal = DocumentAmount
+					&Receipt.Update()
+					&Messages = &Receipt.GetMessages()
+			EndCase
+		EndEvent
+
+		Event Delete(&Messages)
+			Do Case
+				Case DocumentType = DocType.Invoice
+					&Invoice.Load(DocumentId)
+					&Invoice.Delete()
+					&Messages = &Invoice.GetMessages()
+				Case DocumentType = DocType.Receipt
+					&Receipt.Load(DocumentId)
+					&Receipt.Delete()
+					&Messages = &Receipt.GetMessages()
+			EndCase
+		EndEvent
+	#End
+}
+~~~
+
+DataProvider with Invoice and Receipt tables retrieval
+~~~
+DataProvider Document_DataProvider
+{
+	Document from Invoice
+	{
+		DocumentType = 1
+		DocumentId = InvoiceId
+		DocumentDate = InvoiceDate
+		DocumentAmount = InvoiceTotal
+	}
+
+	Document from Receipt
+	{
+		DocumentType = 2
+		DocumentId = ReceiptId
+		DocumentDate = ReceiptDate
+		DocumentAmount = ReceiptTotal
+	}
+}
+~~~
+
+Saved as:
+~~~
+Document.transaction.main.gx
+Document/
+└─ Document_DataProvider.dataprovider.main.gx
 ~~~
