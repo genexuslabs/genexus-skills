@@ -54,7 +54,7 @@ Place image files under `/<name>` folder
 Hierarchy:
 ~~~
 <name>.image.main.gx
-<name>.image.properties.gx // only for multi-file mode
+<name>.image.properties.toml // only for multi-file mode
 <name>/
 	<name>@1x.png
 	<name>@2x.png
