@@ -45,6 +45,18 @@ Round(10.567, 2) // Returns 10.57
 &Value.Round(2)  // Method alternative
 ~~~
 
+## RoundToEven
+Rounds to nearest even value
+
+Syntax: `RoundToEven(<expression>, <decimals>)`
+Method: `<expression>.RoundToEven(<decimals>)`
+
+Examples:
+~~~
+RoundToEven(2.5, 0)            // Returns 2
+&Value.RoundToEven(0)          // Method alternative
+~~~
+
 ## Int
 Returns integer part of number
 
@@ -79,6 +91,18 @@ Examples:
 ~~~
 &RandomValue = Random()
 &RandomInt = Int(Random() * 100)
+~~~
+
+## RSeed
+Initializes randomizer with fixed seed
+
+Syntax: `RSeed(<seed>)`
+Method: N/A
+
+Examples:
+~~~
+RSeed(42)
+RSeed(100)
 ~~~
 
 ---
@@ -216,6 +240,151 @@ YMDHMStoT(2025, 7, 11, 14, 30, 26)  // Returns #2025-07-11 14:30:26#
 &DateTime.Set(2025, 7, 11, 14, 30)  // Method alternative
 ~~~
 
+## DoW
+Returns day of week (1=Sunday … 7=Saturday)
+
+Syntax: `DoW(<expression>)`
+Method: `<expression>.DayOfWeek()`
+
+Examples:
+~~~
+DoW(#2025-07-13#)      // Returns 1 (Sunday)
+&Date.DayOfWeek()      // Method alternative
+~~~
+
+## EoM
+Returns last day of month
+
+Syntax: `EoM(<expression>)`
+Method: `<expression>.EndOfMonth()`
+
+Examples:
+~~~
+EoM(#2025-07-11#)      // Returns #2025-07-31#
+&Date.EndOfMonth()     // Method alternative
+~~~
+
+## CMonth
+Returns month name
+
+Syntax: `CMonth(<expression>[, <language>])`
+Method: `<expression>.MonthName([<language>])`
+
+Examples:
+~~~
+CMonth(#2025-07-11#)               // Returns "July"
+CMonth(#2025-07-11#, !"Spanish")   // Returns "Julio"
+&Date.MonthName()                  // Method alternative
+~~~
+
+## AddDays
+Adds days to date
+
+Syntax: `AddDays(<expression>, <quantity>)`
+Method: `<expression>.AddDays(<quantity>)`
+
+Examples:
+~~~
+AddDays(#2025-07-10#, 5)   // Returns #2025-07-15#
+&Date.AddDays(5)           // Method alternative
+~~~
+
+## AddMth
+Adds months to date
+
+Syntax: `AddMth(<expression>, <quantity>)`
+Method: `<expression>.AddMonths(<quantity>)`
+
+Examples:
+~~~
+AddMth(#2025-07-10#, 2)    // Returns #2025-09-10#
+&Date.AddMonths(2)         // Method alternative
+~~~
+
+## AddYr
+Adds years to date
+
+Syntax: `AddYr(<expression>, <quantity>)`
+Method: `<expression>.AddYears(<quantity>)`
+
+Examples:
+~~~
+AddYr(#2025-07-10#, 1)     // Returns #2026-07-10#
+&Date.AddYears(1)          // Method alternative
+~~~
+
+## TAdd
+Adds seconds to datetime
+
+Syntax: `TAdd(<expression>, <seconds>)`
+Method: `<expression>.AddSeconds(<seconds>)`
+
+Examples:
+~~~
+TAdd(#2025-07-11 12:00:00#, 32)    // Returns #2025-07-11 12:00:32#
+&DateTime.AddSeconds(32)           // Method alternative
+~~~
+
+## TDiff
+Returns difference in seconds between two datetimes
+
+Syntax: `TDiff(<expression-1>, <expression-2>)`
+Method: `<expression-1>.Difference(<expression-2>)`
+
+Examples:
+~~~
+TDiff(#2025-07-12#, #2025-07-10#)      // Returns 172800
+&DateTime1.Difference(&DateTime2)      // Method alternative
+~~~
+
+## CtoD
+Converts string to date
+
+Syntax: `CtoD(<expression>)`
+Method: `<date>.FromString(<expression>)`
+
+Examples:
+~~~
+CtoD(!"07/10/2025")            // Returns #2025-07-10#
+&Date.FromString(!"07/10/2025") // Method alternative
+~~~
+
+## CtoT
+Converts string to datetime
+
+Syntax: `CtoT(<expression>)`
+Method: `<datetime>.FromString(<expression>)`
+
+Examples:
+~~~
+CtoT(!"07/10/2025 13:45")              // Returns #2025-07-10 13:45:00#
+&DateTime.FromString(!"07/10/2025 13:45") // Method alternative
+~~~
+
+## DtoC
+Converts date to string
+
+Syntax: `DtoC(<expression>)`
+Method: `<expression>.ToString()`
+
+Examples:
+~~~
+DtoC(#2025-07-11#)     // Returns "20250711"
+&Date.ToString()       // Method alternative
+~~~
+
+## TtoC
+Converts datetime to string
+
+Syntax: `TtoC(<expression>, <date-digits>, <time-digits>)`
+Method: `<expression>.ToString()`
+
+Examples:
+~~~
+TtoC(#2025-07-11 14:00:00#, 8, 5)     // Returns "20250711 14:00"
+&DateTime.ToString()                   // Method alternative
+~~~
+
 ---
 
 # STRING FUNCTIONS
@@ -244,6 +413,30 @@ Trim(!" Hello ")               // Returns "Hello"
 &Text.Trim()                   // Method alternative
 ~~~
 
+## LTrim
+Removes leading spaces
+
+Syntax: `LTrim(<expression>)`
+Method: `<expression>.TrimStart()`
+
+Examples:
+~~~
+LTrim(!"  Hello")              // Returns "Hello"
+&Text.TrimStart()              // Method alternative
+~~~
+
+## RTrim
+Removes trailing spaces
+
+Syntax: `RTrim(<expression>)`
+Method: `<expression>.TrimEnd()`
+
+Examples:
+~~~
+RTrim(!"Hello  ")              // Returns "Hello"
+&Text.TrimEnd()                // Method alternative
+~~~
+
 ## Upper
 Converts to uppercase
 
@@ -268,6 +461,18 @@ Lower(!"HELLO")                // Returns "hello"
 &Text.ToLower()                // Method alternative
 ~~~
 
+## SubStr
+Returns a substring from a given position
+
+Syntax: `SubStr(<expression>, <start>, <length>)`
+Method: `<expression>.Substring(<start>[, <length>])`
+
+Examples:
+~~~
+SubStr(!"GeneXus", 2, 3)       // Returns "ene"
+&Text.Substring(2, 3)          // Method alternative
+~~~
+
 ## Str
 Converts number to string
 
@@ -279,6 +484,103 @@ Examples:
 Str(123)                       // Returns "123"
 Str(123.45, 10, 2)             // Returns "    123.45"
 &Number.ToString()             // Method alternative
+~~~
+
+## StrReplace
+Replaces all occurrences of a substring
+
+Syntax: `StrReplace(<expression>, <old>, <new>)`
+Method: `<expression>.Replace(<old>, <new>)`
+
+Examples:
+~~~
+StrReplace(!"Hello World", !"World", !"GX")    // Returns "Hello GX"
+&Text.Replace(!"World", !"GX")                 // Method alternative
+~~~
+
+## StrSearch
+Finds position of a substring
+
+Syntax: `StrSearch(<expression>, <substr>[, <start>])`
+Method: `<expression>.IndexOf(<substr>[, <start>])`
+
+Examples:
+~~~
+StrSearch(!"GeneXus", !"e")            // Returns 2
+StrSearch(!"GeneXus", !"e", 3)         // Returns 4
+&Text.IndexOf(!"e")                    // Method alternative
+~~~
+
+## StrSearchRev
+Finds last occurrence of a substring
+
+Syntax: `StrSearchRev(<expression>, <substr>[, <start>])`
+Method: `<expression>.LastIndexOf(<substr>[, <start>])`
+
+Examples:
+~~~
+StrSearchRev(!"GeneXus", !"e")         // Returns 4
+&Text.LastIndexOf(!"e")                // Method alternative
+~~~
+
+## PadL
+Pads string on the left to a given length
+
+Syntax: `PadL(<expression>, <length>[, <fill-char>])`
+Method: `<expression>.PadLeft(<length>[, <fill-char>])`
+
+Examples:
+~~~
+PadL(!"Hi", 5)                         // Returns "   Hi"
+PadL(!"Hi", 5, !"0")                   // Returns "000Hi"
+&Text.PadLeft(5, !"0")                 // Method alternative
+~~~
+
+## PadR
+Pads string on the right to a given length
+
+Syntax: `PadR(<expression>, <length>[, <fill-char>])`
+Method: `<expression>.PadRight(<length>[, <fill-char>])`
+
+Examples:
+~~~
+PadR(!"Hi", 5)                         // Returns "Hi   "
+PadR(!"Hi", 5, !"0")                   // Returns "Hi000"
+&Text.PadRight(5, !"0")                // Method alternative
+~~~
+
+## ToBase64
+Encodes text as base64
+
+Syntax: `ToBase64(<expression>)`
+Method: N/A
+
+Examples:
+~~~
+ToBase64(!"hello")             // Returns "aGVsbG8="
+~~~
+
+## FromBase64
+Decodes base64-encoded text
+
+Syntax: `FromBase64(<expression>)`
+Method: N/A
+
+Examples:
+~~~
+FromBase64(!"aGVsbG8=")        // Returns "hello"
+~~~
+
+## ToFormattedString
+Returns formatted string based on data type
+
+Syntax: `ToFormattedString(<expression>)`
+Method: `<expression>.ToFormattedString()`
+
+Examples:
+~~~
+ToFormattedString(!"20250711")     // Returns "07/11/2025"
+&Value.ToFormattedString()         // Method alternative
 ~~~
 
 ## Val
@@ -356,6 +658,17 @@ Examples:
 Asc(!"A")                      // Returns 65
 ~~~
 
+## NewLine
+Returns the platform-specific line break sequence
+
+Syntax: `NewLine()`
+Method: N/A
+
+Examples:
+~~~
+NewLine()                      // Returns \n (Windows: \r\n)
+~~~
+
 ## UrlEncode
 Encodes text as URL-safe string
 
@@ -376,6 +689,28 @@ Method: N/A
 Examples:
 ~~~
 UrlDecode(!"Hello%20World")    // Returns "Hello World"
+~~~
+
+## Encrypt64
+Encrypts text and returns base64-encoded string
+
+Syntax: `Encrypt64(<expression>, <key>)`
+Method: N/A
+
+Examples:
+~~~
+Encrypt64(!"hello", !"MyKey")      // Returns "ZW5jb2RlZA=="
+~~~
+
+## Decrypt64
+Decrypts base64-encoded text
+
+Syntax: `Decrypt64(<expression>, <key>)`
+Method: N/A
+
+Examples:
+~~~
+Decrypt64(!"ZW5jb2RlZA==", !"MyKey")  // Returns "hello"
 ~~~
 
 ---
@@ -462,6 +797,53 @@ Method: N/A
 Examples:
 ~~~
 Sleep(5) // Pause 5 seconds
+~~~
+
+## IsNull
+Checks if database value is null
+
+Syntax: `IsNull(<attribute>)`
+Method: `<attribute>.IsNull()`
+
+Examples:
+~~~
+If IsNull(CustomerName)
+If CustomerName.IsNull()       // Method alternative
+~~~
+
+## NullValue
+Returns default null representation for attribute type
+
+Syntax: `NullValue(<attribute>)`
+Method: `<attribute>.SetNull()` or `<attribute>.SetEmpty()`
+
+Examples:
+~~~
+NullValue(PurchaseDateTime)            // Returns '0001-01-01T00:00:00'
+PurchaseDateTime.SetNull()             // Method alternative
+~~~
+
+## GetLanguage
+Returns currently active language name
+
+Syntax: `GetLanguage()`
+Method: N/A
+
+Examples:
+~~~
+&Lang = GetLanguage()          // Returns "English"
+~~~
+
+## GetMessageText
+Retrieves localized text by key
+
+Syntax: `GetMessageText(<key>[, <language>])`
+Method: N/A
+
+Examples:
+~~~
+GetMessageText(!"APP_UNK_ERR")                 // Returns text in active language
+GetMessageText(!"APP_UNK_ERR", !"Spanish")     // Returns "Error desconocido"
 ~~~
 
 ---
