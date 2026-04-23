@@ -133,6 +133,7 @@ Select the appropriate path according to user request and execute the steps secu
 			* Ask `UserId` and `UserPassword`
 		- Write or update `*.environment.local.gx` file
 		- Run `import_text_to_kb` with `names: ["environment:*"]`
+	* Deny `build`/`impact`/`reorg` operations until conection values are defined
 - Resolve output file mode
 	* Use [global-output](references/global-output.md)
 	* Forbid mode inference from wording
