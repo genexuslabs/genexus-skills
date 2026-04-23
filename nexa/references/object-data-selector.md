@@ -49,7 +49,7 @@ Where:
 - `<orders>`: Sorting attributes (comma-separated; compound allowed)
 - `<attributes>`: Attributes defining the base table when not inferred
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-data-selector.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; check [markdown](./common-markdown.md)
 
 Notes:
 - Attributes in `<conditions>`, `<orders>`, `<attributes>` must exist in Transactions

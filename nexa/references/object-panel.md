@@ -57,7 +57,7 @@ Where:
 - `<variables>`: Variable definitions with `DataType`
 - `<layout>`: GXML layout definition (XML-based) for structure and control composition
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-panel.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; check [markdown](./common-markdown.md)
 
 
 ---

@@ -38,7 +38,7 @@ Where:
 - `<styles>`: Object styles (see [STYLES](#styles))
 - `<arguments>`: Optional token arguments; syntax `<arg>:[<default>]|<value-1>|<value-2>|…`
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-design-system.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; check [markdown](./common-markdown.md)
 
 Note:
 - Each `<name>` defines one DesignSystem object part; different names define multiple objects

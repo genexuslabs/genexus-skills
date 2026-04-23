@@ -34,7 +34,7 @@ Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
 - `<objects>`: List of object names to deploy together, one per line
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-deployment-unit.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; check [markdown](./common-markdown.md)
 
 ---
 

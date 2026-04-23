@@ -39,7 +39,7 @@ Where:
 - `<attributes>`: Attribute name list, one per line; automatilly derived (do not edit)
 - `<indexes>`: Index names list, one per line
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-table.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; check [markdown](./common-markdown.md)
 
 Notes:
 - Attribute markers: `*` primary key, `!` description, `?` nullable
