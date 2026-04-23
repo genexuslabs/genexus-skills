@@ -362,7 +362,7 @@ All checkpoints are mandatory before finalizing
 ## Initialization
 - [ ] Validates MCP server availability or user-approved bypass
 - [ ] Resolves `Knowledge Base` existence: create/open as needed
-- [ ] Resolves `*.version.gx` current environment
+- [ ] Resolves `*.version.local.gx` current environment
 - [ ] Confirms `*.environment.local.gx` connection values on `build`/`impact`/`reorg` requests
 
 ## Inspection
