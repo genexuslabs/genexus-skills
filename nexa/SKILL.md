@@ -139,7 +139,7 @@ Select the appropriate path according to user request and execute the steps secu
 - Provide execution plan
 	* Derive candidate objects information: name, type, purpose, cross-references
 	* Search candidate objects systematically in `src/**`
-	* Select target `Module` object for each module; if uncertain, ask user or use `Root Module`
+	* Select target `Module` object for each object; if uncertain, ask user or use `Root Module`
 	* Review documentation for each candidate object if exist
 	* Detail create/update actions
 	* Wait for explicit user approval
