@@ -93,7 +93,6 @@ Agent AlternativeDescriptionAgent
 
 	#Rules
 		parm(in: &ProductDescription, out: &AlternativeDescription);
-
 	#End
 
 	#Variables
@@ -119,8 +118,7 @@ Agent AnswerQuestionAgent
 
 	#Rules
 		parm(in: &UserQuestion, out: &Answer);
-		Context(GetCoursesDP());
-
+		context(GetCoursesDP());
 	#End
 
 	#Variables
@@ -150,8 +148,7 @@ Agent TravelPlanAgent
 
 	#Rules
 		parm(in: &UserQuestion, out: &TravelPlan);
-		Use(ExternalAgent:com.globant.geai.cultural_explorer, ExternalTool:com.globant.geai.travel_api_connector);
-
+		use(ExternalAgent:com.globant.geai.cultural_explorer, ExternalTool:com.globant.geai.travel_api_connector);
 	#End
 
 	#Variables
@@ -159,7 +156,6 @@ Agent TravelPlanAgent
 		TravelPlan [ DataType = 'LongVarChar(1K)' ]
 		Pgmname [ DataType = 'Character(128)' ]
 		Pgmdesc [ DataType = 'Character(256)' ]
-
 	#End
 }
 ~~~
@@ -177,7 +173,6 @@ Agent AccountingReportAgent
 
 	#Rules
 		parm(out: &AnalysisReport);
-
 	#End
 
 	#Variables
