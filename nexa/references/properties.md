@@ -19,6 +19,7 @@ Use this file as the common entry point for property definitions and type semant
 # PROPERTY REFERENCES
 
 ## Object Properties
+- [Agent](./properties-object-agent.md)
 - [API](./properties-object-api.md)
 - [Attribute](./properties-object-attribute.md)
 - [Data Provider](./properties-object-data-provider.md)

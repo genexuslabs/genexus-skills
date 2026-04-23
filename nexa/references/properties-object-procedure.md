@@ -258,3 +258,11 @@ Use [common warning messages properties](./properties-common-warning-messages.md
 	* `Yes`: Enables this behavior
 	* `No`: Disables this behavior
 - Default: `Yes`
+
+---
+
+# AGENT OPTIONS
+
+## Tool Input Schema
+- Description: The JSON sent as `inputSchema` when impacting this `Procedure` as a tool
+- Type: `string`

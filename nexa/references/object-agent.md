@@ -45,7 +45,7 @@ Where:
 	* File references: `{{File:<file-name>}}`
 - `<rules>`: Business logic rules (parm, context, use)
 - `<variables>`: Variable definitions with mandatory `DataType`
-- `<properties>`: Optional object properties in TOML syntax
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-agent.md)
 - `<documentation>`: Optional object documentation; check [markdown](./common-markdown.md)
 
 ---
