@@ -236,11 +236,11 @@ Static or dynamic (by Attribute value) text control
     * Description: Unique control name within block
     * Type: `string`
 
-- `text` (required for `reportLabel` element)
+- `text` (required for `label` element)
     * Description: Static text to display
     * Type: `string`
 
-- `attribute` (required for `reportAttribute` element)
+- `attribute` (required for `attribute` element)
     * Description: Attribute object name to bind
     * Type: `string`
 
@@ -292,7 +292,7 @@ Image control
     * Type: `string`
 
 - `x`, `y`, `width`, `height`
-    * Description: Same as in `reportLabel`
+    * Description: Same as in `label`
     * Type: `int`
 
 ### line
