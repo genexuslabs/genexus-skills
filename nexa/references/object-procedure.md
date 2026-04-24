@@ -241,7 +241,7 @@ Static or dynamic (by Attribute value) text control
     * Type: `string`
 
 - `attribute` (required for `attribute` element)
-    * Description: Attribute object name to bind
+    * Description: Attribute or `&amp;`-prefixed Variable name to bind
     * Type: `string`
 
 - `x`, `y`, `width`, `height`
