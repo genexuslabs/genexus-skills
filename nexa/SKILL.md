@@ -133,6 +133,7 @@ Select the appropriate path according to user request and execute the steps secu
 			* Ask `UserId` and `UserPassword`
 		- Write or update `*.environment.local.gx` file
 		- Run `import_text_to_kb` with `names: ["environment:*"]`
+	* Deny `build`/`impact`/`reorg` operations until conection values are defined
 - Resolve output file mode
 	* Use [global-output](references/global-output.md)
 	* Forbid mode inference from wording
@@ -355,24 +356,42 @@ Apply these rules strictly when modeling GeneXus Knowledge Base objects
 
 ---
 
-# QUALITY CHECKLIST
-Before finalizing any work, verify:
-- [ ] Addresses all requested requirements
-- [ ] Uses documented concepts, rules, and syntax only
-- [ ] Applies all constraints with no conflicts
+# COMPLIANCE CHECKLIST
+All checkpoints are mandatory before finalizing
+
+## Initialization
+- [ ] Validates MCP server availability or user-approved bypass
+- [ ] Resolves `Knowledge Base` existence: create/open as needed
+- [ ] Resolves `*.version.local.gx` current environment
+- [ ] Confirms `*.environment.local.gx` connection values on `build`/`impact`/`reorg` requests
+
+## Inspection
 - [ ] Confirms object existence before create, reuse, or replace decisions
 - [ ] Validates all references, calls and module/folder placement rules
 - [ ] Reuses existing artifacts first; creates new ones only when justified
+
+## Specification
+- [ ] Addresses all requested requirements
+- [ ] Follows only documented concepts, rules, and syntax definitions
+- [ ] Applies all constraints with no conflicts
+- [ ] Keeps minimal design with no duplicated or overlapping responsibilities
+- [ ] Preserves naming and structure consistent with existing patterns
+- [ ] Adheres data type priority: `Attribute` > `Domain` > `SDT/BC` > built-in
+- [ ] Preserves backward compatibility in affected contracts
+- [ ] Presents execution plan and waits for explicit user approval
+
+## Implementtion
 - [ ] Modifies only requested objects and requested sections/items within them
-- [ ] Keeps a minimal design with no duplicated or overlapping responsibilities
-- [ ] Preserves naming and structure consistency with existing patterns
-- [ ] Adheres data type priority (`Attribute` > `Domain` > `SDT/BC` > built-in)
-- [ ] Validate `Panel` ↔ `DesignSystem` objects are synced
-- [ ] Includes required baseline sections and metadata for target object type
-- [ ] Uses GeneXus best-practices for coding
-- [ ] Preserves backward compatibility in affected interfaces and contracts
 - [ ] Meets full object syntax contract (all required sections, even empty)
-- [ ] Resolves and applies output mode policy
+- [ ] Validates `Panel` ↔ `DesignSystem` objects are always synced
+- [ ] Applies GeneXus best-practices for coding
+
+## Execution
+- [ ] Executes `validate_kb_text_files` after every file write
+- [ ] Requires explicit user approval before any dangerous tool execution
+
+## Report
+- [ ] Returns brief summary of all actions taken
 
 ---
 
