@@ -29,7 +29,8 @@ Use [global-output](./global-output.md) with `<type>` value: `folder`
 - Folders can be children of modules or other folders
 - Folders do not provide encapsulation or visibility control
 - Folders are part of the hierarchical tree where the Root Module is the root
-- Folders can be converted into Modules by adding the `<name>.module.yaml` file
+- Folders must use `@<name>` directory name on disk
+- Folders can be converted into Modules by removing `@` prefix in target directory name and adding associated `.toml`/`.md` if required
 
 ---
 
@@ -58,13 +59,15 @@ Root Module
 
 Saved as:
 ~~~
-<output-directory>/
-	Customers/
-		CustomerList.procedure.gx
-		CustomerDetail.procedure.gx
-	Products/
-		ProductList.procedure.gx
-		ProductDetail.procedure.gx
+src/
+	README.md
+	module.toml
+	@Customers/
+		CustomerList.gx
+		CustomerDetail.gx
+	@Products/
+		ProductList.gx
+		ProductDetail.gx
 ~~~
 
 ## Example 2
@@ -84,14 +87,16 @@ Root Module
 
 Saved as:
 ~~~
-<output-directory>/
-	Sales/
-		Reports/
-			SalesReport.procedure.gx
-			MonthlyReport.procedure.gx
-		Transactions/
-			CreateOrder.transaction.main.gx
-			UpdateOrder.transaction.main.gx
+src/
+	README.md
+	module.toml
+	@Sales/
+		@Reports/
+			SalesReport.gx
+			MonthlyReport.gx
+		@Transactions/
+			CreateOrder.gx
+			UpdateOrder.gx
 ~~~
 
 ## Example 3
@@ -100,7 +105,7 @@ Folder under a Module
 KB Structure:
 ~~~
 Root Module
-└── Inventory (Module)
+└── Inventory (Module) // with documentation and properties
 	└── Panels (Folder)
 		├── ProductList (WebPanel)
 		└── ProductDetail (WebPanel)
@@ -108,12 +113,15 @@ Root Module
 
 Saved as:
 ~~~
-<output-directory>/
+src/
+	README.md
+	module.toml
 	Inventory/
-		Inventory.module.gx
-		Panels/
-			ProductList.webpanel.gx
-			ProductDetail.webpanel.gx
+		README.md
+		module.toml
+		@Panels/
+			ProductList.gx
+			ProductDetail.gx
 ~~~
 
 ## Example 4
@@ -122,23 +130,27 @@ Multiple organizational levels:
 KB Structure:
 ~~~
 Root Module
-└── BusinessLogic (Folder)
+└── BusinessLogic (Module) // with properties only
 	├── Model (Folder)
 	│	└── Customer (Transaction)
 	├── Services (Folder)
 	│	└── CustomerService (API)
-	└── Utilities (Folder)
+	└── Utilities (Module) // with documentation only
 		└── StringHelper (Procedure)
 ~~~
 
 Saved as:
 ~~~
-<output-directory>/
-	BusinessLogic
-		Model/
-			Customer.transaction.main.gx
-		Services/
-			CustomerService.api.gx
+src/
+	README.md
+	module.toml
+	@BusinessLogic/
+		module.toml
+		@Model/
+			Customer.gx
+		@Services/
+			CustomerService.gx
 		Utilities/
-			StringHelper.procedure.gx
+			README.md
+			StringHelper.gx
 ~~~

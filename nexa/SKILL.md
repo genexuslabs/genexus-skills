@@ -198,12 +198,12 @@ Quick reference for model setup; stored in `/src.ns` sub directory
 Quick reference for appropriate use of each object type; stored in `/src` sub directory
 
 ## Folder
-- Purpose: Simple directory container for organizing objects without encapsulation; cannot contain modules, only folder and other objects allowed
+- Purpose: Simple directory container for organizing objects without encapsulation; cannot contain modules, only folder and other objects allowed; represented by `@` prefixed directories
 - Use when: Creating basic hierarchical structure, or organizing within modules without visibility control
 - Reference: [Folder object](references/object-folder.md)
 
 ## Module
-- Purpose: Advanced container with encapsulation, interface definition with visibility control, versioning, and distribution capabilities
+- Purpose: Advanced container with encapsulation, interface definition with visibility control, versioning, and distribution capabilities, represented by regular directories
 - Use when: Distributing functionality, encapsulating logic, or creating complex sub-module hierarchies
 - Reference: [Module object](references/object-module.md)
 
