@@ -229,7 +229,7 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Reference: [Index object](references/object-index.md)
 
 ## Procedure (PRC)
-- Purpose: Procedural algorithm as sequence of statements
+- Purpose: Procedural algorithm as sequence of statements, including report generation for formatted and printable data output
 - Use when: Writing procedural logic, operating CRUD over data, consuming REST services, etc
 - Execution: When running a main procedure, consult the COMMAND LINE EXECUTION section in the reference for the target environment; do NOT use the MCP `run` tool
 - Reference: [Procedure object](references/object-procedure.md)
