@@ -42,11 +42,11 @@ DesignSystem <name>
 
 Where:
 - `<name>`: Object name (alphanumeric or `_`, must start with a letter)
-- `<tokens>`: Object tokens; see [TOKENS](#tokens)
-- `<styles>`: Object styles; see [STYLES](#styles)
+- `<tokens>`: Object tokens; see [TOKENS](#tokens) section
+- `<styles>`: Object styles; see [STYLES](#styles) section
 - `<arguments>`: Optional token arguments; syntax `<arg>:[<default>]|<value-1>|<value-2>|…`
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-design-system.md)
-- `<documentation>`: Optional object documentation; check [markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
 Note:
 - Keep all `<name>` values in header, token, and style identical

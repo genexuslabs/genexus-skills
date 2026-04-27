@@ -26,7 +26,7 @@ Document <name>
 
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
-- `<documentation>`: Documentation content with Markdown syntax
+- `<documentation>`: Documentation content with Markdown syntax; see [markdown](./common-markdown.md)
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-documentation.md)
 
 ---

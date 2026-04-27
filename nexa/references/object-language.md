@@ -42,7 +42,7 @@ Where:
 	* `<entry-item>` syntax: `"<message-key>" = "<localized-text>"`
 	* `<message-key>`: Stable translation key shared across all languages
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-language.md)
-- `<documentation>`: Optional object documentation; check [markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
 ---
 

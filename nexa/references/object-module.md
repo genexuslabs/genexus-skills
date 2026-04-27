@@ -38,8 +38,8 @@ Where:
 	* `Knowledge Base`: Accessible from any module in the same KB, cannot be distributed
 	* `Internal`: Only accessible by objects with a common root module, cannot be distributed
 	* `Private`: Only accessible within the same module and its sub-modules, cannot be distributed
-- `<properties>`: Optional object properties; see [properties](./properties-object-module.md)
-- `<documentation>`: Optional module documentation; check [markdown](./common-markdown.md)
+- `<properties>`: Optional module properties; see [properties](./properties-object-module.md)
+- `<documentation>`: Optional module documentation; see [markdown](./common-markdown.md)
 
 ---
 

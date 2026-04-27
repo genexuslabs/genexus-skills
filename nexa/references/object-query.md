@@ -47,7 +47,7 @@ Where:
 - `<filters>`: Boolean filter (comparisons, operators, formulas, functions, methods)
 - `<orders>`: Sorting expression combining attributes and formulas
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-query.md)
-- `<documentation>`: Optional object documentation; check [markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
 Notes:
 - Attributes specified in the `<expressions>`, `<filters>`, and `<orders>` sections must be previously defined in Transaction objects

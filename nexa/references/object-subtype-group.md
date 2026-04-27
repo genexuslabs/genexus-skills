@@ -53,7 +53,7 @@ Where:
 - `<base-type-i>`: Existing Attribute or SubType
 - `<properties-i>`: Overridden supertype properties; omit if none
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-subtype-group.md)
-- `<documentation>`: Optional object documentation; check [markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
 ---
 
