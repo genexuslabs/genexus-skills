@@ -3,7 +3,7 @@ name: model-knowledge-base
 description: Knowledge Base metadata with global settings like language, numeric length, and image paths
 ---
 
-Generates or inteprets a `Knowledge Base` definition file
+Generates or interprets a `Knowledge Base` definition file
 
 ---
 

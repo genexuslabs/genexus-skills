@@ -36,7 +36,7 @@ Table <name>
 
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
-- `<attributes>`: Attribute name list, one per line; automatilly derived (do not edit)
+- `<attributes>`: Attribute name list, one per line; automatically derived (do not edit)
 - `<indexes>`: Index names list, one per line
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-table.md)
 - `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
@@ -56,10 +56,10 @@ Note: `<name>` matches the owner `Transaction` or `Transaction + Level` name
 # CONSTRAINTS
 - Use [global-constraints](./global-constraints.md)
 - Never create `Table` objects
-- Never modify `<attribute>` list; auto-derived from ownner `Transaction` object
+- Never modify `<attribute>` list; auto-derived from owner `Transaction` object
 - Only update `<indexes>` list with existing user `Index` object names
 - Never duplicate names in `<indexes>` list
-- Avoid redundant indexes; reduce mantainance cost
+- Avoid redundant indexes; reduce maintenance cost
 - Ensure `Unique` user index for 1:1 relationships over FK attributes
 
 ---

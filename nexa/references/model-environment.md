@@ -1,9 +1,9 @@
 ---
 name: model-environment
-description: Environment metadata withing a version defining generator, data store, and runtime settings
+description: Environment metadata within a version defining generator, data store, and runtime settings
 ---
 
-Generates or inteprets a `Environment` definition file
+Generates or interprets a `Environment` definition file
 
 ---
 

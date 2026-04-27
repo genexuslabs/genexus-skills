@@ -75,7 +75,7 @@ Format rules:
 ---
 
 # WORKFLOW
-Select the appropriate path according to user request and execute the steps secuentially
+Select the appropriate path according to user request and execute the steps sequentially
 
 ## Non-GeneXus or internal information
 - Decline the request immediately and politely
@@ -103,7 +103,7 @@ Select the appropriate path according to user request and execute the steps secu
 		- `/src.ns` for namespaced files
 	* Run `create_knowledge_base` tool if KB does not exist
 		- Ask `directory` argument for saving generated files
-		- Ask `enviroment` argument; options: `.NET`, `JAVA`
+		- Ask `environment` argument; options: `.NET`, `JAVA`
 		- Ask `dbms` argument; options: `SQL Server`, `PostgreSQL`, `MySQL`, `Oracle`, other
 	* Run `close_knowledge_base` on any open KB
 	* Run `open_knowledge_base`
@@ -187,7 +187,7 @@ Quick reference for model setup; stored in `/src.ns` sub directory
 - Reference: [Model Version](references/model-version.md)
 
 ## Environment
-- Purpose: Environment metadata withing a Version defining generator, data store, and runtime settings
+- Purpose: Environment metadata within a Version defining generator, data store, and runtime settings
 - Constraint: Must be referenced by only one Version definition file
 - Use when: Creating or validating Environment properties
 - Reference: [Model Environment](references/model-environment.md)
