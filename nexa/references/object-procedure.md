@@ -79,7 +79,7 @@ Pass PK/FK attributes directly in `parm` (without `&`) as `in:` for implicit nav
 	* Use [FE](./common-commands-foreach.md) otherwise
 - Include [common-standard-variables](./common-standard-variables.md) according to procedure context
 - For subroutine-level DB/runtime error handling, include procedure error variables from [common-standard-variables](./common-standard-variables.md)
-- When `Output_File` rule is used, require `Print` command usage and set `Main Program = True` with `Call Protocol = HTTP`
+- When `Output_File` rule is used, require `Print` command usage and set `MainProgram = true` with `CallProtocol = "HTTP"`
 - Include `/* signature */` comment for each `Sub` definition
 - Subroutine invocation via `Do` command has no parameters (global variables)
 

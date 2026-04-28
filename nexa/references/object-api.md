@@ -13,12 +13,12 @@ An `API` object (or `API`) consists of entry points defining services delegating
 Protocol guidance:
 - Prefer `REST` as default protocol
 	* Applies to public/external integrations and standard HTTP clients
-	* Set `Call Protocol = HTTP`
-	* Set `gRPC Protocol = False`
+	* Set `CallProtocol = "HTTP"`
+	* Set `GRPCProtocol = false`
 - Choose `gRPC` only when explicitly requested
 	* Applies to internal service-to-service contracts with strict typing
-	* Set `gRPC Protocol = True`
-	* Set `Generate OpenAPI interface = No`
+	* Set `GRPCProtocol = true`
+	* Set `GenerateOpenAPIInterface = "No"`
 - Keep one service definition mode:
 	* Prefer `API` object exposure layer with reference to implementation objects
 	* Define `Web Service` exposure in target object only when explicitly requested
@@ -207,7 +207,7 @@ Use [global-output](./global-output.md) with `<type>` value: `api`
 - Service parameters can omit `in` params (initialized in Before event)
 - Service can define `out` params not in implementation (initialized in After event)
 - Event code must be orchestration only; never include direct DB access commands
-- Keep API execution under HTTP semantics by setting `Call Protocol = HTTP` when exposing REST behavior
+- Keep API execution under HTTP semantics by setting `CallProtocol = "HTTP"` when exposing REST behavior
 - Keep either `API` object references or object-level `Web Service` definition, never both
 
 ---
