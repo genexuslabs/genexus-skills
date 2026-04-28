@@ -109,28 +109,6 @@ Where:
 
 ---
 
-# OBJECT PROPERTIES
-Common object-level properties used in `#Properties` section:
-- `Type`: External object implementation type; values:
-	* `Native Object`
-	* `Stored Procedure`
-	* `WSDL`
-	* `Java Session Bean`
-- `Description`: External object short purpose description; not mandatory but recommended
-- `Namespace`: Class namespace for external type resolution
-- `.NET Framework External Name`: External class/type used by .NET Framework generator
-- `.NET External Name`: External class/type used by modern .NET generator
-- `.NET Framework Assembly Name`: Assembly name used by .NET Framework generator
-- `.NET Assembly Name`: Assembly name used by modern .NET generator
-- `.NET Framework Constructor Parameters`: Constructor constants list for .NET Framework
-- `.NET Constructor Parameters`: Constructor constants list for modern .NET
-- `.NET Package ID`: Unique package identifier for the external object
-- `Java External Name`: External class/type used by Java generator
-- `Java Constructor Parameters`: Constructor constants list for Java
-- `External Package Name`: Java package used for external type resolution
-
----
-
 # REGION PROPERTIES
 Use these shared properties whenever a member requires explicit native mapping:
 - `NetFrameworkExternalName`: .NET Framework external member name
