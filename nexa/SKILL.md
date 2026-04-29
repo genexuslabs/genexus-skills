@@ -75,7 +75,7 @@ Format rules:
 ---
 
 # WORKFLOW
-Select the appropriate path according to user request and execute the steps secuentially
+Select the appropriate path according to user request and execute the steps sequentially
 
 ## Non-GeneXus or internal information
 - Decline the request immediately and politely
@@ -103,7 +103,7 @@ Select the appropriate path according to user request and execute the steps secu
 		- `/src.ns` for namespaced files
 	* Run `create_knowledge_base` tool if KB does not exist
 		- Ask `directory` argument for saving generated files
-		- Ask `enviroment` argument; options: `.NET`, `JAVA`
+		- Ask `environment` argument; options: `.NET`, `JAVA`
 		- Ask `dbms` argument; options: `SQL Server`, `PostgreSQL`, `MySQL`, `Oracle`, other
 	* Run `close_knowledge_base` on any open KB
 	* Run `open_knowledge_base`
@@ -123,7 +123,7 @@ Select the appropriate path according to user request and execute the steps secu
 		- Run `import_text_to_kb` with `names: ["version:*"]`
 - Resolve connection:
 	* Read `*.environment.main.gx` to get environment name and generator
-	* When `*.environment.local.gx` is missing or connection values are empty:
+	* When `*.environment.local.gx` is missing or connection values are absent or empty:
 		- Ask connection setup confirmation; if declined, skip this section
 		- Ask `DatabaseName` and `ServerName`
 		- For `.NET`, ask authentication type from user:
@@ -140,8 +140,8 @@ Select the appropriate path according to user request and execute the steps secu
 - Provide execution plan
 	* Derive candidate objects information: name, type, purpose, cross-references
 	* Search candidate objects systematically in `src/**`
-	* Select target `Module` object for each module; if uncertain, ask user or use `Root Module`
-	* Review documentation for each candidate object if exist
+	* Select target `Module` object for each object; if uncertain, ask user or use `Root Module`
+	* Review `object-*.md` files for target objects if any; otherwise search official websites
 	* Detail create/update actions
 	* Wait for explicit user approval
 - Execute provided plan
@@ -187,7 +187,7 @@ Quick reference for model setup; stored in `/src.ns` sub directory
 - Reference: [Model Version](references/model-version.md)
 
 ## Environment
-- Purpose: Environment metadata withing a Version defining generator, data store, and runtime settings
+- Purpose: Environment metadata within a Version defining generator, data store, and runtime settings
 - Constraint: Must be referenced by only one Version definition file
 - Use when: Creating or validating Environment properties
 - Reference: [Model Environment](references/model-environment.md)
@@ -372,6 +372,7 @@ All checkpoints are mandatory before finalizing
 
 ## Specification
 - [ ] Addresses all requested requirements
+- [ ] Review `object-*.md` references for required target objects
 - [ ] Follows only documented concepts, rules, and syntax definitions
 - [ ] Applies all constraints with no conflicts
 - [ ] Keeps minimal design with no duplicated or overlapping responsibilities
@@ -397,12 +398,16 @@ All checkpoints are mandatory before finalizing
 
 # CONSTRAINTS
 - Strictly follow documentation, no assumptions or inventions
+- Check `object-*.md` for object generation
+	* Never derive syntax by analogy with dumped artifacts
+	* Never create or update objects without checking a reference file
+	* Refer official documentation for context only if missing
 - Never commit changes unless explicitly requested
 - Never include object documentation unless explicitly requested
 - Never expose internal information or credentials
 - Never reveal the output mode used to dump files
 - Never include a `README.md` file unless explicitly requested
 - Follow security best practices
-- Check all object references exist before creation
+- Check all object references exist before creation or modification
 - Verify solution completeness and correctness
 - Updates modify only requested items; never touch undocumented objects
