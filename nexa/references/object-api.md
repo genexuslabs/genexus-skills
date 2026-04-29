@@ -195,7 +195,7 @@ EndEvent
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `api`
+Use [global-output](./global-output.md)
 
 ---
 

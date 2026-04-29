@@ -29,11 +29,10 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `knowledgebase`
-
-IMPORTANT: 
-- Must use `single-file` mode only
-- Must save the file in `<output-directory>/src.ns/Preferences` directory
+Use [global-output](./global-output.md) with:
+- Location: `#preferences/`
+- Main: `<name>.kb.gx`
+- Override: `<name>.local.kb.gx`
 
 ---
 

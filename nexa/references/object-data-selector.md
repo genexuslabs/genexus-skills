@@ -64,7 +64,7 @@ Notes:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `dataselector`
+Use [global-output](./global-output.md)
 
 ---
 

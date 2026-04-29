@@ -58,7 +58,7 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `procedure`
+Use [global-output](./global-output.md)
 
 ---
 

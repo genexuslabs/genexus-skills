@@ -63,13 +63,7 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value:
-- For `Panel` object → `panel`
-- For `WebPanel` object → `webpanel`
-- For `Stencil` object → `stencil`
-- For `WebComponent` object → `webcomponent`
-- For `MasterPanel` object → `masterpanel`
-- For `MasterPage` object → `masterpage`
+Use [global-output](./global-output.md)
 
 ---
 

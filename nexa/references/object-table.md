@@ -47,9 +47,9 @@ Notes:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `table`
-
-Note: `<name>` matches the owner `Transaction` or `Transaction + Level` name
+Use [global-output](./global-output.md) with:
+- Location: `#tables/`
+- Boundary: `<name>` matches the owner `Transaction` or `Transaction + Level` name
 
 ---
 

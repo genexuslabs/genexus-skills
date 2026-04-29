@@ -89,13 +89,10 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `environment`
-
-IMPORTANT: 
-- Must save the file in `<output-directory>/src.ns/Preferences` directory
-- Must include a `.local.gx` sibling file for extending/overriding `.main.gx` definition
-	* Always include properties with sensitive values; e.g. password, conenction info, etc
-	* Typically included in the `.gitignore` file
+Use [global-output](./global-output.md) with:
+- Location: `#preferences/`
+- Main: `<name>.env.gx`
+- Override: `<name>.local.env.gx`
 
 ---
 

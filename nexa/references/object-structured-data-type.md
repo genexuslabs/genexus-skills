@@ -71,7 +71,7 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `sdt`
+Use [global-output](./global-output.md)
 
 ---
 

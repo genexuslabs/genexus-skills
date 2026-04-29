@@ -18,7 +18,8 @@ N/A
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `folder`
+Use [global-output](./global-output.md) with:
+- Target: `@<name>/`
 
 ---
 

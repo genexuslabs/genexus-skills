@@ -121,7 +121,7 @@ Allowed clauses:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `query`
+Use [global-output](./global-output.md)
 
 ---
 

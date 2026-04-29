@@ -39,7 +39,8 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `deploymentunitcategory`
+Use [global-output](./global-output.md) with:
+- Location: `#categories/`
 
 ---
 

@@ -47,7 +47,7 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `language`
+Use [global-output](./global-output.md)
 
 ---
 

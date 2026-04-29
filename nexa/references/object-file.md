@@ -37,7 +37,8 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `file`
+Use [global-output](./global-output.md) with:
+- Location: `#files/`
 
 ---
 
@@ -48,6 +49,7 @@ Use [global-output](./global-output.md) with `<type>` value: `file`
 - Binary files (.mp3, .wav, .ttf, .otf, .dll, .exe, etc.) read-only, never output binary content
 - Avoid leading or trailing tabs/whitespace unless required by format
 - Use UTF-8 encoding
+- Store `File` objects only in module `#files/` directories
 - Files cannot be specified under folders, only modules
 
 ---

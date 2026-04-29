@@ -46,7 +46,8 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `domain`
+Use [global-output](./global-output.md) with:
+- Location: `#domains/`
 
 ---
 
@@ -56,7 +57,7 @@ Use [global-output](./global-output.md) with `<type>` value: `domain`
 - Resolve `Data Type` property using [common-data-types](./common-data-types.md)
 - Define `EnumValues` property for enum `Domain` object
 - Use POSIX BRE or ERE syntax for `Regular Expression` property values
-- Define `Domain` object only under modules; folders are forbidden
+- Define `Domain` object only under modules in `#domains/`; folders are forbidden
 - Extend `Domain` object only from another domain; self-reference is forbidden
 - Reuse built-in [Semantic Domain objects](./common-semantic-types.md); no custom duplicates
 - `Autonumber` is NOT a valid `Domain` property; it is only available on `Attribute` definitions within a `Transaction`

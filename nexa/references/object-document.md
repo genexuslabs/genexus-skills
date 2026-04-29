@@ -32,7 +32,8 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `document`
+Use [global-output](./global-output.md) with:
+- Location: `#wiki/`
 
 ---
 

@@ -44,7 +44,7 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `urlrewrite`
+Use [global-output](./global-output.md)
 
 ---
 

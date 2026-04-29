@@ -56,7 +56,7 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `transaction`
+Use [global-output](./global-output.md)
 
 Workflow:
 - Create or update `Transaction` artifact

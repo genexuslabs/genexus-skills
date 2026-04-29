@@ -69,7 +69,7 @@ See [common-rules](./common-rules.md)
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `agent`
+Use [global-output](./global-output.md)
 
 ---
 

@@ -157,7 +157,7 @@ Notes:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `designsystem`
+Use [global-output](./global-output.md)
 
 ---
 

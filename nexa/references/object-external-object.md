@@ -185,7 +185,7 @@ Notes:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `externalobject`
+Use [global-output](./global-output.md)
 
 ---
 

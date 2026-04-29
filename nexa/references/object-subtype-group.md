@@ -58,7 +58,8 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `subtype`
+Use [global-output](./global-output.md) with:
+- Location: `#subtypes/`
 
 ---
 

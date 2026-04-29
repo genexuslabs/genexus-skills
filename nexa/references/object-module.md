@@ -44,7 +44,10 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `module`
+Use [global-output](./global-output.md) with:
+- Target: `<name>/`
+- Documentation: `README.md`
+- Properties: `module.toml`
 
 ---
 
