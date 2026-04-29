@@ -448,12 +448,3 @@ Use this file to select editable Version properties and metadata
 	* `From Description`: From Description
 	* `From Parent`: From Parent
 - Default: `From Parent`
-
----
-
-# SPECIAL
-
-## CurrentEnvironment
-- Description: Specifies the current environment from a predefined list
-- Type: `string`
-- Location: `.local.gx`

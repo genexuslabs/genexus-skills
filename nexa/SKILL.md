@@ -179,16 +179,10 @@ Select the appropriate path according to user request and execute the steps sequ
 Quick reference for model setup; stored in `src/#preferences` sub directory
 
 ## Knowledge Base
-- Purpose: Knowledge Base metadata with global settings like language, numeric length, and image paths
+- Purpose: Knowledge Base metadata with global settings like language, numeric length, and image paths; plus Version-specific settings and Environment references
 - Constraint: Must be unique by Knowledge Base definition
 - Use when: Creating or validating Knowledge Base properties
 - Reference: [Model Knowledge Base](references/model-knowledge-base.md)
-
-## Version
-- Purpose: Design model metadata within the Knowledge Base defining version-level settings like styles
-- Constraint: Must be referenced by Knowledge Base definition file
-- Use when: Creating or validating Version properties
-- Reference: [Model Version](references/model-version.md)
 
 ## Environment
 - Purpose: Environment metadata within a Version defining generator, data store, and runtime settings

@@ -19,12 +19,37 @@ KnowledgeBase <name>
 	#Properties
 		<properties>
 	#End
+
+	#Version
+		<version>
+	#End
+
+	#Environments
+		<environments>
+	#End
 }
 ~~~
 
 Where:
 - `<name>`: Knowledge Base name using alphanumeric or underscore, starting with letter
+- `<version>`: Knowledge Base version definition; see [VERSION](#version) section
+- `<environments>`: Breakline separated list of [Environment](./model-environment.md) names; must have at least one reference
 - `<properties>`: Knowledge Base properties in TOML syntax; see [properties](./properties-knowledge-base.md)
+
+---
+
+# VERSION
+Defines KB snapshot for parallel evolution, comparison, and rollback
+
+Syntax:
+~~~
+CurrentEnvironment = "<environment>"
+<properties>
+~~~
+
+Where:
+- `<environment>`: Current environment name; must be listed in `#Environments` section
+- `<properties>`: Version-level properties in TOML syntax; see [properties](./properties-version.md)
 
 ---
 
@@ -56,6 +81,17 @@ KnowledgeBase MyApp
 		KbLanguage = "English"
 		MaximumNumericLength = 18
 		BaseImagePath = "resources/images"
+	#End
+
+	#Version
+		DefaultStyle = "MyAppDesignSystem"
+		EnableIntegratedSecurity = true
+		CurrentEnvironment = "NETSQLServer"
+	#End
+
+	#Environments
+		NETSQLServer
+		JavaPostgreSQL
 	#End
 }
 ~~~

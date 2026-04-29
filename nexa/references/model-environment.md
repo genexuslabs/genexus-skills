@@ -8,7 +8,7 @@ Generates or interprets a `Environment` definition file
 ---
 
 # DEFINITION
-An `Environment` model file captures the generator, data store, and deployment configuration for a [Version](./model-version.md) definition
+An `Environment` model file captures the generator, data store, and deployment configuration for a [Version](./model-knowledge-base.md#version) definition
 
 ---
 
