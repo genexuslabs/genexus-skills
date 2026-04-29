@@ -167,7 +167,7 @@ See [common-business-component](./common-business-component.md)
 ---
 
 # DATA PROVIDER ASSOCIATION
-Enable `DataProvider = True` to associate a `DataProvider` child object
+Enable `DataProvider = true` to associate a `DataProvider` child object
 
 Modes:
 - `Populate Transaction`
@@ -175,7 +175,7 @@ Modes:
 	* Use when: Entity must preload persistent data after build
 	* Define `UsedTo = "Populate Data"`
 	* Requires idempotent `DataProvider` using explicit PKs or stable matching key
-	* Side effects: `BusinessComponent = True` (Transaction), `MainProgram = True` (DataProvider)
+	* Side effects: `BusinessComponent = true` (Transaction), `MainProgram = true` (DataProvider)
 - `Dynamic Transaction`
 	* Purpose: Retrieve data without creating physical tables
 	* Use when: Entity acts as a retrieval contract
@@ -374,7 +374,7 @@ Transaction Country
 	CountryName! [ DataType = 'VarChar(40)' ]
 
 	#Properties
-		DataProvider = True
+		DataProvider = true
 		UsedTo = "Populate Data"
 	#End
 }
@@ -416,7 +416,7 @@ Transaction Document
 	DocumentAmount [ DataType = 'Numeric(10.2)' ]
 
 	#Properties
-		DataProvider = True
+		DataProvider = true
 		UsedTo = "Retrieve Data"
 		UpdatePolicy = "Updatable"
 	#End
