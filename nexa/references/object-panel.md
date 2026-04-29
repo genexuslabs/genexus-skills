@@ -205,31 +205,21 @@ EndEvent
 # LAYOUT
 Declarative XML-based screen layout schema used in `#Layout` section
 
-Scope:
+## Scopes
 - Define hirarchical structure and control composition
 - Define visual styling in `DesignSystem` object classes
 
-Format:
+## Rules
+- Escape XML special characters; e.g. `&` (✘) → `&amp;` (✓)
 - Indent using tabs (`\t`); whitespaces forbidden
 - Indent attributes one tab deeper than the element
 - Expand element tags as multiline when more than two attributes
 - Place element name alone on opening line
 - Place one attribute per line
-
-Elements:
-- `<smart>`: Modern div-based responsive layout
-- `<table>`: Legacy table-based layout
-- `<canvas>`: Absolute positioning with overlapping
-- `<grid>`: Data grid with items
-- `<input>`, `<label>`, `<button>`, `<image>`: UI controls
-- `<stencil>`: Embedded reusable layout
-
-Size units:
-- `px` (Web), `dip` (native) for absolute
-- `%` for relative
-- Other units forbidden
-
-Layout constraints:
+- Define sizes only with these units:
+	* `px` (Web), `dip` (native) for absolute
+	* `%` for relative
+	* Any other unit is strictly forbidden
 - For `canvas`, each direct child must define:
 	* Both `width` and `height`
 	* At least one horizontal anchor (`left` or `right`)
@@ -237,6 +227,14 @@ Layout constraints:
 - For `smart` and `table`, `columnsStyle` and `rowsStyle` must not overflow or underflow container size
 - For `stencil`, each mapped child must define `controlNameForStencil`
 - For `image`, use `source` for static image objects and `attribute` for bound data
+
+## Elements
+- `<smart>`: Modern div-based responsive layout
+- `<table>`: Legacy table-based layout
+- `<canvas>`: Absolute positioning with overlapping
+- `<grid>`: Data grid with items
+- `<input>`, `<label>`, `<button>`, `<image>`: UI controls
+- `<stencil>`: Embedded reusable layout
 
 ---
 
