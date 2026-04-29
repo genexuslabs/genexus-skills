@@ -71,7 +71,7 @@ Use [global-output](./global-output.md)
 - Use [global-constraints](./global-constraints.md)
 - Include [common-standard-variables](./common-standard-variables.md) according to panel context
 - Place code only inside `Panel` object sections
-- Allow only `#Layout`, `#Variables`, `#Properties`, `#Documentation` in `Stencil` object
+- Allow only `#Layout`, `#Variables`, `#Properties`, `#Documentation` in `Stencil` object; forbid any other section
 - Events use qualifiers when needed: `[WEB]`, `[WIN]`, `[TEXT]`
 
 ---
