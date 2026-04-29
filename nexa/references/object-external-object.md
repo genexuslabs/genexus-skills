@@ -23,61 +23,19 @@ Design model:
 ExternalObject <name>
 {
 	#GenericTypes
-		<type-name-1>
-		[
-			<type-spec-1>
-		]
-
-		…
+		<generic-types>
 	#End
 
 	#ExternalProperties
-		<prop-name-1>
-		[
-			<prop-spec-1>
-		]
-
-		…
+		<external-properties>
 	#End
 
 	#ExternalMethods
-		<method-name-1>
-		[
-			<method-spec-1>
-		]
-		{
-			Parameters
-			{
-				<method-parm-name-1>
-				[
-					<method-parm-spec-1>
-				]
-
-				…
-			}
-		}
-
-		…
+		<external-methods>
 	#End
 
 	#ExternalEvents
-		<event-name-1>
-		[
-			<event-spec-1>
-		]
-		{
-			Parameters
-			{
-				<event-parm-name-1>
-				[
-					<event-parm-spec-1>
-				]
-
-				…
-			}
-		}
-
-		…
+		<external-events>
 	#End
 
 	#Properties
@@ -92,18 +50,10 @@ ExternalObject <name>
 
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
-- `<type-name-i>`: Generic type name
-- `<type-spec-i>`: Generic type properties; see [GENERIC TYPES](#generic-types)
-- `<prop-name-i>`: External property name
-- `<prop-spec-i>`: External property properties; see [EXTERNAL PROPERTIES](#external-properties)
-- `<method-name-i>`: External method name
-- `<method-spec-i>`: External method properties; see [EXTERNAL METHODS](#external-methods)
-	* `<method-parm-name-j>`: Method parameter name
-	* `<method-parm-spec-j>`: Method parameter properties
-- `<event-name-k>`: External event name
-- `<event-spec-k>`: External event properties; see [EXTERNAL EVENTS](#external-events)
-	* `<event-parm-name-l>`: Event parameter name
-	* `<event-parm-spec-l>`: Event parameter properties
+- `<generic-types>`: Types definition list; see [GENERIC TYPE](#generic-type) section
+- `<external-properties>`: Properties definition list; see [EXTERNAL PROPERTIES](#external-properties) section
+- `<external-methods>`: Methods definition list; see [EXTERNAL METHOD](#external-method) section
+- `<external-events>`: Events definition list; see [EXTERNAL EVENT](#external-event) section
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-external-object.md)
 - `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
@@ -118,65 +68,141 @@ Use these shared properties whenever a member requires explicit native mapping:
 - `JavaExternalName`: Java external member name
 - `JavaExternalType`: Java external member type
 
-## GENERIC TYPES
-Region properties:
-- `Description`: Type description
-- `PropertyName`: Semantic metadata name for the generic placeholder
-- `ValidTypes`: Comma-separated list of valid GeneXus data types
-- `AllowCollection`: Whether the type allows collection values (`True`, `False`)
-- `DefaultType`: Default type used when no explicit specialization is provided
+## GENERIC TYPE
+Syntax:
+~~~
+<name>
+[
+	<properties>
+]
+~~~
+
+Where:
+- `<name>`: Generic type name
+- `<properties>`: Generic type properties
+	* `Description`: Type description
+	* `PropertyName`: Semantic metadata name for the generic placeholder
+	* `ValidTypes`: Comma-separated list of valid GeneXus data types
+	* `AllowCollection`: Whether the type allows collection values (`True`, `False`)
+	* `DefaultType`: Default type used when no explicit specialization is provided
 
 Notes:
 - Generic placeholders are reusable across `#External*` regions
 - Keep generic names stable because member signatures depend on them
 
 ## EXTERNAL PROPERTIES
-Region properties:
-- `PropertyType`: Access mode (`Read`, `Write`, `ReadWrite`)
-- `Description`: Functional meaning of the property
-- `Type`: GeneXus-facing type
-- `IsStatic`: Indicates whether the property is static (`True`, `False`)
-- `ControlType`: UI control type associated with the property when applicable
-- `JavaExternalGetMethod`: Optional explicit Java getter name
-- `JavaExternalSetMethod`: Optional explicit Java setter name
-- Include shared properties when required
+Syntax:
+~~~
+<name>
+[
+	<properties>
+]
+~~~
+
+Where:
+- `<name>`: External property name
+- `<properties>`: External property properties
+	* `PropertyType`: Access mode (`Read`, `Write`, `ReadWrite`)
+	* `Description`: Functional meaning of the property
+	* `Type`: GeneXus-facing type
+	* `IsStatic`: Indicates whether the property is static (`True`, `False`)
+	* `ControlType`: UI control type associated with the property when applicable
+	* `JavaExternalGetMethod`: Optional explicit Java getter name
+	* `JavaExternalSetMethod`: Optional explicit Java setter name
+	* Include shared properties when required
 
 Notes:
 - Use external properties for lightweight state access
 - Use external methods for operations with side effects or validation logic
 
-## EXTERNAL METHODS
-Region properties:
-- `Description`: Functional meaning of the method
-- `Type`: Return type in GeneXus-facing signature
-- `BasedOn`: Indicates if return type is based on another data type
-- `XMLName`: XML identifier for the method
-- `IsStatic`: Indicates whether the method is static (`True`, `False`)
-- `ExternalMemberType`: Member binding mode (`Default`, `Static`, `Instance`)
-- `JavaMethodThrowsExceptions`: Indicates whether Java method throws exception (`Yes`, `No`)
-- Include shared properties when required
+## EXTERNAL METHOD
+Syntax:
+~~~
+<name>
+[
+	<properties>
+]
+{
+	Parameters
+	{
+		<parameters>
+	}
+}
+~~~
 
-Parameter properties:
-- `AccessType`: Direction (`In`, `Out`, `InOut`)
-- `Description`: Parameter description
-- `Type`: Parameter type in GeneXus-facing signature
-- `ExternalType`: Generic external parameter type mapping
-- Include shared properties when required
+Where:
+- `<name>`: External method name
+- `<properties>`: External method properties
+	* `Description`: Functional meaning of the method
+	* `Type`: Return type in GeneXus-facing signature
+	* `BasedOn`: Indicates if return type is based on another data type
+	* `XMLName`: XML identifier for the method
+	* `IsStatic`: Indicates whether the method is static (`True`, `False`)
+	* `ExternalMemberType`: Member binding mode (`Default`, `Static`, `Instance`)
+	* `JavaMethodThrowsExceptions`: Indicates whether Java method throws exception (`Yes`, `No`)
+	* Include shared properties when required
+- `<parameters>`: Method parameter definition list; see [METHOD PARAMETER](#method-parameter) section
+
+## METHOD PARAMETER
+Syntax:
+~~~
+<name>
+[
+	<properties>
+]
+~~~
+
+Where:
+- `<name>`: Method parameter name
+- `<properties>`: Method parameter properties
+	* `AccessType`: Direction (`In`, `Out`, `InOut`)
+	* `Description`: Parameter description
+	* `Type`: Parameter type in GeneXus-facing signature
+	* `ExternalType`: Generic external parameter type mapping
+	* Include shared properties when required
 
 Data type resolution:
 - Reuse [data type priority](./common-data.md#data-type-priority)
 
-## EXTERNAL EVENTS
-Region properties:
-- `Description`: Functional meaning of the event
-- `IsStatic`: Indicates whether the event is static (`True`, `False`)
-- Include shared properties when required
+## EXTERNAL EVENT
+Syntax:
+~~~
+<name>
+[
+	<properties>
+]
+{
+	Parameters
+	{
+		<parameters>
+	}
+}
+~~~
 
-Event parameter properties:
-- `Description`: Event parameter description
-- `Type`: Parameter type in GeneXus-facing signature
-- `ExternalType`: Generic external parameter type mapping
-- Include shared properties when required
+Where:
+- `<name>`: External event name
+- `<properties>`: External event properties
+	* `Description`: Functional meaning of the event
+	* `IsStatic`: Indicates whether the event is static (`True`, `False`)
+	* Include shared properties when required
+- `<parameters>`: Event parameter definition list; see [EVENT PARAMETER](#event-parameter) section
+
+## EVENT PARAMETER
+Syntax:
+~~~
+<name>
+[
+	<properties>
+]
+~~~
+
+Where:
+- `<name>`: Event parameter name
+- `<properties>`: Event parameter properties
+	* `Description`: Event parameter description
+	* `Type`: Parameter type in GeneXus-facing signature
+	* `ExternalType`: Generic external parameter type mapping
+	* Include shared properties when required
 
 Notes:
 - For `Type = 'Native Object'`, set events as static

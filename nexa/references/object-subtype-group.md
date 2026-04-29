@@ -25,17 +25,7 @@ Use cases:
 ~~~
 Group <name>
 {
-	<name-type-1> : <base-type-1>
-	[
-		<properties-1>
-	]
-
-	…
-
-	<name-type-N>: <base-type-N>
-	[
-		<properties-N>
-	]
+	<subtypes>
 
 	#Properties
 		<properties>
@@ -49,11 +39,27 @@ Group <name>
 
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
-- `<name-type-i>`: Subtype alias derived from `<base-type-i>` with contextual/role prefix
-- `<base-type-i>`: Existing Attribute or SubType
-- `<properties-i>`: Overridden supertype properties; omit if none
+- `<subtypes>`: Subtype definition list; see [SUBTYPE](#subtype) section
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-subtype-group.md)
 - `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
+
+---
+
+# SUBTYPE
+Defines one subtype alias entry
+
+Syntax:
+~~~
+<name> : <base-type>
+[
+	<properties>
+]
+~~~
+
+Where:
+- `<name>`: Subtype alias derived from `<base-type>` with contextual/role prefix
+- `<base-type>`: Existing `Attribute` or `SubType` object name
+- `<properties>`: Overridden supertype properties; omit if none
 
 ---
 

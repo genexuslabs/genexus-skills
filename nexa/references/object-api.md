@@ -32,19 +32,7 @@ API <name>
 {
 	<name>
 	{
-		[<annotation-1-1>]
-		…
-		[<annotation-1-M>]
-		<service-1>(<parameter-list-1>)
-			=> <implementation-1>(<argument-list-1>);
-
-		…
-
-		[<annotation-N-1>]
-		…
-		[<annotation-N-K>]
-		<service-N>(<parameter-list-N>)
-			=> <implementation-N>(<argument-list-N>);
+		<services>
 	}
 
 	#Events
@@ -67,11 +55,7 @@ API <name>
 
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
-- `<annotation-i-j>`: j-th annotation for i-th service (RestMethod, RestPath, Header, Description, SecurityLevel, SecurityPermission)
-- `<service-i>`: i-th service exposed name with parameters
-- `<parameter-list-i>`: Comma-separated variable parameters with operator (`in`, `out`, `inout`); optional parameters in brackets
-- `<implementation-i>`: Implementation object (Procedure, DataProvider, or other callable object)
-- `<argument-list-i>`: Comma-separated variables or constants for implementation call
+- `<services>`: Service definition list; see [SERVICE](#service) section
 - `<events>`: Event handlers (Before, After, service-specific)
 - `<variables>`: Variable definitions with mandatory `DataType`
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-api.md)
@@ -80,7 +64,31 @@ Where:
 
 ---
 
+# SERVICE
+Defines one exposed service delegated to one implementation call
+
+Syntax:
+~~~
+<annotations>
+<name>(<parameters>)
+	=> <implementation>(<arguments>);
+~~~
+
+Where:
+- `<annotations>`: Breakline separetd annotations; see [ANNOTATIONS](#annotations)
+- `<name>`: Service exposed name with parameters
+- `<parameters>`: Comma-separated variable parameters with operator (`in`, `out`, `inout`); optional parameters in brackets
+- `<implementation>`: Implementation object (`Procedure`, `DataProvider`, or other callable object)
+- `<arguments>`: Comma-separated variables or constants for implementation call
+
+Notes:
+- Write annotations immediately before the service declaration
+- Keep one implementation call per service
+
+---
+
 # ANNOTATIONS
+Defines optional protocol-specific metadata for a service declaration
 
 ## RestMethod
 Defines REST method
