@@ -16,12 +16,7 @@ An `Image` object (or `IMG`) defines a container for several bitmaps
 ~~~
 Image <name>
 {
-	<image-name-1>
-	[
-		<properties-1>
-	]
-
-	…
+	<entries>
 
 	#Properties
 		<properties>
@@ -31,11 +26,29 @@ Image <name>
 
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
-- `<image-name-i>`: Image item name matching image file name
-- `<properties-i>`: Image item properties block
+- `<entries>`: Image entry definition list; see [ENTRY](#entry) section
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-image.md)
+
+---
+
+# ENTRY
+Defines one physical image variant inside the logical image container
+
+Syntax:
+~~~
+<name>
+[
+	<properties>
+]
+~~~
+
+Where:
+- `<name>`: Image entry name matching the physical file name
+	* Must use alphanumeric or underscore, starting with letter
+	* Must replace whitespaces with underscores in both file and entry name
+- `<properties>`: Image entry properties block
 	* Use `<prop-name> = '<prop-value>'` syntax for each property
 	* See [Image Entry Properties](./properties-object-image-entry.md)
-- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-image.md)
 
 ---
 
@@ -49,7 +62,7 @@ Scoped filename for multi-file mode:
 - `<name>.image.main.gx`
 - `<name>.image.properties.toml`
 
-Place image files under `/<name>` folder
+Place physical image files under `/<name>` folder
 
 Hierarchy:
 ~~~
