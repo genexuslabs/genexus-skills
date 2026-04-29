@@ -36,7 +36,7 @@ Defines one physical image variant inside the logical image container
 
 Syntax:
 ~~~
-<name>
+"<name>"
 [
 	<properties>
 ]
@@ -44,8 +44,6 @@ Syntax:
 
 Where:
 - `<name>`: Image entry name matching the physical file name
-	* Must use alphanumeric or underscore, starting with letter
-	* Must replace whitespaces with underscores in both file and entry name
 - `<properties>`: Image entry properties block
 	* Use `<prop-name> = '<prop-value>'` syntax for each property
 	* See [Image Entry Properties](./properties-object-image-entry.md)
@@ -91,6 +89,7 @@ Hierarchy:
 - Never define density or style variants for `.svg` format
 	* Resolution-independent (no density variants)
 	* Render-time styling (via `fill`/`stroke` attributes)
+- Never define physical full filepath as entry name; only filename is allowed
 
 ---
 
@@ -101,7 +100,7 @@ Single bitmap with metadata
 ~~~
 Image LogoApp
 {
-	LogoApp.png
+	"LogoApp.png"
 	[
 		Description = 'Primary application logo (1x)'
 		Density = '100% (mdpi Android, 1x iOS, 1x Web)'
@@ -122,28 +121,28 @@ Multi-density and language-specific variants
 ~~~
 Image WelcomeBanner
 {
-	WelcomeBanner_en@1x.png
+	"WelcomeBanner-en@1x.png"
 	[
 		Description = 'English banner for mdpi / 1x'
 		Language = 'English'
 		Density = '100% (mdpi Android, 1x iOS, 1x Web)'
 	]
 
-	WelcomeBanner_en@2x.png
+	"WelcomeBanner-en@2x.png"
 	[
 		Description = 'English banner for xhdpi / 2x'
 		Language = 'English'
 		Density = '200% (xhdpi Android, 2x iOS, 2x Web)'
 	]
 
-	WelcomeBanner_es@1x.png
+	"WelcomeBanner-es@1x.png"
 	[
 		Description = 'Spanish banner for mdpi / 1x'
 		Language = 'Spanish'
 		Density = '100% (mdpi Android, 1x iOS, 1x Web)'
 	]
 
-	WelcomeBanner_es@2x.png
+	"WelcomeBanner-es@2x.png"
 	[
 		Description = 'Spanish banner for xhdpi / 2x'
 		Language = 'Spanish'
@@ -173,13 +172,13 @@ Directional icon with RTL variant
 ~~~
 Image NextArrow
 {
-	NextArrow.svg
+	"Next Arrow.svg"
 	[
 		Description = 'Next arrow icon'
 		RenderingMode = 'Template'
 	]
 
-	NextArrow_RTL.svg
+	"Next Arrow (RTL).svg"
 	[
 		Description = 'Next arrow icon (for RTL)'
 		RenderingMode = 'Template'
