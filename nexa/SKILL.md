@@ -217,14 +217,9 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Reference: [Transaction object](references/object-transaction.md)
 
 ## Table (TBL)
-- Purpose: Physical persistence object generated from Transaction structure and used as base for navigation
+- Purpose: Physical database base table inferred from Transaction structure with indexes for access performance, referential integrity, and uniqueness
 - Use when: Reviewing physical data model, or editing user indexes references
 - Reference: [Table object](references/object-table.md)
-
-## Index (IDX)
-- Purpose: Table index definition; only user indexes are manually defined for access paths, ordering, and uniqueness constraints
-- Use when: Optimizing navigation patterns or enforcing uniqueness semantics on FK attributes
-- Reference: [Index object](references/object-index.md)
 
 ## Procedure (PRC)
 - Purpose: Procedural algorithm as sequence of statements, including report generation for formatted and printable data output

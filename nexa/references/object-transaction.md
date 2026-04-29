@@ -12,7 +12,7 @@ A `Transaction` object (or `TRN`) represents real-world entities mapping to data
 
 GeneXus automatically normalizes to third normal form (3NF)
 
-Each `Transaction` maps to one or more [Table](./object-table.md) objects by level structure, and each mapped `Table` defines associated [Index](./object-index.md) objects for filtering and ordering
+Each `Transaction` maps to one or more [Table](./object-table.md) objects by level structure
 
 ---
 
@@ -118,13 +118,17 @@ Transaction Payment
 	PaymentAmount [ DataType = 'Numeric(10.2)' ]
 }
 
-Index UPaymentByOrder
+Table Payments
 {
-	OrderId
-
-	#Index
-		Source = "User"
-		Type = "Unique"
+	#Indexes
+		UPaymentByOrder
+		[
+			Source = 'User',
+			Type = 'Unique'
+		]
+		{
+			OrderId
+		}
 	#End
 }
 ~~~
