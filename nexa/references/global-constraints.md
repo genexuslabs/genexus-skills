@@ -28,5 +28,4 @@ Shared constraints for `references/object-*.md`
 - Allow enum domain dot (`.`) notation only; `!"COSMETICS"` (✘) → `ProductCategoryType.Cosmetics`
 - Define all properties in `.gx` files using PascalCase without quotes; `"Maximum numeric length"` (✘) → `MaximumNumericLength` (✓)
 - Read/write properties via `.gx` files only; never use `get_kb_property` or `set_kb_property` tools
-- Find model properties in `src.ns/Preferences/*` and object properties in `src/**`
 - Execute `import_text_to_kb` after modifying any `.gx` file

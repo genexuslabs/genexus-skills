@@ -104,7 +104,8 @@ Use [global-output](./global-output.md) with:
 - Keep deployment unit names aligned with `DeploymentUnit` objects
 - The main file defines shared configuration; the local file defines machine-specific settings
 - Never store database credentials or server names in the main file; use the local file
-- After writing or modifying the `.local.gx` file, always run `import_text_to_kb` with `names: ["environment:*"]` to import the environment changes into the KB
+- Raise warning when local-only values are written to `<name>.env.gx` instead of `<name>.local.env.gx`
+- After writing or modifying `<name>.env.gx` or `<name>.local.env.gx`, always run `import_text_to_kb` with `names: ["environment:*"]` to import the environment changes into the KB
 
 ---
 
@@ -162,7 +163,7 @@ Environment NETSQLServer
 
 Saved as:
 ~~~
-src.ns/Preferences/NETSQLServer.environment.main.gx
+src/#preferences/NETSQLServer.env.gx
 ~~~
 
 ## Example 2
@@ -215,7 +216,7 @@ Environment NETSQLServer
 
 Saved as:
 ~~~
-src.ns/Preferences/NETSQLServer.environment.local.gx
+src/#preferences/NETSQLServer.local.env.gx
 ~~~
 
 ## Example 3
@@ -254,5 +255,5 @@ Environment JavaPostgreSQL
 
 Saved as:
 ~~~
-src.ns/Preferences/JavaPostgreSQL.environment.main.gx
+src/#preferences/JavaPostgreSQL.env.gx
 ~~~

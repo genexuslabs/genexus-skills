@@ -280,7 +280,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## Web Root
 - Description: Set the web root URL
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ---
 
@@ -389,7 +389,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## AI Provider API Key
 - Description: Set the AI provider API key
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## AI Provider Project Id
 - Description: Set the AI provider project id
@@ -400,7 +400,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 - Type: `string`
 
 ## Default Agents AI Model
-- Description: Set the default Agents AI model; check [Supported Chat Models](https://docs.globant.ai/en/wiki?200,Supported+Chat+Models)
+- Description: Set the default Agents AI model; see [Supported Chat Models](https://docs.globant.ai/en/wiki?200,Supported+Chat+Models)
 - Type: `string`
 - Default: `openai/gpt-4.1`
 

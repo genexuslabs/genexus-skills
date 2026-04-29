@@ -134,12 +134,12 @@ Requires:
 - `MainProgram = true`
 - `CallProtocol = "Command Line"`
 
-Working directory resolution:
-1. Read `src.ns/Preferences/<ver-name>.version.main.gx` file
-2. Get `CurrentEnvironment` property value as `<env-name>`
-3. Read `src.ns/Preferences/<env-name>.environment.main.gx` file
-4. Get the `TargetPath` property value as `<target-path>`
-5. Navigate to `<kb-root>/<target-path>/web` as working directory
+Working directory resolution in order:
+- Read `src/#preferences/<ver-name>.kb.gx` file
+- Read `CurrentEnvironment` from `#Version` section as `<env-name>`
+- Read `src/#preferences/<env-name>.env.gx` file
+- Get the `TargetPath` property value as `<target-path>`
+- Navigate to `<kb-root>/<target-path>/web` as working directory
 
 ## JAVA Environment
 ```

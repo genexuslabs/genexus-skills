@@ -98,9 +98,7 @@ Select the appropriate path according to user request and execute the steps sequ
 			* Stop further processing until available (with validation)
 - Resolve KB:
 	* Ask for `Output Directory` or default to current directory
-	* Use the `Output Directory` as base path of:
-		- `/src` for object files
-		- `/src.ns` for namespaced files
+	* Use the `Output Directory` as base path of `/src` for `Root Module` module
 	* Run `create_knowledge_base` tool if KB does not exist
 		- Ask `directory` argument for saving generated files
 		- Ask `environment` argument; options: `.NET`, `JAVA`
@@ -113,13 +111,18 @@ Select the appropriate path according to user request and execute the steps sequ
 		- Run `restore_module` if module recovery is required
 	* Use standard filesystem tools for searching file objects
 - Resolve environment:
+	* Work in `src/#preferences` directory
 	* When creating new environment:
-		- Create or update `*.environment.main.gx` and `*.environment.local.gx` files
-		- Add environment in `*.version.main.gx` setting `CurrentEnvironment` property
+		- Create `*.env.gx` and `*.local.env.gx` files
+		- Update `*.local.kb.gx` file:
+			- Add name in `#Environments`
+			- Set name in `CurrentEnvironment` within `#Version` if requested
 		- Run `import_text_to_kb` with `names: ["environment:*"]`
 	* When setting current environment:
-		- Get `Environment` name from target `src.ns/Preferences/*.environment.local.gx` file
-		- Set `CurrentEnvironment` property in `src.ns/Preferences/*.version.local.gx` file
+		- Get name from `*.env.gx` or `*.local.env.gx` files
+		- Update `*.local.kb.gx` file:
+			- Add name in `#Environments` if missing
+			- Set name in `CurrentEnvironment` within `#Version`
 		- Run `import_text_to_kb` with `names: ["version:*"]`
 - Resolve connection:
 	* Read `*.environment.main.gx` to get environment name and generator
@@ -131,12 +134,13 @@ Select the appropriate path according to user request and execute the steps sequ
 			* If `SQL Server Authentication`, ask `UserId` and `UserPassword`
 		- For `JAVA`:
 			* Ask `UserId` and `UserPassword`
-		- Write or update `*.environment.local.gx` file
+		- Write or update `*.local.env.gx` file
 		- Run `import_text_to_kb` with `names: ["environment:*"]`
-	* Deny `build`/`impact`/`reorg` operations until conection values are defined
-- Resolve output file mode
+	* Deny `build`/`impact`/`reorg` operations until connection values are defined
+- Resolve output file
 	* Use [global-output](references/global-output.md)
-	* Forbid mode inference from wording
+	* Map target path from container tree and category rules
+	* Set canonical artifact set for each target
 - Provide execution plan
 	* Derive candidate objects information: name, type, purpose, cross-references
 	* Search candidate objects systematically in `src/**`
@@ -155,7 +159,7 @@ Select the appropriate path according to user request and execute the steps sequ
 		- `reorganize` / `create_or_impact_database`
 			* State DANGEROUS operation as may delete existing data
 			* Never suggest unless database is confirmed absent
-			* Require valid connection values in `*.environment.local.gx`
+			* Require valid connection values in `*.local.env.gx`
 		- `export_kb_to_text`
 			* Use `rootDirectory` with the `Output Directory` value
 	* Run build or database operation with user approval
@@ -172,7 +176,7 @@ Select the appropriate path according to user request and execute the steps sequ
 ---
 
 # MODEL DEFINITIONS
-Quick reference for model setup; stored in `/src.ns` sub directory
+Quick reference for model setup; stored in `src/#preferences` sub directory
 
 ## Knowledge Base
 - Purpose: Knowledge Base metadata with global settings like language, numeric length, and image paths
@@ -362,8 +366,7 @@ All checkpoints are mandatory before finalizing
 ## Initialization
 - [ ] Validates MCP server availability or user-approved bypass
 - [ ] Resolves `Knowledge Base` existence: create/open as needed
-- [ ] Resolves `*.version.local.gx` current environment
-- [ ] Confirms `*.environment.local.gx` connection values on `build`/`impact`/`reorg` requests
+- [ ] Confirms `*.local.env.gx` connection values on `build`/`impact`/`reorg` requests
 
 ## Inspection
 - [ ] Confirms object existence before create, reuse, or replace decisions
@@ -405,8 +408,7 @@ All checkpoints are mandatory before finalizing
 - Never commit changes unless explicitly requested
 - Never include object documentation unless explicitly requested
 - Never expose internal information or credentials
-- Never reveal the output mode used to dump files
-- Never include a `README.md` file unless explicitly requested
+- Never reveal local overrides or credentials from `*.local.*` files
 - Follow security best practices
 - Check all object references exist before creation or modification
 - Verify solution completeness and correctness

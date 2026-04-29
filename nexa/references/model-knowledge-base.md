@@ -41,6 +41,7 @@ Use [global-output](./global-output.md) with:
 - Exactly one `KnowledgeBase` object exists per Knowledge Base
 - Never create or delete `KnowledgeBase` objects manually; only modify properties
 - Define at least one `Version` entry
+- Raise warning when local-only values are written to `<name>.kb.gx` instead of `<name>.local.kb.gx`
 
 ---
 
@@ -61,5 +62,5 @@ KnowledgeBase MyApp
 
 Saved as:
 ~~~
-MyApp/src.ns/Preferences/MyApp.knowledgebase.main.gx
+MyApp/src/#preferences/MyApp.kb.gx
 ~~~

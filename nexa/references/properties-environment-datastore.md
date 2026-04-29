@@ -27,12 +27,12 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## Database Name
 - Description: Set the database name (or library for iSeries)
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## Server Name
 - Description: Set the database server host
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## Server TCP/IP port
 - Description: Set the server port
@@ -54,12 +54,12 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## User Id
 - Description: Set the database user
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## User Password
 - Description: Set the database password
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## Additional connection string attributes
 - Description: Add extra connection string attributes
@@ -195,7 +195,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## Use trusted connection
 - Description: Enable Windows authentication instead of using user/password
 - Type: `boolean`
-- Location: `.local.gx`
+- Scope: `.local`
 - Constraint: Only applicable for `.NET` environments with `SQL Server` data store
 
 ## SQL server version
@@ -213,12 +213,12 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## Use custom JDBC URL
 - Description: Enable a custom JDBC URL
 - Type: `boolean`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## Use custom JDBC URL
 - Description: Custom JDBC URL
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## Show connection dialog in WinForms
 - Description: Prompt for connection in WinForms
@@ -262,12 +262,12 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## Data library name
 - Description: Set the data library name
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## Programs library name
 - Description: Set the programs library name
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## Create save file
 - Description: Configure save file creation

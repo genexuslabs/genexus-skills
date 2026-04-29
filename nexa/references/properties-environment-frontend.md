@@ -134,12 +134,12 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## Android SDK Directory
 - Description: Set the local path to the Android SDK
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## JDK Directory
 - Description: Set the local path to the JDK
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## Copy APK To Cloud
 - Description: Upload the generated APK when using Deploy to Cloud
@@ -168,12 +168,12 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## Compiler Path
 - Description: Set the path to `javac`
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## Interpreter Path
 - Description: Set the path to `java`
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ---
 
@@ -210,17 +210,17 @@ Use this file to select editable properties, defaults, and valid options for an 
 ## Mac Host
 - Description: Set the Mac host name or IP for remote build
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## Mac User
 - Description: Set the Mac user for remote build
 - Type: `boolean`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## Mac Password
 - Description: Set the Mac user password for remote build
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ---
 
