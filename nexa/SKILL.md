@@ -310,6 +310,11 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Use when: Calling platform APIs, SDKs, native utilities, or external contracts not implemented as GeneXus objects
 - Reference: [ExternalObject object](references/object-external-object.md)
 
+## Image (IMG)
+- Purpose: Container for images with variants by style, language, and density, as consistent renditions of one image
+- Use when: Reusing images across objects or requiring automatic variant selection by context
+- Reference: [Image object](references/object-image.md)
+
 ## Language (LNG)
 - Purpose: Localized text resources and locale configuration per target language
 - Use when: Defining multilingual application texts and runtime language behavior
