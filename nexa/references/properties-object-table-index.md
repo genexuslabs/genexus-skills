@@ -1,6 +1,6 @@
 ---
-name: properties-object-index
-description: Configurable index properties
+name: properties-object-table-index
+description: Configurable table index properties
 ---
 
 Use this file to select editable properties, defaults, and valid options for this target
