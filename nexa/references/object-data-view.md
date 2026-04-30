@@ -68,21 +68,6 @@ Notes:
 
 ---
 
-# PLATFORM
-Defines one target platform entry for the external table
-
-Syntax:
-~~~
-<name> [ Name = '<table>' , <properties> ]
-~~~
-
-Where:
-- `<name>`: Target platform entry; e.g. `SQLServer`, `MySQL`, `PostgreSQL`
-- `<table>`: Physical external table name for selected platform
-- `<properties>`: Additional platform properties
-
----
-
 # INDEX
 Maps one internal index to one external index plus platform-specific metadata
 
@@ -116,7 +101,7 @@ Where:
 - `<index>`: Physical index name in the external source
 - `<properties>`: Optional index properties in TOML syntax; see [properties](./properties-common.md)
 - `<attributes>`: Ordered index attribute composition; write one attribute per line
-- `<definition>`: Platform-specific index definition list; see [INDEX PLATFORM](#index-platform) section
+- `<definition>`: Platform-specific index definition list; see [PLATFORM](#platform) section
 
 Rules:
 - Only create user indexes (`U` prefixed) if justified
@@ -131,17 +116,20 @@ Notes:
 
 ---
 
-# INDEX PLATFORM
-Defines one target platform entry for an index
+# PLATFORM
+Defines one target platform entry for the external table
 
 Syntax:
 ~~~
-<name> [ <properties> ]
+<name>
+[
+	<properties>
+]
 ~~~
 
 Where:
-- `<name>`: Target platform entry for index; listed in `<platforms>`
-- `<properties>`: Target platform index properties
+- `<name>`: Target platform entry name; listed in `<platforms>`
+- `<properties>`: Target platform properties
 
 ---
 
