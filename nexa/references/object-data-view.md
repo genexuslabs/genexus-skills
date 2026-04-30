@@ -128,8 +128,30 @@ Syntax:
 ~~~
 
 Where:
-- `<platform>`: Target platform entry name; listed in `<platforms>`
-- `<properties>`: Target platform properties
+- `<platform>`: Target platform entry keyword
+- `<properties>`: Target platform properties; see [properties](./properties-object-data-view-platform.md)
+
+Rule:
+- Allowed `<platform>` values:
+	* `Access`: Microsoft Access (Jet/ACE engine)
+	* `AS400`: IBM i/AS400 native (RPG/COBOL)
+	* `DB2Common`: IBM DB2 for LUW (Linux, Unix, Windows)
+	* `DB2400`: IBM DB2 for iSeries (IBM i)
+	* `DBFCDX`: DBF with CDX compound indexes (FoxPro-compatible)
+	* `DBFIDX`: DBF with IDX single indexes (Clipper-compatible)
+	* `Informix`: IBM Informix
+	* `Oracle`: Oracle RDBMS
+	* `SQLServer`: Microsoft SQL Server
+	* `SQLCE`: SQL Server Compact Edition (embedded, file-based)
+	* `PostgreSQL`: PostgreSQL
+	* `MySQL`: MySQL
+	* `SQLite`: SQLite (embedded, file-based)
+	* `Service`: External source via REST/SOAP endpoint
+	* `HANA`: SAP HANA (in-memory, column-store)
+	* `Dameng`: Dameng RDBMS (DM, China)
+- Platform `<name>` must be consistent at both:
+	* Object-level in `#Platforms` seciton
+	* Index-level in `Platforms { … }` block
 
 ---
 
