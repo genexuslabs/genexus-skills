@@ -114,7 +114,7 @@ Where:
 	* `NoDuplicate`: No PK but unique
 	* `Unique`: Cannot have duplicated values
 - `<index>`: Physical index name in the external source
-- `<properties>`: Optional index properties in TOML syntax
+- `<properties>`: Optional index properties in TOML syntax; see [properties](./properties-common.md)
 - `<attributes>`: Ordered index attribute composition; write one attribute per line
 - `<definition>`: Platform-specific index definition list; see [INDEX PLATFORM](#index-platform) section
 
