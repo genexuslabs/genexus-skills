@@ -72,7 +72,7 @@ Where:
 - `<source>`: Defines index source; values:
 	- `Automatic` (default): Automatically created; e.g. PK attributes
 	- `User`: User custom index
-- `<properties>`: Optional properties in TOML syntax; see [properties](./properties-object-index.md)
+- `<properties>`: Optional properties in TOML syntax; see [properties](./properties-object-table-index.md)
 - `<attributes>`: Ordered index attribute composition; write one attribute per line
 
 Rules:
