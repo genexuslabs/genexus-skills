@@ -13,6 +13,8 @@ Shared constraints for `references/object-*.md`
 - Prefer semantically compatible reuse before creating new definitions
 - Define `Description` metadata for all objects and their attributes, variables, members, and parameters, unless unsupported
 - Define `DataType` for attributes, variables, members, and parameters using [common-data](./common-data.md)
+- Allow section blocks `#<name>…#End` in any order
+- Allow properties block `[…]` inline or indented multiline
 - Executable objects with `#Variables` must include baseline from [common-standard-variables](./common-standard-variables.md) unless explicitly restricted
 - Use positional arguments only for object calls, named arguments are forbidden
 - Use semicolons only in rules, conditions, and orders
