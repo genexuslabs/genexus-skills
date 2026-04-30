@@ -31,7 +31,6 @@ Use this file as the common entry point for property definitions and type semant
 - [External Object](./properties-object-external-object.md)
 - [File](./properties-object-file.md)
 - [Image](./properties-object-image.md)
-- [Index](./properties-object-index.md)
 - [Language](./properties-object-language.md)
 - [Module](./properties-object-module.md)
 - [Panel](./properties-object-panel.md)
@@ -41,6 +40,7 @@ Use this file as the common entry point for property definitions and type semant
 - [Structured Data Type](./properties-object-structured-data-type.md)
 - [SubType Group](./properties-object-subtype-group.md)
 - [Table](./properties-object-table.md)
+- [Table Index](./properties-object-table-index.md)
 - [Transaction](./properties-object-transaction.md)
 - [URL Rewrite](./properties-object-url-rewrite.md)
 
