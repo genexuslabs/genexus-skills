@@ -45,7 +45,7 @@ Where:
 - `<attributes>`: Internal attribute mapping list; see [ATTRIBUTES](#attributes) section
 - `<platforms>`: Platform-specific external table mapping list; see [PLATFORM](#platform) section
 - `<indexes>`: External index mapping list; see [INDEX](#index) section
-- `<properties>`: Optional object properties in TOML syntax
+- `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-data-view.md)
 - `<documentation>`: Optional object documentation; see [common-markdown](./common-markdown.md)
 
 ---
