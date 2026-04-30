@@ -18,7 +18,7 @@ Include [General](./properties-common.md) properties
 - Description: Source location: file path, directory, library, or database name
 - Type: `string`
 - Scope:
-	* `ACCESS`
+	* `Access`
 	* `AS400`
 	* `DB2400`
 	* `DBFCDX`
@@ -27,7 +27,7 @@ Include [General](./properties-common.md) properties
 	* `Oracle`
 	* `SQLServer`
 	* `SQLCE`
-	* `POSTGRESQL`
+	* `PostgreSQL`
 	* `MySQL`
 	* `SQLite`
 	* `Service`
@@ -49,7 +49,7 @@ Include [General](./properties-common.md) properties
 	* `Oracle`
 	* `SQLServer`
 	* `SQLCE`
-	* `POSTGRESQL`
+	* `PostgreSQL`
 	* `MySQL`
 	* `HANA`
 	* `Dameng`
@@ -62,7 +62,7 @@ Include [General](./properties-common.md) properties
 	* `No`: Use the internal name
 - Default: `Yes`
 - Scope:
-	* `ACCESS`
+	* `Access`
 	* `AS400`
 	* `DB2Common`
 	* `DB2400`
@@ -72,7 +72,7 @@ Include [General](./properties-common.md) properties
 	* `Oracle`
 	* `SQLServer`
 	* `SQLCE`
-	* `POSTGRESQL`
+	* `PostgreSQL`
 	* `MySQL`
 	* `SQLite`
 	* `Service`
@@ -81,7 +81,7 @@ Include [General](./properties-common.md) properties
 
 ---
 
-# ACCESS SPECIFIC
+# Access SPECIFIC
 Specific properties for `Access` connector
 
 ## Data format
@@ -139,5 +139,5 @@ Specific properties for `Access` connector
 - Type: `string`
 
 ## Provider
-- Description: Provider name used for `ADO` access
+- Description: Provider name used for `ADO` Access
 - Type: `string`
