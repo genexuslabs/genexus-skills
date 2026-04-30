@@ -73,7 +73,7 @@ Maps one internal index to one external index plus platform-specific metadata
 
 Syntax:
 ~~~
-<name>
+<index>
 [
 	Type = '<type>',
 	ExternalName = '<index>',
@@ -93,7 +93,7 @@ Syntax:
 ~~~
 
 Where:
-- `<name>`: Internal index name
+- `<index>`: Internal index name
 - `<type>`: Index uniqueness type; values:
 	* `Duplicate` (default): Can have duplicated values
 	* `NoDuplicate`: No PK but unique
@@ -121,14 +121,14 @@ Defines one target platform entry for the external table
 
 Syntax:
 ~~~
-<name>
+<platform>
 [
 	<properties>
 ]
 ~~~
 
 Where:
-- `<name>`: Target platform entry name; listed in `<platforms>`
+- `<platform>`: Target platform entry name; listed in `<platforms>`
 - `<properties>`: Target platform properties
 
 ---
