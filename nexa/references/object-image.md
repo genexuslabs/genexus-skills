@@ -51,21 +51,13 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `image`
+Use [global-output](./global-output.md)
+- Location: `#images/`
 
-Scoped filename for single-file mode:
-- `<name>.image.main.gx`
-
-Scoped filename for multi-file mode:
-- `<name>.image.main.gx`
-- `<name>.image.properties.toml`
-
-Place physical image files under `/<name>` folder
-
-Hierarchy:
+Place physical image files under `/<name>` folder:
 ~~~
 <name>.image.main.gx
-<name>.image.properties.toml // only for multi-file mode
+<name>.image.properties.toml // only for separeted artifact
 <name>/
 	<name>@1x.png
 	<name>@2x.png
@@ -77,7 +69,8 @@ Hierarchy:
 
 # CONSTRAINTS
 - Use [global-constraints](./global-constraints.md)
-- Each image variant must have a unique property combination
+- Each image entry must have a unique property combination
+- Each image entry name must be filename only; no path
 - Only use supported formats per platform:
 	* All: `.png`, `.jpeg`, `.bmp`, `.gif`
 	* Web only: `.svg`
@@ -89,7 +82,6 @@ Hierarchy:
 - Never define density or style variants for `.svg` format
 	* Resolution-independent (no density variants)
 	* Render-time styling (via `fill`/`stroke` attributes)
-- Never define physical full filepath as entry name; only filename is allowed
 
 ---
 
