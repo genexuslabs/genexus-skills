@@ -46,7 +46,7 @@ Where:
 - `<platforms>`: Platform-specific external table mapping list; see [PLATFORM](#platform) section
 - `<indexes>`: External index mapping list; see [INDEX](#index) section
 - `<properties>`: Optional object properties in TOML syntax
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [common-markdown](./common-markdown.md)
 
 ---
 
