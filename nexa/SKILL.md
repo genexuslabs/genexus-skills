@@ -164,7 +164,7 @@ Select the appropriate path according to user request and execute the steps sequ
 				- Database absence confirmed
 			* Require valid connection values in `*.environment.local.gx`
 		- `build_one` / `build_all`
-			* Only pass `doNotExecuteReorg: true` if explicitly requested
+			* Never pass `doNotExecuteReorg: true` unless explicitly requested
 		- `export_kb_to_text`
 			* Use `rootDirectory` with the `Output Directory` value
 	* Run build or database operation with user approval
