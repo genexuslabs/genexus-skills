@@ -90,7 +90,10 @@ Select the appropriate path according to user request and execute the steps sequ
 
 ## Modeling task
 - Resolve MCP server
-	* Check availability; use `localhost:8001/mcp` unless user specifies another
+	* Check availability; allow config override if user provides another
+		- Host: `localhost`
+		- Port: `5000` or `8001`
+		- Base: `/mcp`
 	* If unavailable:
 		- Alert that `GeneXus Services` must be running
 		- Offer two options:
@@ -103,6 +106,7 @@ Select the appropriate path according to user request and execute the steps sequ
 		- Ask `directory` argument for saving generated files
 		- Ask `environment` argument; options: `.NET`, `JAVA`
 		- Ask `dbms` argument; options: `SQL Server`, `PostgreSQL`, `MySQL`, `Oracle`, other
+		- Ask `backendOnly` argument for UI-objects; values: `true` (ignore), `false` (allow)
 	* Run `close_knowledge_base` on any open KB
 	* Run `open_knowledge_base`
 	* Manage external modules as needed:
@@ -143,6 +147,9 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Set canonical artifact set for each target
 - Provide execution plan
 	* Derive candidate objects information: name, type, purpose, cross-references
+	* Forbid create/update any UI-related object when:
+		* `create_knowledge_base` tool was called with `backendOnly` argument enabled
+		* `*.knowledgebase.main.gx` file has `Backend Only` property enabled
 	* Search candidate objects systematically in `src/**`
 	* Select target `Module` object for each object; if uncertain, ask user or use `Root Module`
 	* Review `object-*.md` files for target objects if any; otherwise search official websites
@@ -154,12 +161,11 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Run `import_text_to_kb` after all files written and validate integration
 	* Use available tools as needed for fulfilling user request
 	* Ask explicit user confirmation when using any of these tools:
-		- `build_one` / `build_all`
-			* Only pass `doNotExecuteReorg: true` if explicitly requested
 		- `reorganize` / `create_or_impact_database`
 			* State DANGEROUS operation as may delete existing data
-			* Never suggest unless database is confirmed absent
-			* Require valid connection values in `*.local.env.gx`
+			* Require valid connection values in `*.environment.local.gx`
+		- `build_one` / `build_all`
+			* Never pass `doNotExecuteReorg: true` unless explicitly requested
 		- `export_kb_to_text`
 			* Use `rootDirectory` with the `Output Directory` value
 	* Run build or database operation with user approval
@@ -374,8 +380,9 @@ All checkpoints are mandatory before finalizing
 
 ## Specification
 - [ ] Addresses all requested requirements
+- [ ] Decline UI-related objects changes in backend-only mode
 - [ ] Review `object-*.md` references for required target objects
-- [ ] Follows only documented concepts, rules, and syntax definitions
+- [ ] Follows documented concepts, rules, and syntax definitions strictly
 - [ ] Applies all constraints with no conflicts
 - [ ] Keeps minimal design with no duplicated or overlapping responsibilities
 - [ ] Preserves naming and structure consistent with existing patterns
