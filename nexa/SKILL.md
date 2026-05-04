@@ -140,6 +140,9 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Forbid mode inference from wording
 - Provide execution plan
 	* Derive candidate objects information: name, type, purpose, cross-references
+	* Forbid create/update any UI-related object when:
+		* `create_knowledge_base` tool was called with `backendOnly` argument enabled
+		* `*.knowledgebase.main.gx` file has `Backend Only` property enabled
 	* Search candidate objects systematically in `src/**`
 	* Select target `Module` object for each object; if uncertain, ask user or use `Root Module`
 	* Review `object-*.md` files for target objects if any; otherwise search official websites
@@ -378,6 +381,7 @@ All checkpoints are mandatory before finalizing
 
 ## Specification
 - [ ] Addresses all requested requirements
+- [ ] Decline UI-related objects changes in backend-only mode
 - [ ] Review `object-*.md` references for required target objects
 - [ ] Follows only documented concepts, rules, and syntax definitions
 - [ ] Applies all constraints with no conflicts
