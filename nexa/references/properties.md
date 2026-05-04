@@ -24,6 +24,8 @@ Use this file as the common entry point for property definitions and type semant
 - [Attribute](./properties-object-attribute.md)
 - [Data Provider](./properties-object-data-provider.md)
 - [Data Selector](./properties-object-data-selector.md)
+- [Data View](./properties-object-data-view.md)
+- [Data View Platform](./properties-object-data-view-platform.md)
 - [Deployment Unit](./properties-object-deployment-unit.md)
 - [Design System](./properties-object-design-system.md)
 - [Documentation](./properties-object-documentation.md)
