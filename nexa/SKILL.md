@@ -90,7 +90,10 @@ Select the appropriate path according to user request and execute the steps sequ
 
 ## Modeling task
 - Resolve MCP server
-	* Check availability; use `localhost:8001/mcp` unless user specifies another
+	* Check availability; allow config override if user provides another
+		- Host: `localhost`
+		- Port: `5000` or `8001`
+		- Base: `/mcp`
 	* If unavailable:
 		- Alert that `GeneXus Services` must be running
 		- Offer two options:
