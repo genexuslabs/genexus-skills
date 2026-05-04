@@ -125,8 +125,8 @@ Select the appropriate path according to user request and execute the steps sequ
 			- Set name in `CurrentEnvironment` within `#Version`
 		- Run `import_text_to_kb` with `names: ["version:*"]`
 - Resolve connection:
-	* Read `*.environment.main.gx` to get environment name and generator
-	* When `*.environment.local.gx` is missing or connection values are absent or empty:
+	* Read `*.env.gx` to get environment name and generator
+	* When `*.local.env.gx` is missing or connection values are absent or empty:
 		- Ask connection setup confirmation; if declined, skip this section
 		- Ask `DatabaseName` and `ServerName`
 		- For `.NET`, ask authentication type from user:
