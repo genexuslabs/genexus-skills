@@ -149,7 +149,7 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Derive candidate objects information: name, type, purpose, cross-references
 	* Forbid create/update any UI-related object when:
 		* `create_knowledge_base` tool was called with `backendOnly` argument enabled
-		* `*.knowledgebase.main.gx` file has `Backend Only` property enabled
+		* `*.kb.gx` file has `Backend Only` property enabled
 	* Search candidate objects systematically in `src/**`
 	* Select target `Module` object for each object; if uncertain, ask user or use `Root Module`
 	* Review `object-*.md` files for target objects if any; otherwise search official websites
@@ -163,7 +163,7 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Ask explicit user confirmation when using any of these tools:
 		- `reorganize` / `create_or_impact_database`
 			* State DANGEROUS operation as may delete existing data
-			* Require valid connection values in `*.environment.local.gx`
+			* Require valid connection values in `*.env.gx`
 		- `build_one` / `build_all`
 			* Never pass `doNotExecuteReorg: true` unless explicitly requested
 		- `export_kb_to_text`
