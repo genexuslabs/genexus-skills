@@ -105,6 +105,7 @@ Select the appropriate path according to user request and execute the steps sequ
 		- Ask `directory` argument for saving generated files
 		- Ask `environment` argument; options: `.NET`, `JAVA`
 		- Ask `dbms` argument; options: `SQL Server`, `PostgreSQL`, `MySQL`, `Oracle`, other
+		- Ask `backendOnly` argument for UI-objects; values: `true` (ignore), `false` (allow)
 	* Run `close_knowledge_base` on any open KB
 	* Run `open_knowledge_base`
 	* Manage external modules as needed:
