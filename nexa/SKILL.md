@@ -383,7 +383,7 @@ All checkpoints are mandatory before finalizing
 - [ ] Addresses all requested requirements
 - [ ] Decline UI-related objects changes in backend-only mode
 - [ ] Review `object-*.md` references for required target objects
-- [ ] Follows only documented concepts, rules, and syntax definitions
+- [ ] Follows documented concepts, rules, and syntax definitions strictly
 - [ ] Applies all constraints with no conflicts
 - [ ] Keeps minimal design with no duplicated or overlapping responsibilities
 - [ ] Preserves naming and structure consistent with existing patterns
