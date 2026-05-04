@@ -156,7 +156,9 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Ask explicit user confirmation when using any of these tools:
 		- `reorganize` / `create_or_impact_database`
 			* State DANGEROUS operation as may delete existing data
-			* Never suggest unless database is confirmed absent
+			* Require execution before any `build_*` operation only when:
+				- Data structure changed
+				- Database absence confirmed
 			* Require valid connection values in `*.environment.local.gx`
 		- `build_one` / `build_all`
 			* Only pass `doNotExecuteReorg: true` if explicitly requested
