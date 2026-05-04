@@ -154,12 +154,12 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Run `import_text_to_kb` after all files written and validate integration
 	* Use available tools as needed for fulfilling user request
 	* Ask explicit user confirmation when using any of these tools:
-		- `build_one` / `build_all`
-			* Only pass `doNotExecuteReorg: true` if explicitly requested
 		- `reorganize` / `create_or_impact_database`
 			* State DANGEROUS operation as may delete existing data
 			* Never suggest unless database is confirmed absent
 			* Require valid connection values in `*.environment.local.gx`
+		- `build_one` / `build_all`
+			* Only pass `doNotExecuteReorg: true` if explicitly requested
 		- `export_kb_to_text`
 			* Use `rootDirectory` with the `Output Directory` value
 	* Run build or database operation with user approval
