@@ -96,8 +96,8 @@ Where:
 - `<index>`: Internal index name
 - `<type>`: Index uniqueness type; values:
 	* `Duplicate` (default): Can have duplicated values
-	* `NoDuplicate`: No PK but unique
-	* `Unique`: Cannot have duplicated values
+	* `Primary Key`: Primary key index
+	* `Unique`: Unique but not primary key
 - `<index>`: Physical index name in the external source
 - `<properties>`: Optional index properties in TOML syntax; see [properties](./properties-common.md)
 - `<attributes>`: Ordered index attribute composition; write one attribute per line
