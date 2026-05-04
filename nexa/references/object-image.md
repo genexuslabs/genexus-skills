@@ -56,8 +56,8 @@ Use [global-output](./global-output.md)
 
 Place physical image files under `/<name>` folder:
 ~~~
-<name>.image.main.gx
-<name>.image.properties.toml // only for separeted artifact
+<name>.gx
+<name>.properties.toml // only for separeted artifact
 <name>/
 	<name>@1x.png
 	<name>@2x.png
@@ -103,7 +103,7 @@ Image LogoApp
 
 Required files:
 ~~~
-LogoApp.image.main.gx
+LogoApp.gx
 LogoApp/
 	LogoApp.png
 ~~~
@@ -149,14 +149,14 @@ Image WelcomeBanner
 
 Required files:
 ~~~
-English.language.main.gx
-Spanish.language.main.gx
-WelcomeBanner.image.main.gx
+English.gx
+Spanish.gx
+WelcomeBanner.gx
 WelcomeBanner/
-	WelcomeBanner_en@1x.png
-	WelcomeBanner_en@2x.png
-	WelcomeBanner_es@1x.png
-	WelcomeBanner_es@2x.png
+	WelcomeBanner-en@1x.png
+	WelcomeBanner-en@2x.png
+	WelcomeBanner-es@1x.png
+	WelcomeBanner-es@2x.png
 ~~~
 
 ## Example 3
@@ -185,7 +185,7 @@ Image NextArrow
 
 Required files:
 ~~~
-NextArrow.image.main.gx
+NextArrow.gx
 NextArrow/
 	NextArrow.svg
 	NextArrow_RTL.svg
