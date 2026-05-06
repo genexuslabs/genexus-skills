@@ -109,10 +109,12 @@ Select the appropriate path according to user request and execute the steps sequ
 		- Ask `backendOnly` argument for UI-objects; values: `true` (ignore), `false` (allow)
 	* Run `close_knowledge_base` on any open KB
 	* Run `open_knowledge_base`
-	* Manage external modules as needed:
+	* Use `/ref` as read-only base path for external `Module` object references
+		- Get `/ref` structure and read all object definitions
 		- Run `install_module` if module is missing
 		- Run `update_module` if module upgrade is required
 		- Run `restore_module` if module recovery is required
+		- Ban `/ref` writes and structure changes
 	* Use standard filesystem tools for searching file objects
 - Resolve environment:
 	* Work in `src/#preferences` directory
