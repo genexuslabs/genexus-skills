@@ -12,6 +12,7 @@ Container directories define the `Knowledge Base` tree
 
 Meaning:
 - For `src/` → `Root Module` directory
+- For `ref/` → `Pacakge` directory
 - For `<name>/` → `Module` directory
 - For `@<name>/` → `Folder` directory
 - For `#<name>/` → category directory
@@ -19,10 +20,21 @@ Meaning:
 ---
 
 # ROOT DIRECTORY
-Store all exported artifacts under `src/`, representing the special `Root Module` object
+Store all exported artifacts under `src/`, representing special `Root Module` object
 
 Rules:
 - The `Root Module` follows the same artifact rules as any other `Module` object
+
+---
+
+# REFERENCES DIRECTORY
+Exposes readonly dependencies under `ref/`, containing `Module` object references as a package
+
+Rules:
+- All `Module` references follow the same artifact rules as any other `Module` object
+- All objects can be referenced by any object under `src/` as any regular object
+- Must be treated as read-only directory; never update, regenerate, or extend contained objects
+- Must only consider object fully-qualified names and signatures; ignore implementation details
 
 ---
 
