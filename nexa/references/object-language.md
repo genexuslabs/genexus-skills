@@ -56,9 +56,9 @@ Use [global-output](./global-output.md) with:
 - Use [global-constraints](./global-constraints.md)
 - Use [common-functions](./common-functions.md) for language runtime operation references
 - Use `UPPER_SNAKE_CASE` for translation keys to keep consistency (but not required)
-- Keep `Language` objects under root `Localization` folder only (not under modules)
+- Keep `Language` objects under root `#localization` folder only (not under modules)
 - Keep runtime language names aligned with existing `Language` object names
-- Keep translation keys stable across all target languages
+- Keep translation literals stable across all target languages
 - Set locale properties explicitly for custom languages; including RTL when applicable
 - Forbidden message key prefixes: `GX`, `GAM`
 
