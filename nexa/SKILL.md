@@ -92,7 +92,7 @@ Select the appropriate path according to user request and execute the steps sequ
 - Resolve MCP server
 	* Check availability; allow config override if user provides another
 		- Host: `localhost`
-		- Port: `5000` or `8001`
+		- Port: `5000`
 		- Base: `/mcp`
 	* If unavailable:
 		- Alert that `GeneXus Services` must be running
