@@ -65,7 +65,11 @@ Use [global-output](./global-output.md) with `<type>` value: `language`
 # CONSTRAINTS
 - Use [global-constraints](./global-constraints.md)
 - Use [common-functions](./common-functions.md) for language runtime operation references
-- Use `UPPER_SNAKE_CASE` for translation keys to keep consistency (but not required)
+- For translation keys, choose one of the following:
+	* Use `UPPER_SNAKE_CASE` as a best practice for consistency (recommended but not required)
+	* Use natural-language keys using `Knowledge Base` language:
+		1. Obtain `KbLanguage` property value from `.kb.gx` file
+		2. Update `Language` objects entries with translated messages
 - Keep `Language` objects under root `Localization` folder only (not under modules)
 - Keep runtime language names aligned with existing `Language` object names
 - Keep translation keys stable across all target languages
