@@ -30,11 +30,30 @@ Language <name>
 
 Where:
 - `<name>`: Language object name using alphanumeric or underscore, starting with letter
-- `<translations>`: Localized entries using key-value pairs
-	* `<entry-item>` syntax: `"<message-key>" = "<localized-text>"`
-	* `<message-key>`: Stable translation key shared across all languages
+- `<translations>`: Localized entries using key-value pairs; see [ENTRY](#entry) section
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-language.md)
 - `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+
+---
+
+# ENTRY
+Localized mapping from a stable literal to a language-specific translation
+
+Syntax:
+~~~
+"<string-literal>" = "<localized-text>"
+~~~
+
+Where:
+- `<string-literal>`: Stable literal shared across all languages
+- `<localized-text>`: Translation for target language
+
+Rules:
+- Encode localized text using UTF-8; allow full Unicode character set
+- Preserve placeholders and formatting tokens in translations
+- Define only overrides and resolver missing entries through:
+	* Fallback `Language` object named by `ParentLanguage` property if defined
+	* Key name verbatim otherwise
 
 ---
 
