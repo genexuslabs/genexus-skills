@@ -171,11 +171,29 @@ Allowed event names:
 - `Enter` (web only)
 - `Back` (non-web only)
 - `'<custom-name>'` (for buttons)
-- `<control-name>.<event-name>`
+- `<control-name>.<event-name>` (for non-buttons)
 
-Common control event names:
-- Web: `Click`, `DblClick`
-- Native: `Tap`, `DoubleTap`, `LongTap`, `Swipe`, `SwipeTop`, `SwipeLeft`, `SwipeRight`, `SwipeBottom`
+Control event names:
+- Web:
+	* `Click`: Left click
+	* `DblClick`: Double click
+- Native:
+	* `Tap`: Short touch
+	* `DoubleTap`: Two quick-touches
+	* `LongTap`: Touch and hold
+	* `Swipe`: Fast swipe in any direction
+	* `SwipeTop`: Upward swipe
+	* `SwipeLeft`: Leftward swipe
+	* `SwipeRight`: Rightward swipe
+	* `SwipeBottom`: Downward swipe
+	* `Drag`: Starts drag operation; define dragged data
+	* `Drop(&arg)`: Dropped dragged content; receives drag data
+	* `DropAccepted`: Before `Drop` when target accepts dragged element
+	* `DragCanceled`: Drag operation cancelled
+- Common:
+	* `IsValid`: After basic validation (business rules, referential integrity)
+	* `ControlValueChanged`: After user finishes changing input value
+	* `ControlValueChanging(&arg)`: While user changes input; receives new value
 
 Execution order:
 1. `Start`
