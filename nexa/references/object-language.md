@@ -77,7 +77,7 @@ Use [global-output](./global-output.md) with `<type>` value: `language`
 # EXAMPLES
 
 ## Example 1
-Language objects with minimal entries
+Language objects with constant literals
 ~~~
 Language English
 {
@@ -129,4 +129,51 @@ SetLanguage(!'Spanish')
 &CurrentLanguage = GetLanguage()
 &TranslitMessage = format(!"%1 (in %2)", 'APP_WELCOME', &CurrentLanguage)
 msg(&TranslitMessage, status) // prints "Bienvenido (in Spanish)"
+~~~
+
+## Example 2
+Language objects with natural-language keys when `KbLanguage = "English"`
+~~~
+Language English
+{
+	"Customer Management" = ""
+	"Welcome" = ""
+	"Saved successfully" = ""
+
+	#Properties
+		"Description" = "English localization"
+		"ISO Language Code" = "English / American"
+		"ISO Country Code" = "United States"
+		"Date format" = "English"
+	#End
+}
+
+Language Spanish
+{
+	"Customer Management" = "Gestion de clientes"
+	"Welcome" = "Bienvenido"
+	"Saved successfully" = "Guardado correcto"
+
+	#Properties
+		"Description" = "Spanish localization"
+		"ISO Language Code" = "Spanish"
+		"ISO Country Code" = "Spain"
+		"Date format" = "Spanish"
+		"Decimal separator" = "',' Comma"
+	#End
+}
+
+Language Arabic
+{
+	"Customer Management" = "ادارة العملاء"
+	"Welcome" = "مرحبا"
+	"Saved successfully" = "تم الحفظ بنجاح"
+
+	#Properties
+		"Description" = "Arabic localization"
+		"ISO Language Code" = "Arabic"
+		"ISO Country Code" = "Saudi Arabia"
+		"Codepage" = 1256
+	#End
+}
 ~~~
