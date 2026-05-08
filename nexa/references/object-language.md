@@ -10,14 +10,6 @@ Defines localized resources for one target language in a multilingual Knowledge 
 # DEFINITION
 A `Language` object stores translations for one target language
 
-Localization setup:
-- `Translate to language` property defines target languages
-- `Translation type` property defines mode as `Static` or `Run-time`
-
-Language selection scope:
-- Accepted values are existing `Language` object names in the Knowledge Base
-- Available options include GeneXus predefined languages and user-defined languages
-
 ---
 
 # SYNTAX
