@@ -89,6 +89,12 @@ Use [global-output](./global-output.md)
 - Keep progressive disclosure: show primary action first, defer secondary actions
 - Model perceived performance in layout: reserve space for skeleton/loading placeholders
 - Define accessibility in controls: readable labels, descriptive button captions, keyboard-safe interactions
+- Include combo-box control for multi-language apps:
+	* Add `VarChar` variable as combo-box base reference
+	* Set `Values` property in variable definition with supported languages
+	* Put `<combobox>` element in a setting screen or `MasterPage` object
+	* Use `GetLanguage` function in `Start` event to initialize element value
+	* Use `SetLanguage` function in `ControlValueChanged` control event to switch languages
 
 ---
 
@@ -210,6 +216,11 @@ Example:
 Event 'Calculate'
 	&Total = &Price * &Quantity
 	msg(format(!"Total: %1", &Total), status)
+EndEvent
+
+Event &LanguageCombo.ControlValueChanged
+	SetLanguage(&LanguageCombo)
+	Refresh
 EndEvent
 ~~~
 
