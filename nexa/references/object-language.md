@@ -68,7 +68,7 @@ Use [global-output](./global-output.md) with `<type>` value: `language`
 - For translation keys, choose one of the following:
 	* Use `UPPER_SNAKE_CASE` as a best practice for consistency (recommended but not required)
 	* Use natural-language keys using `Knowledge Base` language:
-		1. Obtain `KbLanguage` property value from `.kb.gx` file
+		1. Obtain `KbLanguage` property value from `.knowledgebase.main.gx` file
 		2. Update `Language` objects entries with translated messages
 - Keep `Language` objects under root `Localization` folder only (not under modules)
 - Keep runtime language names aligned with existing `Language` object names
