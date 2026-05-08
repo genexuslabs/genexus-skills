@@ -32,7 +32,7 @@ Where:
 - `<name>`: Language object name using alphanumeric or underscore, starting with letter
 - `<translations>`: Localized entries using key-value pairs; see [ENTRY](#entry) section
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-language.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
 ---
 
