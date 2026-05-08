@@ -184,6 +184,7 @@ Execution order:
 4. User interaction events: `Enter`, `Back`, `'<custom-name>'`, `<control-name>.<event-name>`
 
 Note:
+- Use `Composite ... EndComposite` blocks in non-web client-side events with multiple actions
 - `Load` can refer to event name or command name depending on context
 
 Example:
