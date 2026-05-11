@@ -171,7 +171,10 @@ Select the appropriate path according to user request and execute the steps sequ
 		- `export_kb_to_text`
 			* Use `rootDirectory` with the `Output Directory` value
 	* Run build or database operation with user approval
-- Return brief summary of all actions taken
+- Return brief summary
+	* Add actions, decisions, and validations
+	* Add errors, rejections, and justifications
+	* Use compact wording; max 500 chars in total
 
 ---
 
