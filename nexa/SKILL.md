@@ -372,6 +372,12 @@ Apply these rules strictly when modeling GeneXus Knowledge Base objects
 - Never duplicate logic across multiple objects
 - Ensure secure JSON/XML serialization using `Structured Data Type` objects
 
+## Traansaltion
+- Write all literals in the language specified by `KbLanguage` property from `*.kb.gx` file
+- Never mix languages in modeled content
+- Keep translation literal in `Language` objects always synced
+- Prefix non-translatable string literals in assignments or comparisons with `!` marker
+
 ---
 
 # COMPLIANCE CHECKLIST
