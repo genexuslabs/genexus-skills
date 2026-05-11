@@ -74,7 +74,7 @@ Use [global-output](./global-output.md) with `<type>` value: `language`
 - Keep runtime language names aligned with existing `Language` object names
 - Keep translation keys stable across all target languages
 - Set locale properties explicitly for custom languages; including RTL when applicable
-- Reject translation keys with reserved prefixes; e.g. `GX`, `GAM`, `GXM`, `GXWF`, `GXPL`, `GXSPC`
+- Warn user before modifying translation keys with reserved prefixes; e.g. `GX*`, `GAM*`
 
 ---
 
