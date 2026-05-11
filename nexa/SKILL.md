@@ -99,7 +99,7 @@ Select the appropriate path according to user request and execute the steps sequ
 		- Offer two options:
 			* Continue without MCP (without validation)
 			* Stop further processing until available (with validation)
-- Resolve KB:
+- Resolve KB
 	* Ask for `Output Directory` or default to current directory
 	* Use the `Output Directory` as base path of `/src` for `Root Module` module
 	* Run `create_knowledge_base` tool if KB does not exist
@@ -116,7 +116,7 @@ Select the appropriate path according to user request and execute the steps sequ
 		- Run `restore_module` if module recovery is required
 		- Ban `/ref` writes and structure changes
 	* Use standard filesystem tools for searching file objects
-- Resolve environment:
+- Resolve environment
 	* Work in `src/#preferences` directory
 	* When creating new environment:
 		- Create `*.env.gx` and `*.local.env.gx` files
@@ -125,12 +125,12 @@ Select the appropriate path according to user request and execute the steps sequ
 			- Set name in `CurrentEnvironment` within `#Version` if requested
 		- Run `import_text_to_kb` with `names: ["environment:*"]`
 	* When setting current environment:
-		- Get name from `*.env.gx` or `*.local.env.gx` files
+		- Obtain name from `*.env.gx` or `*.local.env.gx` files
 		- Update `*.local.kb.gx` file:
 			- Add name in `#Environments` if missing
 			- Set name in `CurrentEnvironment` within `#Version`
 		- Run `import_text_to_kb` with `names: ["version:*"]`
-- Resolve connection:
+- Resolve connection
 	* Read `*.env.gx` to get environment name and generator
 	* When `*.local.env.gx` is missing or connection values are absent or empty:
 		- Ask connection setup confirmation; if declined, skip this section
