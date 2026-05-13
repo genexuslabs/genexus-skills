@@ -344,7 +344,7 @@ Apply these rules strictly when modeling GeneXus Knowledge Base objects
 - Provide object creation tasks only when no existing object satisfies the required semantics
 - Reuse an existing object when the purpose, meaning, and responsibility match the requirement
 - Never create parallel or redundant objects with overlapping responsibility, meaning, or lifecycle
-- Ensure `Transaction → Table → Index` objects are synced after modifications
+- Ensure `Transaction → Table + Index` objects are synced after modifications
 
 ## Data modeling
 - Prefix every `Attribute` with the owning `Transaction` or sublevel name
