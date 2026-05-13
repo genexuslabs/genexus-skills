@@ -10,27 +10,27 @@ Use this file to select editable Version properties and metadata
 # GENERAL
 
 ## Significant attribute name length
-- Description: Significant attributes & domains name length
+Significant attributes & domains name length
 - Type: `integer`
 - Default: `30`
 
 ## Significant table name length
-- Description: Significant table/index/data-View name length
+Significant table/index/data-View name length
 - Type: `integer`
 - Default: `30`
 
 ## Significant object name length
-- Description: Significant Trn/Wkp/Wbp/Rpt/Prc/Mnu/Mbar & Styles name length
+Significant Trn/Wkp/Wbp/Rpt/Prc/Mnu/Mbar & Styles name length
 - Type: `integer`
 - Default: `128`
 
 ## Multi Tenant
-- Description: Enable Multi Tenant support
+Enable Multi Tenant support
 - Type: `boolean`
 - Default: `False`
 
 ## Translation type
-- Description: Type of translation
+Type of translation
 - Type: `enum{Static,Run-time,No translation}`
 - Options:
 	* `Static`: Static
@@ -43,7 +43,7 @@ Use this file to select editable Version properties and metadata
 - Default: `True`
 
 ## Generate prompt programs
-- Description: Controls whether prompt objects are generated automatically or not
+Controls whether prompt objects are generated automatically or not
 - Type: `enum{Yes,No}`
 - Options:
 	* `Yes`: Yes
@@ -51,7 +51,7 @@ Use this file to select editable Version properties and metadata
 - Default: `Yes`
 
 ## Root module visibility
-- Description: Object visibility value of Root module
+Object visibility value of Root module
 - Type: `enum{Public,Knowledge Base,Internal,Private}`
 - Options:
 	* `Public`: Public
@@ -64,7 +64,7 @@ Use this file to select editable Version properties and metadata
 - Type: `string`
 
 ## Enable Integrated Security
-- Description: Enables GAM integrated security for the version
+Enables GAM integrated security for the version
 - Type: `boolean`
 - Default: `False`
 
@@ -82,11 +82,11 @@ Use this file to select editable Version properties and metadata
 - Default: `None`
 
 ## Application ID
-- Description: Integrated security application ID
+Integrated security application ID
 - Type: `string`
 
 ## GAM Backend Style Override
-- Description: Defines the Knowledge Base style object used to customize GAM backend style
+Defines the Knowledge Base style object used to customize GAM backend style
 - Type: `string`
 
 ## Login Object for Web
@@ -134,7 +134,7 @@ Use this file to select editable Version properties and metadata
 - Type: `string`
 
 ## Default Form Layout
-- Description: Specifies the form template used to generate default form
+Specifies the form template used to generate default form
 - Type: `enum{Flat Template,Unanimo Template,Carmine Template,Fiori Template}`
 - Options:
 	* `Flat Template`: Flat Template
@@ -163,7 +163,7 @@ Use this file to select editable Version properties and metadata
 - Default: `Smooth`
 
 ## DefaultWebFormEditor
-- Description: The web form editor to be used for new objects by default
+The web form editor to be used for new objects by default
 - Type: `enum{Abstract Layout,HTML}`
 - Options:
 	* `Abstract Layout`: Abstract Layout
@@ -171,7 +171,7 @@ Use this file to select editable Version properties and metadata
 - Default: `Abstract Layout`
 
 ## WebFormDefaults
-- Description: Indicates if GeneXus must use a responsive web design to generate default forms or the 'old' way
+Indicates if GeneXus must use a responsive web design to generate default forms or the 'old' way
 - Type: `enum{Responsive Web Design,Previous versions compatible}`
 - Options:
 	* `Responsive Web Design`: Responsive Web Design
@@ -179,34 +179,34 @@ Use this file to select editable Version properties and metadata
 - Default: `Responsive Web Design`
 
 ## Default Master Page
-- Description: The Default Master Page
+The Default Master Page
 - Type: `string`
 
 ## Prompts Master Page
-- Description: Master page used for initialize generated prompts
+Master page used for initialize generated prompts
 - Type: `string`
 
 ## Datepicker image
-- Description: Image for datepicker
+Image for datepicker
 - Type: `string`
 
 ## Delete grid row UI
-- Description: Delete grid row method from UI
+Delete grid row method from UI
 - Type: `enum{Alternating images,Context menu - Delete}`
 - Options:
 	* `Alternating images`: Alternating images
 	* `Context menu - Delete`: Context menu - Delete
 
 ## Delete row image
-- Description: Image for deleting a grid row
+Image for deleting a grid row
 - Type: `string`
 
 ## Undelete row image
-- Description: Image for undeleting a grid row
+Image for undeleting a grid row
 - Type: `string`
 
 ## Prompt image
-- Description: Image for prompt
+Image for prompt
 - Type: `string`
 
 ## Delete column position in grids
@@ -230,7 +230,7 @@ Use this file to select editable Version properties and metadata
 - Type: `string`
 
 ## Stop on error
-- Description: Prevent user from proceeding when validation fails
+Prevent user from proceeding when validation fails
 - Type: `enum{Yes,No}`
 - Options:
 	* `Yes`: Yes
@@ -238,7 +238,7 @@ Use this file to select editable Version properties and metadata
 - Default: `No`
 
 ## Validation message position
-- Description: Position of validation error and warning messages
+Position of validation error and warning messages
 - Type: `enum{Top,Right,Bottom,Left}`
 - Options:
 	* `Top`: Top
@@ -328,7 +328,7 @@ Use this file to select editable Version properties and metadata
 - Type: `string`
 
 ## URL access
-- Description: Object can be accessed through the URL
+Object can be accessed through the URL
 - Type: `enum{Yes,No}`
 - Options:
 	* `Yes`: Yes
@@ -336,7 +336,7 @@ Use this file to select editable Version properties and metadata
 - Default: `No`
 
 ## Enable national language support
-- Description: National language support
+National language support
 - Type: `enum{No,Yes}`
 - Options:
 	* `No`: No
@@ -344,7 +344,7 @@ Use this file to select editable Version properties and metadata
 - Default: `No`
 
 ## On session timeout
-- Description: Action to perform on session timeout
+Action to perform on session timeout
 - Type: `enum{Ignore,Warn}`
 - Options:
 	* `Ignore`: Ignore
@@ -368,7 +368,7 @@ Use this file to select editable Version properties and metadata
 - Default: `Date & Time`
 
 ## Automatic refresh
-- Description: Automatically refresh grids when their dependencies are changed
+Automatically refresh grids when their dependencies are changed
 - Type: `enum{Yes,No}`
 - Options:
 	* `Yes`: Yes
@@ -376,12 +376,12 @@ Use this file to select editable Version properties and metadata
 - Default: `Yes`
 
 ## Static content cache expiration (hours)
-- Description: Static content expiration for content such as images, javascript and css (value in hours). JAVA: Compatible only with Servlet 2.4 or higher
+Static content expiration for content such as images, javascript and css (value in hours). JAVA: Compatible only with Servlet 2.4 or higher
 - Type: `integer`
 - Default: `36`
 
 ## User-Agent header
-- Description: Specifies the default User-Agent HTTP request header that will be sent automatically in all outgoing HTTP requests performed by the application (via HttpClient, file downloads, or image retrievals). If left empty, no default User-Agent header will be sent. In the case of HttpClient, a User-Agent can still be set programmatically. Example: AppName/1.4.2 (.NET; Linux x64) - indicates the application name and version, optionally including the OS and architecture
+Specifies the default User-Agent HTTP request header that will be sent automatically in all outgoing HTTP requests performed by the application (via HttpClient, file downloads, or image retrievals). If left empty, no default User-Agent header will be sent. In the case of HttpClient, a User-Agent can still be set programmatically. Example: AppName/1.4.2 (.NET; Linux x64) - indicates the application name and version, optionally including the OS and architecture
 - Type: `string`
 
 
@@ -390,17 +390,17 @@ Use this file to select editable Version properties and metadata
 # IMAGES
 
 ## LargeImageUploadSize
-- Description: Size in KBytes or Resolution (<Width> x <Height>) for Large value on Maximum Upload Size property
+Size in KBytes or Resolution (<Width> x <Height>) for Large value on Maximum Upload Size property
 - Type: `string`
 - Default: `1024x1024`
 
 ## MediumImageUploadSize
-- Description: Size in KBytes or Resolution (<Width> x <Height>) for Medium value on Maximum Upload Size property
+Size in KBytes or Resolution (<Width> x <Height>) for Medium value on Maximum Upload Size property
 - Type: `string`
 - Default: `640x640`
 
 ## SmallImageUploadSize
-- Description: Size in KBytes or Resolution (<Width> x <Height>) for Small value on Maximum Upload Size property
+Size in KBytes or Resolution (<Width> x <Height>) for Small value on Maximum Upload Size property
 - Type: `string`
 - Default: `320x320`
 
@@ -410,7 +410,7 @@ Use this file to select editable Version properties and metadata
 # TEAM DEVELOPMENT
 
 ## Remote Version
-- Description: Repository Version
+Repository Version
 - Type: `string`
 
 
@@ -419,7 +419,7 @@ Use this file to select editable Version properties and metadata
 # COMPATIBILITY
 
 ## Time Only Compatibility
-- Description: True to activate time only bug for Smart Devices and rest calls (Android and .net)
+True to activate time only bug for Smart Devices and rest calls (Android and .net)
 - Type: `boolean`
 - Default: `True`
 

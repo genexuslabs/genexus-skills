@@ -11,11 +11,11 @@ Use this file to select editable properties, defaults, and valid options for thi
 Include [General](./properties-common.md) properties
 
 ## Name
-- Description: Physical external table name for selected platform
+Physical external table name for selected platform
 - Type: `string`
 
 ## Location
-- Description: Source location: file path, directory, library, or database name
+Source location: file path, directory, library, or database name
 - Type: `string`
 - Scope:
 	* `Access`
@@ -35,13 +35,13 @@ Include [General](./properties-common.md) properties
 	* `Dameng`
 
 ## Record format
-- Description: Physical file record format name
+Physical file record format name
 - Type: `string`
 - Scope:
 	* `AS400`
 
 ## Schema name
-- Description: Schema or owner qualifying the external object name
+Schema or owner qualifying the external object name
 - Type: `string`
 - Scope:
 	* `DB2Common`
@@ -55,7 +55,7 @@ Include [General](./properties-common.md) properties
 	* `Dameng`
 
 ## Use external name
-- Description: Use external or internal table name
+Use external or internal table name
 - Type: `enum{Yes,No}`
 - Options:
 	* `Yes`: Use the external name
@@ -85,7 +85,7 @@ Include [General](./properties-common.md) properties
 Specific properties for `Access` connector
 
 ## Data format
-- Description: Source format
+Source format
 - Type: `enum{Access,ADO,Text,Foxpro 2.6}`
 - Options:
 	* `Access`: Access database file
@@ -95,7 +95,7 @@ Specific properties for `Access` connector
 - Default: `Access`
 
 ## Character set
-- Description: Character encoding used to read text files
+Character encoding used to read text files
 - Type: `enum{OEM,ANSI}`
 - Options:
 	* `OEM`: OEM encoding
@@ -103,11 +103,11 @@ Specific properties for `Access` connector
 - Default: `OEM`
 
 ## Date format
-- Description: Date mask used to parse text-file date values; e.g. `mm-dd-yy`
+Date mask used to parse text-file date values; e.g. `mm-dd-yy`
 - Type: `string`
 
 ## Column headings
-- Description: Whether first row is treated as column names
+Whether first row is treated as column names
 - Type: `enum{Yes,No}`
 - Options:
 	* `No`: First row is data
@@ -115,7 +115,7 @@ Specific properties for `Access` connector
 - Default: `No`
 
 ## Field separation
-- Description: Delimiter strategy used to split text-file fields
+Delimiter strategy used to split text-file fields
 - Type: `enum{Fixed Length,CSV Delimited,Tab Delimited,Comma Delimited,Space Delimited,Semicolon Delimited}`
 - Options:
 	* `Fixed Length`: Fixed positions
@@ -127,17 +127,17 @@ Specific properties for `Access` connector
 - Default: `Fixed Length`
 
 ## Currency decimal symbol
-- Description: Decimal separator used in currency values
+Decimal separator used in currency values
 - Type: `string`
 
 ## Currency thousand symbol
-- Description: Thousands separator used in currency values
+Thousands separator used in currency values
 - Type: `string`
 
 ## Numeric decimal symbol
-- Description: Decimal separator used in numeric values
+Decimal separator used in numeric values
 - Type: `string`
 
 ## Provider
-- Description: Provider name used for `ADO` Access
+Provider name used for `ADO` Access
 - Type: `string`

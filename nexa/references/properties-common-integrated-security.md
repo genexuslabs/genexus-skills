@@ -10,7 +10,7 @@ Use this file as the common definition for integrated security property groups
 # INTEGRATED SECURITY
 
 ## Integrated Security Level
-- Description: Authentication and authorization requirement level
+Authentication and authorization requirement level
 - Type: `enum{None,Authentication,Authorization}`
 - Options:
 	* `None`: No security checks are enforced for the object
@@ -21,5 +21,5 @@ Use this file as the common definition for integrated security property groups
 	* If `EnableNationalLanguageSupport = 'No'` or not set: default is `None`
 
 ## Permission Prefix
-- Description: Prefix used when generating permissions
+Prefix used when generating permissions
 - Type: `string`

@@ -10,7 +10,7 @@ Use this file as the common definition for web-information property groups
 # WEB INFORMATION
 
 ## Encrypt URL parameters
-- Description: Configures URL parameter encryption for web invocation and routing
+Configures URL parameter encryption for web invocation and routing
 - Type: `enum{Use Environment property value,No,Session key,Site key}`
 - Options:
 	* `Use Environment property value`: Uses the model or environment-level encryption setting
@@ -20,7 +20,7 @@ Use this file as the common definition for web-information property groups
 - Default: `No`
 
 ## Protocol specification
-- Description: Selects HTTP or HTTPS policy for services and absolute URLs
+Selects HTTP or HTTPS policy for services and absolute URLs
 - Type: `enum{Use Environment property value,Unsecure (HTTP:),Secure (HTTPS:),Do not specify}`
 - Options:
 	* `Use Environment property value`: Uses the protocol defined at model or environment level

@@ -10,5 +10,5 @@ Use this file as the common definition for network-related property groups
 # NETWORK
 
 ## Connectivity Support
-- Description: Defines whether execution requires connectivity or can run offline
+Defines whether execution requires connectivity or can run offline
 - Type: `string`

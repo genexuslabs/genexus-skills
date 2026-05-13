@@ -11,11 +11,11 @@ Use this file to select editable properties, defaults, and valid options for thi
 Include [General](./properties-common.md) properties
 
 ## Folder
-- Description: Folder where the object is organized in the KB
+Folder where the object is organized in the KB
 - Type: `string`
 
 ## Base CSS
-- Description: A CSS library to include as a base style
+A CSS library to include as a base style
 - Type: `enum{None,Bootstrap v3,Bootstrap v3 RTL}`
 - Options:
 	* `None`: Disables additional behavior for this setting
@@ -24,7 +24,7 @@ Include [General](./properties-common.md) properties
 - Default: `None`
 
 ## Default Template Layout
-- Description: Specifies a template used to generate default Transactions and WorkWith web layouts
+Specifies a template used to generate default Transactions and WorkWith web layouts
 - Type: `enum{FlatTemplate,UnanimoTemplate,CarmineTemplate,FioriTemplate}`
 - Options:
 	* `FlatTemplate`: Uses the FlatTemplate form layout
