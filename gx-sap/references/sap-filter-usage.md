@@ -3,95 +3,85 @@ name: sap-filter-usage
 description: How to build SAP BAPI selection table filters in GeneXus Procedure code
 ---
 
-Apply these rules when generating sample `Procedure` code that calls SAP BAPIs with filter parameters.
-
+Apply these rules when generating sample `Procedure` code that calls SAP BAPIs with filter parameters
 ---
 
 # FILTER CONCEPTS
-
 Most SAP BAPIs accept selection tables with four standard fields:
 
-| Field | Description |
-|---|---|
-| `SIGN` | `I` = Include, `E` = Exclude |
-| `OPTION` | Comparison operator |
-| `LOW` | Start value (or single value for non-range operators) |
-| `HIGH` | End value (used only with `BT`) |
+Field  Description/Possible values:
+- `SIGN` → `I` = Include, `E` = Exclude
+- `OPTION` → Comparison operator (see below)
+- `LOW` → Start value (or single value for non-range operators)
+- `HIGH` → End value (used only with `BT`)
 
 Typical parameter name patterns: `*_SELECTION`, `*_RANGE`, `SELECTIONS`
-
 ---
 
 # OPTION VALUES
 
-| `OPTION` | Meaning |
-|---|---|
-| `EQ` | Equals |
-| `NE` | Not equal |
-| `BT` | Between (`LOW` to `HIGH`) |
-| `GE` | Greater or equal |
-| `LE` | Less or equal |
-| `CP` | Pattern match (`*` = any chars, `+` = one char) |
-
+`OPTION` values meaning:
+- `EQ` → Equals
+- `NE` → Not equal
+- `BT` → Between (`LOW` to `HIGH`)
+- `GE` → Greater or equal
+- `LE` → Less or equal
+- `CP` → Pattern match (`*` = any chars, `+` = one char)
 ---
 
 # USAGE PATTERNS
 
 ## Single value (include)
-
 ```genexus
-&MATNRSELECTIONItem.SIGN   = "I"
+&MATNRSELECTIONItem.SIGN = "I"
 &MATNRSELECTIONItem.OPTION = "EQ"
-&MATNRSELECTIONItem.LOW    = "1000"
+&MATNRSELECTIONItem.LOW = "1000"
 &MATNRSELECTION.Add(&MATNRSELECTIONItem)
 
 MaterialEO.GetList(&PLANTSELECTION, &MATNRSELECTION, &MAXROWS, &MATNRLIST, &RETURN)
-```
 
+```
 ## Range filter (between)
 
 ```genexus
-&Item.SIGN   = "I"
+&Item.SIGN = "I"
 &Item.OPTION = "BT"
-&Item.LOW    = "1000"
-&Item.HIGH   = "2000"
+&Item.LOW = "1000"
+&Item.HIGH = "2000"
 &MATNRSELECTION.Add(&Item)
 ```
 
 ## Multiple rows (OR logic)
 
 ```genexus
-&Item1.SIGN   = "I"
+&Item1.SIGN = "I"
 &Item1.OPTION = "EQ"
-&Item1.LOW    = "A100"
+&Item1.LOW = "A100"
 &MANUFACTURERPARTNUMB.Add(&Item1)
 
-&Item2.SIGN   = "I"
+&Item2.SIGN = "I"
 &Item2.OPTION = "EQ"
-&Item2.LOW    = "B200"
+&Item2.LOW = "B200"
 &MANUFACTURERPARTNUMB.Add(&Item2)
 ```
 
 ## Exclude filter
 
 ```genexus
-&Item.SIGN   = "E"
+&Item.SIGN = "E"
 &Item.OPTION = "EQ"
-&Item.LOW    = "9999"
+&Item.LOW = "9999"
 &MATNRSELECTION.Add(&Item)
 ```
-
 ## Pattern match
 
 ```genexus
-&Item.SIGN   = "I"
+&Item.SIGN = "I"
 &Item.OPTION = "CP"
-&Item.LOW    = "MAT*"
+&Item.LOW = "MAT*"
 &MATNRSELECTION.Add(&Item)
 ```
-
 ---
-
 # BEST PRACTICES
 
 - Prefer `EQ` for exact matches; use `BT` for bounded ranges

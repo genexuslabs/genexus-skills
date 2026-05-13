@@ -12,7 +12,6 @@ And the nexa output policy:
 ---
 
 # WHEN TO CREATE AN EXTERNALOBJECT
-
 Create one `ExternalObject` for:
 - A SAP BOR object type (e.g., `BUS2032` Sales Order) — one `ExternalObject` per BOR object, with each relevant BAPI as one method
 - A group of related RFC functions that form a logical interface — one `ExternalObject` per group
@@ -21,15 +20,13 @@ Create one `ExternalObject` for:
 ---
 
 # NAMING CONVENTION
-
 `ExternalObject` name:
 - BOR-based: derive a readable English name from the BOR object description + `SapEO` suffix
-  - Example: BOR object `BUS2032` (Sales Order) → `SalesOrderSapEO`
+	- Example: BOR object `BUS2032` (Sales Order) → `SalesOrderSapEO`
 - Standalone BAPI: derive from function group or BAPI business purpose + `SapEO` suffix
-  - Example: `BAPI_CUSTOMER_GETDETAIL2` → `CustomerSapEO`
+	- Example: `BAPI_CUSTOMER_GETDETAIL2` → `CustomerSapEO`
 
 File name: `<Name>.externalobject.main.gx`
-
 ---
 
 # EXTERNALOBJECT STRUCTURE TEMPLATE
@@ -58,7 +55,6 @@ ExternalObject <Name>SapEO
 					Description = '<parameter description>',
 					Type = '<GxType>'
 				]
-
 				<Param2>
 				[
 					AccessType = '<In|Out|InOut>',
@@ -83,8 +79,8 @@ ExternalObject <Name>SapEO
 }
 ```
 
-All five sections (`#GenericTypes`, `#ExternalProperties`, `#ExternalMethods`, `#ExternalEvents`, `#Properties`) must be present even when empty.
-Replace `<BAPI_GROUP>` with the RFC function group name (e.g., `BAPI_SALESORDER` for sales order BAPIs).
+All five sections (`#GenericTypes`, `#ExternalProperties`, `#ExternalMethods`, `#ExternalEvents`, `#Properties`) must be present even when empty
+Replace `<BAPI_GROUP>` with the RFC function group name (e.g., `BAPI_SALESORDER` for sales order BAPIs)
 
 ---
 
@@ -97,48 +93,39 @@ Replace `<BAPI_GROUP>` with the RFC function group name (e.g., `BAPI_SALESORDER`
 Examples:
 - `BAPI_CUSTOMER_GETDETAIL2` → method `GetDetail`, Description = `'Get customer detail (BAPI_CUSTOMER_GETDETAIL2)'`, `NetFrameworkExternalName` = `'BAPI_CUSTOMER_GETDETAIL2'`, `JavaExternalName` = `'BAPI_CUSTOMER_GETDETAIL2'`
 - `BAPI_SALESORDER_CREATEFROMDAT2` → method `CreateFromData`, Description = `'Create sales order (BAPI_SALESORDER_CREATEFROMDAT2)'`, `NetFrameworkExternalName` = `'BAPI_SALESORDER_CREATEFROMDAT2'`, `JavaExternalName` = `'BAPI_SALESORDER_CREATEFROMDAT2'`
-
 ---
-
 # PARAMETER ACCESS TYPE MAPPING
 
-| ABAP Direction | ExternalObject `AccessType` |
-|---|---|
-| `IMPORTING` | `In` |
-| `EXPORTING` | `Out` |
-| `CHANGING` | `InOut` |
-| `TABLES` | `InOut` |
+ <ABAP Direction> -> <ExternalObject `AccessType`>
 
-> **Exception — BAPIRET2:** When a TABLES parameter of type `BAPIRET2` is used exclusively as a return collection (carries no input data), map it with `AccessType = 'Out'`. See the RETURN PARAMETER section below.
+`IMPORTING` → `In`
+`EXPORTING` → `Out`
+`CHANGING` → `InOut`
+`TABLES` → `InOut`
 
+> **Exception — BAPIRET2:** When a TABLES parameter of type `BAPIRET2` is used exclusively as a return collection (carries no input data), map it with `AccessType = 'Out'`. See the RETURN PARAMETER section below
 ---
-
 # PARAMETER TYPE MAPPING
+ABAP Parameter Kind → GeneXus `Type` Assignment
 
-| ABAP Parameter Kind | GeneXus `Type` Assignment |
-|---|---|
-| Scalar (no sub-fields, maps to built-in) | Built-in GeneXus type from `references/sap-abap-type-mapping.md` |
-| ABAP structure type | `SDT` name generated in the SDT phase |
-| ABAP table type | `SDT` name generated in the SDT phase (the `SDT` itself carries `Collection = 'True'`) |
-
+Scalar (no sub-fields, maps to built-in) → Built-in GeneXus type from `references/sap-abap-type-mapping.md`
+ABAP structure type → `SDT` name generated in the SDT phase
+ABAP table type → `SDT` name generated in the SDT phase (the `SDT` itself carries `Collection = 'True'`)
 ---
 
 # PARAMETER COMPLETENESS
-
-Every parameter returned by the SAP metadata (via `sap_get_function_metadata` or equivalent) **must** be included in the method — no parameter may be omitted, even if it appears optional, redundant, or unused by the immediate use case.
+Every parameter returned by the SAP metadata (via `sap_get_function_metadata` or equivalent) **must** be included in the method — no parameter may be omitted, even if it appears optional, redundant, or unused by the immediate use case
 
 Steps to verify completeness before writing the `ExternalObject`:
-1. Enumerate all parameters from the metadata response (Import, Export, Changing, Tables directions).
-2. Map each one to a GeneXus parameter using the rules in this document.
-3. Confirm the parameter count in the generated method matches the metadata exactly.
+1. Enumerate all parameters from the metadata response (Import, Export, Changing, Tables directions)
+2. Map each one to a GeneXus parameter using the rules in this document
+3. Confirm the parameter count in the generated method matches the metadata exactly
 
-If a parameter's type cannot be resolved (e.g., an unknown structure), generate the SDT for it as part of the same task rather than skipping the parameter.
-
+If a parameter's type cannot be resolved (e.g., an unknown structure), generate the SDT for it as part of the same task rather than skipping the parameter
 ---
-
 # RETURN PARAMETER (BAPIRET2)
 
-Most BAPIs expose a RETURN parameter of type BAPIRET2 in the TABLES direction.
+Most BAPIs expose a RETURN parameter of type BAPIRET2 in the TABLES direction
 Always map it with:
 - `AccessType = 'Out'` — this is an explicit override of the TABLES → `InOut` rule; BAPIRET2 carries no input data and must be `Out`
 - `Type = 'BAPIRET2'` (referencing the `BAPIRET2` SDT generated in the SDT phase)
@@ -158,10 +145,9 @@ JavaExternalName = '<BAPI_GROUP>'
 ExternalPackageName = 'com.genexus.sap'
 ```
 
-Replace `<BAPI_GROUP>` with the RFC function group name (e.g., `BAPI_SALESORDER`).
+Replace `<BAPI_GROUP>` with the RFC function group name (e.g., `BAPI_SALESORDER`)
 
-The properties `NetFrameworkExternalName`, `NetPackageId`, `JavaExternalName`, and `ExternalPackageName` are required for runtime dispatch by the SAP Connector. They are not optional.
-
+The properties `NetFrameworkExternalName`, `NetPackageId`, `JavaExternalName`, and `ExternalPackageName` are required for runtime dispatch by the SAP Connector,they are not optional
 ---
 
 # EXAMPLE — Customer Detail BAPI
@@ -247,8 +233,6 @@ ExternalObject CustomerSapEO
 }
 ```
 
----
-
 # CONSTRAINTS
 - `IsSap = true` and `Type = 'SAP Connector Interface'` must always be set in `#Properties`
 - Every method parameter must have `AccessType` and `Type`
@@ -259,4 +243,5 @@ ExternalObject CustomerSapEO
 - Apply nexa global constraints: `../nexa/references/global-constraints.md`
 - Apply nexa output policy: `../nexa/references/global-output.md`
 - Default output mode is `single-file`: one `<Name>.externalobject.main.gx` per `ExternalObject`
-- Property bracket values `[...]` must use `'single-quoted'` strings; `!"..."` is forbidden in bracket annotations — it is valid only in executable source regions
+- Property bracket values `[…]` must use `'single-quoted'` strings; `!"…"` is forbidden in bracket annotations — it is valid only in executable source regions
+

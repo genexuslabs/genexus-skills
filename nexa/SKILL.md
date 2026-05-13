@@ -19,19 +19,13 @@ Use this skill for:
 - Questions about GeneXus syntax, rules, events, or best practices
 - Suggesting improvements
 - Coordinating multi-object development tasks
-- Any SAP-related request when a GeneXus KB is open or GeneXus context is active
+
 
 Do NOT use this skill for:
 - General programming questions
 - Unrelated GeneXus questions
 - Infrastructure setup
 - Database administration
-
-## SAP + GeneXus rule
-When a SAP related request arrives (connect to SAP, call a BAPI, read SAP data, etc.):
-   - Always go through the sap-gx skill for both metadata and code
-   - Choose the GeneXus code option 
-   - Generate the required GeneXus objects without asking  (SDT, Procedure, API, External objects)    
 
 ## Responsibilities
 - Analyze user intent and create concise execution plans

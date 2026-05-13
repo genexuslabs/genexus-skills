@@ -4,11 +4,12 @@ description: GeneXus SAP integration skill for generating ExternalObjects and SD
 ---
 
 Specialized skill for mapping SAP RFC/BAPI function metadata to GeneXus `ExternalObject` and `SDT` objects using the SAP Connector Interface type.
+Used for any SAP-related request when a GeneXus KB is open or GeneXus context is active
 
 ---
 
 ## GUIDELINE
-Interprets SAP integration requests, connects to a live SAP system via the SAP Inspector MCP, retrieves RFC/BAPI metadata, maps ABAP types to GeneXus types, and generates `ExternalObject` and `SDT` objects that are immediately importable into a GeneXus Knowledge Base.
+Interprets SAP integration requests, connects to a live SAP system via the SAP Inspector MCP, retrieves RFC/BAPI metadata, maps ABAP types to GeneXus types, and generates `ExternalObject` and `SDT` objects that are immediately importable into a GeneXus Knowledge Base
 
 ## Triggers
 Use this skill for:
@@ -18,6 +19,13 @@ Use this skill for:
 - Requests to configure or test a SAP RFC connection
 - Questions about ABAP-to-GeneXus type mapping
 - Questions about SAP Connector Interface `ExternalObject` structure
+- Any SAP-related request when a GeneXus KB is open or GeneXus context is active
+
+## SAP + GeneXus rule
+When a SAP related request arrives (connect to SAP, call a BAPI, read SAP data, etc.):
+- Always go through the sap-gx skill for both metadata and code
+- Choose the GeneXus code option
+- Generate the required GeneXus objects without asking  (SDT, Procedure, API, External objects)
 
 Do NOT use this skill for:
 - General GeneXus object modeling unrelated to SAP
@@ -56,17 +64,15 @@ Each reference has a specific purpose:
 
 For GeneXus object syntax, always load from nexa references by relative path:
 
-| Purpose | Reference path |
-|---|---|
-| ExternalObject syntax | `../nexa/references/object-external-object.md` |
-| SDT syntax | `../nexa/references/object-structured-data-type.md` |
-| Procedure syntax | `../nexa/references/object-procedure.md` |
-| Output policy | `../nexa/references/global-output.md` |
-| Constraints | `../nexa/references/global-constraints.md` |
-| ExternalObject properties | `../nexa/references/properties-object-external-object.md` |
-| SDT properties | `../nexa/references/properties-object-structured-data-type.md` |
-| Data types | `../nexa/references/common-data-types.md` |
-| Standard variables | `../nexa/references/common-standard-variables.md` |
+ExternalObject syntax: `../nexa/references/object-external-object.md`
+SDT syntax: `../nexa/references/object-structured-data-type.md`
+Procedure syntax: `../nexa/references/object-procedure.md`
+Output policy: `../nexa/references/global-output.md`
+Constraints: `../nexa/references/global-constraints.md`
+ExternalObject properties: `../nexa/references/properties-object-external-object.md`
+SDT properties: `../nexa/references/properties-object-structured-data-type.md`
+Data types: `../nexa/references/common-data-types.md`
+Standard variables: `../nexa/references/common-standard-variables.md`
 
 Resource selection protocol per phase:
 - Phase 1–2 (MCP check / connection): `references/sap-workflow.md` only
@@ -110,13 +116,13 @@ Format rules:
 
 ## Phase 2 — Connection Check
 2. Call `mcp__sap-inspector__sap_connection_status`
-   - On success (RFC connected): proceed to Phase 3
-   - On failure / not configured:
-     1. Inform the user that no SAP RFC connection is configured
-     2. Request credentials: host, system number, client, username, password, language
-     3. Call `mcp__sap-inspector__sap_configure_connection` with those values
-     4. Call `mcp__sap-inspector__sap_connection_status` again to confirm
-     5. If still failing: **stop** and report the error message to the user
+- On success (RFC connected): proceed to Phase 3
+- On failure / not configured:
+	1. Inform the user that no SAP RFC connection is configured
+	2. Request credentials: host, system number, client, username, password, language
+	3. Call `mcp__sap-inspector__sap_configure_connection` with those values
+	4. Call `mcp__sap-inspector__sap_connection_status` again to confirm
+	5. If still failing: **stop** and report the error message to the user
 
 ## Phase 3 — BAPI / RFC Discovery
 Choose path based on user input:
@@ -137,16 +143,16 @@ Choose path based on user input:
 
 ## Phase 4 — Metadata Retrieval
 3. For each target RFC function call `mcp__sap-inspector__sap_get_function_metadata(functionName)`
-   - This is the **primary and authoritative metadata source**; never substitute another tool
-   - Collect for each parameter: name, direction (IMPORTING/EXPORTING/CHANGING/TABLES), ABAP type, length, decimals, mandatory flag, description, and all sub-fields for structure types
-   - If a structure parameter references a named DDIC type and sub-fields are absent: call `mcp__sap-inspector__sap_get_object_metadata(objectName)` to retrieve them
+	- This is the **primary and authoritative metadata source**; never substitute another tool
+	- Collect for each parameter: name, direction (IMPORTING/EXPORTING/CHANGING/TABLES), ABAP type, length, decimals, mandatory flag, description, and all sub-fields for structure types
+	- If a structure parameter references a named DDIC type and sub-fields are absent: call `mcp__sap-inspector__sap_get_object_metadata(objectName)` to retrieve them
 
 ## Phase 5 — Execution Plan
 4. Load `references/sap-abap-type-mapping.md` and map all ABAP parameter types to GeneXus types
 5. Derive the list of objects to generate:
-   - One SDT per unique ABAP structure/table type
-   - One ExternalObject (with one method per BAPI)
-   - Optional sample Procedure
+	- One SDT per unique ABAP structure/table type
+	- One ExternalObject (with one method per BAPI)
+	- Optional sample Procedure
 6. Present the execution plan to the user as two tables:
 
 | SDT | ABAP Source Type | File |
@@ -162,30 +168,30 @@ Choose path based on user input:
 ## Phase 6 — SDT Generation
 8. Load `references/sap-sdt-generation.md`, nexa SDT syntax, nexa SDT properties, and nexa global-output
 9. For each ABAP structure/table type: generate `<AbapTypeName>.sdt.main.gx`
-   - Set `IsSapParameter = true` in `#Properties`
-   - Apply type mapping from `references/sap-abap-type-mapping.md`
+	- Set `IsSapParameter = true` in `#Properties`
+	- Apply type mapping from `references/sap-abap-type-mapping.md`
 
 ## Phase 7 — ExternalObject Generation
 10. Load `references/sap-eo-generation.md`, nexa EO syntax, nexa EO properties, and nexa global-output
 11. Generate the connection manager external object `GxEnterpriseSessionManager.externalobject.main.gx` by copying the template in `./templates/gx-sap-connection.tpl`. Always generate this file; if the object already exists in the KB, the import tool in Phase 9 will update it without conflict. Include it in the Phase 9 import list.
 12. Generate `<BorObjectName>SapEO.externalobject.main.gx`
-    - Set `IsSap = true` in `#Properties`
-    - Set `Type = 'SAP Connector Interface'` in `#Properties`
-    - Add one method per BAPI; reference SDTs generated in Phase 6
-    - Add the properties/key fields for the corresponding BOR object
-    - Set 'IsStatic' value for the method according to the metadata
+	- Set `IsSap = true` in `#Properties`
+	- Set `Type = 'SAP Connector Interface'` in `#Properties`
+	- Add one method per BAPI; reference SDTs generated in Phase 6
+	- Add the properties/key fields for the corresponding BOR object
+	- Set 'IsStatic' value for the method according to the metadata
 
 ## Phase 8 — Sample Procedure (optional)
 13. If the user requests a sample: load nexa Procedure syntax, standard-variables, and constraints, and `references/sap-filter-usage.md`
 14. Generate `<BapiName>Sample.procedure.main.gx`
-    - Declare variables of the generated SDT types
-    - Declare Row variable(s) for individual filter row(s) if necessary
-    - Call the ExternalObject method
-    - Show BAPIRET2 return collection handling pattern
+	- Declare variables of the generated SDT types
+	- Declare Row variable(s) for individual filter row(s) if necessary
+	- Call the ExternalObject method
+	- Show BAPIRET2 return collection handling pattern
 
 ## Phase 9 — Validation and Import
 15. Call `mcp__genexus__validate_kb_text_files` on all generated files
-    - Fix any reported errors before importing
+	- Fix any reported errors before importing
 16. Call `mcp__genexus__import_text_to_kb` for all validated files
 17. Report the outcome summary to the user
 
@@ -215,17 +221,14 @@ Choose path based on user input:
 ---
 
 # PROPERTIES KNOWLEDGE
-Two SAP-specific property values must always be set:
+Two SAP-specific property values must always be set for this generated object types:
 
-| Object | Property | Value |
-|---|---|---|
-| `ExternalObject` | `Type` | `SAP Connector Interface` |
-| `SDT` | `IsSapParameter` | `true` |
+`ExternalObject`: `Type` = `SAP Connector Interface` 
+`SDT`: `IsSapParameter` = `true`
 
 Property definitions source of truth:
 - ExternalObject properties: `../nexa/references/properties-object-external-object.md`
 - SDT properties: `../nexa/references/properties-object-structured-data-type.md`
-
 ---
 
 # BEST PRACTICES
