@@ -357,6 +357,7 @@ Apply these rules strictly when modeling GeneXus Knowledge Base objects
 	* Avoid prefix specializations; e.g. `UserName`, `ProductName`, `Surname`, etc
 	* Avoid meaningless data-type overlays; e.g. `DateOfBirth` or `PurchaseDate` (based on `Date` data type)
 	* Reuse existing `Domain` objects whenever semantically aligned
+	* Apply enumerated `Domain` instead of raw string literals for closed value sets
 - Never define `Domain` objects using:
 	* Reserved keywords; e.g. `Event`
 	* Built-in data type names; e.g. `Image`
