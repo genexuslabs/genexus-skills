@@ -28,10 +28,10 @@ Root
 │  │  └─ SKILL.md
 │  └─ README.md              : group description
 │
-├─ gx-sap/	             : gx skil for SAP ERP connectivity
-│  ├─ references/	     : workflow and generation instruction for each object
-│  ├─ templates/	     : template for common object ( connection object)
-│  └─ SKILL.md		     : skill definition
+├─ gx-sap/                   : gx skil for SAP ERP connectivity
+│  ├─ references/            : workflow and generation instruction for each object
+│  ├─ templates/             : template for common object ( connection object)
+│  └─ SKILL.md               : skill definition
 │  
 ├─ other-skills/             : additional skill groups
 │  ├─ skill-a/               : individual skill
