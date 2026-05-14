@@ -48,20 +48,20 @@ ExternalObject <Name>SapEO
 		IsStatic = '<True|False>'
 	]
 	{
-	Parameters
+		Parameters
 		{
-		<Param1>
-		[
-			AccessType = '<In|Out|InOut>',
-			Description = '<parameter description>',
-			Type = '<GxType>'
-		]
-		<Param2>
-		[
-			AccessType = '<In|Out|InOut>',
-			Description = '<parameter description>',
-			Type = '<SdtName>'
-		]
+			<Param1>
+			[
+				AccessType = '<In|Out|InOut>',
+				Description = '<parameter description>',
+				Type = '<GxType>'
+			]
+			<Param2>
+			[
+				AccessType = '<In|Out|InOut>',
+				Description = '<parameter description>',
+				Type = '<SdtName>'
+			]
 		}
 	}
 	#End
