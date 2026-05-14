@@ -92,15 +92,15 @@ When an ABAP structure field is itself a named structure type, create a separate
 # FIELD MAPPING STEPS
 For each field returned by `sap_get_function_metadata` (or `sap_get_object_metadata`):
 
-1. Read: field name, ABAP type, length, decimals, description
-2. Keep field name as-is (original SAP name — uppercase with underscores, e.g. DESCR_LOW, SIGN)
-3. Look up the GeneXus type using [sap-abap-type-mapping](references/sap-abap-type-mapping.md)
-4. Set the property JsonName with the original SAP name, the same as the field name
-5. Write one member line per field in the format:
+- Read: field name, ABAP type, length, decimals, description
+- Keep field name as-is (original SAP name — uppercase with underscores, e.g. DESCR_LOW, SIGN)
+- Look up the GeneXus type using [sap-abap-type-mapping](references/sap-abap-type-mapping.md)
+- Set the property JsonName with the original SAP name, the same as the field name
+- Write one member line per field in the format:
 	```
 	<Name> [ Description = '<description>', DataType = '<gx-type>', JsonName = '<Name>']
 	```
-6. For nested structure type fields: create the nested `SDT` first, then reference it
+- For nested structure type fields: create the nested `SDT` first, then reference it
 
 ---
 

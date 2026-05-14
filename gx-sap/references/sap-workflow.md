@@ -7,7 +7,7 @@ Step-by-step MCP tool call sequence for each phase of the SAP skill workflow
 
 ---
 
-## PHASE 1 — MCP AVAILABILITY CHECK
+## MCP AVAILABILITY CHECK
 Tool: `mcp__sap-inspector__sap_ping`
 	- No parameters required
 	- Success: returns version and environment info
@@ -18,67 +18,69 @@ Tool: `mcp__sap-inspector__sap_ping`
 
 ---
 
-## PHASE 2 — RFC CONNECTION CHECK
+## RFC CONNECTION CHECK
 Tool: `mcp__sap-inspector__sap_connection_status`
 - No parameters required
 - Success (RFC connected): proceed to discovery (phase 3)
 
 On failure or unconfigured state:
-1. Inform the user that no SAP RFC connection is configured
-2. Request the following credentials:
-	- `host` — SAP application server hostname or IP
-	- `systemNumber` — SAP system number (two-digit, e.g., `00`)
-	- `client` — SAP client (three-digit, e.g., `100`)
-	- `systemId` — SAP System ID (three-letter, e.g., `IDE`)
-	- `user` — SAP username
-	- `password` — SAP password
-	- `language` — Logon language (e.g., `EN`)
-3. Call `mcp__sap-inspector__sap_configure_connection` with those values
-4. Call `mcp__sap-inspector__sap_connection_status` again to confirm
-5. If still failing: **stop** and report the error message verbatim to the user
+- Inform the user that no SAP RFC connection is configured
+- Request the following credentials:
+	* `host` — SAP application server hostname or IP
+	* `systemNumber` — SAP system number (two-digit, e.g., `00`)
+	* `client` — SAP client (three-digit, e.g., `100`)
+	* `systemId` — SAP System ID (three-letter, e.g., `IDE`)
+	* `user` — SAP username
+	* `password` — SAP password
+	* `language` — Logon language (e.g., `EN`)
+- Call `mcp__sap-inspector__sap_configure_connection` with those values
+- Call `mcp__sap-inspector__sap_connection_status` again to confirm
+- If still failing: **stop** and report the error message verbatim to the user
 
 ---
 
-## Phase 3 — BAPI / RFC Discovery
-Choose path based on user input:
+## BAPI / RFC Discovery
+Choose one option path based on user input:
 
 ---
 
-# PHASE 3A — RFC FUNCTION SEARCH (by name) - User supplies an exact BAPI or RFC name
+# Option A — RFC FUNCTION SEARCH (by name) - User supplies an exact BAPI or RFC name
 
 Tool: `mcp__sap-inspector__sap_search_functions`
-	- Parameter: `pattern` — supports wildcards (e.g., `BAPI_SALESORDER_*`, `*CUSTOMER*`)
-	- Returns: list of matching RFC function names with descriptions
-	- If a single match: proceed directly with it
-	- If multiple matches: present the list and ask the user to confirm the target function name(s)
-	- If no matches: suggest broadening the wildcard pattern or switching to BOR navigation (Phase 3B)
+- Parameter: `pattern` — supports wildcards (e.g., `BAPI_SALESORDER_*`, `*CUSTOMER*`)
+- Returns: list of matching RFC function names with descriptions
+- If a single match: proceed directly with it
+- If multiple matches: present the list and ask the user to confirm the target function name(s)
+- If no matches: suggest broadening the wildcard pattern or switching to BOR navigation (Phase 3B)
 
 ---
 
-# PHASE 3B — BOR TREE NAVIGATION (by business object) - User wants to browse by business domain (BOR)
+# Option B — BOR TREE NAVIGATION (by business object) - User wants to browse by business domain (BOR)
 
-Step 1 — Get top-level BOR modules:
+Steps: 
+
+— Get top-level BOR modules:
 Tool: `mcp__sap-inspector__sap_get_bor_tree`
-	- Parameter: `maxLevel = 1` (to list top-level BOR modules) 
-	- Returns: list of top-level application area nodes (e.g., SD, MM, FI, HR, PP)
-	- Present the list to the user and ask which area to explore
+	* Parameter: `maxLevel = 1` (to list top-level BOR modules) 
+	* Returns: list of top-level application area nodes (e.g., SD, MM, FI, HR, PP)
+	* Present the list to the user and ask which area to explore
 
-Step 2 — Drill down to object type:
+— Drill down to object type:
 Tool: `mcp__sap-inspector__sap_get_bor_node_children`
-	- Parameter: `nodeId` from the previous call
-	- Returns: child nodes (sub-areas or object types)
-	- Repeat iteratively until reaching the target BOR object type node
+	* Parameter: `nodeId` from the previous call
+	* Returns: child nodes (sub-areas or object types)
+	* Repeat this step iteratively until reaching the target BOR object type node
 
-Step 3 — Get object methods:
+— Get object methods:
 Tool: `mcp__sap-inspector__sap_get_bor_object_detail`
-	- Parameter: `objectType` — the BOR object type identifier (e.g., `BUS2032`)
-	- Returns: object metadata including list of methods, each with an `AbapName` field
-	- Extract **`AbapName` this is the actual RFC function name** — use it as the input to `sap_get_function_metadata`
-	- Present available methods to the user; ask which to use if more than one is relevant, the user can pick more than one
+	* Parameter: `objectType` — the BOR object type identifier (e.g., `BUS2032`)
+	* Returns: object metadata including list of methods, each with an `AbapName` field
+	* Extract **`AbapName` this is the actual RFC function name** — use it as the input to `sap_get_function_metadata`
+	* Present available methods to the user; ask which to use if more than one is relevant, the user can pick more than one
 
 ---
 
-# PHASE 3C — FUNCTION GROUP SEARCH
+# Option C — FUNCTION GROUP SEARCH
 Step 1 — Find function group (if name unknown):
 Tool: `mcp__sap-inspector__sap_search_function_groups`
 	- Parameter: `pattern` — wildcard supported
@@ -89,7 +91,7 @@ Tool: `mcp__sap-inspector__sap_search_rfc_functions`
 
 ---
 
-# PHASE 4 — METADATA RETRIEVAL
+## METADATA RETRIEVAL
 Primary tool (always use first): `mcp__sap-inspector__sap_get_function_metadata(functionName)`
 	- Parameter: `functionName` — exact RFC function name (from search or BOR `AbapName`)
 	- Returns: complete parameter specification:
@@ -112,11 +114,11 @@ Use only as last-resort cross-reference, never as the authoritative source
 
 ---
 
-## PHASE 5 TYPE MAPPING
+## TYPE MAPPING
 No additional MCP tool calls are required in Phases 5–8. All logic is specified in SKILL.md and the dedicated reference files:
 Map all ABAP parameter types to GeneXus types using [sap-abap-type-mapping](references/sap-abap-type-mapping.md)
 
-## PHASE 6 GENERATION PLAN
+## GENERATION PLAN
 
 Derive the list of object to generate
 	* Generate one SDT per unique ABAP structure/table type: [sap-sdt-generation](references/sap-sdt-generation.md) 
@@ -127,7 +129,7 @@ Consult those files directly when executing the corresponding phase
 
 ---
 
-## PHASE 7. APPROVAL OF PLAN
+## APPROVAL OF PLAN
 
 Present the generation plan to the user as two tables:
 
@@ -143,7 +145,7 @@ Wait for user approval before generating any file (Phase 8)
 
 ---
 
-## Phase 8 GENERATION
+## GENERATION
 
 **SDT Generation**
 Load: [sap-sdt-generation](references/sap-sdt-generation.md), [nexa:global-output](../nexa/references/global-output.md) and  [nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
@@ -188,7 +190,7 @@ Check that all necessary objects are generated:
 
 ---
 
-## PHASE 9 — VALIDATION AND IMPORT
+## VALIDATION AND IMPORT
 
 Step 1 — Validate all generated files:
 Tool: `mcp__genexus__validate_kb_text_files`
@@ -207,7 +209,7 @@ Tool: `mcp__genexus__import_text_to_kb`
 
 ---
 
-# CONSTRAINTS
+# CONSTRAINTS 
 - Always call `sap_ping` before any other SAP Inspector tool
 - Always call `sap_connection_status` before any metadata retrieval
 - Never pass SAP passwords to generated GeneXus files

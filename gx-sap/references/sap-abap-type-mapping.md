@@ -40,20 +40,20 @@ Mapping from ABAP Type/ ABAP Alias to GeneXus Types
 ---
 
 # RESOLUTION RULES
-1. Read `type`, `length`, and `decimals` from `sap_get_function_metadata` for every field before mapping
-2. Apply the table above using the **exact** length and decimal values from the metadata
-3. For `CHAR(n)`:
-	- n ≤ 8 → `Character(n)`
-	- 9 ≤ n ≤ 256 → `VarChar(n)`
-	- n > 256 → `VarChar(256)` unless the field is clearly long-form content, then `LongVarChar(4K)`
-4. For `DEC` / `CURR` / `QUAN`: always use `Numeric(n.m)` with exact values; never default to `Numeric(10.2)`
-5. For `FLTP`: always `Numeric(14.7)` regardless of reported metadata length
-6. For `NUMC`: always `Character(n)`; never map to `Numeric` even though digits are involved
-7. For `DATS`: always `Date`; never `Character(8)`
-8. For `TIMS`: always `Character(6)`; never `DateTime`
-9. For Structure type: the parameter is a nested compound type — create a separate `SDT` and reference it by name
-10. For Table type: the parameter is a collection — create a separate `SDT` for the row definition and set `Collection = 'True'` on its item
-11. When ABAP type is absent, unknown, or not listed: use `VarChar(256)` as a safe fallback and explicitly state the assumption in the execution plan
+- Read `type`, `length`, and `decimals` from `sap_get_function_metadata` for every field before mapping
+- Apply the table above using the **exact** length and decimal values from the metadata
+- For `CHAR(n)`:
+	* n ≤ 8 → `Character(n)`
+	* 9 ≤ n ≤ 256 → `VarChar(n)`
+	* n > 256 → `VarChar(256)` unless the field is clearly long-form content, then `LongVarChar(4K)`
+- For `DEC` / `CURR` / `QUAN`: always use `Numeric(n.m)` with exact values; never default to `Numeric(10.2)`
+- For `FLTP`: always `Numeric(14.7)` regardless of reported metadata length
+- For `NUMC`: always `Character(n)`; never map to `Numeric` even though digits are involved
+- For `DATS`: always `Date`; never `Character(8)`
+- For `TIMS`: always `Character(6)`; never `DateTime`
+- For Structure type: the parameter is a nested compound type — create a separate `SDT` and reference it by name
+- For Table type: the parameter is a collection — create a separate `SDT` for the row definition and set `Collection = 'True'` on its item
+- When ABAP type is absent, unknown, or not listed: use `VarChar(256)` as a safe fallback and explicitly state the assumption in the execution plan
 
 ---
 

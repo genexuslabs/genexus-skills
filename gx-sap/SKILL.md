@@ -74,15 +74,15 @@ SDT properties: [nexa:properties-object-structured-data-type](../nexa/references
 Data types: [nexa:common-data-types](../nexa/references/common-data-types.md)
 Standard variables: [nexa:common-standard-variables](../nexa/references/common-standard-variables.md)
 
-Resource selection protocol per phase:
-- Phase 1–2 (MCP check / connection): [sap-workflow](references/sap-workflow.md) only
-- Phase 3–4 (discovery / metadata): [sap-workflow](references/sap-workflow.md) only
-- Phase 5 (type mapping): [sap-workflow](references/sap-workflow.md), [sap-abap-type-mapping](references/sap-abap-type-mapping.md)
-- Phase 6-7 (Generation plan / Approval): 
+Resource selection protocol per workflow steps:
+- MCP check / Connection: [sap-workflow](references/sap-workflow.md) only
+- Discovery / Metadata: [sap-workflow](references/sap-workflow.md) only
+- Type mapping: [sap-workflow](references/sap-workflow.md), [sap-abap-type-mapping](references/sap-abap-type-mapping.md)
+- Generation plan / Approval: 
 	[sap-workflow](references/sap-workflow.md)
 	[sap-sdt-generation](references/sap-sdt-generation.md)
 	[sap-eo-generation](references/sap-eo-generation.md)
-- Phase 8 Generation:
+- Generation:
 	* [sap-workflow](references/sap-workflow.md)
 	* [sap-sdt-generation](references/sap-sdt-generation.md)
 	* [sap-eo-generation](references/sap-eo-generation.md)
@@ -93,7 +93,7 @@ Resource selection protocol per phase:
 	* [nexa:object-procedure](../nexa/references/object-procedure.md)
 	* [nexa:common-standard-variables](../nexa/references/common-standard-variables.md)
 	* [nexa:global-constraints](../nexa/references/global-constraints.md)
-- Phase 9 (validation / import): [sap-workflow](references/sap-workflow.md)
+- Validation / Import: [sap-workflow](references/sap-workflow.md)
 
 ---
 
