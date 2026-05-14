@@ -4,6 +4,7 @@ description: How to build SAP BAPI selection table filters in GeneXus Procedure 
 ---
 
 Apply these rules when generating sample `Procedure` code that calls SAP BAPIs with filter parameters
+
 ---
 
 # FILTER CONCEPTS
@@ -16,6 +17,7 @@ Field  Description/Possible values:
 - `HIGH` → End value (used only with `BT`)
 
 Typical parameter name patterns: `*_SELECTION`, `*_RANGE`, `SELECTIONS`
+
 ---
 
 # OPTION VALUES
@@ -27,6 +29,7 @@ Typical parameter name patterns: `*_SELECTION`, `*_RANGE`, `SELECTIONS`
 - `GE` → Greater or equal
 - `LE` → Less or equal
 - `CP` → Pattern match (`*` = any chars, `+` = one char)
+
 ---
 
 # USAGE PATTERNS
@@ -81,7 +84,9 @@ MaterialEO.GetList(&PLANTSELECTION, &MATNRSELECTION, &MAXROWS, &MATNRLIST, &RETU
 &Item.LOW = "MAT*"
 &MATNRSELECTION.Add(&Item)
 ```
+
 ---
+
 # BEST PRACTICES
 
 - Prefer `EQ` for exact matches; use `BT` for bounded ranges

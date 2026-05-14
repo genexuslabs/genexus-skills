@@ -4,13 +4,14 @@ description: Rules for generating GeneXus SDT objects from SAP ABAP structure an
 ---
 
 Apply these rules in conjunction with the nexa SDT syntax reference:
-`../nexa/references/object-structured-data-type.md`
+[nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
 
 And the ABAP type mapping reference:
-`references/sap-abap-type-mapping.md`
+[sap-abap-type-mapping](references/sap-abap-type-mapping.md)
 
 And the nexa output policy:
-`../nexa/references/global-output.md`
+[nexa:global-output](../nexa/references/global-output.md)
+
 ---
 
 # WHEN TO CREATE AN SDT
@@ -22,7 +23,8 @@ Create one `SDT` for each of the following:
 Do NOT create `SDT` objects for:
 - Top-level scalar parameters with no sub-fields (e.g., a single CHAR field as IMPORTING param)
 - Parameters whose ABAP type maps directly to a single GeneXus built-in type
-Reuse rule: if two BAPIs reference the same ABAP type name, generate the `SDT` once and reference it from both `ExternalObject` methods.
+Reuse rule: if two BAPIs reference the same ABAP type name, generate the `SDT` once and reference it from both `ExternalObject` methods
+
 ---
 
 # NAMING CONVENTION
@@ -37,6 +39,7 @@ Examples:
 - `ZSALESORDER_HEADER` → `SALESORDER_HEADER`
 
 File name: `<SdtName>.sdt.main.gx`
+
 ---
 
 # SDT STRUCTURE TEMPLATE
@@ -83,19 +86,22 @@ When an ABAP structure field is itself a named structure type, create a separate
 ```genexus
 <FieldName> [ Description = '<field description>', DataType = '<NestedSdtName>', JsonName = '<JsonName>' ]
 ```
+
 ---
+
 # FIELD MAPPING STEPS
 For each field returned by `sap_get_function_metadata` (or `sap_get_object_metadata`):
 
 1. Read: field name, ABAP type, length, decimals, description
 2. Keep field name as-is (original SAP name — uppercase with underscores, e.g. DESCR_LOW, SIGN)
-3. Look up the GeneXus type using `references/sap-abap-type-mapping.md`
+3. Look up the GeneXus type using [sap-abap-type-mapping](references/sap-abap-type-mapping.md)
 4. Set the property JsonName with the original SAP name, the same as the field name
 5. Write one member line per field in the format:
 	```
 	<Name> [ Description = '<description>', DataType = '<gx-type>', JsonName = '<Name>']
 	```
 6. For nested structure type fields: create the nested `SDT` first, then reference it
+
 ---
 
 # CANONICAL STANDARD SDTs
@@ -124,7 +130,7 @@ SDT BAPIRET2
 		ROW	[ Description = 'Row in parameter', DataType = 'Numeric(5.0)', JsonName = 'ROW' ]
 		FIELD	[ Description = 'Field in parameter', DataType = 'Character(35)', JsonName = 'FIELD'  ]
 		SYSTEM	[ Description = 'Logical system from which message originates', DataType = 'Character(10)', JsonName = 'SYSTEM'  ]
-  	}
+	}
 	#Properties
 		IsSapParameter = true
 	#End
@@ -145,13 +151,15 @@ SDT BAPIMONEY
 	#End
 }
 ```
+
 ---
+
 # CONSTRAINTS
 - `IsSapParameter = true` must be set in `#Properties` on every generated `SDT`
 - Member names must preserve the original SAP field name verbatim (uppercase with underscores)
 - Every member must have `DataType` defined, and `JsonName` set with the original field name
 - `Description` is recommended for every member; populate from ABAP field description when available
 - `Collection = 'True'` is set on the root item only for TABLE-type `SDT` objects
-- Apply nexa global constraints: `../nexa/references/global-constraints.md`
-- Apply nexa output policy: `../nexa/references/global-output.md`
+- Apply nexa global constraints: [nexa:global-constraints](../nexa/references/global-constraints.md)
+- Apply nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
 - Default output mode is `single-file`: one `<SdtName>.sdt.main.gx` per `SDT`

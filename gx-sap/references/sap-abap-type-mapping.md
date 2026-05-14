@@ -2,9 +2,12 @@
 name: sap-abap-type-mapping
 description: Authoritative ABAP-to-GeneXus type conversion table for SAP parameter mapping
 ---
+
 Use this file as the single source of truth for converting ABAP field types to GeneXus data types.
 Always consult this file before assigning a `DataType` to any `SDT` member or `ExternalObject` parameter
+
 ---
+
 # MAPPING TABLE
 Mapping from ABAP Type/ ABAP Alias to GeneXus Types
 
@@ -33,7 +36,9 @@ Mapping from ABAP Type/ ABAP Alias to GeneXus Types
 - `ACCP` → `Character(6)`; accounting period, format `YYYYPP`
 - Structure type → dedicated `SDT` reference
 - Table type → collection of `SDT`; set `Collection = 'True'`
+
 ---
+
 # RESOLUTION RULES
 1. Read `type`, `length`, and `decimals` from `sap_get_function_metadata` for every field before mapping
 2. Apply the table above using the **exact** length and decimal values from the metadata
@@ -49,10 +54,14 @@ Mapping from ABAP Type/ ABAP Alias to GeneXus Types
 9. For Structure type: the parameter is a nested compound type — create a separate `SDT` and reference it by name
 10. For Table type: the parameter is a collection — create a separate `SDT` for the row definition and set `Collection = 'True'` on its item
 11. When ABAP type is absent, unknown, or not listed: use `VarChar(256)` as a safe fallback and explicitly state the assumption in the execution plan
+
 ---
+
 # COMMON SAP STANDARD TYPES
-Frequently encountered types across BAPIs — canonical GeneXus definitions are in `references/sap-sdt-generation.md`
+Frequently encountered types across BAPIs — canonical GeneXus definitions are in [sap-sdt-generation](sap-sdt-generation.md)
+
 ---
+
 # CONSTRAINTS
 - Never assume ABAP field lengths; always read from `sap_get_function_metadata` response
 - Never map `NUMC` to `Numeric`; numeric characters must remain as `Character`

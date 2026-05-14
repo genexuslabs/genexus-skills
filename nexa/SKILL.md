@@ -20,7 +20,6 @@ Use this skill for:
 - Suggesting improvements
 - Coordinating multi-object development tasks
 
-
 Do NOT use this skill for:
 - General programming questions
 - Unrelated GeneXus questions

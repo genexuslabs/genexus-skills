@@ -4,10 +4,10 @@ description: Rules for generating GeneXus ExternalObject objects for SAP BOR obj
 ---
 
 Apply these rules in conjunction with the nexa ExternalObject syntax reference:
-`../nexa/references/object-external-object.md`
+[nexa:object-external-object](../nexa/references/object-external-object.md)
 
 And the nexa output policy:
-`../nexa/references/global-output.md`
+[nexa:global-output](../nexa/references/global-output.md)
 
 ---
 
@@ -108,7 +108,7 @@ Examples:
 # PARAMETER TYPE MAPPING
 ABAP Parameter Kind → GeneXus `Type` Assignment
 
-Scalar (no sub-fields, maps to built-in) → Built-in GeneXus type from `references/sap-abap-type-mapping.md`
+Scalar (no sub-fields, maps to built-in) → Built-in GeneXus type from [sap-abap-type-mapping](references/sap-abap-type-mapping.md)
 ABAP structure type → `SDT` name generated in the SDT phase
 ABAP table type → `SDT` name generated in the SDT phase (the `SDT` itself carries `Collection = 'True'`)
 ---
@@ -147,7 +147,7 @@ ExternalPackageName = 'com.genexus.sap'
 
 Replace `<BAPI_GROUP>` with the RFC function group name (e.g., `BAPI_SALESORDER`)
 
-The properties `NetFrameworkExternalName`, `NetPackageId`, `JavaExternalName`, and `ExternalPackageName` are required for runtime dispatch by the SAP Connector,they are not optional
+The properties `NetFrameworkExternalName`, `NetPackageId`, `JavaExternalName`, and `ExternalPackageName` are required for runtime dispatch by the SAP Connector, they are not optional
 ---
 
 # EXAMPLE — Customer Detail BAPI
@@ -240,8 +240,8 @@ ExternalObject CustomerSapEO
 - Every method of the EO must have the value IsStatic set to 'True' or 'False'
 - **Every parameter from the SAP metadata must be included — no omissions allowed regardless of perceived relevance**
 - Never add `NetFrameworkAssemblyName`, `NetFrameworkConstructorParameters`, `NetAssemblyName`, or `JavaConstructorParameters` to SAP `ExternalObject` objects — those are reserved for `GXEnterpriseSessionManager`; the required external name and package ID properties are listed in the PROPERTIES SECTION above
-- Apply nexa global constraints: `../nexa/references/global-constraints.md`
-- Apply nexa output policy: `../nexa/references/global-output.md`
+- Apply nexa global constraints: [nexa:global-constraints](../nexa/references/global-constraints.md)
+- Apply nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
 - Default output mode is `single-file`: one `<Name>.externalobject.main.gx` per `ExternalObject`
 - Property bracket values `[…]` must use `'single-quoted'` strings; `!"…"` is forbidden in bracket annotations — it is valid only in executable source regions
 
