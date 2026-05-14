@@ -8,7 +8,7 @@ Step-by-step MCP tool call sequence for each phase of the SAP skill workflow
 ---
 
 ## MCP AVAILABILITY CHECK
-Tool: `mcp__sap-inspector__sap_ping`
+Call Tool: `mcp__sap-inspector__sap_ping`
 	- No parameters required
 	- Success: returns version and environment info
 	- Failure (tool not found / connection refused): **stop all processing**
@@ -19,7 +19,7 @@ Tool: `mcp__sap-inspector__sap_ping`
 ---
 
 ## RFC CONNECTION CHECK
-Tool: `mcp__sap-inspector__sap_connection_status`
+Call Tool: `mcp__sap-inspector__sap_connection_status`
 - No parameters required
 - Success (RFC connected): proceed to discovery (phase 3)
 
@@ -33,8 +33,8 @@ On failure or unconfigured state:
 	* `user` — SAP username
 	* `password` — SAP password
 	* `language` — Logon language (e.g., `EN`)
-- Call `mcp__sap-inspector__sap_configure_connection` with those values
-- Call `mcp__sap-inspector__sap_connection_status` again to confirm
+- Call Tool `mcp__sap-inspector__sap_configure_connection` with those values
+- Call Tool `mcp__sap-inspector__sap_connection_status` again to confirm
 - If still failing: **stop** and report the error message verbatim to the user
 
 ---
@@ -46,7 +46,7 @@ Choose one option path based on user input:
 
 # Option A — RFC FUNCTION SEARCH (by name) - User supplies an exact BAPI or RFC name
 
-Tool: `mcp__sap-inspector__sap_search_functions`
+Call Tool: `mcp__sap-inspector__sap_search_functions`
 - Parameter: `pattern` — supports wildcards (e.g., `BAPI_SALESORDER_*`, `*CUSTOMER*`)
 - Returns: list of matching RFC function names with descriptions
 - If a single match: proceed directly with it
@@ -60,19 +60,19 @@ Tool: `mcp__sap-inspector__sap_search_functions`
 Steps: 
 
 — Get top-level BOR modules:
-Tool: `mcp__sap-inspector__sap_get_bor_tree`
+Call Tool: `mcp__sap-inspector__sap_get_bor_tree`
 	* Parameter: `maxLevel = 1` (to list top-level BOR modules) 
 	* Returns: list of top-level application area nodes (e.g., SD, MM, FI, HR, PP)
 	* Present the list to the user and ask which area to explore
 
 — Drill down to object type:
-Tool: `mcp__sap-inspector__sap_get_bor_node_children`
+Call Tool: `mcp__sap-inspector__sap_get_bor_node_children`
 	* Parameter: `nodeId` from the previous call
 	* Returns: child nodes (sub-areas or object types)
 	* Repeat this step iteratively until reaching the target BOR object type node
 
 — Get object methods:
-Tool: `mcp__sap-inspector__sap_get_bor_object_detail`
+Call Tool: `mcp__sap-inspector__sap_get_bor_object_detail`
 	* Parameter: `objectType` — the BOR object type identifier (e.g., `BUS2032`)
 	* Returns: object metadata including list of methods, each with an `AbapName` field
 	* Extract **`AbapName` this is the actual RFC function name** — use it as the input to `sap_get_function_metadata`
@@ -82,11 +82,11 @@ Tool: `mcp__sap-inspector__sap_get_bor_object_detail`
 
 # Option C — FUNCTION GROUP SEARCH
 Step 1 — Find function group (if name unknown):
-Tool: `mcp__sap-inspector__sap_search_function_groups`
+Call Tool: `mcp__sap-inspector__sap_search_function_groups`
 	- Parameter: `pattern` — wildcard supported
 
 Step 2 — Search functions within group:
-Tool: `mcp__sap-inspector__sap_search_rfc_functions`
+Call Tool: `mcp__sap-inspector__sap_search_rfc_functions`
 	- Parameters: `pattern` (function name wildcard), `group` (function group name)
 
 ---
@@ -193,14 +193,14 @@ Check that all necessary objects are generated:
 ## VALIDATION AND IMPORT
 
 Step 1 — Validate all generated files:
-Tool: `mcp__genexus__validate_kb_text_files`
+Call Tool: `mcp__genexus__validate_kb_text_files`
 	- Parameter: `names` — list of object names to validate
 	- Parameter: `rootDirectory` — output directory path
 	- Parameter: `stopOnError = true`
 	- On error: read the reported message, fix the offending file, and re-validate before proceeding
 
 Step 2 — Import validated files:
-Tool: `mcp__genexus__import_text_to_kb`
+Call Tool: `mcp__genexus__import_text_to_kb`
 	- Parameter: `names` — list of object names (same list as validation)
 	- Parameter: `rootDirectory` — same output directory
 	- Parameter: `stopOnError = true`
