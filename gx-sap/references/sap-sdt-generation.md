@@ -50,8 +50,8 @@ SDT <SdtName>
 {
 	<SdtName>
 	{
-		<Field1> [ Description = '<field description>', DataType = '<gx-type>', JsonName = '<JsonName>'  ]
-		<Field2> [ Description = '<field description>', DataType = '<gx-type>', JsonName = '<JsonName>'  ]
+		<Field1> [ Description = '<field description>', DataType = '<gx-type>', JsonName = '<JsonName>']
+		<Field2> [ Description = '<field description>', DataType = '<gx-type>', JsonName = '<JsonName>']
 		…
 	}
 	#Properties
@@ -70,8 +70,8 @@ SDT <SdtName>
 		Collection = 'True'
 	]
 	{
-		<Field1> [ Description = '<field description>', DataType = '<gx-type>', JsonName = '<JsonName>' ]
-		<Field2> [ Description = '<field description>', DataType = '<gx-type>', JsonName = '<JsonName>' ]
+		<Field1> [ Description = '<field description>', DataType = '<gx-type>', JsonName = '<JsonName>']
+		<Field2> [ Description = '<field description>', DataType = '<gx-type>', JsonName = '<JsonName>']
 		…
 	}
 	#Properties
@@ -116,20 +116,20 @@ SDT BAPIRET2
 		Collection = 'True'
 	]
 	{
-		TYPE	[ Description = 'Message type: S Success, I Info, W Warning, E Error, A Abort', DataType = 'Character(1)', JsonName = 'TYPE'  ]
-		ID	[ Description = 'Message class', DataType = 'Character(20)', JsonName = 'ID'  ]
-		NUMBER	[ Description = 'Message number', DataType = 'Character(3)', JsonName = 'NUMBER'  ]
-		MESSAGE	[ Description = 'Message text', DataType = 'VarChar(220)', JsonName = 'MESSAGE'  ]
-		LOG_NO	[ Description = 'Application log document number', DataType = 'Character(20)', JsonName = 'LOG_NO' ]
-		LOG_MSG_NO	[ Description = 'Application log message serial number', DataType = 'Character(6)', JsonName = 'LOG_MSG_NO' ]
-		MESSAGE_V1	[ Description = 'Message variable 1', DataType = 'Character(50)', JsonName = 'MESSAGE_V1' ]
-		MESSAGE_V2	[ Description = 'Message variable 2', DataType = 'Character(50)', JsonName = 'MESSAGE_V2' ]
-		MESSAGE_V3	[ Description = 'Message variable 3', DataType = 'Character(50)', JsonName = 'MESSAGE_V3' ]
-		MESSAGE_V4	[ Description = 'Message variable 4', DataType = 'Character(50)', JsonName = 'MESSAGE_V4' ]
-		PARAMETER	[ Description = 'Parameter name', DataType = 'Character(32)', JsonName = 'PARAMETER' ]
-		ROW	[ Description = 'Row in parameter', DataType = 'Numeric(5.0)', JsonName = 'ROW' ]
-		FIELD	[ Description = 'Field in parameter', DataType = 'Character(35)', JsonName = 'FIELD'  ]
-		SYSTEM	[ Description = 'Logical system from which message originates', DataType = 'Character(10)', JsonName = 'SYSTEM'  ]
+		TYPE	[ Description = 'Message type: S Success, I Info, W Warning, E Error, A Abort', DataType = 'Character(1)', JsonName = 'TYPE']
+		ID	[ Description = 'Message class', DataType = 'Character(20)', JsonName = 'ID']
+		NUMBER	[ Description = 'Message number', DataType = 'Character(3)', JsonName = 'NUMBER']
+		MESSAGE	[ Description = 'Message text', DataType = 'VarChar(220)', JsonName = 'MESSAGE']
+		LOG_NO	[ Description = 'Application log document number', DataType = 'Character(20)', JsonName = 'LOG_NO']
+		LOG_MSG_NO	[ Description = 'Application log message serial number', DataType = 'Character(6)', JsonName = 'LOG_MSG_NO']
+		MESSAGE_V1	[ Description = 'Message variable 1', DataType = 'Character(50)', JsonName = 'MESSAGE_V1']
+		MESSAGE_V2	[ Description = 'Message variable 2', DataType = 'Character(50)', JsonName = 'MESSAGE_V2']
+		MESSAGE_V3	[ Description = 'Message variable 3', DataType = 'Character(50)', JsonName = 'MESSAGE_V3']
+		MESSAGE_V4	[ Description = 'Message variable 4', DataType = 'Character(50)', JsonName = 'MESSAGE_V4']
+		PARAMETER	[ Description = 'Parameter name', DataType = 'Character(32)', JsonName = 'PARAMETER']
+		ROW	[ Description = 'Row in parameter', DataType = 'Numeric(5.0)', JsonName = 'ROW']
+		FIELD	[ Description = 'Field in parameter', DataType = 'Character(35)', JsonName = 'FIELD']
+		SYSTEM	[ Description = 'Logical system from which message originates', DataType = 'Character(10)', JsonName = 'SYSTEM']
 	}
 	#Properties
 		IsSapParameter = true
@@ -143,8 +143,8 @@ SDT BAPIMONEY
 {
 	BAPIMONEY
 	{
-		CURRENCY    [ Description = 'Currency key', DataType = 'Character(5)', JsonName = 'CURRENCY' ]
-		AMT         [ Description = 'Amount', DataType = 'Numeric(23.4)', JsonName = 'AMT' ]
+		CURRENCY	[ Description = 'Currency key', DataType = 'Character(5)', JsonName = 'CURRENCY']
+		AMT	[ Description = 'Amount', DataType = 'Numeric(23.4)', JsonName = 'AMT']
 	}
 	#Properties
 		IsSapParameter = true
