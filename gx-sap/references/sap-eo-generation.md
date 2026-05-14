@@ -41,28 +41,29 @@ ExternalObject <Name>SapEO
 	#End
 
 	#ExternalMethods
-		<MethodName>
-		[
-			Description = '<bapi description; include actual RFC function name>'
-			IsStatic = '<True|False>'
-		]
+	
+	<MethodName>
+	[
+		Description = '<bapi description; include actual RFC function name>'
+		IsStatic = '<True|False>'
+	]
+	{
+	Parameters
 		{
-			Parameters
-			{
-				<Param1>
-				[
-					AccessType = '<In|Out|InOut>',
-					Description = '<parameter description>',
-					Type = '<GxType>'
-				]
-				<Param2>
-				[
-					AccessType = '<In|Out|InOut>',
-					Description = '<parameter description>',
-					Type = '<SdtName>'
-				]
-			}
+		<Param1>
+		[
+			AccessType = '<In|Out|InOut>',
+			Description = '<parameter description>',
+			Type = '<GxType>'
+		]
+		<Param2>
+		[
+			AccessType = '<In|Out|InOut>',
+			Description = '<parameter description>',
+			Type = '<SdtName>'
+		]
 		}
+	}
 	#End
 
 	#ExternalEvents
@@ -155,6 +156,7 @@ The properties `NetFrameworkExternalName`, `NetPackageId`, `JavaExternalName`, a
 ```genexus
 ExternalObject CustomerSapEO
 {
+	
 	#GenericTypes
 	#End
 

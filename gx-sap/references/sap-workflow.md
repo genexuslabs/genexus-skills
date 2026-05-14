@@ -133,15 +133,24 @@ Consult those files directly when executing the corresponding phase
 
 Present the generation plan to the user as two tables:
 
-| SDT | ABAP Source Type | File |
-|---|---|---|
-| `<SdtName>` | `<AbapTypeName>` | `<SdtName>.sdt.main.gx` |
+## APPROVAL OF PLAN
 
-| ExternalObject | Method | File |
-|---|---|---|
-| `<EoName>SapEO` | `<BapiName>` | `<EoName>SapEO.externalobject.main.gx` |
+Present the generation plan to the user as structured lists or tables:
 
-Wait for user approval before generating any file (Phase 8)
+* SDT entries
+	- Header: `SDT`, `ABAP Source Type`, `File`
+	- Items: `<SdtName>`, `<AbapTypeName>`, `<SdtName>.sdt.main.gx`
+
+* External Object entries
+	- Header: `ExternalObject`, `Method`, `File`
+	- Items: <EoName>SapEO`, `<BapiName>`, `<EoName>SapEO.externalobject.main.gx`
+
+* Other objects
+Any other object required to fullfill the task
+	- Header `Object Type`, `ObjectName`, `File`
+	- Items GeneXus object type, GeneXus Name, Actual file to be generated
+
+Wait for user approval before generating any file ( next step )
 
 ---
 
