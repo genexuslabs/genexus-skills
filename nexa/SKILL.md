@@ -298,6 +298,8 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Purpose: Artificial intelligence agent definition with prompts and tools
 - Use when: Implementing intelligent assistants, automating decision-making with LLMs, or integrating natural language processing
 - Reference: [Agent object](references/object-agent.md)
+- Availability:
+	* ProductVersion:`>=19`
 
 ## File
 - Purpose: Store files of any format inside the Knowledge Base
