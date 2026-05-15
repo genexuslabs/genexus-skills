@@ -140,6 +140,17 @@ Select the appropriate path according to user request and execute the steps sequ
 		- Write or update `*.environment.local.gx` file
 		- Run `import_text_to_kb` with `names: ["environment:*"]`
 	* Deny `build`/`impact`/`reorg` operations until conection values are defined
+- Resolve compatible reference files
+	* Read `ProductNumber` value from `*.knowledgebase.main.gx` file
+		- Format: `<major>.<minor>.<patch>.<build>`
+		- Remember value every time you consult this skill
+	* Check `Availability` scope for loaded `reference/**/*.md` files
+	* Apply only supported features matching `ProductNumber` value
+		- Compare version segments numerically from left to right
+		- Supported operators: `=`, `>`, `>=`, `<`, `<=`
+		- Space-separated constraints use logical `AND` evaluation
+		- References without explicit scope are cross-version supported
+	* Reject unsupported features instead of inferring compatibility
 - Resolve output file mode
 	* Use [global-output](references/global-output.md)
 	* Forbid mode inference from wording
