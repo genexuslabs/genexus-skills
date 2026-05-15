@@ -33,7 +33,7 @@ KnowledgeBase <name>
 Where:
 - `<name>`: Knowledge Base name using alphanumeric or underscore, starting with letter
 - `<version>`: Knowledge Base version definition; see [VERSION](#version) section
-- `<environments>`: Breakline separated list of [Environment](./model-environment.md) names; must have at least one reference
+- `<environments>`: Breakline separated list of [ENVIRONMENT](./model-environment.md) names; must have at least one reference
 - `<properties>`: Knowledge Base properties in TOML syntax; see [properties](./properties-knowledge-base.md)
 
 ---
