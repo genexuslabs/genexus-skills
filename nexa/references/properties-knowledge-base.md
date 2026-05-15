@@ -134,7 +134,7 @@ GeneXus build number used when the knowledge base was created
 
 ---
 
-# OTHER
+# INMUTABLE
 
 ## Backend Only
 Prevent (`True`) or allow (`False`) UI object creation and modification
