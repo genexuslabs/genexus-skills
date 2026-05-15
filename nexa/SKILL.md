@@ -142,7 +142,7 @@ Select the appropriate path according to user request and execute the steps sequ
 			* Ask `UserId` and `UserPassword`
 		- Write or update `*.local.env.gx` file
 		- Run `import_text_to_kb` with `names: ["environment:*"]`
-	* Deny `build`/`impact`/`reorg` operations until conection values are defined
+	* Deny `build`/`impact`/`reorg` operations until connection values are defined
 - Resolve compatible reference files
 	* Read `ProductNumber` value from `*.knowledgebase.main.gx` file
 		- Format: `<major>.<minor>.<patch>.<build>`
