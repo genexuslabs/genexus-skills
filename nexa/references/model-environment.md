@@ -107,7 +107,7 @@ IMPORTANT:
 - Keep deployment unit names aligned with `DeploymentUnit` objects
 - The main file defines shared configuration; the local file defines machine-specific settings
 - Never store database credentials or server names in the main file; use the local file
-- After writing or modifying the `.local.gx` file, always run `import_text_to_kb` with `names: ["environment:*"]` to import the environment changes into the KB
+- After writing or modifying `<name>.env.gx` or `<name>.local.env.gx`, always import the `Environment` changes into the KB
 
 ---
 

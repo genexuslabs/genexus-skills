@@ -60,8 +60,8 @@ Use [global-output](./global-output.md) with `<type>` value: `transaction`
 
 Workflow:
 - Create or update `Transaction` artifact
-- Execute `import_text_to_kb` tool; on failure, stop
-- Execute `export_kb_to_text` tool
+- Import changes into `Knowledge Base`; on failure, stop
+- Export changes from `Knowledge Base` into filesystem
 - Inspect `<name>.table.main.gx` artifacts and read `#Index` section
 - Extract `Index` names and validate their `*.index.main.gx` artifacts
 - Create or update only user `Index` if requested or for 1:1 relationships (unique FK)
