@@ -131,3 +131,14 @@ Use this file to select editable Knowledge Base properties and metadata
 ## GX Build KB Created
 - Description: GeneXus build number used when the knowledge base was created
 - Type: `string`
+
+---
+
+# INMUTABLE
+
+## Backend Only
+Prevent (`True`) or allow (`False`) UI object creation and modification
+- Type: `boolean`
+- Default: `False`
+- Availability:
+	* ProductVersion:`>=19`
