@@ -99,7 +99,7 @@ Syntax:
 
 Where:
 - `<module>`: Referenced module/package name
-- `<number>`: Madnatory target module/package version number
+- `<number>`: Mandatory target module/package version number
 - `<server>`: Registry source URL for packaged modules only when required
 
 Rules:
