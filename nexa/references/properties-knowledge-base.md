@@ -140,3 +140,5 @@ GeneXus build number used when the knowledge base was created
 Prevent (`True`) or allow (`False`) UI object creation and modification
 - Type: `boolean`
 - Default: `False`
+- Availability:
+	* ProductVersion:`>=19`

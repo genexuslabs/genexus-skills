@@ -142,8 +142,19 @@ Select the appropriate path according to user request and execute the steps sequ
 			* Ask `UserId` and `UserPassword`
 		- Write or update `*.local.env.gx` file
 		- Run `import_text_to_kb` with `names: ["environment:*"]`
-	* Deny `build`/`impact`/`reorg` operations until connection values are defined
-- Resolve output file
+	* Deny `build`/`impact`/`reorg` operations until conection values are defined
+- Resolve compatible reference files
+	* Read `ProductNumber` value from `*.knowledgebase.main.gx` file
+		- Format: `<major>.<minor>.<patch>.<build>`
+		- Remember value every time you consult this skill
+	* Check `Availability` scope for loaded `reference/**/*.md` files
+	* Apply only supported features matching `ProductNumber` value
+		- Compare version segments numerically from left to right
+		- Supported operators: `=`, `>`, `>=`, `<`, `<=`
+		- Space-separated constraints use logical `AND` evaluation
+		- References without explicit scope are cross-version supported
+	* Reject unsupported features instead of inferring compatibility
+- Resolve output file mode
 	* Use [global-output](references/global-output.md)
 	* Map target path from container tree and category rules
 	* Set canonical artifact set for each target
@@ -283,6 +294,8 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Purpose: Artificial intelligence agent definition with prompts and tools
 - Use when: Implementing intelligent assistants, automating decision-making with LLMs, or integrating natural language processing
 - Reference: [Agent object](references/object-agent.md)
+- Availability:
+	* ProductVersion:`>=19`
 
 ## File
 - Purpose: Store files of any format inside the Knowledge Base

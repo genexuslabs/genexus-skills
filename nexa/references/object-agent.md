@@ -12,6 +12,11 @@ An `Agent` object (or assistant) is capable of generating content or inferring i
 
 ---
 
+# AVAILABILITY
+ProductVersion: `>=19`
+
+---
+
 # SYNTAX
 ~~~
 Agent <name>
