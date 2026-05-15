@@ -157,7 +157,8 @@ Notes:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md)
+Use [global-output](./global-output.md) with:
+- Location: `#designsystem/`
 
 ---
 
