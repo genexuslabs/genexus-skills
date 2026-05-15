@@ -55,7 +55,6 @@ Known module-level categories:
 - `#domains/`: Domain objects artifacts
 - `#images/`: Image objects artifacts
 - `#files/`: File objects artifacts
-- `#patterns/`: Pattern definitions and related artifacts
 
 Rules:
 - Must exist only under a `Module` object; `Root Module` included
