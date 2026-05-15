@@ -27,6 +27,10 @@ KnowledgeBase <name>
 	#Environments
 		<environments>
 	#End
+
+	#References
+		<references>
+	#End
 }
 ~~~
 
@@ -34,6 +38,7 @@ Where:
 - `<name>`: Knowledge Base name using alphanumeric or underscore, starting with letter
 - `<version>`: Knowledge Base version definition; see [VERSION](#version) section
 - `<environments>`: Breakline separated list of [ENVIRONMENT](./model-environment.md) names; must have at least one reference
+- `<references>`: Breakline separated list of extenral `Module` references; see [REFERENCES](#references) section
 - `<properties>`: Knowledge Base properties in TOML syntax; see [properties](./properties-knowledge-base.md)
 
 ---
@@ -50,6 +55,25 @@ CurrentEnvironment = "<environment>"
 Where:
 - `<environment>`: Current environment name; must be listed in `#Environments` section
 - `<properties>`: Version-level properties in TOML syntax; see [properties](./properties-version.md)
+
+---
+
+# REFERENCES
+Defines external `Module` object dependencies (or packages) required by the Knowledge Base
+
+Syntax:
+~~~
+<module> [ <properties> ]
+~~~
+
+Where:
+- `<module>`: Referenced module/package name
+- `<properties>`: Reference properties in TOML-like syntax; see [properties](./properties-object-package.md)
+
+Rules:
+- All references must define the `Version` property
+- Resolve references using available `.opc` registries
+- Fallback to `ref/<module>/` when matching `.opc` is unavailable
 
 ---
 
@@ -92,6 +116,12 @@ KnowledgeBase MyApp
 	#Environments
 		NETSQLServer
 		JavaPostgreSQL
+	#End
+
+	#References
+		GeneXus [ Version = '5.0.18' ]
+		GeneXusUIControls [ Version = '3.0.5' ]
+		GeneXusUnanimo [ Version = '2.0.189', ServerUrl = 'https://samples.genexusserver.com/beta/kbdashboard.aspx?Unanimo,' ]
 	#End
 }
 ~~~
