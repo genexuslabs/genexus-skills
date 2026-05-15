@@ -141,4 +141,4 @@ Prevent (`True`) or allow (`False`) UI object creation and modification
 - Type: `boolean`
 - Default: `False`
 - Availability:
-	* ProductVersion:`>=19`
+	* ProductVersion: `>=19`
