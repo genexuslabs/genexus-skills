@@ -268,6 +268,9 @@ EndIf
 ## Embedding
 Words or phrases as numerical vectors for semantic search
 
+Availability:
+- ProductVersion:`>=19`
+
 Methods:
 - `<embedding>.GenerateEmbedding(<text>[, <messages>])`: Converts `<text>` to vector (embedding), optionally fills `<messages>` variable (type: `Messages, GeneXus.Common` SDT)
 - `<embedding>.Distance(<embedding-2>)`: Returns numerical value 0 (identical) to 1 (completely different) indicating semantic distance
