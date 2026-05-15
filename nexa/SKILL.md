@@ -144,7 +144,7 @@ Select the appropriate path according to user request and execute the steps sequ
 		- Run `import_text_to_kb` with `names: ["environment:*"]`
 	* Deny `build`/`impact`/`reorg` operations until connection values are defined
 - Resolve compatible reference files
-	* Read `ProductNumber` value from `*.knowledgebase.main.gx` file
+	* Read `ProductNumber` value from `*.kb.gx` file
 		- Format: `<major>.<minor>.<patch>.<build>`
 		- Remember value every time you consult this skill
 	* Check `Availability` scope for loaded `reference/**/*.md` files
