@@ -154,6 +154,7 @@ Select the appropriate path according to user request and execute the steps sequ
 		- Space-separated constraints use logical `AND` evaluation
 		- References without explicit scope are cross-version supported
 	* Reject unsupported features instead of inferring compatibility
+	* Phrase commercial product name in responses, never version number
 - Resolve output file
 	* Use [global-output](references/global-output.md)
 	* Map target path from container tree and category rules
