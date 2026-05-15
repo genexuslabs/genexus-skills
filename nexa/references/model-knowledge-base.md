@@ -63,12 +63,13 @@ Defines external `Module` object dependencies (or packages) required by the Know
 
 Syntax:
 ~~~
-<module> [ <properties> ]
+<module> [ Version = '<number>', ServerUrl = '<server>' ]
 ~~~
 
 Where:
 - `<module>`: Referenced module/package name
-- `<properties>`: Reference properties in TOML-like syntax; see [properties](./properties-object-package.md)
+- `<number>`: Madnatory target module/package version number
+- `<server>`: Registry source URL for packaged modules only when required
 
 Rules:
 - All references must define the `Version` property
