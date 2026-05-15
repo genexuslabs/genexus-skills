@@ -55,6 +55,7 @@ Where:
 
 Rules:
 - All properties in this sections are readonly and must remain unchanged
+- Use only mapped reference names for product versions in user-facing communication
 
 ---
 
