@@ -39,8 +39,7 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with:
-- Location: `#categories/`
+Use [global-output](./global-output.md)
 
 ---
 
