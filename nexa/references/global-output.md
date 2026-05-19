@@ -52,6 +52,7 @@ Known root-level categories:
 - `#wiki/`: Document artifacts for KB documentation
 
 Known module-level categories:
+- `#dataviews/`: DataView artifacts
 - `#domains/`: Domain artifacts
 - `#images/`: Image artifacts
 - `#files/`: File artifacts

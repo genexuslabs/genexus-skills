@@ -157,6 +157,7 @@ Rule:
 
 # OUTPUT
 Use [global-output](./global-output.md)
+- Location: `#dataviews/`
 
 ---
 
