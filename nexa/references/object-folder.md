@@ -145,7 +145,7 @@ Saved as:
 src/
 	README.md
 	module.toml
-	@BusinessLogic/
+	BusinessLogic/
 		module.toml
 		@Model/
 			Customer.gx
