@@ -54,3 +54,10 @@ Owner metadata for governance and maintenance
 ## ModuleResources
 File object resources packaged with the module
 - Type: `string`
+
+## ModuleIdentifier
+Stable module identifier used for packaging, import resolution, and references
+- Type: `Guid`
+- Rules:
+	* Required for publishable modules only
+	* Preserve value across exports and releases
