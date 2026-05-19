@@ -57,6 +57,7 @@ Known module-level categories:
 - `#images/`: Image artifacts
 - `#files/`: File artifacts
 - `#designsystems/`: DesignSysten artifacts
+- `#patterns/`: Pattern-specific artifacts
 
 Rules:
 - Must exist only under a `Module` object; `Root Module` included
