@@ -134,11 +134,11 @@ Select the appropriate path according to user request and execute the steps sequ
 	* When creating new environment:
 		- Create or update `*.environment.main.gx` and `*.environment.local.gx` files
 		- Add environment in `*.version.main.gx` setting `CurrentEnvironment` property
-		- Import `Environment` changes
+		- Import `Environment` changes; use `names: ["environment:*"]`
 	* When setting current environment:
 		- Get `Environment` name from target `src.ns/Preferences/*.environment.local.gx` file
 		- Set `CurrentEnvironment` property in `src.ns/Preferences/*.version.local.gx` file
-		- Import `Version` changes
+		- Import `Version` changes; use `names: ["version:*"]`
 - Resolve connection:
 	* Read `*.environment.main.gx` to get environment name and generator
 	* When `*.environment.local.gx` is missing or connection values are absent or empty:
@@ -150,7 +150,7 @@ Select the appropriate path according to user request and execute the steps sequ
 		- For `JAVA`:
 			* Ask `UserId` and `UserPassword`
 		- Write or update `*.environment.local.gx` file
-		- Import `Environment` changes
+		- Import `Environment` changes; use `names: ["environment:*"]`
 	* Deny `build`/`impact`/`reorg` operations until conection values are defined
 - Resolve compatible reference files
 	* Read `ProductNumber` value from `*.knowledgebase.main.gx` file
