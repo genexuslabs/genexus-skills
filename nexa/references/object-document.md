@@ -33,7 +33,7 @@ Where:
 
 # OUTPUT
 Use [global-output](./global-output.md) with:
-- Location: `#wiki/`
+- Location: `#documentation/`
 
 ---
 

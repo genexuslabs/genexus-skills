@@ -49,7 +49,7 @@ Known root-level categories:
 - `#categories/`: DeploymentUnit artifacts
 - `#localization/`: Language artifacts
 - `#themes/`: Theme artifacts
-- `#wiki/`: Document artifacts for KB documentation
+- `#documentation/`: Document artifacts for KB documentation
 
 Known module-level categories:
 - `#dataviews/`: DataView artifacts
