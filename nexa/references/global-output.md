@@ -45,17 +45,17 @@ Known root-level categories:
 - `#preferences/`: Model configuration (KB, Versions, Environments)
 - `#attributes/`: Attribute artifacts
 - `#tables/`: Physical Table and related Index artifacts
-- `#subtypes/`: SubTypeGroup objects artifacts aliasing Attribute groups
+- `#subtypes/`: SubTypeGroup artifacts aliasing Attribute groups
 - `#categories/`: DeploymentUnit artifacts
 - `#localization/`: Language artifacts
-- `#themes/`: DesignSystem artifacts
-- `#wiki/`: Document objects artifacts for KB documentation
+- `#themes/`: Theme artifacts
+- `#wiki/`: Document artifacts for KB documentation
 
 Known module-level categories:
-- `#domains/`: Domain objects artifacts
-- `#images/`: Image objects artifacts
-- `#files/`: File objects artifacts
-- `#designsystem/`: DesignSysten objects artifacts
+- `#domains/`: Domain artifacts
+- `#images/`: Image artifacts
+- `#files/`: File artifacts
+- `#designsystem/`: DesignSysten artifacts
 
 Rules:
 - Must exist only under a `Module` object; `Root Module` included
