@@ -158,7 +158,7 @@ Notes:
 
 # OUTPUT
 Use [global-output](./global-output.md) with:
-- Location: `#designsystem/`
+- Location: `#designsystems/`
 
 ---
 

@@ -56,7 +56,7 @@ Known module-level categories:
 - `#domains/`: Domain artifacts
 - `#images/`: Image artifacts
 - `#files/`: File artifacts
-- `#designsystem/`: DesignSysten artifacts
+- `#designsystems/`: DesignSysten artifacts
 
 Rules:
 - Must exist only under a `Module` object; `Root Module` included
