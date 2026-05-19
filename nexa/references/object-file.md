@@ -34,6 +34,9 @@ Where:
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-file.md)
 - `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
+Rules:
+- Omit `<content>` when sibling file with `<name>` filename exists
+
 ---
 
 # OUTPUT
