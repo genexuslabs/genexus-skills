@@ -17,6 +17,7 @@ A `Knowledge Base` model defines the top-level metadata and global configuration
 KnowledgeBase <name>
 {
 	#Properties
+		CurrentEnvironment = "<current>"
 		<properties>
 	#End
 
@@ -40,8 +41,9 @@ KnowledgeBase <name>
 
 Where:
 - `<name>`: Knowledge Base name using alphanumeric or underscore, starting with letter
+- `<current>`: Current environment name; must be listed in `#Environments` section; scope: `.local`
 - `<product>`: Knowledge Base product information; see [PRODUCT](#product) section
-- `<version>`: Knowledge Base version definition; see [VERSION](#version) section
+- `<version>`: Knowledge Base version properties in TOML syntax; see [properties](./properties-version.md)
 - `<environments>`: Breakline separated list of [ENVIRONMENT](./model-environment.md) names; must have at least one reference
 - `<references>`: Breakline separated list of extenral `Module` references; see [REFERENCES](#references) section
 - `<properties>`: Knowledge Base properties in TOML syntax; see [properties](./properties-knowledge-base.md)
@@ -71,21 +73,6 @@ Where:
 Rules:
 - All properties in this sections are readonly and must remain unchanged
 - Use only mapped reference names for product versions in user-facing communication
-
----
-
-# VERSION
-Defines KB snapshot for parallel evolution, comparison, and rollback
-
-Syntax:
-~~~
-CurrentEnvironment = "<environment>"
-<properties>
-~~~
-
-Where:
-- `<environment>`: Current environment name; must be listed in `#Environments` section
-- `<properties>`: Version-level properties in TOML syntax; see [properties](./properties-version.md)
 
 ---
 
