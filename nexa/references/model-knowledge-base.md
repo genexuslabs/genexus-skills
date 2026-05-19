@@ -121,7 +121,6 @@ Knowledge Base with language. numeric length, and base path for images settings
 KnowledgeBase MyApp
 {
 	#Properties
-		CurrentEnvironment = "NETSQLServer"
 		KbLanguage = "English"
 		MaximumNumericLength = 18
 		BaseImagePath = "resources/images"
@@ -154,4 +153,19 @@ KnowledgeBase MyApp
 Saved as:
 ~~~
 MyApp/src/#preferences/MyApp.kb.gx
+~~~
+
+Local override:
+~~~
+KnowledgeBase MyApp
+{
+	#Properties
+		CurrentEnvironment = "NETSQLServer"
+	#End
+}
+~~~
+
+Saved as:
+~~~
+MyApp/src/#preferences/MyApp.local.kb.gx
 ~~~
