@@ -49,6 +49,10 @@ Use [global-output](./global-output.md) with:
 - Documentation: `README.md`
 - Properties: `module.toml`
 
+Rules:
+- Treat `SYNTAX` as conceptual repreentation; never produce `*.gx` file
+
+
 ---
 
 # CONSTRAINTS
