@@ -121,6 +121,7 @@ Knowledge Base with language. numeric length, and base path for images settings
 KnowledgeBase MyApp
 {
 	#Properties
+		CurrentEnvironment = "NETSQLServer"
 		KbLanguage = "English"
 		MaximumNumericLength = 18
 		BaseImagePath = "resources/images"
@@ -135,7 +136,6 @@ KnowledgeBase MyApp
 	#Version
 		DefaultStyle = "MyAppDesignSystem"
 		EnableIntegratedSecurity = true
-		CurrentEnvironment = "NETSQLServer"
 	#End
 
 	#Environments
