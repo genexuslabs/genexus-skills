@@ -136,7 +136,7 @@ Requires:
 
 Working directory resolution in order:
 - Read `src/#preferences/<ver-name>.kb.gx` file
-- Read `CurrentEnvironment` from `#Version` section as `<env-name>`
+- Read `CurrentEnvironment` from `#Properties` section as `<env-name>`
 - Read `src/#preferences/<env-name>.env.gx` file
 - Get the `TargetPath` property value as `<target-path>`
 - Navigate to `<kb-root>/<target-path>/web` as working directory
