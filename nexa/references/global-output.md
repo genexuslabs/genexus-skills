@@ -46,7 +46,7 @@ Known root-level categories:
 - `#attributes/`: Attribute artifacts
 - `#tables/`: Physical Table and related Index artifacts
 - `#subtypes/`: SubTypeGroup artifacts aliasing Attribute groups
-- `#categories/`: DeploymentUnit artifacts
+- `#categories/`: Category artifacts
 - `#localization/`: Language artifacts
 - `#themes/`: Theme artifacts
 - `#documentation/`: Document artifacts for KB documentation
