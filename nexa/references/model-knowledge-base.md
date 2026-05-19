@@ -29,10 +29,6 @@ KnowledgeBase <name>
 		<version>
 	#End
 
-	#Environments
-		<environments>
-	#End
-
 	#References
 		<references>
 	#End
@@ -41,10 +37,9 @@ KnowledgeBase <name>
 
 Where:
 - `<name>`: Knowledge Base name using alphanumeric or underscore, starting with letter
-- `<current>`: Current environment name; must be listed in `#Environments` section; scope: `.local`
+- `<current>`: Current environment name; scope: `.local`
 - `<product>`: Knowledge Base product information; see [PRODUCT](#product) section
 - `<version>`: Knowledge Base version properties in TOML syntax; see [properties](./properties-version.md)
-- `<environments>`: Breakline separated list of [ENVIRONMENT](./model-environment.md) names; must have at least one reference
 - `<references>`: Breakline separated list of extenral `Module` references; see [REFERENCES](#references) section
 - `<properties>`: Knowledge Base properties in TOML syntax; see [properties](./properties-knowledge-base.md)
 
@@ -109,6 +104,7 @@ Use [global-output](./global-output.md) with:
 - Exactly one `KnowledgeBase` object exists per Knowledge Base
 - Never create or delete `KnowledgeBase` objects manually; only modify properties
 - Define at least one `Version` entry
+- Resolve available environments from `src/#preferences/*.env.gx` file names
 - Raise warning when local-only values are written to `<name>.kb.gx` instead of `<name>.local.kb.gx`
 
 ---
@@ -137,11 +133,6 @@ KnowledgeBase MyApp
 		EnableIntegratedSecurity = true
 	#End
 
-	#Environments
-		NETSQLServer
-		JavaPostgreSQL
-	#End
-
 	#References
 		GeneXus [ Version = '5.0.18' ]
 		GeneXusUIControls [ Version = '3.0.5' ]
@@ -168,4 +159,10 @@ KnowledgeBase MyApp
 Saved as:
 ~~~
 MyApp/src/#preferences/MyApp.local.kb.gx
+~~~
+
+Existing environment files:
+~~~
+src/#preferences/NETSQLServer.env.gx
+src/#preferences/JavaPostgreSQL.env.gx
 ~~~
