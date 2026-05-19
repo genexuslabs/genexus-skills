@@ -50,6 +50,7 @@ Use [global-output](./global-output.md)
 - Qualify object names by module when applicable
 - Never duplicate object references inside the same deployment unit
 - For updates, preserve unchanged object entries and modify only requested items
+- Might be referenced by name in `#DeploymentUnits` region of [Environment](./model-environment.md) file
 
 ---
 
