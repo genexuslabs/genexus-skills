@@ -113,7 +113,7 @@ Select the appropriate path according to user request and execute the steps sequ
 - Resolve KB
 	* Ask for `Output Directory` or default to current directory
 	* Use the `Output Directory` as base path of `/src` for `Root Module` module
-	* Create the `Knowledge Base` if does not exist
+	* Create the `Knowledge Base` if it does not exist
 		- Ask `directory` argument for saving generated files
 		- Ask `environment` argument; options: `.NET`, `JAVA`
 		- Ask `dbms` argument; options: `SQL Server`, `PostgreSQL`, `MySQL`, `Oracle`, other

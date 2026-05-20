@@ -75,7 +75,7 @@ Syntax:
 ~~~
 
 Where:
-- `<annotations>`: Breakline separetd annotations; see [ANNOTATIONS](#annotations)
+- `<annotations>`: Breakline separated annotations; see [ANNOTATIONS](#annotations)
 - `<name>`: Service exposed name with parameters
 - `<parameters>`: Comma-separated variable parameters with operator (`in`, `out`, `inout`); optional parameters in brackets
 - `<implementation>`: Implementation object (`Procedure`, `DataProvider`, or other callable object)

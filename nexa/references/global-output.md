@@ -12,7 +12,7 @@ Container directories define the `Knowledge Base` tree
 
 Meaning:
 - For `src/` → `Root Module` directory
-- For `ref/` → `Pacakge` directory
+- For `ref/` → `Package` directory
 - For `<name>/` → `Module` directory
 - For `@<name>/` → `Folder` directory
 - For `#<name>/` → category directory
