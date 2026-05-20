@@ -104,8 +104,8 @@ Use [global-output](./global-output.md) with:
 - Keep deployment unit names aligned with `DeploymentUnit` objects
 - The main file defines shared configuration; the local file defines machine-specific settings
 - Never store database credentials or server names in the main file; use the local file
-- Raise warning when local-only values are written to `<name>.env.gx` instead of `<name>.local.env.gx`
-- After writing or modifying any `.environment.main.gx` always import the `Environment` changes with `gxnext` CLI
+- Raise warning when local-only values are written to `.env.gx` instead of `.local.env.gx` file
+- After writing or modifying any `.env.gx` always import the `Environment` changes with `gxnext` CLI
 
 ---
 

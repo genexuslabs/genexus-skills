@@ -105,7 +105,7 @@ Use [global-output](./global-output.md) with:
 - Never create or delete `KnowledgeBase` objects manually; only modify properties
 - Define at least one `Version` entry
 - Resolve available environments from `src/#preferences/*.env.gx` file names
-- Raise warning when local-only values are written to `<name>.kb.gx` instead of `<name>.local.kb.gx`
+- Raise warning when local-only values are written to `.kb.gx` instead of `.local.kb.gx` file
 
 ---
 

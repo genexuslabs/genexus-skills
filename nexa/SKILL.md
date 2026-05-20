@@ -96,7 +96,7 @@ Select the appropriate path according to user request and execute the steps sequ
 			* `win-x64` for Windows x64
 			* `osx-arm64` for Apple Silicon
 			* `linux-x64` for Linux x64
-	* Use these settings as reference only:
+	* Use these settings as reference only
 		- Default endpoint:
 			* Host: `localhost`
 			* Port: `1989`
@@ -112,9 +112,7 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Use `--verbose` flag only for diagnose
 - Resolve KB
 	* Ask for `Output Directory` or default to current directory
-	* Use the `Output Directory` as base path of:
-		- `/src` for object files
-		- `/src.ns` for namespaced files
+	* Use the `Output Directory` as base path of `/src` for `Root Module` module
 	* Create the `Knowledge Base` if does not exist
 		- Ask `directory` argument for saving generated files
 		- Ask `environment` argument; options: `.NET`, `JAVA`
@@ -127,17 +125,16 @@ Select the appropriate path according to user request and execute the steps sequ
 		- Run install, update, or restore module as needed
 		- Ban `/ref` writes and structure changes
 	* Use standard filesystem tools for searching file objects
-- Resolve environment
-	* Work in `src/#preferences` directory
+- Resolve environment:
 	* When creating new environment:
-		- Create `*.env.gx` and `*.local.env.gx` files
+		- Create or update `*.env.gx` files
 		- Update `*.local.kb.gx` file setting `CurrentEnvironment` property
 		- Import `Environment` changes with `gxnext` CLI
 	* When setting current environment:
-		- Obtain name from `*.env.gx` or `*.local.env.gx` files
-		- Update `*.local.kb.gx` file setting `CurrentEnvironment` property
+		- Get `Environment` name from target `src/#preferences/*.env.local.gx` file
+		- Set `CurrentEnvironment` property in `src/#preferences/*.kb.gx` file
 		- Import `Version` changes with `gxnext` CLI
-- Resolve connection
+- Resolve connection:
 	* Read `*.env.gx` to get environment name and generator
 	* When `*.local.env.gx` is missing or connection values are absent or empty:
 		- Ask connection setup confirmation; if declined, skip this section
@@ -170,7 +167,7 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Derive candidate objects information: name, type, purpose, cross-references
 	* Forbid create/update any UI-related object when:
 		- `backendOnly` argument is enabled in `Knowledge Base` creation
-		- `Backend Only` property is enabled in `.knowledgebase.main.gx` file
+		- `Backend Only` property is enabled in `.kb.gx` file
 	* Search candidate objects systematically in `src/**`
 	* Select target `Module` object for each object; if uncertain, ask user or use `Root Module`
 	* Review `object-*.md` files for target objects if any; otherwise search official websites
@@ -183,9 +180,9 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Run artifact integration check
 	* Use `gxnext` CLI operations as needed for fulfilling user request
 	* Ask explicit user confirmation for these CLI operations:
-		- `create` / `impact` / `reorg` on database
+		- `create`/`impact`/`reorg` on database
 			* State DANGEROUS as may delete existing data
-			* Require valid connection values in `*.local.env.gx`
+			* Require valid connection values in `*.env.gx`
 		- `build` artifacts (one or all)
 			* Never skip reorganization implicitly
 		- `export` artifacts
