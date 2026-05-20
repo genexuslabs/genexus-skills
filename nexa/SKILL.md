@@ -89,47 +89,54 @@ Select the appropriate path according to user request and execute the steps sequ
 - Return the elaborated answer clearly indicating the source
 
 ## Modeling task
-- Resolve MCP server
-	* Check availability; allow config override if user provides another
-		- Host: `localhost`
-		- Port: `1989`
-		- Base: `/mcp`
-	* If unavailable:
-		- Alert that `GeneXus Services` must be running
-		- Offer two options:
-			* Continue without MCP (without validation)
-			* Stop further processing until available (with validation)
+- Resolve `gxnext` CLI access
+	* Run `gxnext --version` to confirm installation
+	* Run `dotnet tool install --global GeneXus.Next.CLI.<runtime>` if not installed
+		- Use `<runtime>` as one of:
+			* `win-x64` for Windows x64
+			* `osx-arm64` for Apple Silicon
+			* `linux-x64` for Linux x64
+	* Use these settings as reference only:
+		- Default endpoint:
+			* Host: `localhost`
+			* Port: `1989`
+			* Base: `/mcp`
+		- Supported environment variables used by `gxnext`:
+			* `GXNEXT_MCP_SERVER`: Override MCP server URL endpoint
+			* `GXNEXT_MCP_SERVER_EXE`: Override MCP server executable path
+			* `GXNEXT_MCP_NO_AUTOSTART=1`: Disable MCP server auto-start
+		- Forbid direct MCP tools execution; only use `gxnext` CLI operations
+	* Get `gxnext` available options and tools:
+		- Run `gxnext --help` for usage help
+		- Run `gxnext list-tools --json` for detailed tool specs 
+	* Use `--verbose` flag only for diagnose
 - Resolve KB
 	* Ask for `Output Directory` or default to current directory
-	* Use the `Output Directory` as base path of `/src` for `Root Module` module
-	* Run `create_knowledge_base` tool if KB does not exist
+	* Use the `Output Directory` as base path of:
+		- `/src` for object files
+		- `/src.ns` for namespaced files
+	* Create the `Knowledge Base` if does not exist
 		- Ask `directory` argument for saving generated files
 		- Ask `environment` argument; options: `.NET`, `JAVA`
 		- Ask `dbms` argument; options: `SQL Server`, `PostgreSQL`, `MySQL`, `Oracle`, other
 		- Ask `backendOnly` argument for UI-objects; values: `true` (ignore), `false` (allow)
-	* Run `close_knowledge_base` on any open KB
-	* Run `open_knowledge_base`
+	* Close any open `Knowledge Base` before opening another
+	* Open specified `Knowledge Base` before editing files
 	* Use `/ref` as read-only base path for external `Module` object references
 		- Get `/ref` structure and read all object definitions
-		- Run `install_module` if module is missing
-		- Run `update_module` if module upgrade is required
-		- Run `restore_module` if module recovery is required
+		- Run install, update, or restore module as needed
 		- Ban `/ref` writes and structure changes
 	* Use standard filesystem tools for searching file objects
 - Resolve environment
 	* Work in `src/#preferences` directory
 	* When creating new environment:
 		- Create `*.env.gx` and `*.local.env.gx` files
-		- Update `*.local.kb.gx` file:
-			- Add name in `#Environments`
-			- Set name in `CurrentEnvironment` within `#Version` if requested
-		- Run `import_text_to_kb` with `names: ["environment:*"]`
+		- Update `*.local.kb.gx` file setting `CurrentEnvironment` property
+		- Import `Environment` changes with `gxnext` CLI
 	* When setting current environment:
 		- Obtain name from `*.env.gx` or `*.local.env.gx` files
-		- Update `*.local.kb.gx` file:
-			- Add name in `#Environments` if missing
-			- Set name in `CurrentEnvironment` within `#Version`
-		- Run `import_text_to_kb` with `names: ["version:*"]`
+		- Update `*.local.kb.gx` file setting `CurrentEnvironment` property
+		- Import `Version` changes with `gxnext` CLI
 - Resolve connection
 	* Read `*.env.gx` to get environment name and generator
 	* When `*.local.env.gx` is missing or connection values are absent or empty:
@@ -141,8 +148,8 @@ Select the appropriate path according to user request and execute the steps sequ
 		- For `JAVA`:
 			* Ask `UserId` and `UserPassword`
 		- Write or update `*.local.env.gx` file
-		- Run `import_text_to_kb` with `names: ["environment:*"]`
-	* Deny `build`/`impact`/`reorg` operations until connection values are defined
+		- Import `Environment` changes with `gxnext` CLI
+	* Deny `build`/`impact`/`reorg` operations until conection values are defined
 - Resolve compatible reference files
 	* Read `ProductNumber` value from `*.kb.gx` file
 		- Format: `<major>.<minor>.<patch>.<build>`
@@ -162,8 +169,8 @@ Select the appropriate path according to user request and execute the steps sequ
 - Provide execution plan
 	* Derive candidate objects information: name, type, purpose, cross-references
 	* Forbid create/update any UI-related object when:
-		* `create_knowledge_base` tool was called with `backendOnly` argument enabled
-		* `*.kb.gx` file has `Backend Only` property enabled
+		- `backendOnly` argument is enabled in `Knowledge Base` creation
+		- `Backend Only` property is enabled in `.knowledgebase.main.gx` file
 	* Search candidate objects systematically in `src/**`
 	* Select target `Module` object for each object; if uncertain, ask user or use `Root Module`
 	* Review `object-*.md` files for target objects if any; otherwise search official websites
@@ -171,16 +178,17 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Wait for explicit user approval
 - Execute provided plan
 	* Run each instruction from user approved plan
-	* Run `validate_kb_text_files` after each file write
-	* Run `import_text_to_kb` after all files written and validate integration
-	* Use available tools as needed for fulfilling user request
-	* Ask explicit user confirmation when using any of these tools:
-		- `reorganize` / `create_or_impact_database`
-			* State DANGEROUS operation as may delete existing data
-			* Require valid connection values in `*.env.gx`
-		- `build_one` / `build_all`
-			* Never pass `doNotExecuteReorg: true` unless explicitly requested
-		- `export_kb_to_text`
+	* Run artifact validation after each file write
+	* Run artifact import after all files are written
+	* Run artifact integration check
+	* Use `gxnext` CLI operations as needed for fulfilling user request
+	* Ask explicit user confirmation for these CLI operations:
+		- `create` / `impact` / `reorg` on database
+			* State DANGEROUS as may delete existing data
+			* Require valid connection values in `*.local.env.gx`
+		- `build` artifacts (one or all)
+			* Never skip reorganization implicitly
+		- `export` artifacts
 			* Use `rootDirectory` with the `Output Directory` value
 	* Run build or database operation with user approval
 - Return brief summary
@@ -247,7 +255,7 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 ## Procedure (PRC)
 - Purpose: Procedural algorithm as sequence of statements, including report generation for formatted and printable data output
 - Use when: Writing procedural logic, operating CRUD over data, consuming REST services, etc
-- Execution: When running a main procedure, consult the COMMAND LINE EXECUTION section in the reference for the target environment; do NOT use the MCP `run` tool
+- Execution: When running a main procedure, check the COMMAND LINE EXECUTION section for the target environment; do NOT use `gxnext` operation
 - Reference: [Procedure object](references/object-procedure.md)
 
 ## Structured Data Type (SDT)
@@ -395,7 +403,7 @@ Apply these rules strictly when modeling GeneXus Knowledge Base objects
 All checkpoints are mandatory before finalizing
 
 ## Initialization
-- [ ] Validates MCP server availability or user-approved bypass
+- [ ] Validates `gxnext` utility availability or user-approved bypass
 - [ ] Resolves `Knowledge Base` existence: create/open as needed
 - [ ] Confirms `*.local.env.gx` connection values on `build`/`impact`/`reorg` requests
 
@@ -423,8 +431,8 @@ All checkpoints are mandatory before finalizing
 - [ ] Applies GeneXus best-practices for coding
 
 ## Execution
-- [ ] Executes `validate_kb_text_files` after every file write
-- [ ] Requires explicit user approval before any dangerous tool execution
+- [ ] Validates `*.gx` files after every file write
+- [ ] Requires explicit user approval before any dangerous CLI operation
 
 ## Report
 - [ ] Returns brief summary of all actions taken
@@ -433,6 +441,7 @@ All checkpoints are mandatory before finalizing
 
 # CONSTRAINTS
 - Strictly follow documentation, no assumptions or inventions
+- Always use `gxnext` CLI operations; never call MCP tools directly
 - Check `object-*.md` for object generation
 	* Never derive syntax by analogy with dumped artifacts
 	* Never create or update objects without checking a reference file

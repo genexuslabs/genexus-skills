@@ -92,6 +92,9 @@ Flow recommendation:
   * Avoid large rewrites
   * Avoid long narrative text
   * Avoid redundant explanations
+- Keep structure compact:
+  * Prefer bullets over tables with decorative purpose
+  * Reserve tables for compact data or explicit structural needs
 - Keep skills modular:
   * Define workflow logic in `SKILL.md`
   * Place detailed or variant-specific material to `references/`

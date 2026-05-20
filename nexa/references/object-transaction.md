@@ -60,8 +60,8 @@ Use [global-output](./global-output.md)
 
 Workflow:
 - Create or update `Transaction` artifact
-- Execute `import_text_to_kb` tool; on failure, stop
-- Execute `export_kb_to_text` tool
+- Import changes into `Knowledge Base`; on failure, stop
+- Export changes from `Knowledge Base` into filesystem
 - Inspect `src/#tables/*.gx` artifacts matching `Transaction` base table
 - Analyze `Table` artifacts and update `#Indexes` section if required
 	* Ensure `Unique` user index over FKs for 1:1 relationships

@@ -105,7 +105,7 @@ Use [global-output](./global-output.md) with:
 - The main file defines shared configuration; the local file defines machine-specific settings
 - Never store database credentials or server names in the main file; use the local file
 - Raise warning when local-only values are written to `<name>.env.gx` instead of `<name>.local.env.gx`
-- After writing or modifying `<name>.env.gx` or `<name>.local.env.gx`, always run `import_text_to_kb` with `names: ["environment:*"]` to import the environment changes into the KB
+- After writing or modifying any `.environment.main.gx` always import the `Environment` changes with `gxnext` CLI
 
 ---
 
