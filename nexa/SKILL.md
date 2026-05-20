@@ -90,29 +90,26 @@ Select the appropriate path according to user request and execute the steps sequ
 
 ## Modeling task
 - Resolve `gxnext` CLI access
-	* Require `gxnext` CLI-tool
-		- Run `gxnext --version` to confirm installation
-		- Run `dotnet tool install --global GeneXus.Next.CLI.<runtime>` to install
+	* Run `gxnext --version` to confirm installation
+	* Run `dotnet tool install --global GeneXus.Next.CLI.<runtime>` if not installed
 		- Use `<runtime>` as one of:
 			* `win-x64` for Windows x64
 			* `osx-arm64` for Apple Silicon
 			* `linux-x64` for Linux x64
-	* Check MCP server availability
+	* Use these settings as reference only:
 		- Default endpoint:
 			* Host: `localhost`
 			* Port: `1989`
 			* Base: `/mcp`
-		- Allow environment variables settings:
-			* `GXNEXT_MCP_SERVER`: MCP server URL endpoint
-			* `GXNEXT_MCP_SERVER_EXE`: MCP server executable path
-			* `GXNEXT_MCP_NO_AUTOSTART=1`: Disable auto-start
-		- When unavailable, offer two options:
-			* Provide one MCP environment variable value
-			* Continue without MCP validation on generated files
-	* Discover `gxnext` available options and tools:
+		- Supported environment variables used by `gxnext`:
+			* `GXNEXT_MCP_SERVER`: Override MCP server URL endpoint
+			* `GXNEXT_MCP_SERVER_EXE`: Override MCP server executable path
+			* `GXNEXT_MCP_NO_AUTOSTART=1`: Disable MCP server auto-start
+		- Forbid direct MCP tools execution; only use `gxnext` CLI operations
+	* Get `gxnext` available options and tools:
 		- Run `gxnext --help` for usage help
 		- Run `gxnext list-tools --json` for detailed tool specs 
-	* Indicate `--verbose` flag only for diagnose
+	* Use `--verbose` flag only for diagnose
 - Resolve KB
 	* Ask for `Output Directory` or default to current directory
 	* Use the `Output Directory` as base path of:
@@ -449,6 +446,7 @@ All checkpoints are mandatory before finalizing
 
 # CONSTRAINTS
 - Strictly follow documentation, no assumptions or inventions
+- Always use `gxnext` CLI operations; never call MCP tools directly
 - Check `object-*.md` for object generation
 	* Never derive syntax by analogy with dumped artifacts
 	* Never create or update objects without checking a reference file
