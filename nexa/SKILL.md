@@ -134,11 +134,11 @@ Select the appropriate path according to user request and execute the steps sequ
 	* When creating new environment:
 		- Create or update `*.environment.main.gx` and `*.environment.local.gx` files
 		- Add environment in `*.version.main.gx` setting `CurrentEnvironment` property
-		- Import `Environment` changes; use `names: ["environment:*"]`
+		- Import `Environment` changes with `gxnext` CLI
 	* When setting current environment:
 		- Get `Environment` name from target `src.ns/Preferences/*.environment.local.gx` file
 		- Set `CurrentEnvironment` property in `src.ns/Preferences/*.version.local.gx` file
-		- Import `Version` changes; use `names: ["version:*"]`
+		- Import `Version` changes with `gxnext` CLI
 - Resolve connection:
 	* Read `*.environment.main.gx` to get environment name and generator
 	* When `*.environment.local.gx` is missing or connection values are absent or empty:
@@ -150,7 +150,7 @@ Select the appropriate path according to user request and execute the steps sequ
 		- For `JAVA`:
 			* Ask `UserId` and `UserPassword`
 		- Write or update `*.environment.local.gx` file
-		- Import `Environment` changes; use `names: ["environment:*"]`
+		- Import `Environment` changes with `gxnext` CLI
 	* Deny `build`/`impact`/`reorg` operations until conection values are defined
 - Resolve compatible reference files
 	* Read `ProductNumber` value from `*.knowledgebase.main.gx` file
@@ -181,7 +181,7 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Run artifact validation after each file write
 	* Run artifact import after all files are written
 	* Run artifact integration check
-	* Use available tools as needed for fulfilling user request
+	* Use `gxnext` CLI operations as needed for fulfilling user request
 	* Ask explicit user confirmation for these CLI operations:
 		- `create` / `impact` / `reorg` on database
 			* State DANGEROUS as may delete existing data
@@ -263,7 +263,7 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 ## Procedure (PRC)
 - Purpose: Procedural algorithm as sequence of statements, including report generation for formatted and printable data output
 - Use when: Writing procedural logic, operating CRUD over data, consuming REST services, etc
-- Execution: When running a main procedure, check the COMMAND LINE EXECUTION section for the target environment; do NOT use `gxnext` CLI-tool operation
+- Execution: When running a main procedure, check the COMMAND LINE EXECUTION section for the target environment; do NOT use `gxnext` operation
 - Reference: [Procedure object](references/object-procedure.md)
 
 ## Structured Data Type (SDT)
@@ -410,7 +410,7 @@ Apply these rules strictly when modeling GeneXus Knowledge Base objects
 All checkpoints are mandatory before finalizing
 
 ## Initialization
-- [ ] Validates `gxnext` CLI-tool availability or user-approved bypass
+- [ ] Validates `gxnext` utility availability or user-approved bypass
 - [ ] Resolves `Knowledge Base` existence: create/open as needed
 - [ ] Resolves `*.version.local.gx` current environment
 - [ ] Confirms `*.environment.local.gx` connection values on `build`/`impact`/`reorg` requests
