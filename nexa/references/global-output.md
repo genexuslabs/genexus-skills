@@ -116,18 +116,15 @@ Rules:
 - May include other properties for overriding or extending the main file definition
 
 ## PROPERTIES ARTIFACT
-Maps `#Properties` section to `TOML` file
+Maps `#Properties` section according to the target artifact contract
 
 Pattern:
 - `module.toml`: For `Module` objects
-- `<name>.props.toml`: For any other object
 
 Rules:
-- Support only one of these modes; must never mix them
-	* Properties inline in the `.gx` main artifact
-	* Properties in a separated `.props.toml` artifact
-- Forbid switching modes; preserve the existing mode
-- Forbid duplicate properties definition inside main file if separated
+- Keep `#Properties` region inline in `.gx` main artifact by default
+- Only use dedicated `.toml` properties artifact if explicitly required
+- Forbid duplicate properties definition across artifacts
 
 ## DOCUMENTATION ARTIFACT
 Maps `#Documentation` section to `MD` file
@@ -197,12 +194,6 @@ Definition for `InvoiceReport` procedure with report layout in `Reports` module
 - `src/Reports/InvoiceReport.report.xml`
 
 ## Example 8
-Definition for `OrderQuery` object with separated properties in `Orders` module
-- `src/Orders/OrderQuery.gx`
-- `src/Orders/OrderQuery.doc.md`
-- `src/Orders/OrderQuery.props.toml`
-
-## Example 9
 Definition for rooted-category KB model files with `NETSQLServer` environment in version
 - `src/#preferences/MyKB.kb.gx`
 - `src/#preferences/NETSQLServer.env.gx`
