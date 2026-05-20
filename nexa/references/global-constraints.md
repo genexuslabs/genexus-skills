@@ -29,7 +29,6 @@ Shared constraints for `references/object-*.md`
 - Allow `!` prefix only in non-translatable literals; `"www.example.com"` (✘) → `!"www.example.com"` (✓)
 - Allow enum domain dot (`.`) notation only; `!"COSMETICS"` (✘) → `ProductCategoryType.Cosmetics`
 - Define all properties in `.gx` files using PascalCase without quotes; `"Maximum numeric length"` (✘) → `MaximumNumericLength` (✓)
-- Forbid UI-related object changes when `Backend Only` is enabled in `*.knowledgebase.main.gx` file
+- Forbid UI-related object changes when `Backend Only` is enabled in `*.kb.gx` file
 - Read/write properties via `.gx` files only; never use CLI operations for that purpose
-- Find model properties in `src.ns/Preferences/*` and object properties in `src/**`
 - Sync changes after any `.gx` file modification

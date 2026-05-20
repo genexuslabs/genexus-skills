@@ -265,7 +265,7 @@ If the customer is VIP
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `bpd`
+Use [global-output](./global-output.md)
 
 ---
 

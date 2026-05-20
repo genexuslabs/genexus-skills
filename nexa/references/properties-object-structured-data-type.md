@@ -11,15 +11,15 @@ Use this file to select editable properties, defaults, and valid options for thi
 Include [General](./properties-common.md) properties
 
 ## Exposed name
-- Description: Name exposed to external interfaces
+Name exposed to external interfaces
 - Type: `string`
 
 ## Exposed namespace
-- Description: Namespace exposed to external interfaces
+Namespace exposed to external interfaces
 - Type: `string`
 
 ## Json Input Format
-- Description: Input JSON wrapping strategy for services
+Input JSON wrapping strategy for services
 - Type: `enum{Wrapped,Unwrapped}`
 - Options:
 	* `Wrapped`: Includes wrapper/root element in serialized output
@@ -27,12 +27,12 @@ Include [General](./properties-common.md) properties
 - Default: `Wrapped`
 
 ## IsSapParameter
-- Description: Mark object as SAP parameter
+Mark object as SAP parameter
 - Type: `boolean`
 - Default: `False`
 
 ## Dynamic structure
-- Description: Allows dynamic member structure at runtime
+Allows dynamic member structure at runtime
 - Type: `boolean`
 - Default: `False`
 
@@ -41,28 +41,28 @@ Include [General](./properties-common.md) properties
 # SDT ITEM GENERAL
 
 ## Title
-- Description: Label shown in generated UI and tooling
+Label shown in generated UI and tooling
 - Type: `string`
 
 ## Column title
-- Description: Column header shown in tabular UI
+Column header shown in tabular UI
 - Type: `string`
 
 ## ContextualTitle
-- Description: Context-aware label shown in UI
+Context-aware label shown in UI
 - Type: `string`
 
 ## Formula
-- Description: Expression used to calculate the value
+Expression used to calculate the value
 - Type: `string`
 
 ## AllowNull
-- Description: Allow null value
+Allow null value
 - Type: `boolean`
 - Default: `False`
 
 ## EmptyAsNull
-- Description: Define empty to null behavior
+Define empty to null behavior
 - Type: `enum{No Nulls,Empty as Null,Blank as Null,Compatible}`
 - Options:
 	* `No Nulls`: Keeps empty values as non-null values
@@ -71,7 +71,7 @@ Include [General](./properties-common.md) properties
 	* `Compatible`: Uses legacy-compatible null handling behavior
 
 ## Class
-- Description: Theme class applied to rendering
+Theme class applied to rendering
 - Type: `string`
 
 ---
@@ -79,56 +79,56 @@ Include [General](./properties-common.md) properties
 # SDT ITEM TYPE
 
 ## Supertype
-- Description: Type selector that controls generation behavior
+Type selector that controls generation behavior
 - Type: `string`
 
 ## Based on
-- Description: Base attribute or domain used for definition
+Base attribute or domain used for definition
 - Type: `string`
 
 ## Data Type
-- Description: Logical type used for storage and validation
+Logical type used for storage and validation
 - Type: `string`
 
 ## Length
-- Description: Maximum length for character or numeric values
+Maximum length for character or numeric values
 - Type: `integer`
 - Default: `4`
 
 ## Decimals
-- Description: Decimal precision for numeric values
+Decimal precision for numeric values
 - Type: `integer`
 - Default: `0`
 
 ## Signed
-- Description: Allows negative numeric values
+Allows negative numeric values
 - Type: `boolean`
 - Default: `False`
 
 ## Autonumber
-- Description: Enables automatic sequential value generation
+Enables automatic sequential value generation
 - Type: `boolean`
 
 ## Autonumber start
-- Description: Initial value used by autonumber sequence
+Initial value used by autonumber sequence
 - Type: `integer`
 
 ## Autonumber step
-- Description: Increment used by autonumber sequence
+Increment used by autonumber sequence
 - Type: `integer`
 
 ## Autonumber for replication
-- Description: Replicates autonumber values across environments
+Replicates autonumber values across environments
 - Type: `boolean`
 - Default: `True`
 
 ## Rows
-- Description: Number of rows used by matrix or multiline controls
+Number of rows used by matrix or multiline controls
 - Type: `integer`
 - Default: `3`
 
 ## Initial value
-- Description: Value assigned when no explicit value is provided
+Value assigned when no explicit value is provided
 - Type: `string`
 
 ---
@@ -136,11 +136,11 @@ Include [General](./properties-common.md) properties
 # SDT ITEM VALIDATION
 
 ## Value range
-- Description: Allowed value interval for validation
+Allowed value interval for validation
 - Type: `string`
 
 ## Validation Failed Message
-- Description: Message shown when validation fails
+Message shown when validation fails
 - Type: `string`
 
 ---
@@ -148,7 +148,7 @@ Include [General](./properties-common.md) properties
 # SDT ITEM PICTURE
 
 ## Left fill
-- Description: Padding strategy applied to numeric formatting
+Padding strategy applied to numeric formatting
 - Type: `enum{Blank,Zero,Blank when Zero}`
 - Options:
 	* `Blank`: Pads unused leading positions with blanks
@@ -157,16 +157,16 @@ Include [General](./properties-common.md) properties
 - Default: `Blank`
 
 ## Thousand separator
-- Description: Displays group separator in numeric formatting
+Displays group separator in numeric formatting
 - Type: `boolean`
 - Default: `False`
 
 ## Prefix
-- Description: Static prefix added in formatted output
+Static prefix added in formatted output
 - Type: `string`
 
 ## Picture
-- Description: Format mask used for display and parsing
+Format mask used for display and parsing
 - Type: `string`
 
 ---
@@ -174,7 +174,7 @@ Include [General](./properties-common.md) properties
 # SDT ITEM CONTROL
 
 ## ControlType
-- Description: UI control used to edit or display the value
+UI control used to edit or display the value
 - Type: `enum{Combo Box,Radio Button,Edit,Check Box,Dynamic Combo Box,List Box,Dynamic List Box,Image}`
 - Options:
 	* `Combo Box`: Renders a drop-down selector with fixed values
@@ -188,7 +188,7 @@ Include [General](./properties-common.md) properties
 - Default: `Edit`
 
 ## NotifyContextChange
-- Description: Raises context-change notification for control updates
+Raises context-change notification for control updates
 - Type: `boolean`
 
 ---
@@ -196,12 +196,12 @@ Include [General](./properties-common.md) properties
 # SDT ITEM BEHAVIOR
 
 ## InputHistory
-- Description: Enables device input history suggestions
+Enables device input history suggestions
 - Type: `boolean`
 - Default: `False`
 
 ## IsPassword
-- Description: Masks text input as password
+Masks text input as password
 - Type: `boolean`
 
 ---
@@ -209,36 +209,36 @@ Include [General](./properties-common.md) properties
 # SDT ITEM APPEARANCE
 
 ## AutoResize
-- Description: Adjusts control size automatically to content
+Adjusts control size automatically to content
 - Type: `boolean`
 
 ## Width
-- Description: Width assigned to rendered control
+Width assigned to rendered control
 - Type: `string`
 
 ## Height
-- Description: Height assigned to rendered control
+Height assigned to rendered control
 - Type: `string`
 
 ## Fill
-- Description: Expands control to fill available layout space
+Expands control to fill available layout space
 - Type: `boolean`
 - Default: `True`
 
 ## BackColor
-- Description: Background color applied to the control
+Background color applied to the control
 - Type: `string`
 
 ## ForeColor
-- Description: Foreground/text color applied to the control
+Foreground/text color applied to the control
 - Type: `string`
 
 ## Font
-- Description: Font family and style used for rendering
+Font family and style used for rendering
 - Type: `string`
 
 ## HorizontalAlignment
-- Description: Horizontal alignment used for displayed text
+Horizontal alignment used for displayed text
 - Type: `enum{Left,Center,Right}`
 - Options:
 	* `Left`: Aligns content to the left
@@ -247,7 +247,7 @@ Include [General](./properties-common.md) properties
 - Default: `Left`
 
 ## Format
-- Description: Text rendering format mode in UI
+Text rendering format mode in UI
 - Type: `enum{Text,HTML,Raw HTML,Text with meaningful spaces}`
 - Options:
 	* `Text`: Renders content as plain text
@@ -256,11 +256,11 @@ Include [General](./properties-common.md) properties
 	* `Text with meaningful spaces`: Preserves spaces and line breaks in rendered text
 
 ## TooltipText
-- Description: Help text shown on hover or focus
+Help text shown on hover or focus
 - Type: `string`
 
 ## InviteMessage
-- Description: Prompt text shown before user input
+Prompt text shown before user input
 - Type: `string`
 
 ---
@@ -268,10 +268,10 @@ Include [General](./properties-common.md) properties
 # SDT ITEM INTERFACE
 
 ## External Name
-- Description: External parameter name used when the SDT item is exposed in services
+External parameter name used when the SDT item is exposed in services
 - Type: `string`
 
 ## Required
-- Description: Marks the service parameter as mandatory
+Marks the service parameter as mandatory
 - Type: `boolean`
 - Default: `False`

@@ -38,26 +38,35 @@ Where:
 	* `Knowledge Base`: Accessible from any module in the same KB, cannot be distributed
 	* `Internal`: Only accessible by objects with a common root module, cannot be distributed
 	* `Private`: Only accessible within the same module and its sub-modules, cannot be distributed
-- `<properties>`: Optional object properties; see [properties](./properties-object-module.md)
-- `<documentation>`: Optional module documentation; check [common-markdown](./common-markdown.md)
+- `<properties>`: Optional module properties; see [properties](./properties-object-module.md)
+- `<documentation>`: Optional module documentation; see [markdown](./common-markdown.md)
 
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `module`
+Use [global-output](./global-output.md) with:
+- Target: `<name>/`
+- Documentation: `README.md`
+- Properties: `module.toml`
+
+Rules:
+- Treat `SYNTAX` as conceptual repreentation; never produce `*.gx` file
+
 
 ---
 
 # CONSTRAINTS
 - Use [global-constraints](./global-constraints.md)
 - Modules provide encapsulation and visibility control
-- Modules can contain: sub-modules, folders, and objects
+- Modules can contain: sub-modules, folders, objects, and module-level category directories (`#` prefixed)
 - Modules can be distributed and installed in other Knowledge Bases
 - Modules allow same object name in different modules
-- Modules must contain the `<name>.module.yaml` properties definition
-- Modules can be converted into Folders by deleting the `<name>.module.yaml` file
-- Folders cannot contain modules (only modules can contain modules)
-- Define `Root.module.yaml` file for the `Root Module` if missing in the output folder specified by the user
+- Define `module.toml` only when properties exist
+- Define `README.md` only when documentation; otherwise recommend creation
+- Modules must are regular directories on disk; never prepend special character prefix
+- Modules can be converted into Folders by adding `@` prefix in target directory name and removing associated `.toml`/`.md` if exist
+- Folders cannot contain modules; only modules can contain modules
+- Define `src/` as the `Root Module` module target directory
 - All objects belong to a module; defaults to `Root Module` if not specified
 - All objects in modules use the fully qualified name syntax `[<module>.]*<name>`, excluding folders; e.g. `Sales.CreateOrder`
 
@@ -78,23 +87,24 @@ Root Module
 │	├── CustomerList (Procedure)
 │	└── CustomerDetail (Procedure)
 └── ProductApi (Folder)
-		├── ProductList (Procedure)
-		└── ProductDetail (Procedure)
+	├── ProductList (Procedure)
+	└── ProductDetail (Procedure)
 ~~~
 
 Saved as:
 ~~~
-<output-directory>/
-	Root.module.yaml
-	Entities/
-		Customer.transaction.main.gx
-		Product.transaction.main.gx
-	CustomerApi/
-		CustomerList.procedure.gx
-		CustomerDetail.procedure.gx
-	ProductApi/
-		ProductList.procedure.gx
-		ProductDetail.procedure.gx
+src/
+	module.toml
+	README.md
+	@Entities/
+		Customer.gx
+		Product.gx
+	@CustomerApi/
+		CustomerList.gx
+		CustomerDetail.gx
+	@ProductApi/
+		ProductList.gx
+		ProductDetail.gx
 ~~~
 
 ## Example 2
@@ -119,38 +129,40 @@ KB Structure:
 ~~~
 Root Module
 └── ECommerce (Module)
-	├── Catalog (Module)
+	├── Catalog (Module) // with documentation only
 	│	├── ProductSearch (DataProvider, Public)
 	│	├── ProductDetails (Procedure, Public)
 	│	└── ProductInfo (SDT, Public)
-	├── Cart (Module)
+	├── Cart (Module) // with properties only
 	│	├── AddToCart (Procedure, Public)
 	│	├── GetCart (Procedure, Public)
 	│	└── CartItem (SDT, Public)
 	└── Shared (Folder)
-			├── Logger (Procedure, Private)
-			└── EmailService (Procedure, Private)
+		├── Logger (Procedure, Private)
+		└── EmailService (Procedure, Private)
 ~~~
 
 Saved as:
 ~~~
-<output-directory>/
-	Root.module.yaml
+src/
+	module.toml
+	README.md
 	ECommerce/
-		ECommerce.module.gx
+		module.toml
+		README.md
 		Catalog/
-			Catalog.module.gx
-			ProductSearch.dp.gx
-			ProductDetails.procedure.gx
-			ProductInfo.sdt.gx
+			README.md
+			ProductSearch.gx
+			ProductDetails.gx
+			ProductInfo.gx
 		Cart/
-			Cart.module.gx
-			AddToCart.procedure.gx
-			GetCart.procedure.gx
-			CartItem.sdt.gx
-		Shared/
-			Logger.procedure.gx
-			EmailService.procedure.gx
+			module.toml
+			AddToCart.gx
+			GetCart.gx
+			CartItem.gx
+		@Shared/
+			Logger.gx
+			EmailService.gx
 ~~~
 
 ## Example 3
@@ -188,24 +200,26 @@ Root Module
 	│	├── PaymentInfo (SDT, Public)
 	│	└── RefundInfo (SDT, Public)
 	└── Internal (Folder)
-			├── ValidateCard (Procedure, Private)
-			└── EncryptData (Procedure, Private)
+		├── ValidateCard (Procedure, Private)
+		└── EncryptData (Procedure, Private)
 ~~~
 
 Saved as:
 ~~~
-<output-directory>/
-	Root.module.yaml
+src/
+	module.toml
+	README.md
 	PaymentSDK/
-		PaymentSDK.module.gx
-		API/
-			ProcessPayment.procedure.gx
-			GetPaymentStatus.procedure.gx
-			RequestRefund.procedure.gx
-		Models/
-			PaymentInfo.sdt.gx
-			RefundInfo.sdt.gx
-		Internal/
-			ValidateCard.procedure.gx
-			EncryptData.procedure.gx
+		module.toml
+		README.md
+		@API/
+			ProcessPayment.gx
+			GetPaymentStatus.gx
+			RequestRefund.gx
+		@Models/
+			PaymentInfo.gx
+			RefundInfo.gx
+		@Internal/
+			ValidateCard.gx
+			EncryptData.gx
 ~~~

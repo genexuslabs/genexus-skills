@@ -205,7 +205,7 @@ Where:
 Notes:
 - Applies to `Procedure` object contexts where report/file output is required
 - Use only when the procedure uses `Print` command
-- Use with `Main Program = True` and `Call Protocol = HTTP`
+- Use with `MainProgram = true` and `CallProtocol = "HTTP"`
 - Validate path and permissions before writing
 
 ---

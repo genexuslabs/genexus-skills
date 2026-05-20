@@ -1,144 +1,210 @@
 ---
 name: global-output
-description: Shared output policy and file naming rules for object reference files
+description: Shared output contract for path resolution and artifact naming
 ---
 
-Shared output policy for `references/object-*.md`
-
----
-
-# OUTPUT MODES
-Use mode names `single-file` and `multi-file`:
-- `single-file`: One artifact with the full object in GeneXus syntax and sections: `.main.gx`
-- `multi-file`: One artifact per syntax region: `.main.gx` plus zero or more region artifacts
+Shared output contract for `references/object-*.md` and `references/model-*.md` files
 
 ---
 
-# FORMAT MATRIX
-Canonical name templates:
-- For `single-file` mode use `<name>.<type>.main.gx` only
-- For `multi-file` mode use `<name>.<type>.<region>.<extension>` where:
-	* Define `<region>` per object region in the definition; excluding GeneXus-specific sections
-	* Chose `<extension>` per region native syntax; default `.gx` for GeneXus syntax
-	* Keep `.main.gx` always written without split regions
+# DIRECTORIES
+Container directories define the `Knowledge Base` tree
 
-Common region artifacts (when present):
-- `<name>.<type>.layout.xml` for object layout definition in GXML
-- `<name>.<type>.properties.toml` for object properties in TOML
-- `<name>.<type>.documentation.md` for object documentation in Markdown
+Meaning:
+- For `src/` → `Root Module` directory
+- For `ref/` → `Pacakge` directory
+- For `<name>/` → `Module` directory
+- For `@<name>/` → `Folder` directory
+- For `#<name>/` → category directory
 
 ---
 
-# SAVE POLICY
-When saving a target object, resolve mode in this order
-1. Detect existing artifacts for target object using [FORMAT MATRIX](#format-matrix) templates
-2. If artifacts exist:
-	* Infer current mode from existing files
-	* Preserve that mode by default
-3. If user explicitly requests a different mode:
-	* Switch to requested mode
-	* Restructure artifacts to that mode before final save
-4. If no artifact exists for the target object:
-	* Use explicitly requested mode, if provided
-	* Otherwise default to `single-file`
+# ROOT DIRECTORY
+Store all exported artifacts under `src/`, representing special `Root Module` object
 
-Mode inference rules:
-- For `single-file`, only `.main.gx` exists and region artifacts are absent
-- For `multi-file`, both `.main.gx` and at least one region artifact exist
+Rules:
+- The `Root Module` follows the same artifact rules as any other `Module` object
 
 ---
 
-# RESTRUCTURE
-Rules for file-system restructuring:
-1. `single-file` → `multi-file`
-	* Extract native artifact parts only when sections exist or are requested
-	* Keep only GeneXus-specific content in `<name>.<type>.main.gx` after successful split
-2. `multi-file` → `single-file`
-	* Consolidate all available parts into `<name>.<type>.main.gx` using target object `SYNTAX` section
-	* Remove obsolete split artifacts after successful consolidation
+# REFERENCES DIRECTORY
+Exposes readonly dependencies under `ref/`, containing `Module` object references as a package
+
+Rules:
+- All `Module` references follow the same artifact rules as any other `Module` object
+- All objects can be referenced by any object under `src/` as any regular object
+- Must be treated as read-only directory; never update, regenerate, or extend contained objects
+- Must only consider object fully-qualified names and signatures; ignore implementation details
+
+---
+
+# CATEGORY DIRECTORIES
+Classifies object artifacts inside the allowed container path
+
+Known root-level categories:
+- `#preferences/`: Model configuration (KB, Versions, Environments)
+- `#attributes/`: Attribute artifacts
+- `#tables/`: Physical Table and related Index artifacts
+- `#subtypes/`: SubTypeGroup artifacts aliasing Attribute groups
+- `#categories/`: Category artifacts
+- `#localization/`: Language artifacts
+- `#themes/`: Theme artifacts
+- `#documentation/`: Document artifacts for KB documentation
+
+Known module-level categories:
+- `#dataviews/`: DataView artifacts
+- `#domains/`: Domain artifacts
+- `#images/`: Image artifacts
+- `#files/`: File artifacts
+- `#designsystems/`: DesignSystem artifacts
+- `#patterns/`: Pattern-specific artifacts
+
+Rules:
+- Must exist only under a `Module` object; `Root Module` included
+- Must never exist under a `Folder` object
+- Must bind each name with a single object under a category directory
+
+---
+
+# PATH RESOLUTION
+Resolve final directory in this order:
+- Start at `src/` directory
+- Append every parent `Module` as `<name>/` directory
+- Follow one of:
+	* Append every parent `Folder` as `@<name>/` directory
+	* Append category directory only if object file requires one
+- Create the target artifacts in the resulting directory
+
+Pattern:
+`src/[<module-1>/…][@<folder-1>/…]` for uncategorized
+`src/[<module-1>/…]#<category>/` for categorized
+
+Rules:
+* Resolve category directories to the nearest allowed `Module` path
+* Resolve containing `Module` before appending any category directory
+* Apply rooted or containment restrictions from target references
+
+---
+
+# ARTIFACT SET
+Each definition exports one set of canonical artifacts
+
+Default artifacts:
+- [Main artifact](#main-artifact)
+- [Properties artifact](#properties-artifact)
+- [Documentation artifact](#documentation-artifact)
+- [Layout artifact](#layout-artifact)
+
+## MAIN ARTIFACT
+Maps full definition to `GX` file; except sections defined in other artifacts
+
+Pattern:
+- `<name>.gx`: For object or model definitions
+
+Rules:
+- Never encode the object type in the file name
+- Infer object type from file content header
+
+# LOCAL ARTIFACT
+Defines local override file for model definitions; typically included in `.gitignore` file
+
+Pattern:
+- `<name>.local.*.gx`: For model definition only
+
+Rules:
+- Must include properties with `Scope` set to `.local` from `properties-*.md` files
+- May include other properties for overriding or extending the main file definition
+
+## PROPERTIES ARTIFACT
+Maps `#Properties` section according to the target artifact contract
+
+Pattern:
+- `module.toml`: For `Module` objects
+
+Rules:
+- Keep `#Properties` region inline in `.gx` main artifact by default
+- Only use dedicated `.toml` properties artifact if explicitly required
+- Forbid duplicate properties definition across artifacts
+
+## DOCUMENTATION ARTIFACT
+Maps `#Documentation` section to `MD` file
+
+Pattern:
+- `README.md`: For `Module` objects
+- `<name>.doc.md`: For any other object
+
+Rules:
+- Keep documentation outside the main artifact
+- Forbid duplicate documentation definition inside `.gx` main file
+
+## LAYOUT ARTIFACT
+Maps `#Layout` section to `XML` file
+
+Pattern:
+- `<name>.report.xml`: For `Procedure` objects with report
+- `<name>.web.xml`: For `WebPanel`, `WebComponent`, `MasterPage`, and `Stencil` objects
+- `<name>.panel.xml`: For `Panel`, `MasterPanel`, and `Stencil` objects
+
+Rules:
+- Target definition defines which layout family supports
+- Forbid duplicate layout definition inside `.gx` main file
 
 ---
 
 # EXAMPLES
 
-## Single-file object
-`Customer.transaction.main.gx`:
-```
-Transaction MyEntity
-{
-	MyEntityId [ DataType = "Numeric(4.0)", Autonumber="True" ]
-	MyEntityName [ DataType = "VarChar(64)" ]
+## Example 1
+Definition for `Root Module` module
+- `src/module.toml`
+- `src/README.md`
 
-	#Rules
-		noaccept(MyEntityId);
-	#End
+## Example 2
+Definition for `Commerce` module
+- `src/Commerce/`
+- `src/Commerce/module.toml`
+- `src/Commerce/README.md`
 
-	#Variables
-		Today
-		Time [ DataType = 'Character(8)' ]
-		Pgmname [ DataType = 'Character(128)' ]
-		Pgmdesc [ DataType = 'Character(256)' ]
-		Mode [ DataType = 'Character(3)' ]
-	#End
+## Example 3
+Definition for `Customer` object in `Root Module` module
+- `src/Customer.gx`
+- `src/Customer.doc.md`
 
-	#Properties
-		BusinessComponent = true
-	#End
+## Example 4
+Definition for `MonthlySales` object inside `Reports` folder in `Sales` module
+- `src/Sales/@Reports/MonthlySales.gx`
+- `src/Sales/@Reports/MonthlySales.doc.md`
 
-	#Documentation
-		# Definition
-		Documentation for MyEntity transaction
+## Example 5
+Definition for `CustomerStatus` domain in category group in `Sales` module
+- `src/Sales/#domains/CustomerStatus.gx`
+- `src/Sales/#domains/CustomerStatus.doc.md`
 
-		## Attributes
-		- MyEntityId: Record identifier
-		- MyEntityName: Record name
-	#End
-}
-```
+## Example 6
+Definition for `BookingPanel` panel with variants in `Client` module
+- `src/Client/BookingPanel.gx`
+- `src/Client/BookingPanel.doc.md`
+- `src/Client/BookingPanel.panel.xml`
+- `src/Client/BookingPanel.panel.phone.xml`
+- `src/Client/BookingPanel.panel.phone.landscape.xml`
 
-## Multi-file object
-`Customer.transaction.main.gx`:
-```
-Transaction MyEntity
-{
-	MyEntityId [ DataType = "Numeric(4.0)", Autonumber="True" ]
-	MyEntityName [ DataType = "VarChar(64)" ]
+## Example 7
+Definition for `InvoiceReport` procedure with report layout in `Reports` module
+- `src/Reports/InvoiceReport.gx`
+- `src/Reports/InvoiceReport.doc.md`
+- `src/Reports/InvoiceReport.report.xml`
 
-	#Rules
-		noaccept(MyEntityId);
-	#End
-
-	#Variables
-		Today
-		Time [ DataType = 'Character(8)' ]
-		Pgmname [ DataType = 'Character(128)' ]
-		Pgmdesc [ DataType = 'Character(256)' ]
-		Mode [ DataType = 'Character(3)' ]
-	#End
-}
-```
-
-`Customer.transaction.properties.toml`:
-```
-BusinessComponent = true
-```
-
-`Customer.transaction.documentation.md`:
-```
-# Definition
-Documentation for MyEntity transaction
-
-## Attributes
-- MyEntityId: Record identifier
-- MyEntityName: Record name
-```
+## Example 8
+Definition for rooted-category KB model files with `NETSQLServer` environment in version
+- `src/#preferences/MyKB.kb.gx`
+- `src/#preferences/NETSQLServer.env.gx`
+- `src/#preferences/NETSQLServer.local.env.gx`
 
 ---
 
 # CONSTRAINTS
-- Output policy governs artifact selection and naming only
-- Output policy never overrides section completeness rules from object `SYNTAX` section
-- Object-specific reference files may define exceptions to this policy
-- Enforce canonical naming only from [FORMAT MATRIX](#format-matrix) section
-- Generate `multi-file` artifacts only when requested or required
-- Keep one mode per target object after save; never keep both `single-file` and `multi-file` artifacts
+- Output path resolution governs artifact selection
+- Never override object syntax or completeness rules
+- Allow only stricter reference definition-specific rules
+- Keep one canonical artifact set per target
+- Keep path resolution deterministic and rule-compliant
+- Never create extra files for other object sections

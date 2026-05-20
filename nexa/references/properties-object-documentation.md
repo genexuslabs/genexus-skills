@@ -11,7 +11,7 @@ Use this file to select editable Documentation properties
 Include [General](./properties-common.md) properties
 
 ## Synchronize with External Wiki
-- Description: Synchronizes documentation with configured external wiki
+Synchronizes documentation with configured external wiki
 - Type: `boolean`
 
 ---
@@ -19,5 +19,5 @@ Include [General](./properties-common.md) properties
 # SERVER DATA
 
 ## PageName
-- Description: External wiki page name associated with this documentation object
+External wiki page name associated with this documentation object
 - Type: `string`

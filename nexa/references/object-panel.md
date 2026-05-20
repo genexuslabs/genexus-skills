@@ -57,19 +57,13 @@ Where:
 - `<variables>`: Variable definitions with `DataType`
 - `<layout>`: GXML layout definition (XML-based) for structure and control composition
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-panel.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
 
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value:
-- For `Panel` object → `panel`
-- For `WebPanel` object → `webpanel`
-- For `Stencil` object → `stencil`
-- For `WebComponent` object → `webcomponent`
-- For `MasterPanel` object → `masterpanel`
-- For `MasterPage` object → `masterpage`
+Use [global-output](./global-output.md)
 
 ---
 
@@ -77,7 +71,7 @@ Use [global-output](./global-output.md) with `<type>` value:
 - Use [global-constraints](./global-constraints.md)
 - Include [common-standard-variables](./common-standard-variables.md) according to panel context
 - Place code only inside `Panel` object sections
-- Allow only `#Layout`, `#Variables`, `#Properties`, `#Documentation` in `Stencil` object
+- Allow only `#Layout`, `#Variables`, `#Properties`, `#Documentation` in `Stencil` object; forbid any other section
 - Events use qualifiers when needed: `[WEB]`, `[WIN]`, `[TEXT]`
 
 ---
@@ -95,6 +89,12 @@ Use [global-output](./global-output.md) with `<type>` value:
 - Keep progressive disclosure: show primary action first, defer secondary actions
 - Model perceived performance in layout: reserve space for skeleton/loading placeholders
 - Define accessibility in controls: readable labels, descriptive button captions, keyboard-safe interactions
+- Include combo-box control for multi-language apps:
+	* Add `VarChar` variable as combo-box base reference
+	* Set `Values` property in variable definition with supported languages
+	* Put `<combobox>` element in a setting screen or `MasterPage` object
+	* Use `GetLanguage` function in `Start` event to initialize element value
+	* Use `SetLanguage` function in `ControlValueChanged` control event to switch languages
 
 ---
 
@@ -177,11 +177,29 @@ Allowed event names:
 - `Enter` (web only)
 - `Back` (non-web only)
 - `'<custom-name>'` (for buttons)
-- `<control-name>.<event-name>`
+- `<control-name>.<event-name>` (for non-buttons)
 
-Common control event names:
-- Web: `Click`, `DblClick`
-- Native: `Tap`, `DoubleTap`, `LongTap`, `Swipe`, `SwipeTop`, `SwipeLeft`, `SwipeRight`, `SwipeBottom`
+Control event names:
+- Web:
+	* `Click`: Left click
+	* `DblClick`: Double click
+- Native:
+	* `Tap`: Short touch
+	* `DoubleTap`: Two quick-touches
+	* `LongTap`: Touch and hold
+	* `Swipe`: Fast swipe in any direction
+	* `SwipeTop`: Upward swipe
+	* `SwipeLeft`: Leftward swipe
+	* `SwipeRight`: Rightward swipe
+	* `SwipeBottom`: Downward swipe
+	* `Drag`: Starts drag operation; define dragged data
+	* `Drop(&arg)`: Dropped dragged content; receives drag data
+	* `DropAccepted`: Before `Drop` when target accepts dragged element
+	* `DragCanceled`: Drag operation cancelled
+- Common:
+	* `IsValid`: After basic validation (business rules, referential integrity)
+	* `ControlValueChanged`: After user finishes changing input value
+	* `ControlValueChanging(&arg)`: While user changes input; receives new value
 
 Execution order:
 1. `Start`
@@ -190,6 +208,7 @@ Execution order:
 4. User interaction events: `Enter`, `Back`, `'<custom-name>'`, `<control-name>.<event-name>`
 
 Note:
+- Use `Composite ... EndComposite` blocks in non-web client-side events with multiple actions
 - `Load` can refer to event name or command name depending on context
 
 Example:
@@ -197,6 +216,11 @@ Example:
 Event 'Calculate'
 	&Total = &Price * &Quantity
 	msg(format(!"Total: %1", &Total), status)
+EndEvent
+
+Event &LanguageCombo.ControlValueChanged
+	SetLanguage(&LanguageCombo)
+	Refresh
 EndEvent
 ~~~
 

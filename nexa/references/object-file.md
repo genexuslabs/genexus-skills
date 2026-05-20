@@ -30,14 +30,18 @@ File <name>
 
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
-- `<content>`: File object content in UTF-8 encoding (plain, JSON, XML, INI, etc)
+- `<content>`: File object content in UTF-8 encoding (plain, JSON, XML, INI, etc) or Base64 encoded
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-file.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
+
+Rules:
+- Omit `<content>` when sibling file with `<name>` filename exists
 
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `file`
+Use [global-output](./global-output.md) with:
+- Location: `#files/`
 
 ---
 
@@ -48,6 +52,7 @@ Use [global-output](./global-output.md) with `<type>` value: `file`
 - Binary files (.mp3, .wav, .ttf, .otf, .dll, .exe, etc.) read-only, never output binary content
 - Avoid leading or trailing tabs/whitespace unless required by format
 - Use UTF-8 encoding
+- Store `File` objects only in module `#files/` directories
 - Files cannot be specified under folders, only modules
 
 ---

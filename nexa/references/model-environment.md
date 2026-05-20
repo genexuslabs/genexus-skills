@@ -1,14 +1,14 @@
 ---
 name: model-environment
-description: Environment metadata withing a version defining generator, data store, and runtime settings
+description: Environment metadata within a version defining generator, data store, and runtime settings
 ---
 
-Generates or inteprets a `Environment` definition file
+Generates or interprets a `Environment` definition file
 
 ---
 
 # DEFINITION
-An `Environment` model file captures the generator, data store, and deployment configuration for a [Version](./model-version.md) definition
+An `Environment` model file captures the generator, data store, and deployment configuration for a [Version](./model-knowledge-base.md#version) definition
 
 ---
 
@@ -89,13 +89,10 @@ Where:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `environment`
-
-IMPORTANT: 
-- Must save the file in `<output-directory>/src.ns/Preferences` directory
-- Must include a `.local.gx` sibling file for extending/overriding `.main.gx` definition
-	* Always include properties with sensitive values; e.g. password, conenction info, etc
-	* Typically included in the `.gitignore` file
+Use [global-output](./global-output.md) with:
+- Location: `#preferences/`
+- Main: `<name>.env.gx`
+- Override: `<name>.local.env.gx`
 
 ---
 
@@ -107,7 +104,8 @@ IMPORTANT:
 - Keep deployment unit names aligned with `DeploymentUnit` objects
 - The main file defines shared configuration; the local file defines machine-specific settings
 - Never store database credentials or server names in the main file; use the local file
-- After writing or modifying any `.environment.main.gx` always import the `Environment` changes with `gxnext` CLI
+- Raise warning when local-only values are written to `.env.gx` instead of `.local.env.gx` file
+- After writing or modifying any `.env.gx` always import the `Environment` changes with `gxnext` CLI
 
 ---
 
@@ -165,7 +163,7 @@ Environment NETSQLServer
 
 Saved as:
 ~~~
-src.ns/Preferences/NETSQLServer.environment.main.gx
+src/#preferences/NETSQLServer.env.gx
 ~~~
 
 ## Example 2
@@ -218,7 +216,7 @@ Environment NETSQLServer
 
 Saved as:
 ~~~
-src.ns/Preferences/NETSQLServer.environment.local.gx
+src/#preferences/NETSQLServer.local.env.gx
 ~~~
 
 ## Example 3
@@ -257,5 +255,5 @@ Environment JavaPostgreSQL
 
 Saved as:
 ~~~
-src.ns/Preferences/JavaPostgreSQL.environment.main.gx
+src/#preferences/JavaPostgreSQL.env.gx
 ~~~

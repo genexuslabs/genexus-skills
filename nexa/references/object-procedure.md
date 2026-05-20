@@ -53,12 +53,12 @@ Where:
 - `<variables>`: Variable definitions with `DataType`
 - `<layout>`: Optional report layout definition in GXML when using `Print`, `Header`, or `Footer`
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-procedure.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `procedure`
+Use [global-output](./global-output.md)
 
 ---
 
@@ -79,7 +79,7 @@ Pass PK/FK attributes directly in `parm` (without `&`) as `in:` for implicit nav
 	* Use [FE](./common-commands-foreach.md) otherwise
 - Include [common-standard-variables](./common-standard-variables.md) according to procedure context
 - For subroutine-level DB/runtime error handling, include procedure error variables from [common-standard-variables](./common-standard-variables.md)
-- When `Output_File` rule is used, require `Print` command usage and set `Main Program = True` with `Call Protocol = HTTP`
+- When `Output_File` rule is used, require `Print` command usage and set `MainProgram = true` with `CallProtocol = "HTTP"`
 - Include `/* signature */` comment for each `Sub` definition
 - Subroutine invocation via `Do` command has no parameters (global variables)
 
@@ -134,12 +134,12 @@ Requires:
 - `MainProgram = true`
 - `CallProtocol = "Command Line"`
 
-Working directory resolution:
-1. Read `src.ns/Preferences/<ver-name>.version.main.gx` file
-2. Get `CurrentEnvironment` property value as `<env-name>`
-3. Read `src.ns/Preferences/<env-name>.environment.main.gx` file
-4. Get the `TargetPath` property value as `<target-path>`
-5. Navigate to `<kb-root>/<target-path>/web` as working directory
+Working directory resolution in order:
+- Read `src/#preferences/<ver-name>.kb.gx` file
+- Read `CurrentEnvironment` from `#Properties` section as `<env-name>`
+- Read `src/#preferences/<env-name>.env.gx` file
+- Get the `TargetPath` property value as `<target-path>`
+- Navigate to `<kb-root>/<target-path>/web` as working directory
 
 ## JAVA Environment
 ```

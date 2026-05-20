@@ -34,12 +34,12 @@ Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
 - `<objects>`: List of object names to deploy together, one per line
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-deployment-unit.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `deploymentunitcategory`
+Use [global-output](./global-output.md)
 
 ---
 
@@ -50,6 +50,7 @@ Use [global-output](./global-output.md) with `<type>` value: `deploymentunitcate
 - Qualify object names by module when applicable
 - Never duplicate object references inside the same deployment unit
 - For updates, preserve unchanged object entries and modify only requested items
+- Might be referenced by name in `#DeploymentUnits` region of [Environment](./model-environment.md) file
 
 ---
 

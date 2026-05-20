@@ -96,7 +96,7 @@ Select the appropriate path according to user request and execute the steps sequ
 			* `win-x64` for Windows x64
 			* `osx-arm64` for Apple Silicon
 			* `linux-x64` for Linux x64
-	* Use these settings as reference only:
+	* Use these settings as reference only
 		- Default endpoint:
 			* Host: `localhost`
 			* Port: `1989`
@@ -112,10 +112,8 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Use `--verbose` flag only for diagnose
 - Resolve KB
 	* Ask for `Output Directory` or default to current directory
-	* Use the `Output Directory` as base path of:
-		- `/src` for object files
-		- `/src.ns` for namespaced files
-	* Create the `Knowledge Base` if it does not exist
+	* Use the `Output Directory` as base path of `/src` for `Root Module` module
+	* Create the `Knowledge Base` if does not exist
 		- Ask `directory` argument for saving generated files
 		- Ask `environment` argument; options: `.NET`, `JAVA`
 		- Ask `dbms` argument; options: `SQL Server`, `PostgreSQL`, `MySQL`, `Oracle`, other
@@ -129,16 +127,16 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Use standard filesystem tools for searching file objects
 - Resolve environment:
 	* When creating new environment:
-		- Create or update `*.environment.main.gx` and `*.environment.local.gx` files
-		- Add environment in `*.version.main.gx` setting `CurrentEnvironment` property
+		- Create or update `*.env.gx` files
+		- Update `*.local.kb.gx` file setting `CurrentEnvironment` property
 		- Import `Environment` changes with `gxnext` CLI
 	* When setting current environment:
-		- Get `Environment` name from target `src.ns/Preferences/*.environment.local.gx` file
-		- Set `CurrentEnvironment` property in `src.ns/Preferences/*.version.local.gx` file
+		- Get `Environment` name from target `src/#preferences/*.env.local.gx` file
+		- Set `CurrentEnvironment` property in `src/#preferences/*.kb.gx` file
 		- Import `Version` changes with `gxnext` CLI
 - Resolve connection:
-	* Read `*.environment.main.gx` to get environment name and generator
-	* When `*.environment.local.gx` is missing or connection values are absent or empty:
+	* Read `*.env.gx` to get environment name and generator
+	* When `*.local.env.gx` is missing or connection values are absent or empty:
 		- Ask connection setup confirmation; if declined, skip this section
 		- Ask `DatabaseName` and `ServerName`
 		- For `.NET`, ask authentication type from user:
@@ -146,11 +144,11 @@ Select the appropriate path according to user request and execute the steps sequ
 			* If `SQL Server Authentication`, ask `UserId` and `UserPassword`
 		- For `JAVA`:
 			* Ask `UserId` and `UserPassword`
-		- Write or update `*.environment.local.gx` file
+		- Write or update `*.local.env.gx` file
 		- Import `Environment` changes with `gxnext` CLI
 	* Deny `build`/`impact`/`reorg` operations until conection values are defined
 - Resolve compatible reference files
-	* Read `ProductNumber` value from `*.knowledgebase.main.gx` file
+	* Read `ProductNumber` value from `*.kb.gx` file
 		- Format: `<major>.<minor>.<patch>.<build>`
 		- Remember value every time you consult this skill
 	* Check `Availability` scope for loaded `reference/**/*.md` files
@@ -160,14 +158,16 @@ Select the appropriate path according to user request and execute the steps sequ
 		- Space-separated constraints use logical `AND` evaluation
 		- References without explicit scope are cross-version supported
 	* Reject unsupported features instead of inferring compatibility
-- Resolve output file mode
+	* Phrase commercial product name in responses, never version number
+- Resolve output file
 	* Use [global-output](references/global-output.md)
-	* Forbid mode inference from wording
+	* Map target path from container tree and category rules
+	* Set canonical artifact set for each target
 - Provide execution plan
 	* Derive candidate objects information: name, type, purpose, cross-references
 	* Forbid create/update any UI-related object when:
 		- `backendOnly` argument is enabled in `Knowledge Base` creation
-		- `Backend Only` property is enabled in `.knowledgebase.main.gx` file
+		- `Backend Only` property is enabled in `.kb.gx` file
 	* Search candidate objects systematically in `src/**`
 	* Select target `Module` object for each object; if uncertain, ask user or use `Root Module`
 	* Review `object-*.md` files for target objects if any; otherwise search official websites
@@ -180,15 +180,18 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Run artifact integration check
 	* Use `gxnext` CLI operations as needed for fulfilling user request
 	* Ask explicit user confirmation for these CLI operations:
-		- `create` / `impact` / `reorg` on database
+		- `create`/`impact`/`reorg` on database
 			* State DANGEROUS as may delete existing data
-			* Require valid connection values in `*.environment.local.gx`
+			* Require valid connection values in `*.env.gx`
 		- `build` artifacts (one or all)
 			* Never skip reorganization implicitly
 		- `export` artifacts
 			* Use `rootDirectory` with the `Output Directory` value
 	* Run build or database operation with user approval
-- Return brief summary of all actions taken
+- Return brief summary
+	* Add actions, decisions, and validations
+	* Add errors, rejections, and justifications
+	* Use compact wording; max 500 chars in total
 
 ---
 
@@ -201,19 +204,13 @@ Select the appropriate path according to user request and execute the steps sequ
 ---
 
 # MODEL DEFINITIONS
-Quick reference for model setup; stored in `/src.ns` sub directory
+Quick reference for model setup; stored in `src/#preferences` sub directory
 
 ## Knowledge Base
-- Purpose: Knowledge Base metadata with global settings like language, numeric length, and image paths
+- Purpose: Knowledge Base metadata with global settings like language, numeric length, and image paths; plus Version-specific settings and Environment references
 - Constraint: Must be unique by Knowledge Base definition
 - Use when: Creating or validating Knowledge Base properties
 - Reference: [Model Knowledge Base](references/model-knowledge-base.md)
-
-## Version
-- Purpose: Design model metadata within the Knowledge Base defining version-level settings like styles
-- Constraint: Must be referenced by Knowledge Base definition file
-- Use when: Creating or validating Version properties
-- Reference: [Model Version](references/model-version.md)
 
 ## Environment
 - Purpose: Environment metadata within a Version defining generator, data store, and runtime settings
@@ -227,12 +224,12 @@ Quick reference for model setup; stored in `/src.ns` sub directory
 Quick reference for appropriate use of each object type; stored in `/src` sub directory
 
 ## Folder
-- Purpose: Simple directory container for organizing objects without encapsulation; cannot contain modules, only folder and other objects allowed
+- Purpose: Simple directory container for organizing objects without encapsulation; cannot contain modules, only folder and other objects allowed; represented by `@` prefixed directories
 - Use when: Creating basic hierarchical structure, or organizing within modules without visibility control
 - Reference: [Folder object](references/object-folder.md)
 
 ## Module
-- Purpose: Advanced container with encapsulation, interface definition with visibility control, versioning, and distribution capabilities
+- Purpose: Advanced container with encapsulation, interface definition with visibility control, versioning, and distribution capabilities, represented by regular directories
 - Use when: Distributing functionality, encapsulating logic, or creating complex sub-module hierarchies
 - Reference: [Module object](references/object-module.md)
 
@@ -248,14 +245,9 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Reference: [Transaction object](references/object-transaction.md)
 
 ## Table (TBL)
-- Purpose: Physical persistence object generated from Transaction structure and used as base for navigation
+- Purpose: Physical database base table inferred from Transaction structure with indexes for access performance, referential integrity, and uniqueness
 - Use when: Reviewing physical data model, or editing user indexes references
 - Reference: [Table object](references/object-table.md)
-
-## Index (IDX)
-- Purpose: Table index definition; only user indexes are manually defined for access paths, ordering, and uniqueness constraints
-- Use when: Optimizing navigation patterns or enforcing uniqueness semantics on FK attributes
-- Reference: [Index object](references/object-index.md)
 
 ## Procedure (PRC)
 - Purpose: Procedural algorithm as sequence of statements, including report generation for formatted and printable data output
@@ -371,7 +363,7 @@ Apply these rules strictly when modeling GeneXus Knowledge Base objects
 - Provide object creation tasks only when no existing object satisfies the required semantics
 - Reuse an existing object when the purpose, meaning, and responsibility match the requirement
 - Never create parallel or redundant objects with overlapping responsibility, meaning, or lifecycle
-- Ensure `Transaction → Table → Index` objects are synced after modifications
+- Ensure `Transaction → Table + Index` objects are synced after modifications
 
 ## Data modeling
 - Prefix every `Attribute` with the owning `Transaction` or sublevel name
@@ -384,6 +376,7 @@ Apply these rules strictly when modeling GeneXus Knowledge Base objects
 	* Avoid prefix specializations; e.g. `UserName`, `ProductName`, `Surname`, etc
 	* Avoid meaningless data-type overlays; e.g. `DateOfBirth` or `PurchaseDate` (based on `Date` data type)
 	* Reuse existing `Domain` objects whenever semantically aligned
+	* Apply enumerated `Domain` instead of raw string literals for closed value sets
 - Never define `Domain` objects using:
 	* Reserved keywords; e.g. `Event`
 	* Built-in data type names; e.g. `Image`
@@ -409,8 +402,7 @@ All checkpoints are mandatory before finalizing
 ## Initialization
 - [ ] Validates `gxnext` utility availability or user-approved bypass
 - [ ] Resolves `Knowledge Base` existence: create/open as needed
-- [ ] Resolves `*.version.local.gx` current environment
-- [ ] Confirms `*.environment.local.gx` connection values on `build`/`impact`/`reorg` requests
+- [ ] Confirms `*.local.env.gx` connection values on `build`/`impact`/`reorg` requests
 
 ## Inspection
 - [ ] Confirms object existence before create, reuse, or replace decisions
@@ -454,8 +446,7 @@ All checkpoints are mandatory before finalizing
 - Never commit changes unless explicitly requested
 - Never include object documentation unless explicitly requested
 - Never expose internal information or credentials
-- Never reveal the output mode used to dump files
-- Never include a `README.md` file unless explicitly requested
+- Never reveal local overrides or credentials from `*.local.*` files
 - Follow security best practices
 - Check all object references exist before creation or modification
 - Verify solution completeness and correctness

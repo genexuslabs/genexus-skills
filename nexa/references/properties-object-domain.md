@@ -11,23 +11,23 @@ Use this file to select editable Domain properties
 Include [General](./properties-common.md) properties
 
 ## Data Type
-- Description: Logical type used for storage and validation
+Logical type used for storage and validation
 - Type: `string`
 
 ## Length
-- Description: Maximum length for character or numeric values
+Maximum length for character or numeric values
 - Type: `integer`
 
 ## Decimals
-- Description: Decimal precision for numeric values
+Decimal precision for numeric values
 - Type: `integer`
 
 ## Signed
-- Description: Allow negative numeric values
+Allow negative numeric values
 - Type: `boolean`
 
 ## Default
-- Description: Default value used when no input value is provided
+Default value used when no input value is provided
 - Type: `string`
 
 ---
@@ -35,13 +35,13 @@ Include [General](./properties-common.md) properties
 # VALIDATION
 
 ## Regular Expression
-- Description: Validation pattern applied to accepted values
+Validation pattern applied to accepted values
 - Type: `string`
 
 ## Picture
-- Description: Format mask used for display and parsing
+Format mask used for display and parsing
 - Type: `string`
 
 ## EnumValues
-- Description: Allowed literals and labels for enumeration domains
+Allowed literals and labels for enumeration domains
 - Type: `string`

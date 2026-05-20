@@ -19,7 +19,7 @@ Optional but desired runtime variables:
 - `Time [ DataType = 'Character(8)' ]`: Time value captured at program start
 
 Optional runtime variable for `Transaction` object handling:
-- `Mode [ DataType = 'Character(3)' ]`: Transaction execution mode (built-in enumerated `TrnMode` domain):
+- `Mode [ DataType = 'Character(3)' ]`: Transaction execution mode; built-in enumerated `TrnMode` domain:
 	* `TrnMode.Insert` ('INS')
 	* `TrnMode.Update` ('UPD')
 	* `TrnMode.Delete` ('DLT')

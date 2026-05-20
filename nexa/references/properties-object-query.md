@@ -11,11 +11,11 @@ Use this file to select editable Query properties
 Include [General](./properties-common.md) properties
 
 ## Title
-- Description: Label shown in generated UI and tooling
+Label shown in generated UI and tooling
 - Type: `string`
 
 ## Output Type
-- Description: Type selector that controls generation behavior
+Type selector that controls generation behavior
 - Type: `enum{Card,Chart,Pivot Table}`
 - Options:
 	* `Card`: Displays results in card layout
@@ -23,5 +23,5 @@ Include [General](./properties-common.md) properties
 	* `Pivot Table`: Displays results in pivot table layout
 
 ## Cache expiration lapse
-- Description: Cache validity duration before refresh
+Cache validity duration before refresh
 - Type: `string`

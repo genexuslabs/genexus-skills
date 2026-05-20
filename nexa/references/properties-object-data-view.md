@@ -11,9 +11,9 @@ Use this file to select editable properties, defaults, and valid options for thi
 Include [General](./properties-common.md) properties
 
 ## Associated table
-- Description: Associated table
+Associated table
 - Type: `string`
 
 ## Datastore
-- Description: Datastore
+Datastore
 - Type: `string`

@@ -49,7 +49,7 @@ Where:
 - `<orders>`: Sorting attributes (comma-separated; compound allowed)
 - `<attributes>`: Attributes defining the base table when not inferred
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-data-selector.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
 Notes:
 - Attributes in `<conditions>`, `<orders>`, `<attributes>` must exist in Transactions
@@ -64,7 +64,7 @@ Notes:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `dataselector`
+Use [global-output](./global-output.md)
 
 ---
 

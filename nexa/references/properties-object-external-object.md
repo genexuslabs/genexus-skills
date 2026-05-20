@@ -11,7 +11,7 @@ Use this file to select editable properties, defaults, and valid options for thi
 Include [General](./properties-common.md) properties
 
 ## Type
-- Description: Integration kind used to consume the external implementation
+Integration kind used to consume the external implementation
 - Type: `enum{Native Object,Stored Procedure,WSDL,Java Session Bean,SAP Connector Interface}`
 - Options:
 	* `Native Object`: Uses native object integration
@@ -22,15 +22,15 @@ Include [General](./properties-common.md) properties
 - Default: `Native Object`
 
 ## Namespace
-- Description: Namespace used when generating external references
+Namespace used when generating external references
 - Type: `string`
 
 ## ImporterVersion
-- Description: Importer version used to track the source metadata format
+Importer version used to track the source metadata format
 - Type: `string`
 
 ## SourceURI
-- Description: Source URI used to import external object metadata
+Source URI used to import external object metadata
 - Type: `string`
 
 ---
@@ -38,15 +38,15 @@ Include [General](./properties-common.md) properties
 # DOTNET FRAMEWORK INFORMATION
 
 ## .Net External Name
-- Description: .NET runtime type name used to bind the external implementation
+.NET runtime type name used to bind the external implementation
 - Type: `string`
 
 ## AssemblyName
-- Description: .NET assembly name that contains the external implementation
+.NET assembly name that contains the external implementation
 - Type: `string`
 
 ## .Net Constructor Parameters
-- Description: Constructor arguments used in .NET runtime binding
+Constructor arguments used in .NET runtime binding
 - Type: `string`
 
 ---
@@ -54,23 +54,23 @@ Include [General](./properties-common.md) properties
 # DOTNET INFORMATION
 
 ## .Net Core External Name
-- Description: .NET runtime type name used to bind the external implementation
+.NET runtime type name used to bind the external implementation
 - Type: `string`
 
 ## NetCoreAssemblyName
-- Description: .NET assembly name that contains the external implementation
+.NET assembly name that contains the external implementation
 - Type: `string`
 
 ## NetCorePackageName
-- Description: NuGet package name used to resolve the dependency
+NuGet package name used to resolve the dependency
 - Type: `string`
 
 ## NetCorePackageVersion
-- Description: NuGet package version used to resolve the dependency
+NuGet package version used to resolve the dependency
 - Type: `string`
 
 ## .Net Core Constructor Parameters
-- Description: Constructor arguments used in .NET Core runtime binding
+Constructor arguments used in .NET Core runtime binding
 - Type: `string`
 
 ---
@@ -78,23 +78,23 @@ Include [General](./properties-common.md) properties
 # JAVA INFORMATION
 
 ## Java External Name
-- Description: Java class name used to bind the external implementation
+Java class name used to bind the external implementation
 - Type: `string`
 
 ## JavaArtifactId
-- Description: Artifact id used to resolve Java dependency
+Artifact id used to resolve Java dependency
 - Type: `string`
 
 ## JavaArtifactVersion
-- Description: Maven artifact version used to resolve the dependency
+Maven artifact version used to resolve the dependency
 - Type: `string`
 
 ## External Package Name
-- Description: Java package that contains the external class
+Java package that contains the external class
 - Type: `string`
 
 ## Java Constructor Parameters
-- Description: Constructor arguments used in Java runtime binding
+Constructor arguments used in Java runtime binding
 - Type: `string`
 
 ---
@@ -102,15 +102,15 @@ Include [General](./properties-common.md) properties
 # RUBY INFORMATION
 
 ## Ruby External Name
-- Description: Ruby class or module name used to bind the external implementation
+Ruby class or module name used to bind the external implementation
 - Type: `string`
 
 ## Required file
-- Description: Runtime file required by Ruby integration
+Runtime file required by Ruby integration
 - Type: `string`
 
 ## Ruby Constructor Parameters
-- Description: Constructor arguments used in Ruby runtime binding
+Constructor arguments used in Ruby runtime binding
 - Type: `string`
 
 ---
@@ -118,15 +118,15 @@ Include [General](./properties-common.md) properties
 # IOS INFORMATION
 
 ## iOS External Name
-- Description: iOS class name used to bind the external implementation
+iOS class name used to bind the external implementation
 - Type: `string`
 
 ## Library Name
-- Description: iOS library name that contains the external implementation
+iOS library name that contains the external implementation
 - Type: `string`
 
 ## Header File Name
-- Description: iOS header file that declares the external implementation
+iOS header file that declares the external implementation
 - Type: `string`
 
 ---
@@ -134,11 +134,11 @@ Include [General](./properties-common.md) properties
 # ANDROID INFORMATION
 
 ## Android External Name
-- Description: Android class name used to bind the external implementation
+Android class name used to bind the external implementation
 - Type: `string`
 
 ## External Package Name
-- Description: Android package that contains the external class
+Android package that contains the external class
 - Type: `string`
 
 ---
@@ -146,11 +146,11 @@ Include [General](./properties-common.md) properties
 # JAVASCRIPT INFORMATION
 
 ## Javascript External Name
-- Description: JavaScript symbol name used to bind the external implementation
+JavaScript symbol name used to bind the external implementation
 - Type: `string`
 
 ## Javascript Referenced file
-- Description: JavaScript file loaded for external object runtime
+JavaScript file loaded for external object runtime
 - Type: `string`
 
 ---
@@ -158,15 +158,15 @@ Include [General](./properties-common.md) properties
 # JAVASCRIPT MODULE INFORMATION
 
 ## Javascript Module Name
-- Description: JavaScript module name used to import the dependency
+JavaScript module name used to import the dependency
 - Type: `string`
 
 ## Javascript Module Path
-- Description: Path used to resolve the JavaScript module location
+Path used to resolve the JavaScript module location
 - Type: `string`
 
 ## Javascript Module Reference
-- Description: Reference used to install or resolve module dependency
+Reference used to install or resolve module dependency
 - Type: `string`
 
 ---
@@ -174,19 +174,19 @@ Include [General](./properties-common.md) properties
 # EXTERNAL OBJECT METHOD PROPERTIES
 
 ## Internal Name
-- Description: Internal identifier used in generated code
+Internal identifier used in generated code
 - Type: `string`
 
 ## Type
-- Description: GeneXus data type used by the external method member
+GeneXus data type used by the external method member
 - Type: `string`
 
 ## Based on
-- Description: Base attribute or domain used for definition
+Base attribute or domain used for definition
 - Type: `string`
 
 ## XML Name
-- Description: XML element name used in serialization
+XML element name used in serialization
 - Type: `string`
 
 ---
@@ -194,7 +194,7 @@ Include [General](./properties-common.md) properties
 # EXTERNAL OBJECT PROPERTY PROPERTIES
 
 ## Property Type
-- Description: Access mode for external object property
+Access mode for external object property
 - Type: `enum{Read/Write,Read,Write,Member}`
 - Options:
 	* `Read/Write`: Allows both read and write access
@@ -204,11 +204,11 @@ Include [General](./properties-common.md) properties
 - Default: `Read/Write`
 
 ## Collection Item Name
-- Description: Element name used inside collections
+Element name used inside collections
 - Type: `string`
 
 ## ControlType
-- Description: UI control used to edit or display the value
+UI control used to edit or display the value
 - Type: `enum{Combo Box,Radio Button,Edit,Check Box,Dynamic Combo Box,List Box,Dynamic List Box,Image}`
 - Options:
 	* `Combo Box`: Renders a drop-down selector with fixed values

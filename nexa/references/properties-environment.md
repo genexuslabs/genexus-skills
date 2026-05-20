@@ -10,39 +10,39 @@ Use this file to select editable properties, defaults, and valid options for an 
 # GENERAL
 
 ## Reorganization Generator
-- Description: Generator used to execute database reorganizations
+Generator used to execute database reorganizations
 - Type: `string`
 
 ## TargetPath
-- Description: Base path where generated model resources are written
+Base path where generated model resources are written
 - Type: `string`
 
 ## Startup Object
-- Description: Default object executed when application starts
+Default object executed when application starts
 - Type: `string`
 
 ## Preserve Table Casing
-- Description: Preserves declared table letter casing in generated schema
+Preserves declared table letter casing in generated schema
 - Type: `boolean`
 - Default: `True`
 
 ## Business Component
-- Description: Default Business Component behavior at environment level
+Default Business Component behavior at environment level
 - Type: `boolean`
 - Default: `False`
 
 ## Populate Data
-- Description: Allows controlling whether data population should be run as part of the build process
+Allows controlling whether data population should be run as part of the build process
 - Type: `boolean`
 - Default: `True`
 
 ## Synchronize with External Wiki
-- Description: Synchronizes documentation with configured external wiki
+Synchronizes documentation with configured external wiki
 - Type: `boolean`
 - Default: `True`
 
 ## DateTime storage timezone
-- Description: Timezone for datetime database storage
+Timezone for datetime database storage
 - Type: `string`
 - Default: `0000`
 
@@ -51,7 +51,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 # TRANSACTION INTEGRITY
 
 ## Commit on exit
-- Description: Commits transaction when object execution ends
+Commits transaction when object execution ends
 - Type: `enum{Yes,No}`
 - Options:
 	* `Yes`: Enables this behavior
@@ -63,19 +63,19 @@ Use this file to select editable properties, defaults, and valid options for an 
 # WEB INFORMATION
 
 ## Encrypt URL parameters
-- Description: Allow or deny URL parameter encryption level
+Allow or deny URL parameter encryption level
 - Type: `string`
 
 ## Protocol specification
-- Description: The protocol used for services and absolute URLs
+The protocol used for services and absolute URLs
 - Type: `string`
 
 ## SameSite cookie attribute
-- Description: Set cookie scope for first-party and cross-site requests
+Set cookie scope for first-party and cross-site requests
 - Type: `string`
 
 ## Web Security Level
-- Description: Security strictness for web runtime behavior
+Security strictness for web runtime behavior
 - Type: `enum{Use Environment property value,High,Medium}`
 - Options:
 	* `Use Environment property value`: Uses the setting defined at environment level
@@ -88,12 +88,12 @@ Use this file to select editable properties, defaults, and valid options for an 
 # HTTP ERRORS HANDLERS
 
 ## Http Error Handlers
-- Description: Enables custom handlers for HTTP error responses
+Enables custom handlers for HTTP error responses
 - Type: `string`
 - Default: `Disabled`
 
 ## Http Error Handlers Values
-- Description: Maps HTTP status codes to handler objects
+Maps HTTP status codes to handler objects
 - Type: `string`
 
 ---
@@ -101,7 +101,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 # DOCKER
 
 ## Use Docker containers
-- Description: Prototype using Docker containers
+Prototype using Docker containers
 - Type: `enum{Yes,No}`
 - Options:
 	* `Yes`: Enables this behavior
@@ -113,7 +113,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 # LOCATION CONFIGURATION
 
 ## Google API Key
-- Description: API key for Google Location services
+API key for Google Location services
 - Type: `string`
 
 ---
@@ -121,24 +121,24 @@ Use this file to select editable properties, defaults, and valid options for an 
 # USER INTERFACE
 
 ## Genexus IDE Connection String
-- Description: Connection string used by IDE-level data access tools
+Connection string used by IDE-level data access tools
 - Type: `string`
 
 ## Default Master Page
-- Description: The Default Master Page
+The Default Master Page
 - Type: `string`
 
 ## Prompts Master Page
-- Description: Master page used for initialize generated prompts
+Master page used for initialize generated prompts
 - Type: `string`
 
 ## Report Attribute Font
-- Description: Default font for report attribute controls
+Default font for report attribute controls
 - Type: `string`
 - Default: `Microsoft Sans Serif,8`
 
 ## Report Text Block Font
-- Description: Default font for report text block controls
+Default font for report text block controls
 - Type: `string`
 - Default: `Microsoft Sans Serif,8`
 
@@ -147,7 +147,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 # DEFAULTS
 
 ## User-Agent header
-- Description: Default User-Agent header sent in outgoing HTTP requests
+Default User-Agent header sent in outgoing HTTP requests
 - Type: `string`
 
 ---
@@ -155,7 +155,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 # COMPATIBILITY
 
 ## Parameters Style
-- Description: Defines whether generated URLs use named parameters or positional parameters
+Defines whether generated URLs use named parameters or positional parameters
 - Type: `enum{Named,Positional}`
 - Options:
 	* `Named`: Uses named parameter passing
@@ -167,14 +167,14 @@ Use this file to select editable properties, defaults, and valid options for an 
 # BACKEND
 
 ## Generator
-- Description: Target code generation platform
+Target code generation platform
 - Type: `enum{.NET,Java}`
 - Options:
 	* `.NET`: Generates C# code targeting .NET platform
 	* `Java`: Generates Java code targeting JVM platform
 
 ## DBMS
-- Description: Database management system for the default data store
+Database management system for the default data store
 - Type: `enum{SQL Server,PostgreSQL,MySQL,Oracle,SQLite,Informix,DB2 UDB,Dameng}`
 - Options:
 	* `SQL Server`: Microsoft SQL Server

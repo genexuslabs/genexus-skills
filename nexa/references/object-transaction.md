@@ -12,7 +12,7 @@ A `Transaction` object (or `TRN`) represents real-world entities mapping to data
 
 GeneXus automatically normalizes to third normal form (3NF)
 
-Each `Transaction` maps to one or more [Table](./object-table.md) objects by level structure, and each mapped `Table` defines associated [Index](./object-index.md) objects for filtering and ordering
+Each `Transaction` maps to one or more [Table](./object-table.md) objects by level structure
 
 ---
 
@@ -51,21 +51,22 @@ Where:
 - `<events>`: Transaction lifecycle event handlers (see [EVENTS](#events))
 - `<variables>`: Variables (mandatory `DataType`; see [ATTRIBUTE/VARIABLE](#attributevariable))
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-transaction.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `transaction`
+Use [global-output](./global-output.md)
 
 Workflow:
 - Create or update `Transaction` artifact
 - Import changes into `Knowledge Base`; on failure, stop
 - Export changes from `Knowledge Base` into filesystem
-- Inspect `<name>.table.main.gx` artifacts and read `#Index` section
-- Extract `Index` names and validate their `*.index.main.gx` artifacts
-- Create or update only user `Index` if requested or for 1:1 relationships (unique FK)
-- Update `Table` artifacts `#Indexes` section only with missing user `Index` names
+- Inspect `src/#tables/*.gx` artifacts matching `Transaction` base table
+- Analyze `Table` artifacts and update `#Indexes` section if required
+	* Ensure `Unique` user index over FKs for 1:1 relationships
+	* Never create user indexes without explicit confirmation
+	* Never create or update automatic indexes
 
 ---
 
@@ -117,13 +118,17 @@ Transaction Payment
 	PaymentAmount [ DataType = 'Numeric(10.2)' ]
 }
 
-Index UPaymentByOrder
+Table Payments
 {
-	OrderId
-
-	#Index
-		Source = "User"
-		Type = "Unique"
+	#Indexes
+		UPaymentByOrder
+		[
+			Source = 'User',
+			Type = 'Unique'
+		]
+		{
+			OrderId
+		}
 	#End
 }
 ~~~
@@ -184,9 +189,9 @@ Modes:
 
 Structure:
 ~~~
-<name>.transaction.main.gx
+<name>.gx
 <name>/
-	<name>_DataProvider.dataprovider.main.gx
+	<name>_DataProvider.gx
 ~~~
 
 Constraints:
@@ -400,9 +405,9 @@ DataProvider Country_DataProvider
 
 Saved as:
 ~~~
-Country.transaction.main.gx
+Country.gx
 Country/
-└─ Country_DataProvider.dataprovider.main.gx
+└─ Country_DataProvider.gx
 ~~~
 
 ## Example 5
@@ -502,7 +507,7 @@ DataProvider Document_DataProvider
 
 Saved as:
 ~~~
-Document.transaction.main.gx
+Document.gx
 Document/
-└─ Document_DataProvider.dataprovider.main.gx
+└─ Document_DataProvider.gx
 ~~~

@@ -3,14 +3,14 @@ name: object-table
 description: Physical table object owned by a Transaction with explicit index references
 ---
 
-Defines physical structure linked to a `Transaction` and related `Index` objects
+Defines physical structure linked to a `Transaction` and related indexes
 
 ---
 
 # DEFINITION
 A `Table` object (or `TBL`) defines physical persistence structure
 
-Each `Table` depends on an owner [Transaction](./object-transaction.md) defining each attribute plus [Index](./object-index.md) references
+Each `Table` depends on an owner [Transaction](./object-transaction.md) defining each attribute plus index definitions
 
 ---
 
@@ -36,30 +36,72 @@ Table <name>
 
 Where:
 - `<name>`: Object name using alphanumeric or underscore, starting with letter
-- `<attributes>`: Attribute name list, one per line; automatilly derived (do not edit)
-- `<indexes>`: Index names list, one per line
+- `<attributes>`: Attribute name list, one per line; automatically derived (do not edit)
+- `<indexes>`: Index definition list; see [INDEX](#index) section
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-table.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
 Notes:
 - Attribute markers: `*` primary key, `!` description, `?` nullable
 
 ---
 
-# OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `table`
+# INDEX
+Enables efficient data access, uniqueness, and referential integrity
 
-Note: `<name>` matches the owner `Transaction` or `Transaction + Level` name
+Syntax:
+~~~
+<name>
+[
+	Type = '<type>',
+	Source = '<source>',
+	<properties>
+]
+{
+	<attributes>
+}
+~~~
+
+Where:
+- `<name>`: Index name using alphanumeric or underscore, starting with:
+	- `I` for automatic indexes (`<source> = Automatic`); forbid generate
+	- `U` for user (custom) indexes (`<source> = User`)
+- `<type>`: Defines index behavior; values:
+	- `Duplicate` (default): Can have duplicated values
+	- `Unique`: Cannot have duplicated values
+- `<source>`: Defines index source; values:
+	- `Automatic` (default): Automatically created; e.g. PK attributes
+	- `User`: User custom index
+- `<properties>`: Optional properties in TOML syntax; see [properties](./properties-object-table-index.md)
+- `<attributes>`: Ordered index attribute composition; write one attribute per line
+
+Rules:
+- Only create user indexes (`U` prefixed) if justified
+- Never create or update automatic indexes (`I` prefixed)
+- Never duplicate attributes in the same index
+- Use only attributes from owner table structure
+
+Notes:
+- Attributes order in composition defines key precedence
+- Attributes defined as `Unique` represent CK constraints
+- Attributes in `( )` indicate descending order; e.g. `(ProductRate)`
+
+---
+
+# OUTPUT
+Use [global-output](./global-output.md) with:
+- Location: `#tables/`
+- Boundary: `<name>` matches the owner `Transaction` or `Transaction + Level` name
 
 ---
 
 # CONSTRAINTS
 - Use [global-constraints](./global-constraints.md)
 - Never create `Table` objects
-- Never modify `<attribute>` list; auto-derived from ownner `Transaction` object
-- Only update `<indexes>` list with existing user `Index` object names
+- Never modify `<attributes>` list; auto-derived from owner `Transaction` object
+- Only update `<indexes>` list with user index definitions
 - Never duplicate names in `<indexes>` list
-- Avoid redundant indexes; reduce mantainance cost
+- Avoid redundant indexes; reduce maintenance cost
 - Ensure `Unique` user index for 1:1 relationships over FK attributes
 
 ---
@@ -94,6 +136,13 @@ Table Country
 
 	#Indexes
 		ICountry
+		[
+			Type = "Unique",
+			Source = "Automatic"
+		]
+		{
+			CountryId
+		}
 	#End
 }
 ~~~
@@ -133,6 +182,13 @@ Table Company
 
 	#Indexes
 		ICompany
+		[
+			Type = "Unique",
+			Source = "Automatic"
+		]
+		{
+			CompanyId
+		}
 	#End
 }
 ~~~
@@ -148,20 +204,35 @@ Table CompanyBranch
 
 	#Indexes
 		ICompanyBranch
-		UCompanyBranchByAddress
+		[
+			Type = "Unique",
+			Source = "Automatic"
+		]
+		{
+			CompanyId
+			BranchId
+		}
+		ICompanyBranchByAddress
+		[
+			Type = "Duplicate",
+			Source = "Automatic"
+		]
+		{
+			BranchAddress
+		}
 	#End
 }
 ~~~
 
 ## Example 3
-Transaction with FK
+Transaction with unique FK for 1:1 relationship
 ~~~
 Transaction Customer
 {
 	CustomerId* [ DataType = 'Numeric(8.0)' ]
 	CustomerName! [ DataType = 'VarChar(80)' ]
-	CountryId [ DataType = 'Attribute:CountryId' ]
-	CountryName [ DataType = 'Attribute:CountryName' ]
+	ProfileId [ DataType = 'Attribute:ProfileId' ]
+	ProfileAvatar [ DataType = 'Attribute:ProfileAvatar' ]
 
 	#Rules
 	#End
@@ -180,11 +251,25 @@ Table Customer
 {
 	CustomerId*
 	CustomerName
-	CountryId
+	ProfileId
 
 	#Indexes
 		ICustomer
-		UCustomerByCountry
+		[
+			Type = "Unique",
+			Source = "Automatic"
+		]
+		{
+			CustomerId
+		}
+		UCustomerByProfile
+		[
+			Type = "Unique",
+			Source = "User"
+		]
+		{
+			ProfileId
+		}
 	#End
 }
 ~~~

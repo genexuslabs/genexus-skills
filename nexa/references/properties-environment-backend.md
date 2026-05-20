@@ -10,15 +10,15 @@ Use this file to select editable properties, defaults, and valid options for an 
 # GENERAL
 
 ## Generate developer menu
-- Description: Enable the developer menu for generated apps
+Enable the developer menu for generated apps
 - Type: `boolean`
 
 ## Generate OpenAPI interface
-- Description: Generate OpenAPI interfaces for services
+Generate OpenAPI interfaces for services
 - Type: `boolean`
 
 ## OpenAPI version
-- Description: Set the OpenAPI version to generate
+Set the OpenAPI version to generate
 - Type: `enum{3.0,2.0,APIGateway 2.0}`
 - Options:
 	* `3.0`: Generate OpenAPI 3.0
@@ -26,7 +26,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 	* `APIGateway 2.0`: Generate an OpenAPI 2.0 variant required by AWS API Gateway
 
 ## Use decimal arithmetic
-- Description: Use decimal arithmetic in generated code
+Use decimal arithmetic in generated code
 - Type: `boolean`
 
 ---
@@ -34,7 +34,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 # LOGGING
 
 ## Log Level
-- Description: Set the generator log verbosity
+Set the generator log verbosity
 - Type: `enum{0. Off,1. Fatal,2. Error,3. Warn,4. Info,5. Debug,6. All}`
 - Options:
 	* `0. Off`: Turns off logging (default)
@@ -46,10 +46,10 @@ Use this file to select editable properties, defaults, and valid options for an 
 	* `6. All`: Enables all logging levels
 
 ## User Log Level
-- Description: Set the user log verbosity; same values as [Log Level](#log-level)
+Set the user log verbosity; same values as [Log Level](#log-level)
 
 ## Log output
-- Description: Select the log output provider
+Select the log output provider
 - Type: `enum{File,Console,Azure Application Insights}`
 - Options:
 	* `File`: Write logs to files
@@ -57,11 +57,11 @@ Use this file to select editable properties, defaults, and valid options for an 
 	* `Azure Application Insights`: Send logs to Application Insights (.NET)
 
 ## Log file
-- Description: Set the log file name
+Set the log file name
 - Type: `string`
 
 ## PDF Reports Library
-- Description: Select the PDF reporting library
+Select the PDF reporting library
 - Type: `enum{iText (Legacy),iText 8,PDFBox,PDFPig}`
 - Options:
 	* `iText (Legacy)`: Use legacy iText
@@ -74,7 +74,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 # HTTPCLIENT POOL
 
 ## Maximum pool size per host
-- Description: Set the max HttpClient pool size per host
+Set the max HttpClient pool size per host
 - Type: `integer`
 
 ---
@@ -82,11 +82,11 @@ Use this file to select editable properties, defaults, and valid options for an 
 # DATA ACCESS INFORMATION
 
 ## Reorganize server table
-- Description: Enable server table reorganization when requested by Impact Analysis
+Enable server table reorganization when requested by Impact Analysis
 - Type: `boolean`
 
 ## Join management
-- Description: Set how joins are executed
+Set how joins are executed
 - Type: `enum{Join tables on the server,Join tables on the client,Use Environment property value}`
 - Options:
 	* `Join tables on the server`: Execute joins on the database server
@@ -94,7 +94,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 	* `Use Environment property value`: Inherit from the Environment setting
 
 ## Join type
-- Description: Select the join type strategy
+Select the join type strategy
 - Type: `enum{Use default for server,Natural Join,Outer Join}`
 - Options:
 	* `Use default for server`
@@ -102,27 +102,27 @@ Use this file to select editable properties, defaults, and valid options for an 
 	* `Outer Join`: Use outer (left) join semantics
 
 ## Transactional integrity
-- Description: Generate transaction/procedure logic with transactional integrity
+Generate transaction/procedure logic with transactional integrity
 - Type: `boolean`
 
 ## Initialize not referenced attributes
-- Description: Initialize attributes not referenced in the load
+Initialize attributes not referenced in the load
 - Type: `boolean`
 
 ## Generate null for nullvalue
-- Description: Generate NULL instead of the nullvalue for null attributes
+Generate NULL instead of the nullvalue for null attributes
 - Type: `boolean`
 
 ## RPC declarations prefix
-- Description: Set the prefix for RPC declarations
+Set the prefix for RPC declarations
 - Type: `string`
 
 ## Use client login as userid
-- Description: Use client login as user id for auditing
+Use client login as user id for auditing
 - Type: `boolean`
 
 ## Maximum cached cursors
-- Description: Set the max number of cached cursors
+Set the max number of cached cursors
 - Type: `integer`
 
 ---
@@ -130,7 +130,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 # OPTIMIZATION
 
 ## Copy table groups
-- Description: Control table group copy behavior
+Control table group copy behavior
 - Type: `enum{If no unique index,Always,Never,Use Environment property value}`
 - Options:
 	* `If no unique index`: Copy only when no unique index exists
@@ -143,7 +143,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 # HINTS
 
 ## Fast first rows
-- Description: Optimize for fast first rows
+Optimize for fast first rows
 - Type: `enum{Yes,No}`
 
 ---
@@ -151,27 +151,27 @@ Use this file to select editable properties, defaults, and valid options for an 
 # EVENT HANDLING
 
 ## Before commit
-- Description: Set the procedure to run before commit
+Set the procedure to run before commit
 - Type: `string`
 
 ## After commit
-- Description: Set the procedure to run after commit
+Set the procedure to run after commit
 - Type: `string`
 
 ## Before rollback
-- Description: Set the procedure to run before rollback
+Set the procedure to run before rollback
 - Type: `string`
 
 ## After rollback
-- Description: Set the procedure to run after rollback
+Set the procedure to run after rollback
 - Type: `string`
 
 ## Before connect
-- Description: Set the procedure to run before connect
+Set the procedure to run before connect
 - Type: `string`
 
 ## After connect
-- Description: Set the procedure to run after connect
+Set the procedure to run after connect
 - Type: `string`
 
 ---
@@ -179,11 +179,11 @@ Use this file to select editable properties, defaults, and valid options for an 
 # SPECIFICATION
 
 ## Expand dynamic calls
-- Description: Expand dynamic calls during generation
+Expand dynamic calls during generation
 - Type: `boolean`
 
 ## Generate prompt programs
-- Description: Generate prompt programs
+Generate prompt programs
 - Type: `boolean`
 
 ---
@@ -191,11 +191,11 @@ Use this file to select editable properties, defaults, and valid options for an 
 # TYPE CHECKING
 
 ## Check type errors
-- Description: Enable type checking
+Enable type checking
 - Type: `boolean`
 
 ## Standard Functions
-- Description: Set behavior for non-standard functions
+Set behavior for non-standard functions
 - Type: `enum{Error on non-standard functions,Allow non-standard functions,Only standard functions,Use Environment property value}`
 - Options:
 	* `Error on non-standard functions`: Fail on non-standard functions
@@ -208,11 +208,11 @@ Use this file to select editable properties, defaults, and valid options for an 
 # WARNING MESSAGES
 
 ## Disabled warnings
-- Description: Disable selected warnings
+Disable selected warnings
 - Type: `boolean`
 
 ## Warnings treated as errors
-- Description: Treat warnings as errors
+Treat warnings as errors
 - Type: `boolean`
 
 ---
@@ -220,11 +220,11 @@ Use this file to select editable properties, defaults, and valid options for an 
 # BUILD PROCESS
 
 ## Standard classes update
-- Description: Set how standard classes are updated
+Set how standard classes are updated
 - Type: `enum{Defined by Generator,Custom}`
 
 ## Standard classes specification
-- Description: Set the standard classes specification
+Set the standard classes specification
 - Type: `string`
 
 ---
@@ -232,11 +232,11 @@ Use this file to select editable properties, defaults, and valid options for an 
 # ADVANCED
 
 ## MSBuild options
-- Description: Set additional MSBuild options (.NET)
+Set additional MSBuild options (.NET)
 - Type: `string`
 
 ## Reorganization Option
-- Description: Set reorganization execution flags
+Set reorganization execution flags
 - Type: `string`
 - Flags:
 	* `-nogui`: Run without UI
@@ -247,7 +247,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 	* `-donotexecute`: Generate but do not execute
 
 ## Create Database Option
-- Description: Set database creation execution flags
+Set database creation execution flags
 - Type: `string`
 - Flags:
 	* `-nogui`: Run without UI
@@ -262,32 +262,32 @@ Use this file to select editable properties, defaults, and valid options for an 
 # EXECUTION
 
 ## Execution Options
-- Description: Configure prototyping in cloud and server URL
+Configure prototyping in cloud and server URL
 - Type: `string`
 
 ## Web Server to be Used
-- Description: Select the target web server for deployment
+Select the target web server for deployment
 - Type: `boolean`
 
 ## Deploy to cloud
-- Description: Enable cloud deployment
+Enable cloud deployment
 - Type: `boolean`
 
 ## Web Server
-- Description: Select the target web server
+Select the target web server
 - Type: `string`
 
 ## Web Root
-- Description: Set the web root URL
+Set the web root URL
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ---
 
 # FULL TEXT SEARCH OPTIONS
 
 ## Searchable
-- Description: Enable full text search
+Enable full text search
 - Type: `enum{Yes,No}`
 
 ---
@@ -295,23 +295,23 @@ Use this file to select editable properties, defaults, and valid options for an 
 # JAVA SPECIFIC
 
 ## Compiler Options
-- Description: Set additional `javac` parameters
+Set additional `javac` parameters
 - Type: `string`
 
 ## JDK Directory (JAVA HOME)
-- Description: Set the installed JDK path
+Set the installed JDK path
 - Type: `string`
 
 ## Interpreter Options
-- Description: Set additional JVM interpreter parameters
+Set additional JVM interpreter parameters
 - Type: `string`
 
 ## Gradle Options
-- Description: Set additional Gradle parameters
+Set additional Gradle parameters
 - Type: `string`
 
 ## Use Default Browser
-- Description: Use the default browser for execution
+Use the default browser for execution
 - Type: `boolean`
 
 ---
@@ -319,15 +319,15 @@ Use this file to select editable properties, defaults, and valid options for an 
 # .NET SPECIFIC
 
 ## SQL Server Data Store
-- Description: Select the SQL Server Data Store used by the session state provider
+Select the SQL Server Data Store used by the session state provider
 - Type: `string`
 
 ## .NET Application name
-- Description: Set the .NET application name/namespace
+Set the .NET application name/namespace
 - Type: `string`
 
 ## Generate strong name
-- Description: Generate a strong name for assemblies
+Generate a strong name for assemblies
 - Type: `boolean`
 
 ---
@@ -335,7 +335,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 # STORAGE CONFIGURATION
 
 ## Storage Provider
-- Description: Select the storage provider
+Select the storage provider
 - Type: `AUTO: enum{Local,Amazon S3,Amazon S3 V1 (Legacy),Microsoft Azure,Google Cloud Storage,IBM Cloud Object Storage}`
 
 ---
@@ -343,7 +343,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 # NOTIFICATION CONFIGURATION
 
 ## Notifications Provider
-- Description: Select the notifications provider
+Select the notifications provider
 - Type: `enum{None,OneSignal,JPush}`
 - Options:
 	* `None`: Disable notifications
@@ -355,11 +355,11 @@ Use this file to select editable properties, defaults, and valid options for an 
 # SESSION CONFIGURATION
 
 ## Session Timeout
-- Description: Set the session timeout (minutes)
+Set the session timeout (minutes)
 - Type: `integer`
 
 ## Session State Provider
-- Description: Select the session state provider
+Select the session state provider
 - Type: `enum{In Process,Redis,Database}` -->`
 - Options:
 	* `In Process`: Store sessions in process
@@ -371,11 +371,11 @@ Use this file to select editable properties, defaults, and valid options for an 
 # CACHE CONFIGURATION
 
 ## Database access cache
-- Description: Enable database access cache
+Enable database access cache
 - Type: `enum{Yes,No}`
 
 ## Cache Provider
-- Description: Select the cache provider
+Select the cache provider
 - Type: `enum{In Process,Memcached,Redis}`
 
 ---
@@ -383,51 +383,52 @@ Use this file to select editable properties, defaults, and valid options for an 
 # ENTERPRISE AI CONFIGURATION
 
 ## AI Provider Address
-- Description: Set the AI provider address
+Set the AI provider address
 - Type: `string`
 
 ## AI Provider API Key
-- Description: Set the AI provider API key
+Set the AI provider API key
 - Type: `string`
-- Location: `.local.gx`
+- Scope: `.local`
 
 ## AI Provider Project Id
-- Description: Set the AI provider project id
+Set the AI provider project id
 - Type: `string`
 
 ## AI Provider Project Name
-- Description: Set the AI provider project name
+Set the AI provider project name
 - Type: `string`
 
 ## Default Agents AI Model
-- Description: Set the default Agents AI model
+Set the default Agents AI model; see [Supported Chat Models](https://docs.globant.ai/en/wiki?200,Supported+Chat+Models)
 - Type: `string`
+- Default: `openai/gpt-4.1`
 
 ---
 
 # WEB NOTIFICATION CONFIGURATION
 
 ## Web Notifications Provider
-- Description: Select the web notifications provider
+Select the web notifications provider
 - Type: `enum{None,InProcess}`
 - Options:
 	* `None`: Use none
 	* `InProcess`: Use in-process web notifications
 
 ## Received Handler
-- Description: Set the received handler
+Set the received handler
 - Type: `string`
 
 ## Open Handler
-- Description: Set the open handler
+Set the open handler
 - Type: `string`
 
 ## Close Handler
-- Description: Set the close handler
+Set the close handler
 - Type: `string`
 
 ## Error Handler
-- Description: Set the error handler
+Set the error handler
 - Type: `string`
 
 ---
@@ -435,7 +436,7 @@ Use this file to select editable properties, defaults, and valid options for an 
 # OBSERVABILITY
 
 ## Observability Provider
-- Description: Select the observability provider
+Select the observability provider
 - Type: `enum{None,OpenTelemetry,AWS Distro for OpenTelemetry,Azure Monitor Application Insights}`
 - Options:
 	* `None`: Disable observability

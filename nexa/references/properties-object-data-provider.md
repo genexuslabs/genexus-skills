@@ -11,17 +11,17 @@ Use this file to select editable properties, defaults, and valid options for thi
 Include [General](./properties-common.md) properties
 
 ## Expose as Web Service
-- Description: Publishes the object as a web service endpoint
+Publishes the object as a web service endpoint
 - Type: `boolean`
 - Default: `False`
 
 ## Main program
-- Description: To specify that the object is main. That is: it can be executed as standalone application
+To specify that the object is main. That is: it can be executed as standalone application
 - Type: `boolean`
 - Default: `False`
 
 ## Call protocol
-- Description: Define how the object is invoked, and its output
+Define how the object is invoked, and its output
 - Type: `enum{Internal,HTTP,Command Line,SOAP,Enterprise Java Bean}`
 - Options:
 	* `Internal`: Executes internally within the application runtime
@@ -37,7 +37,7 @@ Include [General](./properties-common.md) properties
 # OUTPUT
 
 ## Infer Structure
-- Description: Infers output SDT from assignment structure
+Infers output SDT from assignment structure
 - Type: `enum{Yes\, if SDT is dynamic,No}`
 - Options:
 	* `Yes, if SDT is dynamic`: Enables this behavior
@@ -45,11 +45,11 @@ Include [General](./properties-common.md) properties
 - Default: `No`
 
 ## Output
-- Description: Type
+Type
 - Type: `string`
 
 ## Collection
-- Description: Indicates whether output is a collection
+Indicates whether output is a collection
 - Type: `boolean`
 - Default: `False`
 

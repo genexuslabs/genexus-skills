@@ -39,12 +39,12 @@ Where:
 - `<rewrites>`: Rewrite rules `<source> => <target>`; mapping URL paths to GeneXus objects or invocations
 - `<variables>`: Variable definitions used by route placeholders with mandatory `DataType`
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-url-rewrite.md)
-- `<documentation>`: Optional object documentation; check [common-markdown](./common-markdown.md)
+- `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `urlrewrite`
+Use [global-output](./global-output.md)
 
 ---
 

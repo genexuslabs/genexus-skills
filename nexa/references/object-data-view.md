@@ -55,12 +55,12 @@ Defines the external structure exposed with internal Knowledge Base attribute na
 
 Syntax:
 ~~~
-<name> [ ExternalName = '<external-field>' ]
+<name> [ ExternalName = '<field>' ]
 ~~~
 
 Where:
 - `<name>`: Attribute name used in the Knowledge Base
-- `<external-field>`: Physical field name in the external source; omit when it matches `<name>`
+- `<field>`: Physical field name in the external source; omit when it matches `<name>`
 
 Notes:
 - Composition may be empty when `AssociatedTable` is defined
@@ -156,7 +156,8 @@ Rule:
 ---
 
 # OUTPUT
-Use [global-output](./global-output.md) with `<type>` value: `dataview`
+Use [global-output](./global-output.md)
+- Location: `#dataviews/`
 
 ---
 
@@ -183,7 +184,11 @@ DataView CustomerExternal
 	CustomerStatus [ ExternalName = 'status' ]
 
 	#Indexes
-		ICustomerExternal [ ExternalName = 'PK_CUSTOMER' ]
+		ICustomerExternal
+		[
+			Type = 'Primary Key',
+			ExternalName = 'PK_CUSTOMER'
+		]
 		{
 			Composition
 			{
@@ -202,7 +207,7 @@ DataView CustomerExternal
 	#End
 
 	#Properties
-		DataStore = "DataStore1"
+		DataStore = "SQLServerDataStore"
 		AssociatedTable = "CustomerExternal"
 	#End
 }
@@ -219,8 +224,8 @@ Table CustomerExternal // base table of CustomerExternal transaction
 	#Indexes
 		ICustomerExternal
 		[
-			Type = "NoDuplicate",
-			Source = "Automatic"
+			Type = 'Primary Key',
+			Source = 'Automatic'
 		]
 		{
 			CustomerId
