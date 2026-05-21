@@ -89,27 +89,32 @@ Select the appropriate path according to user request and execute the steps sequ
 - Return the elaborated answer clearly indicating the source
 
 ## Modeling task
-- Resolve `gxnext` CLI access
-	* Run `gxnext --version` to confirm installation
-	* Run `dotnet tool install --global GeneXus.Next.CLI.<runtime>` if not installed
-		- Use `<runtime>` as one of:
-			* `win-x64` for Windows x64
-			* `osx-arm64` for Apple Silicon
-			* `linux-x64` for Linux x64
-	* Use these settings as reference only
-		- Default endpoint:
-			* Host: `localhost`
-			* Port: `1989`
-			* Base: `/mcp`
-		- Supported environment variables used by `gxnext`:
-			* `GXNEXT_MCP_SERVER`: Override MCP server URL endpoint
-			* `GXNEXT_MCP_SERVER_EXE`: Override MCP server executable path
-			* `GXNEXT_MCP_NO_AUTOSTART=1`: Disable MCP server auto-start
-		- Forbid direct MCP tools execution; only use `gxnext` CLI operations
-	* Get `gxnext` available options and tools:
+- Resolve tooling interface
+	* Test `gxnext --version` availability
+	* When `gxnext` is not installed:
+		- Warn user and offer two options:
+			* Install `gxnext` CLI utility
+			* Execute `MCP server` standalone
+		- Wait for choice before continuing
+	* When user approves `gxnext` CLI installation:
+		- Run `dotnet tool install --global GeneXus.Next.CLI.<runtime>`
+			* Use `<runtime>` as one of:
+				- `win-x64` for Windows x64
+				- `osx-arm64` for Apple Silicon
+				- `linux-x64` for Linux x64
+			* Use `dotnet tool` extra options as needed
+		- When installation failed offer:
+			* Continue with `MCP server` standalone as fallback
+			* Stop until `gxnext` CLI has been installed
+	* When using `gxnext` CLI utility:
 		- Run `gxnext --help` for usage help
-		- Run `gxnext list-tools --json` for detailed tool specs 
-	* Use `--verbose` flag only for diagnose
+		* Run `gxnext list-tools --json` for detailed tool specs
+		- Use `--verbose` only for diagnostics
+	* When using `MCP server` standalone:
+		- Check `MCP server` availability
+		- Alert user if `MCP server` is unavailable and offer:
+			* Continue without `MCP server` validation
+			* Stop until `MCP server` standalone becomes available
 - Resolve KB
 	* Ask for `Output Directory` or default to current directory
 	* Use the `Output Directory` as base path of `/src` for `Root Module` module
@@ -129,11 +134,11 @@ Select the appropriate path according to user request and execute the steps sequ
 	* When creating new environment:
 		- Create or update `*.env.gx` files
 		- Update `*.local.kb.gx` file setting `CurrentEnvironment` property
-		- Import `Environment` changes with `gxnext` CLI
+		- Import `Environment` changes
 	* When setting current environment:
 		- Get `Environment` name from target `src/#preferences/*.env.local.gx` file
 		- Set `CurrentEnvironment` property in `src/#preferences/*.kb.gx` file
-		- Import `Version` changes with `gxnext` CLI
+		- Import `Version` changes
 - Resolve connection:
 	* Read `*.env.gx` to get environment name and generator
 	* When `*.local.env.gx` is missing or connection values are absent or empty:
@@ -145,7 +150,7 @@ Select the appropriate path according to user request and execute the steps sequ
 		- For `JAVA`:
 			* Ask `UserId` and `UserPassword`
 		- Write or update `*.local.env.gx` file
-		- Import `Environment` changes with `gxnext` CLI
+		- Import `Environment` changes
 	* Deny `build`/`impact`/`reorg` operations until conection values are defined
 - Resolve compatible reference files
 	* Read `ProductNumber` value from `*.kb.gx` file
@@ -178,8 +183,8 @@ Select the appropriate path according to user request and execute the steps sequ
 	* Run artifact validation after each file write
 	* Run artifact import after all files are written
 	* Run artifact integration check
-	* Use `gxnext` CLI operations as needed for fulfilling user request
-	* Ask explicit user confirmation for these CLI operations:
+	* Use available tools as needed for fulfilling user request
+	* Ask explicit user confirmation for these operations:
 		- `create`/`impact`/`reorg` on database
 			* State DANGEROUS as may delete existing data
 			* Require valid connection values in `*.env.gx`
@@ -400,7 +405,7 @@ Apply these rules strictly when modeling GeneXus Knowledge Base objects
 All checkpoints are mandatory before finalizing
 
 ## Initialization
-- [ ] Validates `gxnext` utility availability or user-approved bypass
+- [ ] Resolve execution interface via `gxnext` CLI, `MCP server` standalone, or user-approved bypass
 - [ ] Resolves `Knowledge Base` existence: create/open as needed
 - [ ] Confirms `*.local.env.gx` connection values on `build`/`impact`/`reorg` requests
 
@@ -429,7 +434,7 @@ All checkpoints are mandatory before finalizing
 
 ## Execution
 - [ ] Validates `*.gx` files after every file write
-- [ ] Requires explicit user approval before any dangerous CLI operation
+- [ ] Requires explicit user approval before any dangerous operation
 
 ## Report
 - [ ] Returns brief summary of all actions taken
@@ -438,7 +443,7 @@ All checkpoints are mandatory before finalizing
 
 # CONSTRAINTS
 - Strictly follow documentation, no assumptions or inventions
-- Always use `gxnext` CLI operations; never call MCP tools directly
+- Always use `gxnext` CLI when available; otherwise use `MCP server` tools as fallback
 - Check `object-*.md` for object generation
 	* Never derive syntax by analogy with dumped artifacts
 	* Never create or update objects without checking a reference file

@@ -30,5 +30,5 @@ Shared constraints for `references/object-*.md`
 - Allow enum domain dot (`.`) notation only; `!"COSMETICS"` (✘) → `ProductCategoryType.Cosmetics`
 - Define all properties in `.gx` files using PascalCase without quotes; `"Maximum numeric length"` (✘) → `MaximumNumericLength` (✓)
 - Forbid UI-related object changes when `Backend Only` is enabled in `*.kb.gx` file
-- Read/write properties via `.gx` files only; never use CLI operations for that purpose
+- Read/write properties via `.gx` files only; never use tools for that purpose
 - Sync changes after any `.gx` file modification
