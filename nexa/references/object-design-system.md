@@ -172,7 +172,7 @@ Use [global-output](./global-output.md) with:
 # CONVENTIONS
 - Define visual direction before tokens: style, mood, and accessibility target
 - Define styling contract in `DesignSystem` object; keep screen structure in `Panel` object
-- Use `%`/`dip` for mobile-oriented styles; use any wen standar unit otherwise
+- Use `%`/`dip` for mobile-oriented styles; use any web standard unit otherwise
 - Reference tokens from style classes; avoid hardcoded repeated values
 - Define component variants and states: `Default`, `Hover`, `Active`, `Focused`, `Disabled`
 - Define reusable semantic classes for panel controls

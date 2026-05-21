@@ -40,7 +40,7 @@ Where:
 - `<current>`: Current environment name; scope: `.local`
 - `<product>`: Knowledge Base product information; see [PRODUCT](#product) section
 - `<version>`: Knowledge Base version properties in TOML syntax; see [properties](./properties-version.md)
-- `<references>`: Breakline separated list of extenral `Module` references; see [REFERENCES](#references) section
+- `<references>`: Breakline separated list of external `Module` references; see [REFERENCES](#references) section
 - `<properties>`: Knowledge Base properties in TOML syntax; see [properties](./properties-knowledge-base.md)
 
 ---
