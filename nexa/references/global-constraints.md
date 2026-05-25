@@ -8,13 +8,18 @@ Shared constraints for `references/object-*.md`
 ---
 
 # CONSTRAINTS
-- Produce code complying with SYNTAX section
-- Emit all `SYNTAX` sections, even if empty
+- Produce code complying with `SYNTAX` section:
+	* Write body block `{…}` with one-tab indented content
+	* Write section blocks `#<name>…#End` with extra-tab indented content
+		- Allow sections in any order
+		- Yield all sections, even if empty
+		- Prune explicitly excluded sections
+	* Write properties blocks `[…]` inline or multiline with extra-tab indented content
+	* Indent code with tabs; never with whitespaces
+	* Follow formatting conventions from provided examples
 - Prefer semantically compatible reuse before creating new definitions
 - Define `Description` property on all supported objects, attributes, variables, members, and parameters
 - Define `DataType` for attributes, variables, members, and parameters using [common-data](./common-data.md)
-- Allow section blocks `#<name>…#End` in any order
-- Allow properties block `[…]` inline or indented multiline
 - Executable objects with `#Variables` must include baseline from [common-standard-variables](./common-standard-variables.md) unless explicitly restricted
 - Use positional arguments only for object calls, named arguments are forbidden
 - Use semicolons only in rules, conditions, and orders
