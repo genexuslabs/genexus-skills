@@ -24,6 +24,7 @@ Shared constraints for `references/object-*.md`
 - Use positional arguments only for object calls, named arguments are forbidden
 - Use semicolons only in rules, conditions, and orders
 - Write one statement per line and use tabs for indentation when the object syntax is line-oriented
+- Forbid non-syntactic chars in generated artifacts: emojis, control chars, unicode escapes
 - Forbid cryptic abbreviations; `CstTrx` (✘) → `CustomerTransaction` (✓)
 - Forbid transaction-qualified attribute names; `User.UserId` (✘) → `UserId` (✓)
 - Forbid verbatim string literals; `"""Hello"""` (✘) → `!"Hello"` (✓)
