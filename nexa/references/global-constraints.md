@@ -11,7 +11,7 @@ Shared constraints for `references/object-*.md`
 - Produce code complying with SYNTAX section
 - Emit all `SYNTAX` sections, even if empty
 - Prefer semantically compatible reuse before creating new definitions
-- Define `Description` metadata for all objects and their attributes, variables, members, and parameters, unless unsupported
+- Define `Description` property on all supported objects, attributes, variables, members, and parameters
 - Define `DataType` for attributes, variables, members, and parameters using [common-data](./common-data.md)
 - Allow section blocks `#<name>…#End` in any order
 - Allow properties block `[…]` inline or indented multiline
