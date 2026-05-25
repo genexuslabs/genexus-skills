@@ -91,6 +91,8 @@ Select the appropriate path according to user request and execute the steps sequ
 ## Modeling task
 - Resolve tooling interface
 	* Test `gxnext --version` availability
+		- Probe across all shell environments
+		- Conclude missing only when all fail
 	* When `gxnext` is not installed:
 		- Warn user and offer two options:
 			* Install `gxnext` CLI utility
