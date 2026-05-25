@@ -20,7 +20,7 @@ Shared constraints for `references/object-*.md`
 - Prefer semantically compatible reuse before creating new definitions
 - Define `Description` property on all supported objects, attributes, variables, members, and parameters
 - Follow [Data Type Priority](./common-data.md#data-type-priority) for defining `DataType` value
-- Executable objects with `#Variables` must include baseline from [common-standard-variables](./common-standard-variables.md) unless explicitly restricted
+- Ensure [Standard Variables](./common-standard-variables.md) baseline unless explicitly restricted
 - Use positional arguments only for object calls, named arguments are forbidden
 - Use semicolons only in rules, conditions, and orders
 - Write one statement per line and use tabs for indentation when the object syntax is line-oriented
