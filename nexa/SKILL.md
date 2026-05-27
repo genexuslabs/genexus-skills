@@ -230,51 +230,22 @@ Quick reference for model setup; stored in `src/#preferences` sub directory
 # OBJECTS KNOWLEDGE
 Quick reference for appropriate use of each object type; stored in `/src` sub directory
 
-## Folder
-- Purpose: Simple directory container for organizing objects without encapsulation; cannot contain modules, only folder and other objects allowed; represented by `@` prefixed directories
-- Use when: Creating basic hierarchical structure, or organizing within modules without visibility control
-- Reference: [Folder object](references/object-folder.md)
+## Agent
+- Purpose: Artificial intelligence agent definition with prompts and tools
+- Use when: Implementing intelligent assistants, automating decision-making with LLMs, or integrating natural language processing
+- Reference: [Agent object](references/object-agent.md)
+- Availability:
+	* ProductVersion:`>=19`
 
-## Module
-- Purpose: Advanced container with encapsulation, interface definition with visibility control, versioning, and distribution capabilities, represented by regular directories
-- Use when: Distributing functionality, encapsulating logic, or creating complex sub-module hierarchies
-- Reference: [Module object](references/object-module.md)
+## API
+- Purpose: REST API endpoint definition with HTTP methods
+- Use when: Exposing business logic as RESTful services, integrating with external systems, enabling third-party integrations, or building invocation URLs for services defined in this object
+- Reference: [API object](references/object-api.md)
 
-## Domain (DOM)
-- Purpose: Global data type definition ensuring consistency across attributes and variables
-- Use when: Defining reusable concepts (id, name, price) or enumerations (status, categories)
-- Reference: [Domain object](references/object-domain.md)
-
-## Transaction (TRN)
-- Purpose: Core entity representing real-world objects, mapping to database tables
-- Relationships: STRONG (separate transactions) or WEAK (sublevels)
-- Use when: Modeling persistent business entities, implementing data integrity rules, or managing entity relationships and constraints
-- Reference: [Transaction object](references/object-transaction.md)
-
-## Table (TBL)
-- Purpose: Physical database base table inferred from Transaction structure with indexes for access performance, referential integrity, and uniqueness
-- Use when: Reviewing physical data model, or editing user indexes references
-- Reference: [Table object](references/object-table.md)
-
-## Procedure (PRC)
-- Purpose: Procedural algorithm as sequence of statements, including report generation for formatted and printable data output
-- Use when: Writing procedural logic, operating CRUD over data, consuming REST services, etc
-- Execution: When running a main procedure, check the COMMAND LINE EXECUTION section for the target environment; do NOT use `gxnext` operation
-- Reference: [Procedure object](references/object-procedure.md)
-
-## Structured Data Type (SDT)
-- Purpose: Grouping members and collections into compound structures
-- Use when: Defining complex data structures, creating reusable data containers, modeling hierarchical or nested data, or structuring JSON/XML data interchange
-- Reference: [StructuredDataType object](references/object-structured-data-type.md)
-
-## Panel (SDP, WP)
-- Purpose: Screen definition for Android, Apple, Angular, or Web environments
-- Includes:
-	* WebPanel, MasterPage, WebComponent: For web environment
-	* Panel, MasterPanel: For Android, Apple, and Angular environments
-	* Stencil: For any environment
-- Use when: Building user interfaces for web or mobile applications, creating responsive layouts, or developing cross-platform screens
-- Reference: [Panel object](references/object-panel.md)
+## BusinessProcessDiagram (BPD)
+- Purpose: BPMN workflow definition
+- Use when: Modeling complex business workflows with multiple steps, or automating multi-step operations
+- Reference: [BusinessProcessDiagram object](references/object-business-process.md)
 
 ## DataProvider (DP)
 - Purpose: Data retrieval and manipulation through query syntax
@@ -291,62 +262,40 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Use when: Accessing and consuming external data structures from navigation objects
 - Reference: [DataView object](references/object-data-view.md)
 
-## API
-- Purpose: REST API endpoint definition with HTTP methods
-- Use when: Exposing business logic as RESTful services, integrating with external systems, enabling third-party integrations, or building invocation URLs for services defined in this object
-- Reference: [API object](references/object-api.md)
-
-## Query
-- Purpose: Complex query definition for data retrieval from multiple sources
-- Use when: Performing advanced data analysis across multiple tables
-- Reference: [Query object](references/object-query.md)
-
-## BusinessProcessDiagram (BPD)
-- Purpose: BPMN workflow definition
-- Use when: Modeling complex business workflows with multiple steps, or automating multi-step operations
-- Reference: [BusinessProcessDiagram object](references/object-business-process.md)
-
-## Agent
-- Purpose: Artificial intelligence agent definition with prompts and tools
-- Use when: Implementing intelligent assistants, automating decision-making with LLMs, or integrating natural language processing
-- Reference: [Agent object](references/object-agent.md)
-- Availability:
-	* ProductVersion:`>=19`
-
-## File
-- Purpose: Store files of any format inside the Knowledge Base
-- Use when: Including external resources in your KB (configuration files, scripts, libraries)
-- Reference: [File object](references/object-file.md)
-
-## Document
-- Purpose: Document generation using templates
-- Use when: Generating Knowledge Base documentation, or producing contracts or user stories documents
-- Reference: [Document object](references/object-document.md)
+## DeploymentUnit (DPU)
+- Purpose: Group objects that must be deployed together as one deployment category
+- Use when: Defining deployment layers (frontend, backend, services) or controlling grouped deployment scope
+- Reference: [DeploymentUnit object](references/object-deployment-unit.md)
 
 ## DesignSystem (DSO)
 - Purpose: Design system with reusable design tokens and style classes
 - Use when: Establishing consistent visual identity across the application
 - Reference: [DesignSystem object](references/object-design-system.md)
 
-## SubTypeGroup
-- Purpose: Object specialization through subtypes
-- Use when: Implementing polymorphic behavior across related attributes, modeling inheritance-like or similarity attribute relationships
-- Reference: [SubTypeGroup object](references/object-subtype-group.md)
+## Document
+- Purpose: Document generation using templates
+- Use when: Generating Knowledge Base documentation, or producing contracts or user stories documents
+- Reference: [Document object](references/object-document.md)
 
-## DeploymentUnit (DPU)
-- Purpose: Group objects that must be deployed together as one deployment category
-- Use when: Defining deployment layers (frontend, backend, services) or controlling grouped deployment scope
-- Reference: [DeploymentUnit object](references/object-deployment-unit.md)
-
-## URLRewrite
-- Purpose: Map friendly URL patterns to web object invocations
-- Use when: Centralizing web routes, supporting readable URLs, and resolving parameterized paths
-- Reference: [URLRewrite object](references/object-url-rewrite.md)
+## Domain (DOM)
+- Purpose: Global data type definition ensuring consistency across attributes and variables
+- Use when: Defining reusable concepts (id, name, price) or enumerations (status, categories)
+- Reference: [Domain object](references/object-domain.md)
 
 ## ExternalObject (EO)
 - Purpose: Integration wrapper exposing external libraries/services to GeneXus through methods, properties, events, and types
 - Use when: Calling platform APIs, SDKs, native utilities, or external contracts not implemented as GeneXus objects
 - Reference: [ExternalObject object](references/object-external-object.md)
+
+## File
+- Purpose: Store files of any format inside the Knowledge Base
+- Use when: Including external resources in your KB (configuration files, scripts, libraries)
+- Reference: [File object](references/object-file.md)
+
+## Folder
+- Purpose: Simple directory container for organizing objects without encapsulation; cannot contain modules, only folder and other objects allowed; represented by `@` prefixed directories
+- Use when: Creating basic hierarchical structure, or organizing within modules without visibility control
+- Reference: [Folder object](references/object-folder.md)
 
 ## Image (IMG)
 - Purpose: Container for images with variants by style, language, and density, as consistent renditions of one image
@@ -357,6 +306,57 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Purpose: Localized text resources and locale configuration per target language
 - Use when: Defining multilingual application texts and runtime language behavior
 - Reference: [Language object](references/object-language.md)
+
+## Module
+- Purpose: Advanced container with encapsulation, interface definition with visibility control, versioning, and distribution capabilities, represented by regular directories
+- Use when: Distributing functionality, encapsulating logic, or creating complex sub-module hierarchies
+- Reference: [Module object](references/object-module.md)
+
+## Panel (SDP, WP)
+- Purpose: Screen definition for Android, Apple, Angular, or Web environments
+- Includes:
+	* WebPanel, MasterPage, WebComponent: For web environment
+	* Panel, MasterPanel: For Android, Apple, and Angular environments
+	* Stencil: For any environment
+- Use when: Building user interfaces for web or mobile applications, creating responsive layouts, or developing cross-platform screens
+- Reference: [Panel object](references/object-panel.md)
+
+## Procedure (PRC)
+- Purpose: Procedural algorithm as sequence of statements, including report generation for formatted and printable data output
+- Use when: Writing procedural logic, operating CRUD over data, consuming REST services, etc
+- Execution: When running a main procedure, check the COMMAND LINE EXECUTION section for the target environment; do NOT use `gxnext` operation
+- Reference: [Procedure object](references/object-procedure.md)
+
+## Query
+- Purpose: Complex query definition for data retrieval from multiple sources
+- Use when: Performing advanced data analysis across multiple tables
+- Reference: [Query object](references/object-query.md)
+
+## Structured Data Type (SDT)
+- Purpose: Grouping members and collections into compound structures
+- Use when: Defining complex data structures, creating reusable data containers, modeling hierarchical or nested data, or structuring JSON/XML data interchange
+- Reference: [StructuredDataType object](references/object-structured-data-type.md)
+
+## SubTypeGroup
+- Purpose: Object specialization through subtypes
+- Use when: Implementing polymorphic behavior across related attributes, modeling inheritance-like or similarity attribute relationships
+- Reference: [SubTypeGroup object](references/object-subtype-group.md)
+
+## Table (TBL)
+- Purpose: Physical database base table inferred from Transaction structure with indexes for access performance, referential integrity, and uniqueness
+- Use when: Reviewing physical data model, or editing user indexes references
+- Reference: [Table object](references/object-table.md)
+
+## Transaction (TRN)
+- Purpose: Core entity representing real-world objects, mapping to database tables
+- Relationships: STRONG (separate transactions) or WEAK (sublevels)
+- Use when: Modeling persistent business entities, implementing data integrity rules, or managing entity relationships and constraints
+- Reference: [Transaction object](references/object-transaction.md)
+
+## URLRewrite
+- Purpose: Map friendly URL patterns to web object invocations
+- Use when: Centralizing web routes, supporting readable URLs, and resolving parameterized paths
+- Reference: [URLRewrite object](references/object-url-rewrite.md)
 
 ---
 
