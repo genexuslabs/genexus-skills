@@ -324,7 +324,7 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Reference: [Document object](references/object-document.md)
 
 ## DesignSystem (DSO)
-- Purpose: Design system with styles, themes, and components
+- Purpose: Design system with reusable design tokens and style classes
 - Use when: Establishing consistent visual identity across the application
 - Reference: [DesignSystem object](references/object-design-system.md)
 
