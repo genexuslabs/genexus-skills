@@ -1,6 +1,6 @@
 ---
 name: nexa
-description: GeneXus expert system for object modeling and knowledge base management
+description: GeneXus expert skill for knowledge base management, object modeling, artifact generation, build workflows, and technical guidance
 ---
 
 A comprehensive skill for architecting, modeling, and managing GeneXus Knowledge Base objects with specialized expert delegation
