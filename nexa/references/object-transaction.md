@@ -46,10 +46,10 @@ Transaction <name>
 
 Where:
 - `<name>`: Transaction name using alphanumeric or underscore, starting with letter
-- `<attributes>`: Entity attributes (mandatory `DataType`; see [ATTRIBUTE/VARIABLE](#attributevariable))
-- `<rules>`: Business rules governing Transaction behavior (see [RULES](#rules))
-- `<events>`: Transaction lifecycle event handlers (see [EVENTS](#events))
-- `<variables>`: Variables (mandatory `DataType`; see [ATTRIBUTE/VARIABLE](#attributevariable))
+- `<attributes>`: Entity attributes with mandatory `DataType`; see [ATTRIBUTE/VARIABLE](#attributevariable) section
+- `<rules>`: Business rules governing Transaction behavior; see [RULES](#rules) section
+- `<events>`: Transaction lifecycle event handlers; see [EVENTS](#events) section
+- `<variables>`: Variable definitions with mandatory `DataType`; see [ATTRIBUTE/VARIABLE](#attributevariable) section
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-transaction.md)
 - `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
