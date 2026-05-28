@@ -323,9 +323,9 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 ## Panel (SDP, WP)
 - Purpose: Screen definition for Android, Apple, Angular, or Web environments
 - Includes:
-	* WebPanel, MasterPage, WebComponent: For web environment
-	* Panel, MasterPanel: For Android, Apple, and Angular environments
-	* Stencil: For any environment
+	* `WebPanel`, `MasterPage`, `WebComponent`: For web environment
+	* `Panel`, `MasterPanel`: For Android, Apple, and Angular environments
+	* `Stencil`: For any environment
 - Use when: Building user interfaces for web or mobile applications, creating responsive layouts, or developing cross-platform screens
 - Reference: [Panel object](references/object-panel.md)
 
