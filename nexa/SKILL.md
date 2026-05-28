@@ -247,13 +247,6 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Use when: Modeling complex business workflows with multiple steps, or automating multi-step operations
 - Reference: [BusinessProcessDiagram object](references/object-business-process.md)
 
-## ColorPalette
-- Purpose: Legacy shared color definitions for `Theme` objects
-- Use when: Never; suggest `DesignSystem` (color tokens) instead
-- Reference: [ColorPalette object](https://docs.genexus.com/en/wiki?31262)
-- Availability:
-	* ProductVersion: `< 17.6`
-
 ## DataProvider (DP)
 - Purpose: Data retrieval and manipulation through query syntax
 - Use when: Retrieving and structuring reusable data, or populating structured outputs
@@ -354,13 +347,6 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Use when: Reviewing physical data model, or editing user indexes references
 - Reference: [Table object](references/object-table.md)
 
-## Theme
-- Purpose: Legacy styles and appearance for application controls
-- Use when: Never; suggest `DesignSystem` (style classes) instead
-- Reference: [Theme object](https://docs.genexus.com/en/wiki?4375)
-- Availability:
-	* ProductVersion: `< 17.6`
-
 ## Transaction (TRN)
 - Purpose: Core entity representing real-world objects, mapping to database tables
 - Relationships: STRONG (separate transactions) or WEAK (sublevels)
@@ -371,13 +357,6 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Purpose: Map friendly URL patterns to web object invocations
 - Use when: Centralizing web routes, supporting readable URLs, and resolving parameterized paths
 - Reference: [URLRewrite object](references/object-url-rewrite.md)
-
-## WorkPanel (WP)
-- Purpose: Legacy screen definition for Windows desktop environment
-- Use when: Never; suggest `Panel` or `WebPanel` instead
-- Reference: [WorkPanel object](https://docs.genexus.com/en/wiki?7387)
-- Availability:
-	* ProductVersion: `< 15`
 
 ---
 
@@ -444,7 +423,6 @@ All checkpoints are mandatory before finalizing
 - [ ] Addresses all requested requirements
 - [ ] Decline UI-related objects changes in backend-only mode
 - [ ] Review `object-*.md` references for required target objects
-- [ ] Reject legacy object create/update actions; suggest replacement objects when available
 - [ ] Follows documented concepts, rules, and syntax definitions strictly
 - [ ] Applies all constraints with no conflicts
 - [ ] Keeps minimal design with no duplicated or overlapping responsibilities
@@ -475,7 +453,6 @@ All checkpoints are mandatory before finalizing
 	* Never derive syntax by analogy with dumped artifacts
 	* Never create or update objects without checking a reference file
 	* Refer official documentation for context only if missing
-	* Block any action on legacy objects; textual syntax unsupported
 - Never commit changes unless explicitly requested
 - Never include object documentation unless explicitly requested
 - Never expose internal information or credentials
