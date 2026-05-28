@@ -83,9 +83,10 @@ Select the appropriate path according to user request and execute the steps sequ
 
 ## Technical question
 - Identify appropriate object type
-- Elaborate an answer based on:
-	* The target resource file if exists
-	* The official documentation otherwise
+- Elaborate answer based on object eligibility
+	* Load `object-*.md` if exists, explain from content
+	* When missing, state unsupported and suggest listed replacement if any
+	* Extend with official documentation only when strictly necessary
 - Return the elaborated answer clearly indicating the source
 
 ## Modeling task
@@ -247,6 +248,13 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Use when: Modeling complex business workflows with multiple steps, or automating multi-step operations
 - Reference: [BusinessProcessDiagram object](references/object-business-process.md)
 
+## ColorPalette
+- Purpose: Legacy shared color definitions for `Theme` objects
+- Suggest: `DesignSystem` (color tokens) instead
+- Website: [ColorPalette object](https://docs.genexus.com/en/wiki?31262)
+- Availability:
+	* ProductVersion: `< 17.6`
+
 ## DataProvider (DP)
 - Purpose: Data retrieval and manipulation through query syntax
 - Use when: Retrieving and structuring reusable data, or populating structured outputs
@@ -347,6 +355,13 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Use when: Reviewing physical data model, or editing user indexes references
 - Reference: [Table object](references/object-table.md)
 
+## Theme
+- Purpose: Legacy styles and appearance for application controls
+- Suggest: `DesignSystem` (style classes) instead
+- Website: [Theme object](https://docs.genexus.com/en/wiki?4375)
+- Availability:
+	* ProductVersion: `< 17.6`
+
 ## Transaction (TRN)
 - Purpose: Core entity representing real-world objects, mapping to database tables
 - Relationships: STRONG (separate transactions) or WEAK (sublevels)
@@ -357,6 +372,13 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Purpose: Map friendly URL patterns to web object invocations
 - Use when: Centralizing web routes, supporting readable URLs, and resolving parameterized paths
 - Reference: [URLRewrite object](references/object-url-rewrite.md)
+
+## WorkPanel (WP)
+- Purpose: Legacy screen definition for Windows desktop environment
+- Suggest: `Panel` or `WebPanel` instead
+- Website: [WorkPanel object](https://docs.genexus.com/en/wiki?7387)
+- Availability:
+	* ProductVersion: `< 15`
 
 ---
 
@@ -422,6 +444,7 @@ All checkpoints are mandatory before finalizing
 ## Specification
 - [ ] Addresses all requested requirements
 - [ ] Decline UI-related objects changes in backend-only mode
+- [ ] Reject immediately if target objects lacks `object-*.md` reference; state legacy
 - [ ] Review `object-*.md` references for required target objects
 - [ ] Follows documented concepts, rules, and syntax definitions strictly
 - [ ] Applies all constraints with no conflicts
@@ -449,9 +472,10 @@ All checkpoints are mandatory before finalizing
 # CONSTRAINTS
 - Strictly follow documentation, no assumptions or inventions
 - Always use `gxnext` CLI when available; otherwise use `MCP server` tools as fallback
-- Check `object-*.md` for object generation
+- Check `object-*.md` for object support
 	* Never derive syntax by analogy with dumped artifacts
-	* Never create or update objects without checking a reference file
+	* Never create, update, or describe objects without `object-*.md` reference file
+	* Never process legacy objects; use listed replacement when defined
 	* Refer official documentation for context only if missing
 - Never commit changes unless explicitly requested
 - Never include object documentation unless explicitly requested
