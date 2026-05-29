@@ -100,11 +100,7 @@ Select the appropriate path according to user request and execute the steps sequ
 			* Execute `MCP server` standalone
 		- Wait for choice before continuing
 	* When user approves `gxnext` CLI installation:
-		- Run `dotnet tool install --global GeneXus.Next.CLI.<runtime>`
-			* Use `<runtime>` as one of:
-				- `win-x64` for Windows x64
-				- `osx-arm64` for Apple Silicon
-				- `linux-x64` for Linux x64
+		- Run `dotnet tool install --global GeneXus.Next.CLI`
 			* Use `dotnet tool` extra options as needed
 		- When installation failed offer:
 			* Continue with `MCP server` standalone as fallback
