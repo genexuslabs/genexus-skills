@@ -8,17 +8,23 @@ Shared constraints for `references/object-*.md`
 ---
 
 # CONSTRAINTS
-- Produce code complying with SYNTAX section
-- Emit all `SYNTAX` sections, even if empty
+- Produce code complying with `SYNTAX` section:
+	* Write body block `{…}` with one-tab indented content
+	* Write section blocks `#<name>…#End` with extra-tab indented content
+		- Allow sections in any order
+		- Yield all sections, even if empty
+		- Prune explicitly excluded sections
+	* Write properties blocks `[…]` inline or multiline with extra-tab indented content
+	* Indent code with tabs; never with whitespaces
+	* Follow formatting conventions from provided examples
 - Prefer semantically compatible reuse before creating new definitions
-- Define `Description` metadata for all objects and their attributes, variables, members, and parameters, unless unsupported
-- Define `DataType` for attributes, variables, members, and parameters using [common-data](./common-data.md)
-- Allow section blocks `#<name>…#End` in any order
-- Allow properties block `[…]` inline or indented multiline
-- Executable objects with `#Variables` must include baseline from [common-standard-variables](./common-standard-variables.md) unless explicitly restricted
+- Define `Description` property on all supported objects, attributes, variables, members, and parameters
+- Follow [Data Type Priority](./common-data.md#data-type-priority) for defining `DataType` value
+- Ensure [Standard Variables](./common-standard-variables.md) baseline unless explicitly restricted
 - Use positional arguments only for object calls, named arguments are forbidden
 - Use semicolons only in rules, conditions, and orders
 - Write one statement per line and use tabs for indentation when the object syntax is line-oriented
+- Forbid non-syntactic chars in assigned values: emojis, control chars, Unicode escapes
 - Forbid cryptic abbreviations; `CstTrx` (✘) → `CustomerTransaction` (✓)
 - Forbid transaction-qualified attribute names; `User.UserId` (✘) → `UserId` (✓)
 - Forbid verbatim string literals; `"""Hello"""` (✘) → `!"Hello"` (✓)

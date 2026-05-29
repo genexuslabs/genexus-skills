@@ -102,7 +102,7 @@ Pattern:
 - `<name>.gx`: For object or model definitions
 
 Rules:
-- Never encode the object type in the file name
+- Never encode segments in file-name using dot-notation
 - Infer object type from file content header
 
 # LOCAL ARTIFACT
@@ -134,8 +134,9 @@ Pattern:
 - `<name>.doc.md`: For any other object
 
 Rules:
-- Keep documentation outside the main artifact
-- Forbid duplicate documentation definition inside `.gx` main file
+- Assume `#Documentation` section in object `SYNTAX` as reference-only
+- Ensure `#Documentation` content is placed in `.md` external file
+- Forbid `#Documentation` definition inside `.gx` main file
 
 ## LAYOUT ARTIFACT
 Maps `#Layout` section to `XML` file
@@ -146,8 +147,10 @@ Pattern:
 - `<name>.panel.xml`: For `Panel`, `MasterPanel`, and `Stencil` objects
 
 Rules:
-- Target definition defines which layout family supports
-- Forbid duplicate layout definition inside `.gx` main file
+- Derive supported layout families from the object type
+- Assume `#Layout` section in object `SYNTAX` as reference-only
+- Ensure `#Layout` content is placed in `.xml` external file
+- Forbid `#Layout` definition inside `.gx` main file
 
 ---
 
