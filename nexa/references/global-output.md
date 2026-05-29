@@ -102,7 +102,7 @@ Pattern:
 - `<name>.gx`: For object or model definitions
 
 Rules:
-- Never encode the object type in the file name
+- Never encode segments in file-name using dot-notation
 - Infer object type from file content header
 
 # LOCAL ARTIFACT
