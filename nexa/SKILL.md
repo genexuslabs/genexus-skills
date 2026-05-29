@@ -111,6 +111,9 @@ Select the appropriate path according to user request and execute the steps sequ
 		- Use `--verbose` only for diagnostics
 	* When using `MCP server` standalone:
 		- Check `MCP server` availability
+			* Probe `MCP server` registration for GeneXus setup
+			* Warn user if unregistered and offer setup guidance
+			* Test `MCP server` availability with MCP handshake
 		- Alert user if `MCP server` is unavailable and offer:
 			* Continue without `MCP server` validation
 			* Stop until `MCP server` standalone becomes available
