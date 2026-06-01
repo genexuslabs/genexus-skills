@@ -1,6 +1,6 @@
 ---
-name: sap-abap-type-mapping
-description: Authoritative ABAP-to-GeneXus type conversion table for SAP parameter mapping
+name: erp-abap-type-mapping
+description: Authoritative ABAP-to-GeneXus type conversion table for SAP® parameter mapping
 ---
 
 Use this file as the single source of truth for converting ABAP field types to GeneXus data types.
@@ -58,7 +58,7 @@ Mapping from ABAP Type/ ABAP Alias to GeneXus Types
 ---
 
 # COMMON SAP STANDARD TYPES
-Frequently encountered types across BAPIs — canonical GeneXus definitions are in [sap-sdt-generation](sap-sdt-generation.md)
+Frequently encountered types across BAPIs — canonical GeneXus definitions are in [erp-sdt-generation](erp-sdt-generation.md)
 
 ---
 

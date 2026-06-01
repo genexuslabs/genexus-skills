@@ -1,6 +1,6 @@
 ---
-name: sap-eo-generation
-description: Rules for generating GeneXus ExternalObject objects for SAP BOR objects and BAPI functions
+name: erp-eo-generation
+description: Rules for generating GeneXus ExternalObject objects for SAP® BOR objects and BAPI functions
 ---
 
 Apply these rules in conjunction with the nexa ExternalObject syntax reference:
@@ -111,7 +111,7 @@ Examples:
 # PARAMETER TYPE MAPPING
 ABAP Parameter Kind → GeneXus `Type` Assignment
 
-Scalar (no sub-fields, maps to built-in) → Built-in GeneXus type from [sap-abap-type-mapping](references/sap-abap-type-mapping.md)
+Scalar (no sub-fields, maps to built-in) → Built-in GeneXus type from [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
 ABAP structure type → `SDT` name generated in the SDT phase
 ABAP table type → `SDT` name generated in the SDT phase (the `SDT` itself carries `Collection = 'True'`)
 ---

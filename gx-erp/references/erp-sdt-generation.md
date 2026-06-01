@@ -1,13 +1,13 @@
 ---
-name: sap-sdt-generation
-description: Rules for generating GeneXus SDT objects from SAP ABAP structure and table parameters
+name: erp-sdt-generation
+description: Rules for generating GeneXus SDT objects from SAP® ABAP structure and table parameters
 ---
 
 Apply these rules in conjunction with the nexa SDT syntax reference:
 [nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
 
 And the ABAP type mapping reference:
-[sap-abap-type-mapping](references/sap-abap-type-mapping.md)
+[erp-abap-type-mapping](references/erp-abap-type-mapping.md)
 
 And the nexa output policy:
 [nexa:global-output](../nexa/references/global-output.md)
@@ -96,7 +96,7 @@ For each field returned by `sap_get_function_metadata` (or `sap_get_object_metad
 
 - Read: field name, ABAP type, length, decimals, description
 - Keep field name as-is (original SAP name — uppercase with underscores, e.g. DESCR_LOW, SIGN)
-- Look up the GeneXus type using [sap-abap-type-mapping](references/sap-abap-type-mapping.md)
+- Look up the GeneXus type using [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
 - Set the property JsonName with the original SAP name, the same as the field name
 - Write one member line per field in the format:
 	```
