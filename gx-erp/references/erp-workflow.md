@@ -105,7 +105,7 @@ Primary tool (always use first): `mcp__sap-inspector__sap_get_function_metadata(
 	- Returns: complete parameter specification:
 		* Parameter name
 		* Direction: `IMPORTING`, `EXPORTING`, `CHANGING`, `TABLES`
-		* ABAP type name
+		* ABAP® type name
 		* Length and decimals	
 		* Mandatory flag
 		* Description
@@ -178,7 +178,7 @@ Apply the detected format consistently to every file generated in this phase.
 **SDT Generation**
 Load: [erp-sdt-generation](references/erp-sdt-generation.md), [nexa:global-output](../nexa/references/global-output.md) and  [nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
 
-For each ABAP® structure/table type: generate `<AbapTypeName>.gx` (GeneXus 19+) or `<AbapTypeName>.sdt.main.gx` (older)
+For each ABAP® structure/table type: generate `<AbapTypeName>.gx`
 	- Set `IsSapParameter = true` in `#Properties`
 	- Apply type mapping from [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
 
@@ -191,10 +191,9 @@ Load [erp-eo-generation](references/erp-eo-generation.md), [nexa:object-external
 **Connection Manager Generation**
 
 Generate the connection manager external object by copying the template in `./templates/gx-erp-connection.tpl`. Always generate this file; if the object already exists in the KB, the import tool in Phase 9 will update it without conflict. Include it in the Phase 9 import list.
-- GeneXus 19+: file name `GXEnterpriseSessionManager.gx`
-- GeneXus < 19: file name `GXEnterpriseSessionManager.externalobject.main.gx`
+- File name `GXEnterpriseSessionManager.gx`
 
-Generate the BOR ExternalObject — `<BorObjectName>SapEO.gx` (GeneXus 19+) / `<BorObjectName>SapEO.externalobject.main.gx` (older)
+Generate the BOR ExternalObject — `<BorObjectName>EO.gx`
 	- Set `IsSap = true` in `#Properties`
 	- Set `Type = 'SAP Connector Interface'` in `#Properties`
 	- Add one method per BAPI; reference SDTs generated earlier in this phase
