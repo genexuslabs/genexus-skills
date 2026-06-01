@@ -3,7 +3,7 @@ name: erp-workflow
 description: Detailed MCP tool invocation sequence for SAP® BAPI discovery and metadata retrieval
 ---
 
-Step-by-step MCP tool call sequence for each phase of the SAP skill workflow
+Step-by-step MCP tool call sequence for each phase of the gx-erp skill workflow
 
 ---
 
@@ -124,12 +124,12 @@ Use only as last-resort cross-reference, never as the authoritative source
 
 ## TYPE MAPPING
 No additional MCP tool calls are required in Phases 5–8. All logic is specified in SKILL.md and the dedicated reference files:
-Map all ABAP parameter types to GeneXus types using [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
+Map all ABAP® parameter types to GeneXus types using [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
 
 ## GENERATION PLAN
 
 Derive the list of object to generate
-	* Generate one SDT per unique ABAP structure/table type: [erp-sdt-generation](references/erp-sdt-generation.md) 
+	* Generate one SDT per unique ABAP® structure/table type: [erp-sdt-generation](references/erp-sdt-generation.md) 
 	* Generate one ExternalObject for each BOR object, create one method for each BAPI function: [erp-eo-generation](references/erp-eo-generation.md)
 	* Sample Procedure generation (optional) : [nexa:object-procedure](../nexa/references/object-procedure.md), [nexa:common-standard-variables](../nexa/references/common-standard-variables.md)
 
@@ -147,11 +147,11 @@ Present the generation plan to the user as structured lists or tables:
 
 * SDT entries
 	- Header: `SDT`, `ABAP Source Type`, `File`
-	- Items: `<SdtName>`, `<AbapTypeName>`, `<SdtName>.gx` (GeneXus 19+) / `<SdtName>.sdt.main.gx` (older)
+	- Items: `<SdtName>`, `<AbapTypeName>`, `<SdtName>.gx`
 
 * External Object entries
 	- Header: `ExternalObject`, `Method`, `File`
-	- Items: `<EoName>SapEO`, `<BapiName>`, `<EoName>SapEO.gx` (GeneXus 19+) / `<EoName>SapEO.externalobject.main.gx` (older)
+	- Items: `<EoName>EO`, `<BapiName>`, `<EoName>EO.gx`
 
 * Other objects
 Any other object required to fullfill the task
@@ -162,19 +162,11 @@ Wait for user approval before generating any file ( next step )
 
 ---
 
-## KB FORMAT DETECTION
+## FILE NAME PATTERN
 
-Before writing any file, determine the GeneXus KB version to select the correct file naming format:
-
-1. Locate the `.gxw` file in the KB root directory (e.g., `<kb-root>/<kb-name>.gxw`)
-2. Read `<FriendlyVersion>` from the XML
-3. If the major version number is **19 or higher** → use **new format**: `<ObjectName>.gx`
-4. Otherwise → use **old format**: `<ObjectName>.<type>.main.gx`
-
-| Format | Condition | SDT | ExternalObject | Procedure |
-|---|---|---|---|---|
-| New | GeneXus 19+ | `<Name>.gx` | `<Name>.gx` | `<Name>.gx` |
-| Old | GeneXus < 19 | `<Name>.sdt.main.gx` | `<Name>.externalobject.main.gx` | `<Name>.procedure.main.gx` |
+- SDT `<Name>.gx` 
+- ExternalObject `<Name>EO.gx`
+- Sample Procedure `<Name>.gx`
 
 Apply the detected format consistently to every file generated in this phase.
 
@@ -186,7 +178,7 @@ Apply the detected format consistently to every file generated in this phase.
 **SDT Generation**
 Load: [erp-sdt-generation](references/erp-sdt-generation.md), [nexa:global-output](../nexa/references/global-output.md) and  [nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
 
-For each ABAP structure/table type: generate `<AbapTypeName>.gx` (GeneXus 19+) or `<AbapTypeName>.sdt.main.gx` (older)
+For each ABAP® structure/table type: generate `<AbapTypeName>.gx` (GeneXus 19+) or `<AbapTypeName>.sdt.main.gx` (older)
 	- Set `IsSapParameter = true` in `#Properties`
 	- Apply type mapping from [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
 
@@ -213,7 +205,7 @@ Generate the BOR ExternalObject — `<BorObjectName>SapEO.gx` (GeneXus 19+) / `<
 **Sample Procedure (optional)**
 If the user requests a sample: load nexa Procedure syntax, standard-variables, and constraints, and `references/erp-filter-usage.md`
 
-Generate the sample procedure — `<BapiName>Sample.gx` (GeneXus 19+) / `<BapiName>Sample.procedure.main.gx` (older)
+Generate the sample procedure — `<BapiName>Sample.gx`
 	- Declare variables of the generated SDT types
 	- Declare Row variable(s) for individual filter row(s) if necessary
 	- Call the ExternalObject method
@@ -221,7 +213,7 @@ Generate the sample procedure — `<BapiName>Sample.gx` (GeneXus 19+) / `<BapiNa
 
 Check that all necessary objects are generated:
 
-	- All SDTs for each structure or ABAP table
+	- All SDTs for each structure or ABAP® table
 	- EO containing methods for BAPI functions and properties for BOR type key values and attributes
 	- Connection manager object
 	- Sample procedure if generated
@@ -251,5 +243,5 @@ Call Tool: `mcp__genexus__import_text_to_kb`
 - Always call `sap_ping` before any other SAP Inspector tool
 - Always call `sap_connection_status` before any metadata retrieval
 - Never pass SAP passwords to generated GeneXus files
-- Use `sap_get_function_metadata` as the single authoritative metadata source for all ABAP parameters
+- Use `sap_get_function_metadata` as the single authoritative metadata source for all ABAP® parameters
 - Never skip the validation step before importing

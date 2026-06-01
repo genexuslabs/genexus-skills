@@ -104,16 +104,10 @@ Save solution in the output directory specified by the user (default: current di
 
 Follow nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
 
-File naming conventions depend on the GeneXus KB version. Detect before generating:
-- Read the `<kb-root>/<kb-name>.gxw` file and inspect `<FriendlyVersion>`
-- GeneXus **19+** (new format): all objects use `<ObjectName>.gx`
-- GeneXus **< 19** (old format): objects use `<ObjectName>.<type>.main.gx`
-
-| Object | GeneXus 19+ | GeneXus < 19 |
-|---|---|---|
-| SDT | `<AbapTypeName>.gx` | `<AbapTypeName>.sdt.main.gx` |
-| ExternalObject | `<BorObjectName>SapEO.gx` | `<BorObjectName>SapEO.externalobject.main.gx` |
-| Procedure | `<BapiName>Sample.gx` | `<BapiName>Sample.procedure.main.gx` |
+File naming conventions:
+- SDT `<AbapTypeName>.gx`
+- ExternalObject `<BorObjectName>EO.gx`
+- Procedure `<BapiName>Sample.gx` 
 
 Reply with a Markdown-formatted text containing:
 - Focused execution plan before any file generation
@@ -157,7 +151,7 @@ Follow the plan in [erp-workflow](references/erp-workflow.md): Step-by-step MCP 
 ---
 
 # PROPERTIES KNOWLEDGE
-Two SAP-specific property values must always be set for these generated object types:
+Two SAP® system connection specific property values must always be set for these generated object types:
 `ExternalObject`: `Type` = `SAP Connector Interface` 
 `SDT`: `IsSapParameter` = `true`
 
@@ -189,7 +183,7 @@ Before finalizing any work, verify:
 - [ ] `Type = 'SAP Connector Interface'` is set on the `ExternalObject`
 - [ ] Every `ExternalObject` method parameter has `AccessType` and `Type` defined
 - [ ] `Collection = 'True'` is set on the item of every TABLE-type `SDT`
-- [ ] KB version detected from `<kb-name>.gxw` and correct file naming applied (`<Name>.gx` for GeneXus 19+, `<Name>.<type>.main.gx` for older versions)
+- [ ] File naming follows: `<AbapTypeName>.gx` and `<BorName>EO.gx`
 - [ ] `validate_kb_text_files` passed with no errors
 - [ ] `import_text_to_kb` completed successfully
 - [ ] No SAP credentials, host names, or connection details appear in any generated file

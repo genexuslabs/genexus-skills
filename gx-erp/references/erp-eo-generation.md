@@ -26,9 +26,7 @@ Create one `ExternalObject` for:
 - Standalone BAPI: derive from function group or BAPI business purpose + `SapEO` suffix
 	- Example: `BAPI_CUSTOMER_GETDETAIL2` → `CustomerSapEO`
 
-File name depends on GeneXus KB version (read `<kb-name>.gxw` → `<FriendlyVersion>`):
-- GeneXus **19+**: `<Name>.gx`
-- GeneXus **< 19**: `<Name>.externalobject.main.gx`
+File name: `<Name>EO.gx`
 ---
 
 # EXTERNALOBJECT STRUCTURE TEMPLATE
@@ -246,6 +244,6 @@ ExternalObject CustomerSapEO
 - Never add `NetFrameworkAssemblyName`, `NetFrameworkConstructorParameters`, `NetAssemblyName`, or `JavaConstructorParameters` to SAP `ExternalObject` objects — those are reserved for `GXEnterpriseSessionManager`; the required external name and package ID properties are listed in the PROPERTIES SECTION above
 - Apply nexa global constraints: [nexa:global-constraints](../nexa/references/global-constraints.md)
 - Apply nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
-- Default output mode is `single-file`: one file per `ExternalObject` — named `<Name>.gx` for GeneXus 19+, `<Name>.externalobject.main.gx` for older versions
+- Default output mode is `single-file`: one file per `ExternalObject` — named `<Name>EO.gx`
 - Property bracket values `[…]` must use `'single-quoted'` strings; `!"…"` is forbidden in bracket annotations — it is valid only in executable source regions
 

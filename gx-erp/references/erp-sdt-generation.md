@@ -1,12 +1,12 @@
 ---
 name: erp-sdt-generation
-description: Rules for generating GeneXus SDT objects from SAP® ABAP structure and table parameters
+description: Rules for generating GeneXus SDT objects from SAP® ABAP® structure and table parameters
 ---
 
 Apply these rules in conjunction with the nexa SDT syntax reference:
 [nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
 
-And the ABAP type mapping reference:
+And the ABAP® type mapping reference:
 [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
 
 And the nexa output policy:
@@ -38,9 +38,7 @@ Examples:
 - `BAPIMATRAS` → `BAPIMATRAS`
 - `ZSALESORDER_HEADER` → `SALESORDER_HEADER`
 
-File name depends on GeneXus KB version (read `<kb-name>.gxw` → `<FriendlyVersion>`):
-- GeneXus **19+**: `<SdtName>.gx`
-- GeneXus **< 19**: `<SdtName>.sdt.main.gx`
+File name: `<SdtName>.gx`
 
 ---
 
@@ -164,4 +162,4 @@ SDT BAPIMONEY
 - `Collection = 'True'` is set on the root item only for TABLE-type `SDT` objects
 - Apply nexa global constraints: [nexa:global-constraints](../nexa/references/global-constraints.md)
 - Apply nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
-- Default output mode is `single-file`: one file per `SDT` — named `<SdtName>.gx` for GeneXus 19+, `<SdtName>.sdt.main.gx` for older versions
+- Default output mode is `single-file`: one file per `SDT` — named `<SdtName>.gx`
