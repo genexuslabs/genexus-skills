@@ -18,28 +18,34 @@ Call Tool: `mcp__sap-inspector__sap_ping`
 
 ---
 
-## RFC CONNECTION CHECK
-Call Tool: `mcp__sap-inspector__sap_connection_status`
-- No parameters required
-- Success (RFC connected): proceed to discovery (phase 3)
+## RFC CONNECTION CHECK  ⚠️ MANDATORY GATE — NEVER SKIP
 
-On failure or unconfigured state:
-- Inform the user that no SAP RFC connection is configured
-- Request the following credentials:
-	* `host` — SAP application server hostname or IP
-	* `systemNumber` — SAP system number (two-digit, e.g., `00`)
-	* `client` — SAP client (three-digit, e.g., `100`)
-	* `systemId` — SAP System ID (three-letter, e.g., `IDE`)
-	* `user` — SAP username
-	* `password` — SAP password
-	* `language` — Logon language (e.g., `EN`)
-- Call Tool `mcp__sap-inspector__sap_configure_connection` with those values
-- Call Tool `mcp__sap-inspector__sap_connection_status` again to confirm
-- If still failing: **stop** and report the error message verbatim to the user
+> **This step is a hard prerequisite for every subsequent phase.**
+> Do NOT proceed to discovery, metadata retrieval, or code generation until `sap_connection_status` returns a confirmed live connection.
+> Skipping this check is a workflow violation regardless of prior session state or cached credentials.
+
+Call Tool: `mcp__genexus__sap_connection_status`
+- No parameters required
+- **On success** (RFC connected): proceed to discovery (phase 3)
+- **On failure or unconfigured state**: **STOP ALL PROCESSING IMMEDIATELY**
+	* Notify the user: "The SAP RFC connection is not active. No metadata retrieval or code generation will proceed until the connection is confirmed."
+	* Request the following credentials:
+		- `host` — SAP application server hostname or IP
+		- `systemNumber` — SAP system number (two-digit, e.g., `00`)
+		- `client` — SAP client (three-digit, e.g., `100`)
+		- `systemId` — SAP System ID (three-letter, e.g., `IDE`)
+		- `user` — SAP username
+		- `password` — SAP password
+		- `language` — Logon language (e.g., `EN`)
+	* Call Tool `mcp__genexus__sap_configure_connection` with those values
+	* Call Tool `mcp__genexus__sap_connection_status` again to confirm
+	* If still failing: **STOP** and report the error message verbatim — do not attempt any further SAP tool calls
 
 ---
 
 ## BAPI / RFC Discovery
+> **Pre-condition:** `sap_connection_status` must have returned success in this session before reaching this phase. If not, return to RFC CONNECTION CHECK.
+
 Choose one option path based on user input:
 
 ---
@@ -92,6 +98,8 @@ Call Tool: `mcp__sap-inspector__sap_search_rfc_functions`
 ---
 
 ## METADATA RETRIEVAL
+> **Pre-condition:** `sap_connection_status` must have returned success in this session. If not, return to RFC CONNECTION CHECK before calling any metadata tool.
+
 Primary tool (always use first): `mcp__sap-inspector__sap_get_function_metadata(functionName)`
 	- Parameter: `functionName` — exact RFC function name (from search or BOR `AbapName`)
 	- Returns: complete parameter specification:
@@ -139,11 +147,11 @@ Present the generation plan to the user as structured lists or tables:
 
 * SDT entries
 	- Header: `SDT`, `ABAP Source Type`, `File`
-	- Items: `<SdtName>`, `<AbapTypeName>`, `<SdtName>.sdt.main.gx`
+	- Items: `<SdtName>`, `<AbapTypeName>`, `<SdtName>.gx` (GeneXus 19+) / `<SdtName>.sdt.main.gx` (older)
 
 * External Object entries
 	- Header: `ExternalObject`, `Method`, `File`
-	- Items: <EoName>SapEO`, `<BapiName>`, `<EoName>SapEO.externalobject.main.gx`
+	- Items: `<EoName>SapEO`, `<BapiName>`, `<EoName>SapEO.gx` (GeneXus 19+) / `<EoName>SapEO.externalobject.main.gx` (older)
 
 * Other objects
 Any other object required to fullfill the task
@@ -154,12 +162,31 @@ Wait for user approval before generating any file ( next step )
 
 ---
 
+## KB FORMAT DETECTION
+
+Before writing any file, determine the GeneXus KB version to select the correct file naming format:
+
+1. Locate the `.gxw` file in the KB root directory (e.g., `<kb-root>/<kb-name>.gxw`)
+2. Read `<FriendlyVersion>` from the XML
+3. If the major version number is **19 or higher** → use **new format**: `<ObjectName>.gx`
+4. Otherwise → use **old format**: `<ObjectName>.<type>.main.gx`
+
+| Format | Condition | SDT | ExternalObject | Procedure |
+|---|---|---|---|---|
+| New | GeneXus 19+ | `<Name>.gx` | `<Name>.gx` | `<Name>.gx` |
+| Old | GeneXus < 19 | `<Name>.sdt.main.gx` | `<Name>.externalobject.main.gx` | `<Name>.procedure.main.gx` |
+
+Apply the detected format consistently to every file generated in this phase.
+
+---
+
 ## GENERATION
+> **Pre-condition:** `sap_connection_status` must have returned success in this session. If not confirmed, stop and return to RFC CONNECTION CHECK — do not write any file.
 
 **SDT Generation**
 Load: [sap-sdt-generation](references/sap-sdt-generation.md), [nexa:global-output](../nexa/references/global-output.md) and  [nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
 
-For each ABAP structure/table type: generate `<AbapTypeName>.sdt.main.gx`
+For each ABAP structure/table type: generate `<AbapTypeName>.gx` (GeneXus 19+) or `<AbapTypeName>.sdt.main.gx` (older)
 	- Set `IsSapParameter = true` in `#Properties`
 	- Apply type mapping from [sap-abap-type-mapping](references/sap-abap-type-mapping.md)
 
@@ -171,9 +198,11 @@ Load [sap-eo-generation](references/sap-eo-generation.md), [nexa:object-external
 
 **Connection Manager Generation**
 
-Generate the connection manager external object `GxEnterpriseSessionManager.externalobject.main.gx` by copying the template in `./templates/gx-sap-connection.tpl`. Always generate this file; if the object already exists in the KB, the import tool in Phase 9 will update it without conflict. Include it in the Phase 9 import list.
+Generate the connection manager external object by copying the template in `./templates/gx-sap-connection.tpl`. Always generate this file; if the object already exists in the KB, the import tool in Phase 9 will update it without conflict. Include it in the Phase 9 import list.
+- GeneXus 19+: file name `GXEnterpriseSessionManager.gx`
+- GeneXus < 19: file name `GXEnterpriseSessionManager.externalobject.main.gx`
 
-Generate `<BorObjectName>SapEO.externalobject.main.gx`
+Generate the BOR ExternalObject — `<BorObjectName>SapEO.gx` (GeneXus 19+) / `<BorObjectName>SapEO.externalobject.main.gx` (older)
 	- Set `IsSap = true` in `#Properties`
 	- Set `Type = 'SAP Connector Interface'` in `#Properties`
 	- Add one method per BAPI; reference SDTs generated earlier in this phase
@@ -184,7 +213,7 @@ Generate `<BorObjectName>SapEO.externalobject.main.gx`
 **Sample Procedure (optional)**
 If the user requests a sample: load nexa Procedure syntax, standard-variables, and constraints, and `references/sap-filter-usage.md`
 
-Generate `<BapiName>Sample.procedure.main.gx`
+Generate the sample procedure — `<BapiName>Sample.gx` (GeneXus 19+) / `<BapiName>Sample.procedure.main.gx` (older)
 	- Declare variables of the generated SDT types
 	- Declare Row variable(s) for individual filter row(s) if necessary
 	- Call the ExternalObject method

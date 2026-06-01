@@ -38,7 +38,9 @@ Examples:
 - `BAPIMATRAS` → `BAPIMATRAS`
 - `ZSALESORDER_HEADER` → `SALESORDER_HEADER`
 
-File name: `<SdtName>.sdt.main.gx`
+File name depends on GeneXus KB version (read `<kb-name>.gxw` → `<FriendlyVersion>`):
+- GeneXus **19+**: `<SdtName>.gx`
+- GeneXus **< 19**: `<SdtName>.sdt.main.gx`
 
 ---
 
@@ -162,4 +164,4 @@ SDT BAPIMONEY
 - `Collection = 'True'` is set on the root item only for TABLE-type `SDT` objects
 - Apply nexa global constraints: [nexa:global-constraints](../nexa/references/global-constraints.md)
 - Apply nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
-- Default output mode is `single-file`: one `<SdtName>.sdt.main.gx` per `SDT`
+- Default output mode is `single-file`: one file per `SDT` — named `<SdtName>.gx` for GeneXus 19+, `<SdtName>.sdt.main.gx` for older versions

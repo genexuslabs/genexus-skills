@@ -1,10 +1,11 @@
 ---
-name: gx-sap
-description: GeneXus SAP integration skill for generating ExternalObjects and SDTs from SAP RFC/BAPI metadata via SAP Inspector MCP
+name: gx-erp-connecctor
+description: GeneXus connector skill for SAP® systems, enabling automatic generation of ExternalObjects and SDTs based on live SAP® RFC/BAPI metadata. This skill connects to SAP® Systems using the SAP Inspector MCP, retrieves function metadata, maps ABAP types to GeneXus types, and produces ready-to-import GeneXus objects for seamless SAP® integration
+
 ---
 
-Specialized skill for mapping SAP RFC/BAPI function metadata to GeneXus `ExternalObject` and `SDT` objects using the SAP Connector Interface type.
-Used for any SAP-related request when a GeneXus KB is open or GeneXus context is active
+Specialized skill for mapping SAP RFC/BAPI function metadata to GeneXus `ExternalObject` and `SDT` objects using the GX Enterprise Connector Interface type.
+Used for any SAP® Systems related request when a GeneXus KB is open or GeneXus context is active
 
 ---
 
@@ -34,7 +35,8 @@ Do NOT use this skill for:
 - Infrastructure or network configuration
 
 ## Responsibilities
-- Verify SAP Inspector MCP availability before any SAP operation
+- Verify SAP Inspector MCP availability via `sap_ping` before any SAP operation — stop if unavailable
+- **Confirm a live RFC connection via `sap_connection_status` at the start of every session** — this is mandatory before any discovery, metadata retrieval, or code generation; if the connection is not live, notify the user and stop until it is restored
 - Guide RFC connection setup when credentials are not configured and set the credentials using `sap_configure_connection`
 - Navigate the BOR tree or search RFC functions to locate target BAPIs
 - Retrieve complete parameter metadata with `sap_get_function_metadata`
@@ -102,10 +104,16 @@ Save solution in the output directory specified by the user (default: current di
 
 Follow nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
 
-File naming conventions:
-- SDT: `<AbapTypeName>.sdt.main.gx`
-- ExternalObject: `<BorObjectName>SapEO.externalobject.main.gx`
-- Procedure (sample): `<BapiName>Sample.procedure.main.gx`
+File naming conventions depend on the GeneXus KB version. Detect before generating:
+- Read the `<kb-root>/<kb-name>.gxw` file and inspect `<FriendlyVersion>`
+- GeneXus **19+** (new format): all objects use `<ObjectName>.gx`
+- GeneXus **< 19** (old format): objects use `<ObjectName>.<type>.main.gx`
+
+| Object | GeneXus 19+ | GeneXus < 19 |
+|---|---|---|
+| SDT | `<AbapTypeName>.gx` | `<AbapTypeName>.sdt.main.gx` |
+| ExternalObject | `<BorObjectName>SapEO.gx` | `<BorObjectName>SapEO.externalobject.main.gx` |
+| Procedure | `<BapiName>Sample.gx` | `<BapiName>Sample.procedure.main.gx` |
 
 Reply with a Markdown-formatted text containing:
 - Focused execution plan before any file generation
@@ -173,7 +181,7 @@ Two SAP-specific property values must always be set for these generated object t
 # QUALITY CHECKLIST
 Before finalizing any work, verify:
 - [ ] `sap_ping` succeeded before any other SAP Inspector MCP call
-- [ ] `sap_connection_status` confirmed a live RFC connection
+- [ ] `sap_connection_status` called **in this session** and returned a confirmed live connection — not assumed from prior sessions or from `sap_ping` alone
 - [ ] `sap_get_function_metadata` was called for every target RFC function
 - [ ] Every ABAP structure/table parameter has a corresponding `SDT` object
 - [ ] `IsSapParameter = true` is set on every generated `SDT`
@@ -181,7 +189,7 @@ Before finalizing any work, verify:
 - [ ] `Type = 'SAP Connector Interface'` is set on the `ExternalObject`
 - [ ] Every `ExternalObject` method parameter has `AccessType` and `Type` defined
 - [ ] `Collection = 'True'` is set on the item of every TABLE-type `SDT`
-- [ ] File naming follows: `<AbapTypeName>.sdt.main.gx` and `<BorName>SapEO.externalobject.main.gx`
+- [ ] KB version detected from `<kb-name>.gxw` and correct file naming applied (`<Name>.gx` for GeneXus 19+, `<Name>.<type>.main.gx` for older versions)
 - [ ] `validate_kb_text_files` passed with no errors
 - [ ] `import_text_to_kb` completed successfully
 - [ ] No SAP credentials, host names, or connection details appear in any generated file
@@ -189,6 +197,8 @@ Before finalizing any work, verify:
 ---
 
 # CONSTRAINTS
+- **Never perform discovery, metadata retrieval, or code generation without first calling `sap_connection_status` and receiving a confirmed live connection in the current session** — prior session state, cached credentials, or a successful `sap_ping` do NOT substitute for this check
+- If `sap_connection_status` fails or returns an unconfigured state: notify the user immediately and stop all processing — do not call any other SAP tool, do not write any file
 - Never expose SAP host, credentials, or connection details in generated artifacts
 - Never invent ABAP type lengths or decimal values; read them exclusively from MCP metadata
 - Never create `SDT` objects for scalar parameters that have no sub-fields
