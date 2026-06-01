@@ -1,6 +1,6 @@
 ---
-name: sap-filter-usage
-description: How to build SAP BAPI selection table filters in GeneXus Procedure code
+name: erp-filter-usage
+description: How to build SAP® BAPI® selection table filters in GeneXus Procedure code
 ---
 
 Apply these rules when generating sample `Procedure` code that calls SAP BAPIs with filter parameters
@@ -90,7 +90,7 @@ MaterialEO.GetList(&PLANTSELECTION, &MATNRSELECTION, &MAXROWS, &MATNRLIST, &RETU
 # BEST PRACTICES
 
 - Prefer `EQ` for exact matches; use `BT` for bounded ranges
-- Avoid leading wildcards (`*ABC`) — they force full table scans in SAP
+- Avoid leading wildcards (`*ABC`) — they force full table scans in the SAP® system
 - Limit result sizes with parameters like `MAXROWS`
 - Reuse SAP standard selection structures; do not invent custom filter types
 - Validate required filter fields before calling the BAPI method

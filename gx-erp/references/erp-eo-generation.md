@@ -1,6 +1,6 @@
 ---
-name: sap-eo-generation
-description: Rules for generating GeneXus ExternalObject objects for SAP BOR objects and BAPI functions
+name: erp-eo-generation
+description: Rules for generating GeneXus ExternalObject objects for SAP® BOR objects and BAPI functions
 ---
 
 Apply these rules in conjunction with the nexa ExternalObject syntax reference:
@@ -26,7 +26,7 @@ Create one `ExternalObject` for:
 - Standalone BAPI: derive from function group or BAPI business purpose + `SapEO` suffix
 	- Example: `BAPI_CUSTOMER_GETDETAIL2` → `CustomerSapEO`
 
-File name: `<Name>.externalobject.main.gx`
+File name: `<Name>EO.gx`
 ---
 
 # EXTERNALOBJECT STRUCTURE TEMPLATE
@@ -109,7 +109,7 @@ Examples:
 # PARAMETER TYPE MAPPING
 ABAP Parameter Kind → GeneXus `Type` Assignment
 
-Scalar (no sub-fields, maps to built-in) → Built-in GeneXus type from [sap-abap-type-mapping](references/sap-abap-type-mapping.md)
+Scalar (no sub-fields, maps to built-in) → Built-in GeneXus type from [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
 ABAP structure type → `SDT` name generated in the SDT phase
 ABAP table type → `SDT` name generated in the SDT phase (the `SDT` itself carries `Collection = 'True'`)
 ---
@@ -244,6 +244,6 @@ ExternalObject CustomerSapEO
 - Never add `NetFrameworkAssemblyName`, `NetFrameworkConstructorParameters`, `NetAssemblyName`, or `JavaConstructorParameters` to SAP `ExternalObject` objects — those are reserved for `GXEnterpriseSessionManager`; the required external name and package ID properties are listed in the PROPERTIES SECTION above
 - Apply nexa global constraints: [nexa:global-constraints](../nexa/references/global-constraints.md)
 - Apply nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
-- Default output mode is `single-file`: one `<Name>.externalobject.main.gx` per `ExternalObject`
+- Default output mode is `single-file`: one file per `ExternalObject` — named `<Name>EO.gx`
 - Property bracket values `[…]` must use `'single-quoted'` strings; `!"…"` is forbidden in bracket annotations — it is valid only in executable source regions
 
