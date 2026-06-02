@@ -29,7 +29,7 @@ Root
 │  │  └─ SKILL.md
 │  └─ README.md              : group description
 │
-├─ gx-erp/                   : gx skil for connecting with SAP® ERP systems 
+├─ gx-erp/                   : skill for connecting with SAP® ERP systems 
 │  ├─ references/            : workflow and generation instruction for each object
 │  ├─ templates/             : template for common object ( connection object)
 │  └─ SKILL.md               : skill definition
