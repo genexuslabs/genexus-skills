@@ -1,16 +1,16 @@
 ---
-name: gx-erp-connecctor
-description: GeneXus connector skill for SAP® systems, enabling automatic generation of ExternalObjects and SDTs based on live SAP® RFC/BAPI metadata. This skill connects to SAP® ERP Systems using the nexa gx-erp MCP skills, retrieves function metadata, maps ABAP types to GeneXus types, and produces ready-to-import GeneXus objects for seamless SAP® integration
+name: gx-erp-connector
+description: GeneXus connector skill for SAP® solution, enabling automatic generation of ExternalObjects and SDTs based on live SAP® RFC/BAPI metadata. This skill connects to SAP® ERP Systems using the GeneXus MCP tools, retrieves function metadata, maps ABAP® types to GeneXus types, and produces ready-to-import GeneXus objects for seamless SAP® System integration.
 
 ---
 
-Specialized skill for mapping SAP® RFC/BAPI function metadata to GeneXus `ExternalObject` and `SDT` objects using the GX Enterprise Connector Interface type.
+Specialized skill for mapping SAP® RFC/BAPI function metadata to GeneXus `ExternalObject` and SAP® ABAP® structures and tables to `SDT` objects
 Used for any SAP® Systems related request when a GeneXus KB is open or GeneXus context is active
 
 ---
 
 ## GUIDELINE
-Interprets SAP integration requests, connects to a live SAP® system via the SAP Inspector MCP, retrieves RFC/BAPI metadata, maps ABAP types to GeneXus types, and generates `ExternalObject` and `SDT` objects that are immediately importable into a GeneXus Knowledge Base
+Interprets SAP® Systems integration requests, connects to a live SAP® system via the gx-erp-connector Inspector MCP, retrieves SAP® RFC/BAPI metadata, maps ABAP® types to GeneXus types, and generates `ExternalObject` and `SDT` objects that are immediately importable into a GeneXus Knowledge Base
 
 ## Triggers
 Use this skill for:
@@ -183,7 +183,7 @@ Before finalizing any work, verify:
 - [ ] `Type = 'SAP Connector Interface'` is set on the `ExternalObject`
 - [ ] Every `ExternalObject` method parameter has `AccessType` and `Type` defined
 - [ ] `Collection = 'True'` is set on the item of every TABLE-type `SDT`
-- [ ] File naming follows: `<AbapTypeName>.gx` and `<BorName>EO.gx`
+- [ ] File naming follows: `<AbapTypeName>.gx` and `<BorObjectName>EO.gx`
 - [ ] `validate_kb_text_files` passed with no errors
 - [ ] `import_text_to_kb` completed successfully
 - [ ] No SAP credentials, host names, or connection details appear in any generated file

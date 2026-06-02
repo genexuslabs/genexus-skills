@@ -1,14 +1,14 @@
 ---
 name: erp-workflow
-description: Detailed MCP tool invocation sequence for SAP® BAPI discovery and metadata retrieval
+description: Detailed MCP tool invocation sequence for SAP® BAPI® discovery and metadata retrieval
 ---
 
-Step-by-step MCP tool call sequence for each phase of the gx-erp skill workflow
+Step-by-step MCP tool call sequence for each phase of the gx-erp-connector skill workflow
 
 ---
 
 ## MCP AVAILABILITY CHECK
-Call Tool: `mcp__sap-inspector__sap_ping`
+Call Tool: `mcp__genexus__sap_ping`
 	- No parameters required
 	- Success: returns version and environment info
 	- Failure (tool not found / connection refused): **stop all processing**
@@ -52,33 +52,33 @@ Choose one option path based on user input:
 
 # Option A — RFC FUNCTION SEARCH (by name) - User supplies an exact BAPI or RFC name
 
-Call Tool: `mcp__sap-inspector__sap_search_functions`
+Call Tool: `mcp__genexus__sap_search_functions`
 - Parameter: `pattern` — supports wildcards (e.g., `BAPI_SALESORDER_*`, `*CUSTOMER*`)
 - Returns: list of matching RFC function names with descriptions
 - If a single match: proceed directly with it
 - If multiple matches: present the list and ask the user to confirm the target function name(s)
-- If no matches: suggest broadening the wildcard pattern or switching to BOR navigation (Phase 3B)
+- If no matches: suggest broadening the wildcard pattern or switching to SAP® BOR® navigation (Phase 3B)
 
 ---
 
-# Option B — BOR TREE NAVIGATION (by business object) - User wants to browse by business domain (BOR)
+# Option B — SAP® BOR TREE NAVIGATION (by business object) - User wants to browse the SAP® Business Object Repository (BOR) by business domain
 
 Steps: 
 
 — Get top-level BOR modules:
-Call Tool: `mcp__sap-inspector__sap_get_bor_tree`
+Call Tool: `mcp__genexus__sap_get_bor_tree`
 	* Parameter: `maxLevel = 1` (to list top-level BOR modules) 
 	* Returns: list of top-level application area nodes (e.g., SD, MM, FI, HR, PP)
 	* Present the list to the user and ask which area to explore
 
 — Drill down to object type:
-Call Tool: `mcp__sap-inspector__sap_get_bor_node_children`
+Call Tool: `mcp__genexus__sap_get_bor_node_children`
 	* Parameter: `nodeId` from the previous call
 	* Returns: child nodes (sub-areas or object types)
 	* Repeat this step iteratively until reaching the target BOR object type node
 
 — Get object methods:
-Call Tool: `mcp__sap-inspector__sap_get_bor_object_detail`
+Call Tool: `mcp__genexus__sap_get_bor_object_detail`
 	* Parameter: `objectType` — the BOR object type identifier (e.g., `BUS2032`)
 	* Returns: object metadata including list of methods, each with an `AbapName` field
 	* Extract **`AbapName` this is the actual RFC function name** — use it as the input to `sap_get_function_metadata`
@@ -88,11 +88,11 @@ Call Tool: `mcp__sap-inspector__sap_get_bor_object_detail`
 
 # Option C — FUNCTION GROUP SEARCH
 Step 1 — Find function group (if name unknown):
-Call Tool: `mcp__sap-inspector__sap_search_function_groups`
+Call Tool: `mcp__genexus__sap_search_function_groups`
 	- Parameter: `pattern` — wildcard supported
 
 Step 2 — Search functions within group:
-Call Tool: `mcp__sap-inspector__sap_search_rfc_functions`
+Call Tool: `mcp__genexus__sap_search_rfc_functions`
 	- Parameters: `pattern` (function name wildcard), `group` (function group name)
 
 ---
@@ -100,7 +100,7 @@ Call Tool: `mcp__sap-inspector__sap_search_rfc_functions`
 ## METADATA RETRIEVAL
 > **Pre-condition:** `sap_connection_status` must have returned success in this session. If not, return to RFC CONNECTION CHECK before calling any metadata tool.
 
-Primary tool (always use first): `mcp__sap-inspector__sap_get_function_metadata(functionName)`
+Primary tool (always use first): `mcp__genexus__sap_get_function_metadata(functionName)`
 	- Parameter: `functionName` — exact RFC function name (from search or BOR `AbapName`)
 	- Returns: complete parameter specification:
 		* Parameter name
@@ -112,34 +112,30 @@ Primary tool (always use first): `mcp__sap-inspector__sap_get_function_metadata(
 		* Sub-fields for structure parameters (recursively)
 Call once per target RFC function
 
-Supplementary tool (only when structure sub-fields are absent from primary response): `mcp__sap-inspector__sap_get_object_metadata`
+Supplementary tool (only when structure sub-fields are absent from primary response): `mcp__genexus__sap_get_object_metadata`
 	- Parameter: `objectName` — the ABAP DDIC structure or table type name
 	- Returns: all fields with their types, lengths, and descriptions
 	- Use this to fill in structure fields that `sap_get_function_metadata` did not return inline
 
-Do NOT use `mcp__sap-inspector__sap_get_bor_method_parameters` as metadata source: It is less reliable than `sap_get_function_metadata`
+Do NOT use `mcp__genexus__sap_get_bor_method_parameters` as metadata source: It is less reliable than `mcp__genexus__sap_get_function_metadata`
 Use only as last-resort cross-reference, never as the authoritative source
 
 ---
 
 ## TYPE MAPPING
 No additional MCP tool calls are required in Phases 5–8. All logic is specified in SKILL.md and the dedicated reference files:
-Map all ABAP® parameter types to GeneXus types using [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
+Map all ABAP® parameter types to GeneXus types using [erp-abap-type-mapping](erp-abap-type-mapping.md)
 
 ## GENERATION PLAN
 
-Derive the list of object to generate
-	* Generate one SDT per unique ABAP® structure/table type: [erp-sdt-generation](references/erp-sdt-generation.md) 
-	* Generate one ExternalObject for each BOR object, create one method for each BAPI function: [erp-eo-generation](references/erp-eo-generation.md)
+Derive the list of objects to generate
+	* Generate one SDT per unique ABAP® structure/table type: [erp-sdt-generation](erp-sdt-generation.md) 
+	* Generate one ExternalObject for each BOR object, create one method for each BAPI function: [erp-eo-generation](erp-eo-generation.md)
 	* Sample Procedure generation (optional) : [nexa:object-procedure](../nexa/references/object-procedure.md), [nexa:common-standard-variables](../nexa/references/common-standard-variables.md)
 
 Consult those files directly when executing the corresponding phase
 
 ---
-
-## APPROVAL OF PLAN
-
-Present the generation plan to the user as two tables:
 
 ## APPROVAL OF PLAN
 
@@ -154,7 +150,7 @@ Present the generation plan to the user as structured lists or tables:
 	- Items: `<EoName>EO`, `<BapiName>`, `<EoName>EO.gx`
 
 * Other objects
-Any other object required to fullfill the task
+Any other object required to fulfill the task
 	- Header `Object Type`, `ObjectName`, `File`
 	- Items GeneXus object type, GeneXus Name, Actual file to be generated
 
@@ -166,7 +162,7 @@ Wait for user approval before generating any file ( next step )
 
 - SDT `<Name>.gx` 
 - ExternalObject `<Name>EO.gx`
-- Sample Procedure `<Name>.gx`
+- Sample Procedure `<BapiName>Sample.gx`
 
 Apply the detected format consistently to every file generated in this phase.
 
@@ -176,16 +172,16 @@ Apply the detected format consistently to every file generated in this phase.
 > **Pre-condition:** `sap_connection_status` must have returned success in this session. If not confirmed, stop and return to RFC CONNECTION CHECK — do not write any file.
 
 **SDT Generation**
-Load: [erp-sdt-generation](references/erp-sdt-generation.md), [nexa:global-output](../nexa/references/global-output.md) and  [nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
+Load: [erp-sdt-generation](erp-sdt-generation.md), [nexa:global-output](../nexa/references/global-output.md) and  [nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
 
 For each ABAP® structure/table type: generate `<AbapTypeName>.gx`
 	- Set `IsSapParameter = true` in `#Properties`
-	- Apply type mapping from [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
+	- Apply type mapping from [erp-abap-type-mapping](erp-abap-type-mapping.md)
 
 **ExternalObject Generation**
 Generate one external object for each BOR Type that contains a BAPI function, the BAPI functions are mapped to methods of the EO
-The key attributes   of the BOR object are mapped to properties of the EO
-Load [erp-eo-generation](references/erp-eo-generation.md), [nexa:object-external-object](../nexa/references/object-external-object.md) and [nexa:global-output](../nexa/references/global-output.md)
+The key attributes of the BOR object are mapped to properties of the EO
+Load [erp-eo-generation](erp-eo-generation.md), [nexa:object-external-object](../nexa/references/object-external-object.md) and [nexa:global-output](../nexa/references/global-output.md)
 
 
 **Connection Manager Generation**

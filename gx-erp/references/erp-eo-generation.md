@@ -1,6 +1,6 @@
 ---
 name: erp-eo-generation
-description: Rules for generating GeneXus ExternalObject objects for SAP® BOR objects and BAPI functions
+description: Rules for generating GeneXus ExternalObject objects for mapping SAP® Business Object Repository (BOR) objects and BAPI® functions
 ---
 
 Apply these rules in conjunction with the nexa ExternalObject syntax reference:
@@ -21,18 +21,18 @@ Create one `ExternalObject` for:
 
 # NAMING CONVENTION
 `ExternalObject` name:
-- BOR-based: derive a readable English name from the BOR object description + `SapEO` suffix
-	- Example: BOR object `BUS2032` (Sales Order) → `SalesOrderSapEO`
-- Standalone BAPI: derive from function group or BAPI business purpose + `SapEO` suffix
-	- Example: `BAPI_CUSTOMER_GETDETAIL2` → `CustomerSapEO`
+- BOR-based: derive a readable English name from the BOR object description + `EO` suffix
+	- Example: BOR object `BUS2032` (Sales Order) → `SalesOrderEO`
+- Standalone BAPI: derive from function group or BAPI business purpose + `EO` suffix
+	- Example: `BAPI_CUSTOMER_GETDETAIL2` → `CustomerEO`
 
-File name: `<Name>EO.gx`
+File name: `<Name>.gx` (the name already ends with the `EO` suffix, e.g. `SalesOrderEO.gx`)
 ---
 
 # EXTERNALOBJECT STRUCTURE TEMPLATE
 
 ```genexus
-ExternalObject <Name>SapEO
+ExternalObject <Name>EO
 {
 	#GenericTypes
 	#End
@@ -97,7 +97,7 @@ Examples:
 ---
 # PARAMETER ACCESS TYPE MAPPING
 
- <ABAP Direction> -> <ExternalObject `AccessType`>
+<ABAP Direction> -> <ExternalObject `AccessType`>
 
 `IMPORTING` → `In`
 `EXPORTING` → `Out`
@@ -109,7 +109,7 @@ Examples:
 # PARAMETER TYPE MAPPING
 ABAP Parameter Kind → GeneXus `Type` Assignment
 
-Scalar (no sub-fields, maps to built-in) → Built-in GeneXus type from [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
+Scalar (no sub-fields, maps to built-in) → Built-in GeneXus type from [erp-abap-type-mapping](erp-abap-type-mapping.md)
 ABAP structure type → `SDT` name generated in the SDT phase
 ABAP table type → `SDT` name generated in the SDT phase (the `SDT` itself carries `Collection = 'True'`)
 ---
@@ -148,13 +148,13 @@ ExternalPackageName = 'com.genexus.sap'
 
 Replace `<BAPI_GROUP>` with the RFC function group name (e.g., `BAPI_SALESORDER`)
 
-The properties `NetFrameworkExternalName`, `NetPackageId`, `JavaExternalName`, and `ExternalPackageName` are required for runtime dispatch by the SAP Connector, they are not optional
+The properties `NetFrameworkExternalName`, `NetPackageId`, `JavaExternalName`, and `ExternalPackageName` are required for runtime dispatch by the SAP Connector; they are not optional
 ---
 
 # EXAMPLE — Customer Detail BAPI
 
 ```genexus
-ExternalObject CustomerSapEO
+ExternalObject CustomerEO
 {
 	
 	#GenericTypes
@@ -215,7 +215,7 @@ ExternalObject CustomerSapEO
 				[
 					AccessType = 'Out',
 					Description = 'Return code',
-					Type = 'BAPIRET1'
+					Type = 'BAPIRET2'
 				]
 			}
 		}
@@ -244,6 +244,6 @@ ExternalObject CustomerSapEO
 - Never add `NetFrameworkAssemblyName`, `NetFrameworkConstructorParameters`, `NetAssemblyName`, or `JavaConstructorParameters` to SAP `ExternalObject` objects — those are reserved for `GXEnterpriseSessionManager`; the required external name and package ID properties are listed in the PROPERTIES SECTION above
 - Apply nexa global constraints: [nexa:global-constraints](../nexa/references/global-constraints.md)
 - Apply nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
-- Default output mode is `single-file`: one file per `ExternalObject` — named `<Name>EO.gx`
+- Default output mode is `single-file`: one file per `ExternalObject` — named `<Name>.gx` (the name already ends with the `EO` suffix)
 - Property bracket values `[…]` must use `'single-quoted'` strings; `!"…"` is forbidden in bracket annotations — it is valid only in executable source regions
 

@@ -93,4 +93,4 @@ MaterialEO.GetList(&PLANTSELECTION, &MATNRSELECTION, &MAXROWS, &MATNRLIST, &RETU
 - Avoid leading wildcards (`*ABC`) — they force full table scans in the SAP® system
 - Limit result sizes with parameters like `MAXROWS`
 - Reuse SAP standard selection structures; do not invent custom filter types
-- Validate required filter fields before calling the BAPI method
+- Validate required filter fields before calling the SAP BAPI method

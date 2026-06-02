@@ -92,8 +92,8 @@ When an ABAP structure field is itself a named structure type, create a separate
 # FIELD MAPPING STEPS
 For each field returned by `sap_get_function_metadata` (or `sap_get_object_metadata`):
 
-- Read: field name, ABAP type, length, decimals, description
-- Keep field name as-is (original SAP name — uppercase with underscores, e.g. DESCR_LOW, SIGN)
+- Read: field name, SAP ABAP® type, length, decimals, description
+- Keep field name as-is (original SAP® name — uppercase with underscores, e.g. DESCR_LOW, SIGN)
 - Look up the GeneXus type using [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
 - Set the property JsonName with the original SAP name, the same as the field name
 - Write one member line per field in the format:
