@@ -1,5 +1,6 @@
 # genexus-skills
 Repository with AI skills and references for GeneXus-oriented development workflows, providing compact, actionable, and reusable guidance for coding agents
+
 ---
 
 ## STRUCTURE
