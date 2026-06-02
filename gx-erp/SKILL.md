@@ -15,7 +15,7 @@ Interprets SAP integration requests, connects to a live SAP® system via the SAP
 ## Triggers
 Use this skill for:
 - Requests to generate GeneXus objects from SAP BAPIs or RFC functions
-- Requests to browse the SAP BOR (Business Object Repository)
+- Requests to browse the SAP® BusinessObjects Repository (SAP BOR)
 - Requests to search SAP function groups or RFC functions
 - Requests to configure or test an SAP RFC connection
 - Questions about ABAP-to-GeneXus type mapping
