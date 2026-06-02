@@ -1,6 +1,6 @@
 ---
 name: gx-erp-connector
-description: GeneXus connector skill for SAP® solution, enabling automatic generation of ExternalObjects and SDTs based on live SAP® RFC/BAPI metadata. This skill connects to SAP® ERP Systems using the GeneXus MCP tools, retrieves function metadata, maps ABAP® types to GeneXus types, and produces ready-to-import GeneXus objects for seamless SAP® System integration.
+description: GeneXus connector skill for SAP® systems, enabling automatic generation of ExternalObjects and SDTs based on live SAP® RFC/BAPI metadata. This skill connects to SAP® ERP Systems using the nexa gx-erp MCP skills, retrieves function metadata, maps ABAP types to GeneXus types, and produces ready-to-import GeneXus objects for seamless SAP® integration
 
 ---
 
@@ -15,7 +15,7 @@ Interprets SAP® Systems integration requests, connects to a live SAP® system v
 ## Triggers
 Use this skill for:
 - Requests to generate GeneXus objects from SAP BAPIs or RFC functions
-- Requests to browse the SAP BOR (Business Object Repository)
+- Requests to browse the SAP® BusinessObjects Repository (SAP BOR)
 - Requests to search SAP function groups or RFC functions
 - Requests to configure or test an SAP RFC connection
 - Questions about ABAP-to-GeneXus type mapping
