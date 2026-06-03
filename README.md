@@ -29,9 +29,9 @@ Root
 │  │  └─ SKILL.md
 │  └─ README.md              : group description
 │
-├─ gx-sap/                   : gx skil for SAP ERP connectivity
+├─ gx-erp-connector/         : skill for connecting with SAP® ERP systems 
 │  ├─ references/            : workflow and generation instruction for each object
-│  ├─ templates/             : template for common object ( connection object)
+│  ├─ templates/             : template for common object (connection object)
 │  └─ SKILL.md               : skill definition
 │  
 ├─ other-skills/             : additional skill groups
@@ -229,3 +229,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+# TRADEMARKS
+
+SAP, SAP HANA, SAP Fiori, ABAP, BAPI, and other SAP products and services mentioned herein are trademarks or registered trademarks of SAP SE (or an SAP affiliate company) in Germany and other countries. GeneXus is not affiliated with, endorsed by, or sponsored by SAP SE. All other trademarks are the property of their respective owners.

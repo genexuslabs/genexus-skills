@@ -1,6 +1,6 @@
 ---
-name: sap-abap-type-mapping
-description: Authoritative ABAP-to-GeneXus type conversion table for SAP parameter mapping
+name: erp-abap-type-mapping
+description: Authoritative ABAP® to GeneXus type conversion table for SAP® parameter mapping
 ---
 
 Use this file as the single source of truth for converting ABAP field types to GeneXus data types.
@@ -9,8 +9,7 @@ Always consult this file before assigning a `DataType` to any `SDT` member or `E
 ---
 
 # MAPPING TABLE
-Mapping from ABAP Type/ ABAP Alias to GeneXus Types
-
+Mapping from ABAP Type/ ABAP Alias to GeneXus types:
 - `CHAR(n)` / `C` → `Character(n)` if `n <= 8`, `VarChar(n)` if `9 <= n <= 256`, otherwise `VarChar(256)`; fixed-length string
 - `NUMC(n)` / `N` → `Character(n)`;  NUMC are characters, never map to `Numeric`
 - `INT4` / `I` → `Numeric(4.0)`; 32-bit integer
@@ -43,9 +42,9 @@ Mapping from ABAP Type/ ABAP Alias to GeneXus Types
 - Read `type`, `length`, and `decimals` from `sap_get_function_metadata` for every field before mapping
 - Apply the table above using the **exact** length and decimal values from the metadata
 - For `CHAR(n)`:
-	* n ≤ 8 → `Character(n)`
-	* 9 ≤ n ≤ 256 → `VarChar(n)`
-	* n > 256 → `VarChar(256)` unless the field is clearly long-form content, then `LongVarChar(4K)`
+  * n ≤ 8 → `Character(n)`
+  * 9 ≤ n ≤ 256 → `VarChar(n)`
+  * n > 256 → `VarChar(256)` unless the field is clearly long-form content, then `LongVarChar(4K)`
 - For `DEC` / `CURR` / `QUAN`: always use `Numeric(n.m)` with exact values; never default to `Numeric(10.2)`
 - For `FLTP`: always `Numeric(14.7)` regardless of reported metadata length
 - For `NUMC`: always `Character(n)`; never map to `Numeric` even though digits are involved
@@ -58,7 +57,7 @@ Mapping from ABAP Type/ ABAP Alias to GeneXus Types
 ---
 
 # COMMON SAP STANDARD TYPES
-Frequently encountered types across BAPIs — canonical GeneXus definitions are in [sap-sdt-generation](sap-sdt-generation.md)
+Frequently encountered types across BAPI® functions — canonical GeneXus definitions are in [erp-sdt-generation](erp-sdt-generation.md)
 
 ---
 

@@ -1,16 +1,16 @@
 ---
-name: sap-sdt-generation
-description: Rules for generating GeneXus SDT objects from SAP ABAP structure and table parameters
+name: erp-sdt-generation
+description: Rules for generating GeneXus SDT objects from ABAP® structure and table parameters
 ---
 
 Apply these rules in conjunction with the nexa SDT syntax reference:
-[nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
+[nexa:object-structured-data-type](../../nexa/references/object-structured-data-type.md)
 
 And the ABAP type mapping reference:
-[sap-abap-type-mapping](references/sap-abap-type-mapping.md)
+[erp-abap-type-mapping](erp-abap-type-mapping.md)
 
 And the nexa output policy:
-[nexa:global-output](../nexa/references/global-output.md)
+[nexa:global-output](../../nexa/references/global-output.md)
 
 ---
 
@@ -23,28 +23,30 @@ Create one `SDT` for each of the following:
 Do NOT create `SDT` objects for:
 - Top-level scalar parameters with no sub-fields (e.g., a single CHAR field as IMPORTING param)
 - Parameters whose ABAP type maps directly to a single GeneXus built-in type
-Reuse rule: if two BAPIs reference the same ABAP type name, generate the `SDT` once and reference it from both `ExternalObject` methods
+Reuse rule: if two BAPI® functions reference the same ABAP type name, generate the `SDT` once and reference it from both `ExternalObject` methods
 
 ---
 
 # NAMING CONVENTION
-SDT name = ABAP structure/type name, preserved as-is (original SAP casing)
+SDT name = ABAP structure/type name, preserved as-is (original SAP® casing)
+
 Conversion rules:
 - Remove leading `Z_`, `Y_`, `/`, namespace prefixes
 - Do NOT convert to PascalCase — keep the original uppercase name with underscores
+
 Examples:
 - `BAPIRET2` → `BAPIRET2`
 - `BAPI_MATERIAL_RET2001` → `BAPI_MATERIAL_RET2001`
 - `BAPIMATRAS` → `BAPIMATRAS`
 - `ZSALESORDER_HEADER` → `SALESORDER_HEADER`
 
-File name: `<SdtName>.sdt.main.gx`
+File name: `<SdtName>.gx`
 
 ---
 
 # SDT STRUCTURE TEMPLATE
-## For STRUCTURE parameters (single record)
 
+## For STRUCTURE parameters (single record)
 ```genexus
 SDT <SdtName>
 {
@@ -59,6 +61,7 @@ SDT <SdtName>
 	#End
 }
 ```
+
 ## For TABLE parameters (collection of records)
 Set `Collection = 'True'` on the root item so callers use it directly as a collection variable:
 
@@ -94,7 +97,7 @@ For each field returned by `sap_get_function_metadata` (or `sap_get_object_metad
 
 - Read: field name, ABAP type, length, decimals, description
 - Keep field name as-is (original SAP name — uppercase with underscores, e.g. DESCR_LOW, SIGN)
-- Look up the GeneXus type using [sap-abap-type-mapping](references/sap-abap-type-mapping.md)
+- Look up the GeneXus type using [erp-abap-type-mapping](erp-abap-type-mapping.md)
 - Set the property JsonName with the original SAP name, the same as the field name
 - Write one member line per field in the format:
 	```
@@ -136,8 +139,8 @@ SDT BAPIRET2
 	#End
 }
 ```
-## BAPIMONEY
 
+## BAPIMONEY
 ```genexus
 SDT BAPIMONEY
 {
@@ -160,6 +163,6 @@ SDT BAPIMONEY
 - Every member must have `DataType` defined, and `JsonName` set with the original field name
 - `Description` is recommended for every member; populate from ABAP field description when available
 - `Collection = 'True'` is set on the root item only for TABLE-type `SDT` objects
-- Apply nexa global constraints: [nexa:global-constraints](../nexa/references/global-constraints.md)
-- Apply nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
-- Default output mode is `single-file`: one `<SdtName>.sdt.main.gx` per `SDT`
+- Apply nexa global constraints: [nexa:global-constraints](../../nexa/references/global-constraints.md)
+- Apply nexa output policy: [nexa:global-output](../../nexa/references/global-output.md)
+- Default output mode is `single-file`: one file per `SDT` — named `<SdtName>.gx`
