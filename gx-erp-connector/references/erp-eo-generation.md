@@ -21,10 +21,10 @@ Create one `ExternalObject` for:
 
 # NAMING CONVENTION
 `ExternalObject` name:
-- BOR-based: derive a readable English name from the BOR object description + `ErpEO` suffix
-  * Example: BOR object `BUS2032` (Sales Order) → `SalesOrderErpEO`
-- Standalone BAPI: derive from function group or BAPI business purpose + `ErpEO` suffix
-  * Example: `BAPI_CUSTOMER_GETDETAIL2` → `CustomerErpEO`
+- BOR-based: derive a readable English name from the BOR object description + `EO` suffix
+  * Example: BOR object `BUS2032` (Sales Order) → `SalesOrderEO`
+- Standalone BAPI: derive from function group or BAPI business purpose + `EO` suffix
+  * Example: `BAPI_CUSTOMER_GETDETAIL2` → `CustomerEO`
 
 File name: `<Name>.gx`
 
@@ -158,7 +158,7 @@ The properties `NetFrameworkExternalName`, `NetPackageId`, `JavaExternalName`, a
 
 # EXAMPLE — Customer Detail BAPI
 ```genexus
-ExternalObject CustomerErpEO
+ExternalObject CustomerEO
 {
 	
 	#GenericTypes

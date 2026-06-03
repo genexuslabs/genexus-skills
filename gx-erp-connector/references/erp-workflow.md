@@ -189,7 +189,7 @@ Load [erp-eo-generation](erp-eo-generation.md), [nexa:object-external-object](..
 Generate the connection manager external object by copying the template in `./templates/gx-erp-connection.tpl`. Always generate this file; if the object already exists in the KB, the import tool in Phase 9 will update it without conflict. Include it in the Phase 9 import list.
 - File name `GXEnterpriseSessionManager.gx`
 
-Generate the BOR ExternalObject — `<BorObjectName>ErpEO.gx`
+Generate the BOR ExternalObject — `<BorObjectName>EO.gx`
 	- Set `IsSap = true` in `#Properties`
 	- Set `Type = 'SAP Connector Interface'` in `#Properties`
 	- Add one method per BAPI; reference SDTs generated earlier in this phase
