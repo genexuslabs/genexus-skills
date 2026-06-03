@@ -1,5 +1,6 @@
 # genexus-skills
 Repository with AI skills and references for GeneXus-oriented development workflows, providing compact, actionable, and reusable guidance for coding agents
+
 ---
 
 ## STRUCTURE
@@ -30,7 +31,7 @@ Root
 │
 ├─ gx-erp-connector/         : skill for connecting with SAP® ERP systems 
 │  ├─ references/            : workflow and generation instruction for each object
-│  ├─ templates/             : template for common object ( connection object)
+│  ├─ templates/             : template for common object (connection object)
 │  └─ SKILL.md               : skill definition
 │  
 ├─ other-skills/             : additional skill groups

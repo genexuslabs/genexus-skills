@@ -1,6 +1,6 @@
 ---
 name: erp-eo-generation
-description: Rules for generating GeneXus ExternalObject objects for SAP® BOR objects and BAPI functions
+description: Rules for generating GeneXus ExternalObject objects that map SAP® Business Object Repository (BOR) objects and BAPI functions, including their ABAP® parameter types
 ---
 
 Apply these rules in conjunction with the nexa ExternalObject syntax reference:
@@ -219,7 +219,7 @@ ExternalObject CustomerErpEO
 				[
 					AccessType = 'Out',
 					Description = 'Return code',
-					Type = 'BAPIRET1'
+					Type = 'BAPIRET2'
 				]
 			}
 		}

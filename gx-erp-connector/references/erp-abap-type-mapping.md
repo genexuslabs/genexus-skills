@@ -3,7 +3,7 @@ name: erp-abap-type-mapping
 description: Authoritative ABAP® to GeneXus type conversion table for SAP® parameter mapping
 ---
 
-Use this file as the single source of truth for converting ABAP® field types to GeneXus data types.
+Use this file as the single source of truth for converting ABAP field types to GeneXus data types.
 Always consult this file before assigning a `DataType` to any `SDT` member or `ExternalObject` parameter
 
 ---

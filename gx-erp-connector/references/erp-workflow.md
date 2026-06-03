@@ -1,6 +1,6 @@
 ---
 name: erp-workflow
-description: Detailed MCP tool invocation sequence for SAP® BAPI discovery and metadata retrieval
+description: Detailed MCP tool invocation sequence for SAP® BAPI discovery, metadata retrieval, and ABAP®-to-GeneXus type mapping
 ---
 
 Step-by-step MCP tool call sequence for each phase of the gx-erp-connector skill workflow
@@ -100,7 +100,7 @@ Primary tool (always use first): `mcp__sap-inspector__sap_get_function_metadata(
 - Returns: complete parameter specification:
   * Parameter name
   * Direction: `IMPORTING`, `EXPORTING`, `CHANGING`, `TABLES`
-  * ABAP® type name
+  * ABAP type name
   * Length and decimals	
   * Mandatory flag
   * Description
@@ -225,5 +225,5 @@ Call Tool: `mcp__genexus__import_text_to_kb`
 - Always call `sap_ping` before any other ERP Inspector tool
 - Always call `sap_connection_status` before any metadata retrieval
 - Never pass SAP passwords to generated GeneXus files
-- Use `sap_get_function_metadata` as the single authoritative metadata source for all ABAP® parameters
+- Use `sap_get_function_metadata` as the single authoritative metadata source for all ABAP parameters
 - Never skip the validation step before importing

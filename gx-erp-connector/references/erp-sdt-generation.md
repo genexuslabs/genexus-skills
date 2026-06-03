@@ -6,7 +6,7 @@ description: Rules for generating GeneXus SDT objects from ABAP® structure and 
 Apply these rules in conjunction with the nexa SDT syntax reference:
 [nexa:object-structured-data-type](../../nexa/references/object-structured-data-type.md)
 
-And the ABAP® type mapping reference:
+And the ABAP type mapping reference:
 [erp-abap-type-mapping](erp-abap-type-mapping.md)
 
 And the nexa output policy:
