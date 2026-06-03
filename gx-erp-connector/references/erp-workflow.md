@@ -222,7 +222,7 @@ Call Tool: `mcp__genexus__import_text_to_kb`
 ---
 
 # CONSTRAINTS 
-- Always call `sap_ping` before any other SAP Inspector tool
+- Always call `sap_ping` before any other ERP Inspector tool
 - Always call `sap_connection_status` before any metadata retrieval
 - Never pass SAP passwords to generated GeneXus files
 - Use `sap_get_function_metadata` as the single authoritative metadata source for all ABAP® parameters

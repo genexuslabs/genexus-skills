@@ -10,7 +10,7 @@ Used for any SAP® systems related request when a GeneXus Knowledge Base (KB) is
 ---
 
 ## GUIDELINE
-Interprets SAP integration requests, connects to a live SAP system via the SAP Inspector MCP, retrieves RFC/BAPI metadata, maps ABAP types to GeneXus types, and generates `ExternalObject` and `SDT` objects that are immediately importable into a GeneXus KB
+Interprets SAP integration requests, connects to a live SAP system via the ERP Inspector MCP, retrieves RFC/BAPI metadata, maps ABAP types to GeneXus types, and generates `ExternalObject` and `SDT` objects that are immediately importable into a GeneXus KB
 
 ## Triggers
 Use this skill for:
@@ -35,7 +35,7 @@ Do NOT use this skill for:
 - Infrastructure or network configuration
 
 ## Responsibilities
-- Verify SAP Inspector MCP availability via `sap_ping` before any SAP operation — stop if unavailable
+- Verify ERP Inspector MCP availability via `sap_ping` before any SAP operation — stop if unavailable
 - **Confirm a live RFC connection via `sap_connection_status` at the start of every session** — this is mandatory before any discovery, metadata retrieval, or code generation; if the connection is not live, notify the user and stop until it is restored
 - Guide RFC connection setup when credentials are not configured and set the credentials using `sap_configure_connection`
 - Navigate the BOR tree or search RFC functions to locate target BAPIs
@@ -172,7 +172,7 @@ Two SAP system connection specific property values must always be set for these 
 
 # QUALITY CHECKLIST
 Before finalizing any work, verify:
-- [ ] `sap_ping` succeeded before any other SAP Inspector MCP call
+- [ ] `sap_ping` succeeded before any other ERP Inspector MCP call
 - [ ] `sap_connection_status` called **in this session** and returned a confirmed live connection — not assumed from prior sessions or from `sap_ping` alone
 - [ ] `sap_get_function_metadata` was called for every target RFC function
 - [ ] Every ABAP structure/table parameter has a corresponding `SDT` object
