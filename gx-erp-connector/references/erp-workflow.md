@@ -3,7 +3,7 @@ name: erp-workflow
 description: Detailed MCP tool invocation sequence for SAP® BAPI discovery and metadata retrieval
 ---
 
-Step-by-step MCP tool call sequence for each phase of the gx-erp skill workflow
+Step-by-step MCP tool call sequence for each phase of the gx-erp-connector skill workflow
 
 ---
 
