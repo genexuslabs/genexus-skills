@@ -105,7 +105,7 @@ Follow nexa output policy: [nexa:global-output](../nexa/references/global-output
 
 File naming conventions:
 - SDT `<AbapTypeName>.gx`
-- ExternalObject `<BorObjectName>EO.gx`
+- ExternalObject `<BorObjectName>ErpEO.gx`
 - Procedure `<BapiName>Sample.gx` 
 
 Reply with a Markdown-formatted text containing:
@@ -181,7 +181,7 @@ Before finalizing any work, verify:
 - [ ] `Type = 'SAP Connector Interface'` is set on the `ExternalObject`
 - [ ] Every `ExternalObject` method parameter has `AccessType` and `Type` defined
 - [ ] `Collection = 'True'` is set on the item of every TABLE-type `SDT`
-- [ ] File naming follows: `<AbapTypeName>.gx` and `<BorName>EO.gx`
+- [ ] File naming follows: `<AbapTypeName>.gx` and `<BorObjectName>ErpEO.gx`
 - [ ] `validate_kb_text_files` passed with no errors
 - [ ] `import_text_to_kb` completed successfully
 - [ ] No SAP credentials, host names, or connection details appear in any generated file

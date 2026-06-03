@@ -140,7 +140,7 @@ Present the generation plan to the user as structured lists or tables:
 
 - External Object entries
   * Header: `ExternalObject`, `Method`, `File`
-  * Items: `<EoName>EO`, `<BapiName>`, `<EoName>EO.gx`
+  * Items: `<EoName>`, `<BapiName>`, `<EoName>.gx`
 
 - Other objects
 Any other object required to fullfill the task
@@ -153,7 +153,7 @@ Wait for user approval before generating any file ( next step )
 
 ## FILE NAME PATTERN
 - SDT `<Name>.gx` 
-- ExternalObject `<Name>EO.gx`
+- ExternalObject `<Name>.gx`
 - Sample Procedure `<Name>.gx`
 
 Apply the detected format consistently to every file generated in this phase.
@@ -179,7 +179,7 @@ Load [erp-eo-generation](references/erp-eo-generation.md), [nexa:object-external
 Generate the connection manager external object by copying the template in `./templates/gx-erp-connection.tpl`. Always generate this file; if the object already exists in the KB, the import tool in Phase 9 will update it without conflict. Include it in the Phase 9 import list.
 - File name `GXEnterpriseSessionManager.gx`
 
-Generate the BOR ExternalObject — `<BorObjectName>EO.gx`
+Generate the BOR ExternalObject — `<BorObjectName>ErpEO.gx`
 - Set `IsSap = true` in `#Properties`
 - Set `Type = 'SAP Connector Interface'` in `#Properties`
 - Add one method per BAPI; reference SDTs generated earlier in this phase
