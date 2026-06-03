@@ -22,15 +22,14 @@ Create one `ExternalObject` for:
 # NAMING CONVENTION
 `ExternalObject` name:
 - BOR-based: derive a readable English name from the BOR object description + `SapEO` suffix
-	- Example: BOR object `BUS2032` (Sales Order) → `SalesOrderSapEO`
+  * Example: BOR object `BUS2032` (Sales Order) → `SalesOrderSapEO`
 - Standalone BAPI: derive from function group or BAPI business purpose + `SapEO` suffix
-	- Example: `BAPI_CUSTOMER_GETDETAIL2` → `CustomerSapEO`
+  * Example: `BAPI_CUSTOMER_GETDETAIL2` → `CustomerSapEO`
 
 File name: `<Name>EO.gx`
 ---
 
 # EXTERNALOBJECT STRUCTURE TEMPLATE
-
 ```genexus
 ExternalObject <Name>SapEO
 {
@@ -44,7 +43,7 @@ ExternalObject <Name>SapEO
 	
 	<MethodName>
 	[
-		Description = '<bapi description; include actual RFC function name>'
+		Description = '<BAPI description; include actual RFC function name>'
 		IsStatic = '<True|False>'
 	]
 	{
@@ -94,9 +93,10 @@ Replace `<BAPI_GROUP>` with the RFC function group name (e.g., `BAPI_SALESORDER`
 Examples:
 - `BAPI_CUSTOMER_GETDETAIL2` → method `GetDetail`, Description = `'Get customer detail (BAPI_CUSTOMER_GETDETAIL2)'`, `NetFrameworkExternalName` = `'BAPI_CUSTOMER_GETDETAIL2'`, `JavaExternalName` = `'BAPI_CUSTOMER_GETDETAIL2'`
 - `BAPI_SALESORDER_CREATEFROMDAT2` → method `CreateFromData`, Description = `'Create sales order (BAPI_SALESORDER_CREATEFROMDAT2)'`, `NetFrameworkExternalName` = `'BAPI_SALESORDER_CREATEFROMDAT2'`, `JavaExternalName` = `'BAPI_SALESORDER_CREATEFROMDAT2'`
----
-# PARAMETER ACCESS TYPE MAPPING
 
+---
+
+# PARAMETER ACCESS TYPE MAPPING
  <ABAP Direction> -> <ExternalObject `AccessType`>
 
 `IMPORTING` → `In`
@@ -105,13 +105,16 @@ Examples:
 `TABLES` → `InOut`
 
 > **Exception — BAPIRET2:** When a TABLES parameter of type `BAPIRET2` is used exclusively as a return collection (carries no input data), map it with `AccessType = 'Out'`. See the RETURN PARAMETER section below
+
 ---
+
 # PARAMETER TYPE MAPPING
 ABAP Parameter Kind → GeneXus `Type` Assignment
 
 Scalar (no sub-fields, maps to built-in) → Built-in GeneXus type from [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
 ABAP structure type → `SDT` name generated in the SDT phase
 ABAP table type → `SDT` name generated in the SDT phase (the `SDT` itself carries `Collection = 'True'`)
+
 ---
 
 # PARAMETER COMPLETENESS
@@ -123,9 +126,10 @@ Steps to verify completeness before writing the `ExternalObject`:
 3. Confirm the parameter count in the generated method matches the metadata exactly
 
 If a parameter's type cannot be resolved (e.g., an unknown structure), generate the SDT for it as part of the same task rather than skipping the parameter
----
-# RETURN PARAMETER (BAPIRET2)
 
+---
+
+# RETURN PARAMETER (BAPIRET2)
 Most BAPIs expose a RETURN parameter of type BAPIRET2 in the TABLES direction
 Always map it with:
 - `AccessType = 'Out'` — this is an explicit override of the TABLES → `InOut` rule; BAPIRET2 carries no input data and must be `Out`
@@ -134,7 +138,6 @@ Always map it with:
 ---
 
 # PROPERTIES SECTION
-
 The `#Properties` section must always contain all of the following:
 
 ```
@@ -149,10 +152,10 @@ ExternalPackageName = 'com.genexus.sap'
 Replace `<BAPI_GROUP>` with the RFC function group name (e.g., `BAPI_SALESORDER`)
 
 The properties `NetFrameworkExternalName`, `NetPackageId`, `JavaExternalName`, and `ExternalPackageName` are required for runtime dispatch by the SAP Connector, they are not optional
+
 ---
 
 # EXAMPLE — Customer Detail BAPI
-
 ```genexus
 ExternalObject CustomerSapEO
 {
@@ -235,6 +238,8 @@ ExternalObject CustomerSapEO
 }
 ```
 
+---
+
 # CONSTRAINTS
 - `IsSap = true` and `Type = 'SAP Connector Interface'` must always be set in `#Properties`
 - Every method parameter must have `AccessType` and `Type`
@@ -246,4 +251,3 @@ ExternalObject CustomerSapEO
 - Apply nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
 - Default output mode is `single-file`: one file per `ExternalObject` — named `<Name>EO.gx`
 - Property bracket values `[…]` must use `'single-quoted'` strings; `!"…"` is forbidden in bracket annotations — it is valid only in executable source regions
-

@@ -1,21 +1,21 @@
 ---
 name: gx-erp-connector
-description: GeneXus connector skill for SAP® systems, enabling automatic generation of ExternalObjects and SDTs based on live SAP® RFC/BAPI metadata. This skill connects to SAP® ERP Systems using the GeneXus MCP tools, retrieves function metadata, maps ABAP types to GeneXus types, and produces ready-to-import GeneXus objects for seamless SAP® integration
+description: GeneXus connector skill for SAP® systems, enabling automatic generation of ExternalObjects and SDTs based on live SAP® RFC/BAPI metadata. This skill connects to SAP® ERP systems using the GeneXus MCP tools, retrieves function metadata, maps ABAP® types to GeneXus types, and produces ready-to-import GeneXus objects for seamless SAP® integration
 
 ---
 
 Specialized skill for mapping SAP® RFC/BAPI function metadata to GeneXus `ExternalObject` and `SDT` objects using the GX Enterprise Connector Interface type.
-Used for any SAP® Systems related request when a GeneXus KB is open or GeneXus context is active
+Used for any SAP® systems related request when a GeneXus Knowledge Base (KB) is open or GeneXus context is active
 
 ---
 
 ## GUIDELINE
-Interprets SAP integration requests, connects to a live SAP® system via the SAP Inspector MCP, retrieves RFC/BAPI metadata, maps ABAP types to GeneXus types, and generates `ExternalObject` and `SDT` objects that are immediately importable into a GeneXus Knowledge Base
+Interprets SAP integration requests, connects to a live SAP system via the SAP Inspector MCP, retrieves RFC/BAPI metadata, maps ABAP types to GeneXus types, and generates `ExternalObject` and `SDT` objects that are immediately importable into a GeneXus KB
 
 ## Triggers
 Use this skill for:
 - Requests to generate GeneXus objects from SAP BAPIs or RFC functions
-- Requests to browse the SAP BOR (Business Object Repository)
+- Requests to browse the SAP Business Objects Repository (BOR)
 - Requests to search SAP function groups or RFC functions
 - Requests to configure or test an SAP RFC connection
 - Questions about ABAP-to-GeneXus type mapping
@@ -23,13 +23,13 @@ Use this skill for:
 - Any SAP-related request when a GeneXus KB is open or GeneXus context is active
 
 ## SAP + GeneXus rule
-When an SAP related request arrives (connect to an SAP® system, call an SAP® system BAPI, read data from an SAP® system, etc.):
+When an SAP related request arrives (connect to an SAP system, call an SAP system BAPI, read data from an SAP system, etc.):
 - Always go through the gx-erp-connector skill for both metadata and code
 - Choose the GeneXus code option
 - Generate the required GeneXus objects without asking (SDT, Procedure, API, External objects)
 
 Do NOT use this skill for:
-- General GeneXus object modeling unrelated to SAP® software/systems
+- General GeneXus object modeling unrelated to SAP software/systems
 - SAP ABAP development or SAP Basis administration
 - Questions about non-SAP external systems
 - Infrastructure or network configuration
@@ -43,7 +43,7 @@ Do NOT use this skill for:
 - Present a concrete execution plan before writing any file
 - Apply ABAP-to-GeneXus type mapping strictly and exhaustively using the mapping reference
 - Generate `SDT` objects for all ABAP structure and table parameters
-- Generate `ExternalObject` objects with `IsSap = true` and `Type = 'SAP Connector Interface'` for every BAPI object, mapping each RFC-BAPI function as a method of the EO
+- Generate `ExternalObject` objects with `IsSap = true` and `Type = 'SAP Connector Interface'` for every BAPI object, mapping each RFC/BAPI function as a method of the EO
 - Optionally generate a sample `Procedure` demonstrating invocation
 - Validate generated files using the GeneXus MCP `validate_kb_text_files` tool
 - Import validated files using `import_text_to_kb`
@@ -60,47 +60,46 @@ Do NOT use this skill for:
 Each reference has a specific purpose:
 - [erp-abap-type-mapping](references/erp-abap-type-mapping.md): Authoritative ABAP→GeneXus type conversion table
 - [erp-workflow](references/erp-workflow.md): Step-by-step MCP tool call sequence per workflow phase
-- [erp-sdt-generation](references/erp-sdt-generation.md): SDT generation rules and syntax for SAP/BAPI function parameters
+- [erp-sdt-generation](references/erp-sdt-generation.md): SDT generation rules and syntax for SAP BAPI function parameters
 - [erp-eo-generation](references/erp-eo-generation.md): ExternalObject generation rules and syntax for SAP BAPIs
 - [erp-filter-usage](references/erp-filter-usage.md): Selection table filter patterns for SAP BAPI functions
 
 For GeneXus object syntax, always load from nexa references by relative path:
-
-ExternalObject syntax: [nexa:object-external-object](../nexa/references/object-external-object.md)
-SDT syntax: [nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
-Procedure syntax: [nexa:object-procedure](../nexa/references/object-procedure.md)
-Output policy: [nexa:global-output](../nexa/references/global-output.md)
-Constraints: [nexa:global-constraints](../nexa/references/global-constraints.md)
-ExternalObject properties: [nexa:properties-object-external-object](../nexa/references/properties-object-external-object.md)
-SDT properties: [nexa:properties-object-structured-data-type](../nexa/references/properties-object-structured-data-type.md)
-Data types: [nexa:common-data-types](../nexa/references/common-data-types.md)
-Standard variables: [nexa:common-standard-variables](../nexa/references/common-standard-variables.md)
+- ExternalObject syntax: [nexa:object-external-object](../nexa/references/object-external-object.md)
+- SDT syntax: [nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
+- Procedure syntax: [nexa:object-procedure](../nexa/references/object-procedure.md)
+- Output policy: [nexa:global-output](../nexa/references/global-output.md)
+- Constraints: [nexa:global-constraints](../nexa/references/global-constraints.md)
+- ExternalObject properties: [nexa:properties-object-external-object](../nexa/references/properties-object-external-object.md)
+- SDT properties: [nexa:properties-object-structured-data-type](../nexa/references/properties-object-structured-data-type.md)
+- Data types: [nexa:common-data-types](../nexa/references/common-data-types.md)
+- Standard variables: [nexa:common-standard-variables](../nexa/references/common-standard-variables.md)
 
 Resource selection protocol per workflow steps:
 - MCP check / Connection: [erp-workflow](references/erp-workflow.md) only
 - Discovery / Metadata: [erp-workflow](references/erp-workflow.md) only
 - Type mapping: [erp-workflow](references/erp-workflow.md), [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
 - Generation plan / Approval: 
-	[erp-workflow](references/erp-workflow.md)
-	[erp-sdt-generation](references/erp-sdt-generation.md)
-	[erp-eo-generation](references/erp-eo-generation.md)
+  * [erp-workflow](references/erp-workflow.md)
+  * [erp-sdt-generation](references/erp-sdt-generation.md)
+  * [erp-eo-generation](references/erp-eo-generation.md)
 - Generation:
-	* [erp-workflow](references/erp-workflow.md)
-	* [erp-sdt-generation](references/erp-sdt-generation.md)
-	* [erp-eo-generation](references/erp-eo-generation.md)
-	* [nexa:object-external-object](../nexa/references/object-external-object.md)
-	* [nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
-	* [nexa:global-output](../nexa/references/global-output.md)
-	* [erp-filter-usage](references/erp-filter-usage.md)
-	* [nexa:object-procedure](../nexa/references/object-procedure.md)
-	* [nexa:common-standard-variables](../nexa/references/common-standard-variables.md)
-	* [nexa:global-constraints](../nexa/references/global-constraints.md)
+  * [erp-workflow](references/erp-workflow.md)
+  * [erp-sdt-generation](references/erp-sdt-generation.md)
+  * [erp-eo-generation](references/erp-eo-generation.md)
+  * [nexa:object-external-object](../nexa/references/object-external-object.md)
+  * [nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
+  * [nexa:global-output](../nexa/references/global-output.md)
+  * [erp-filter-usage](references/erp-filter-usage.md)
+  * [nexa:object-procedure](../nexa/references/object-procedure.md)
+  * [nexa:common-standard-variables](../nexa/references/common-standard-variables.md)
+  * [nexa:global-constraints](../nexa/references/global-constraints.md)
 - Validation / Import: [erp-workflow](references/erp-workflow.md)
 
 ---
 
 # OUTPUT
-Save solution in the output directory specified by the user (default: current directory).
+Save solution in the output directory specified by the user (default: current directory)
 
 Follow nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
 
@@ -122,7 +121,6 @@ Format rules:
 ---
 
 # WORKFLOW
-
 Follow the plan in [erp-workflow](references/erp-workflow.md): Step-by-step MCP tool call sequence per workflow phase
 
 ---
@@ -151,9 +149,9 @@ Follow the plan in [erp-workflow](references/erp-workflow.md): Step-by-step MCP 
 ---
 
 # PROPERTIES KNOWLEDGE
-Two SAP® system connection specific property values must always be set for these generated object types:
-`ExternalObject`: `Type` = `SAP Connector Interface` 
-`SDT`: `IsSapParameter` = `true`
+Two SAP system connection specific property values must always be set for these generated object types:
+- `ExternalObject`: `Type` = `SAP Connector Interface` 
+- `SDT`: `IsSapParameter` = `true`
 
 ---
 
@@ -165,7 +163,7 @@ Two SAP® system connection specific property values must always be set for thes
 - For filter TABLES on sample code, if required, create the corresponding SDT Item and use the criteria on `references/erp-filter-usage.md` to create the filter(s)
 - For CHANGING parameters, set `AccessType = 'InOut'` on the `ExternalObject` method parameter
 - BAPIRET2 appears in nearly every BAPI; always generate its `SDT` when it appears in metadata
-- Preserve ABAP field names for mapping with the SAP® system
+- Preserve ABAP field names for mapping with the SAP system
 - Never assume type lengths or decimal precision; always read them from `sap_get_function_metadata` response
 - Name `ExternalObject` methods and properties after the RFC function name or a readable business alias; document the actual RFC name in the `Description` when an alias is used
 - Create a folder in the KB to put all SAP related GeneXus objects (SDTs, and External Objects)

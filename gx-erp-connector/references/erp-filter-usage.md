@@ -1,9 +1,9 @@
 ---
 name: erp-filter-usage
-description: How to build SAP® BAPI® selection table filters in GeneXus Procedure code
+description: How to build SAP® BAPI selection table filters in GeneXus Procedure code
 ---
 
-Apply these rules when generating sample `Procedure` code that calls SAP BAPIs with filter parameters
+Apply these rules when generating sample `Procedure` code that calls SAP® BAPIs with filter parameters
 
 ---
 
@@ -21,7 +21,6 @@ Typical parameter name patterns: `*_SELECTION`, `*_RANGE`, `SELECTIONS`
 ---
 
 # OPTION VALUES
-
 `OPTION` values meaning:
 - `EQ` → Equals
 - `NE` → Not equal
@@ -44,8 +43,8 @@ Typical parameter name patterns: `*_SELECTION`, `*_RANGE`, `SELECTIONS`
 MaterialEO.GetList(&PLANTSELECTION, &MATNRSELECTION, &MAXROWS, &MATNRLIST, &RETURN)
 
 ```
-## Range filter (between)
 
+## Range filter (between)
 ```genexus
 &Item.SIGN = "I"
 &Item.OPTION = "BT"
@@ -55,7 +54,6 @@ MaterialEO.GetList(&PLANTSELECTION, &MATNRSELECTION, &MAXROWS, &MATNRLIST, &RETU
 ```
 
 ## Multiple rows (OR logic)
-
 ```genexus
 &Item1.SIGN = "I"
 &Item1.OPTION = "EQ"
@@ -69,15 +67,14 @@ MaterialEO.GetList(&PLANTSELECTION, &MATNRSELECTION, &MAXROWS, &MATNRLIST, &RETU
 ```
 
 ## Exclude filter
-
 ```genexus
 &Item.SIGN = "E"
 &Item.OPTION = "EQ"
 &Item.LOW = "9999"
 &MATNRSELECTION.Add(&Item)
 ```
-## Pattern match
 
+## Pattern match
 ```genexus
 &Item.SIGN = "I"
 &Item.OPTION = "CP"
@@ -88,9 +85,8 @@ MaterialEO.GetList(&PLANTSELECTION, &MATNRSELECTION, &MAXROWS, &MATNRLIST, &RETU
 ---
 
 # BEST PRACTICES
-
 - Prefer `EQ` for exact matches; use `BT` for bounded ranges
-- Avoid leading wildcards (`*ABC`) — they force full table scans in the SAP® system
+- Avoid leading wildcards (`*ABC`) — they force full table scans in the SAP system
 - Limit result sizes with parameters like `MAXROWS`
 - Reuse SAP standard selection structures; do not invent custom filter types
 - Validate required filter fields before calling the BAPI method

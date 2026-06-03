@@ -1,6 +1,6 @@
 ---
 name: erp-sdt-generation
-description: Rules for generating GeneXus SDT objects from SAP® ABAP® structure and table parameters
+description: Rules for generating GeneXus SDT objects from ABAP® structure and table parameters
 ---
 
 Apply these rules in conjunction with the nexa SDT syntax reference:
@@ -28,10 +28,12 @@ Reuse rule: if two BAPIs reference the same ABAP type name, generate the `SDT` o
 ---
 
 # NAMING CONVENTION
-SDT name = ABAP structure/type name, preserved as-is (original SAP casing)
+SDT name = ABAP structure/type name, preserved as-is (original SAP® casing)
+
 Conversion rules:
 - Remove leading `Z_`, `Y_`, `/`, namespace prefixes
 - Do NOT convert to PascalCase — keep the original uppercase name with underscores
+
 Examples:
 - `BAPIRET2` → `BAPIRET2`
 - `BAPI_MATERIAL_RET2001` → `BAPI_MATERIAL_RET2001`
@@ -43,8 +45,8 @@ File name: `<SdtName>.gx`
 ---
 
 # SDT STRUCTURE TEMPLATE
-## For STRUCTURE parameters (single record)
 
+## For STRUCTURE parameters (single record)
 ```genexus
 SDT <SdtName>
 {
@@ -59,6 +61,7 @@ SDT <SdtName>
 	#End
 }
 ```
+
 ## For TABLE parameters (collection of records)
 Set `Collection = 'True'` on the root item so callers use it directly as a collection variable:
 
@@ -136,8 +139,8 @@ SDT BAPIRET2
 	#End
 }
 ```
-## BAPIMONEY
 
+## BAPIMONEY
 ```genexus
 SDT BAPIMONEY
 {
