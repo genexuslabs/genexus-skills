@@ -71,6 +71,9 @@ Flow recommendation:
 ---
 
 ## GUIDELINES
+Any suggestion (via PR or Issue) that does not follow these rules or adds verbosity without proportional value will be rejected by the team members.
+
+### General
 - Write all files in **English** using [Markdown](https://www.markdownguide.org/) with clear section headings
 - Name files using **kebab-case** and a structured multi-segment pattern `<category>-<subject>[-<variant>].md`:
   * Use lowercase words separated by hyphens.
@@ -111,4 +114,6 @@ Flow recommendation:
 - Reuse shared reference files instead of duplicating instructions.
 - Reduce merge risk through additive changes rather than invasive modifications.
 
-Any suggestion (via PR or Issue) that does not follow these rules or adds verbosity without proportional value will be rejected by the team members.
+### TRADEMARKS
+- Review the trademark guidelines published by the trademark owner before using a third-party mark.
+- When those guidelines allow it, add the registered mark (®) on the first mention of the term per document — in the description or first paragraph — and omit it in all subsequent mentions.
