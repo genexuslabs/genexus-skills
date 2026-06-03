@@ -122,8 +122,8 @@ Each platform handles skills with small differences. This repository follows a p
 		- Open interactive session and verify skills in `<available_skills>` from the native `skill` tool description
 - Confirm skill folder name from Step 1 is displayed the output
 
-### Step 4 (optional): OpenCode + GEAI
-Integrate OpenCode with Globant Enterprise AI (GEAI)
+### Step 4 (optional): OpenCode + Glob.AI OS
+Integrate OpenCode with Glob.AI OS
 - Configuration file:
 	* Windows: `%USERPROFILE%\.config\opencode\opencode.json`
 	* macOS/Linux: `~/.config/opencode/opencode.json`
@@ -237,8 +237,10 @@ Claude and Claude Code are trademarks of Anthropic, PBC.
 
 OpenAI, Codex, and GPT are trademarks of OpenAI.
 
+Grok is a trademark of xAI.
+
 OpenCode is a trademark of its respective owner.
 
-GeneXus is not affiliated with, endorsed by, or sponsored by SAP SE, Anthropic, OpenAI, or the OpenCode project.
+GeneXus is not affiliated with, endorsed by, or sponsored by SAP SE, Anthropic, OpenAI, xAI, or the OpenCode project.
 
 All other trademarks are the property of their respective owners.
