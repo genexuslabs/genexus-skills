@@ -113,7 +113,7 @@ Primary tool (always use first): `mcp__genexus__sap_get_function_metadata(functi
 Call once per target RFC function
 
 Supplementary tool (only when structure sub-fields are absent from primary response): `mcp__genexus__sap_get_object_metadata`
-	- Parameter: `objectName` — the ABAP DDIC structure or table type name
+	- Parameter: `objectName` — the ABAP® DDIC structure or table type name
 	- Returns: all fields with their types, lengths, and descriptions
 	- Use this to fill in structure fields that `sap_get_function_metadata` did not return inline
 

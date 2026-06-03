@@ -1,6 +1,6 @@
 ---
 name: erp-eo-generation
-description: Rules for generating GeneXus ExternalObject objects for mapping SAP® Business Object Repository (BOR) objects and BAPI® functions
+description: Rules for generating GeneXus ExternalObject objects for mapping SAP® Business Object Repository (BOR®) objects and BAPI® functions
 ---
 
 Apply these rules in conjunction with the nexa ExternalObject syntax reference:
@@ -95,7 +95,7 @@ Examples:
 - `BAPI_CUSTOMER_GETDETAIL2` → method `GetDetail`, Description = `'Get customer detail (BAPI_CUSTOMER_GETDETAIL2)'`, `NetFrameworkExternalName` = `'BAPI_CUSTOMER_GETDETAIL2'`, `JavaExternalName` = `'BAPI_CUSTOMER_GETDETAIL2'`
 - `BAPI_SALESORDER_CREATEFROMDAT2` → method `CreateFromData`, Description = `'Create sales order (BAPI_SALESORDER_CREATEFROMDAT2)'`, `NetFrameworkExternalName` = `'BAPI_SALESORDER_CREATEFROMDAT2'`, `JavaExternalName` = `'BAPI_SALESORDER_CREATEFROMDAT2'`
 ---
-# PARAMETER ACCESS TYPE MAPPING
+# ABAP® PARAMETER ACCESS TYPE MAPPING
 
 <ABAP Direction> -> <ExternalObject `AccessType`>
 
