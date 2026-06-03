@@ -1,13 +1,13 @@
 ---
 name: erp-eo-generation
-description: Rules for generating GeneXus ExternalObject objects for mapping SAP® Business Object Repository (BOR®) objects and BAPI® functions
+description: Rules for generating GeneXus ExternalObject objects that map SAP® Business Object Repository (BOR) objects and BAPI® functions, including their ABAP® parameter types
 ---
 
 Apply these rules in conjunction with the nexa ExternalObject syntax reference:
-[nexa:object-external-object](../nexa/references/object-external-object.md)
+[nexa:object-external-object](../../nexa/references/object-external-object.md)
 
 And the nexa output policy:
-[nexa:global-output](../nexa/references/global-output.md)
+[nexa:global-output](../../nexa/references/global-output.md)
 
 ---
 
@@ -22,17 +22,17 @@ Create one `ExternalObject` for:
 # NAMING CONVENTION
 `ExternalObject` name:
 - BOR-based: derive a readable English name from the BOR object description + `EO` suffix
-	- Example: BOR object `BUS2032` (Sales Order) → `SalesOrderEO`
+  * Example: BOR object `BUS2032` (Sales Order) → `SalesOrderEO`
 - Standalone BAPI: derive from function group or BAPI business purpose + `EO` suffix
-	- Example: `BAPI_CUSTOMER_GETDETAIL2` → `CustomerEO`
+  * Example: `BAPI_CUSTOMER_GETDETAIL2` → `CustomerEO`
 
-File name: `<Name>.gx` (the name already ends with the `EO` suffix, e.g. `SalesOrderEO.gx`)
+File name: `<Name>.gx`
+
 ---
 
 # EXTERNALOBJECT STRUCTURE TEMPLATE
-
 ```genexus
-ExternalObject <Name>EO
+ExternalObject <Name>
 {
 	#GenericTypes
 	#End
@@ -44,7 +44,7 @@ ExternalObject <Name>EO
 	
 	<MethodName>
 	[
-		Description = '<bapi description; include actual RFC function name>'
+		Description = '<BAPI description; include actual RFC function name>'
 		IsStatic = '<True|False>'
 	]
 	{
@@ -94,10 +94,11 @@ Replace `<BAPI_GROUP>` with the RFC function group name (e.g., `BAPI_SALESORDER`
 Examples:
 - `BAPI_CUSTOMER_GETDETAIL2` → method `GetDetail`, Description = `'Get customer detail (BAPI_CUSTOMER_GETDETAIL2)'`, `NetFrameworkExternalName` = `'BAPI_CUSTOMER_GETDETAIL2'`, `JavaExternalName` = `'BAPI_CUSTOMER_GETDETAIL2'`
 - `BAPI_SALESORDER_CREATEFROMDAT2` → method `CreateFromData`, Description = `'Create sales order (BAPI_SALESORDER_CREATEFROMDAT2)'`, `NetFrameworkExternalName` = `'BAPI_SALESORDER_CREATEFROMDAT2'`, `JavaExternalName` = `'BAPI_SALESORDER_CREATEFROMDAT2'`
----
-# ABAP® PARAMETER ACCESS TYPE MAPPING
 
-<ABAP Direction> -> <ExternalObject `AccessType`>
+---
+
+# PARAMETER ACCESS TYPE MAPPING
+ <ABAP Direction> -> <ExternalObject `AccessType`>
 
 `IMPORTING` → `In`
 `EXPORTING` → `Out`
@@ -105,13 +106,16 @@ Examples:
 `TABLES` → `InOut`
 
 > **Exception — BAPIRET2:** When a TABLES parameter of type `BAPIRET2` is used exclusively as a return collection (carries no input data), map it with `AccessType = 'Out'`. See the RETURN PARAMETER section below
+
 ---
+
 # PARAMETER TYPE MAPPING
 ABAP Parameter Kind → GeneXus `Type` Assignment
 
 Scalar (no sub-fields, maps to built-in) → Built-in GeneXus type from [erp-abap-type-mapping](erp-abap-type-mapping.md)
 ABAP structure type → `SDT` name generated in the SDT phase
 ABAP table type → `SDT` name generated in the SDT phase (the `SDT` itself carries `Collection = 'True'`)
+
 ---
 
 # PARAMETER COMPLETENESS
@@ -123,9 +127,10 @@ Steps to verify completeness before writing the `ExternalObject`:
 3. Confirm the parameter count in the generated method matches the metadata exactly
 
 If a parameter's type cannot be resolved (e.g., an unknown structure), generate the SDT for it as part of the same task rather than skipping the parameter
----
-# RETURN PARAMETER (BAPIRET2)
 
+---
+
+# RETURN PARAMETER (BAPIRET2)
 Most BAPIs expose a RETURN parameter of type BAPIRET2 in the TABLES direction
 Always map it with:
 - `AccessType = 'Out'` — this is an explicit override of the TABLES → `InOut` rule; BAPIRET2 carries no input data and must be `Out`
@@ -134,7 +139,6 @@ Always map it with:
 ---
 
 # PROPERTIES SECTION
-
 The `#Properties` section must always contain all of the following:
 
 ```
@@ -148,11 +152,11 @@ ExternalPackageName = 'com.genexus.sap'
 
 Replace `<BAPI_GROUP>` with the RFC function group name (e.g., `BAPI_SALESORDER`)
 
-The properties `NetFrameworkExternalName`, `NetPackageId`, `JavaExternalName`, and `ExternalPackageName` are required for runtime dispatch by the SAP Connector; they are not optional
+The properties `NetFrameworkExternalName`, `NetPackageId`, `JavaExternalName`, and `ExternalPackageName` are required for runtime dispatch by the SAP Connector, they are not optional
+
 ---
 
 # EXAMPLE — Customer Detail BAPI
-
 ```genexus
 ExternalObject CustomerEO
 {
@@ -235,6 +239,8 @@ ExternalObject CustomerEO
 }
 ```
 
+---
+
 # CONSTRAINTS
 - `IsSap = true` and `Type = 'SAP Connector Interface'` must always be set in `#Properties`
 - Every method parameter must have `AccessType` and `Type`
@@ -242,8 +248,7 @@ ExternalObject CustomerEO
 - Every method of the EO must have the value IsStatic set to 'True' or 'False'
 - **Every parameter from the SAP metadata must be included — no omissions allowed regardless of perceived relevance**
 - Never add `NetFrameworkAssemblyName`, `NetFrameworkConstructorParameters`, `NetAssemblyName`, or `JavaConstructorParameters` to SAP `ExternalObject` objects — those are reserved for `GXEnterpriseSessionManager`; the required external name and package ID properties are listed in the PROPERTIES SECTION above
-- Apply nexa global constraints: [nexa:global-constraints](../nexa/references/global-constraints.md)
-- Apply nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
-- Default output mode is `single-file`: one file per `ExternalObject` — named `<Name>.gx` (the name already ends with the `EO` suffix)
+- Apply nexa global constraints: [nexa:global-constraints](../../nexa/references/global-constraints.md)
+- Apply nexa output policy: [nexa:global-output](../../nexa/references/global-output.md)
+- Default output mode is `single-file`: one file per `ExternalObject` — named `<Name>.gx`
 - Property bracket values `[…]` must use `'single-quoted'` strings; `!"…"` is forbidden in bracket annotations — it is valid only in executable source regions
-
