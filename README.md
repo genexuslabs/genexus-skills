@@ -231,4 +231,14 @@ limitations under the License.
 ```
 # TRADEMARKS
 
-SAP, SAP HANA, SAP Fiori, ABAP, BAPI, and other SAP products and services mentioned herein are trademarks or registered trademarks of SAP SE (or an SAP affiliate company) in Germany and other countries. GeneXus is not affiliated with, endorsed by, or sponsored by SAP SE. All other trademarks are the property of their respective owners.
+SAP, SAP HANA, SAP Fiori, ABAP, BAPI, and other SAP products and services mentioned herein are trademarks or registered trademarks of SAP SE (or an SAP affiliate company) in Germany and other countries.
+
+Claude and Claude Code are trademarks of Anthropic, PBC.
+
+OpenAI, Codex, and GPT are trademarks of OpenAI.
+
+OpenCode is a trademark of its respective owner.
+
+GeneXus is not affiliated with, endorsed by, or sponsored by SAP SE, Anthropic, OpenAI, or the OpenCode project.
+
+All other trademarks are the property of their respective owners.
