@@ -90,7 +90,7 @@ MaterialEO.GetList(&PLANTSELECTION, &MATNRSELECTION, &MAXROWS, &MATNRLIST, &RETU
 # BEST PRACTICES
 
 - Prefer `EQ` for exact matches; use `BT` for bounded ranges
-- Avoid leading wildcards (`*ABC`) — they force full table scans in the SAP® system
+- Avoid leading wildcards (`*ABC`) — they force full table scans in the SAP® solution
 - Limit result sizes with parameters like `MAXROWS`
 - Reuse SAP standard selection structures; do not invent custom filter types
 - Validate required filter fields before calling the SAP BAPI method
