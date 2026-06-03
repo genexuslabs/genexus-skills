@@ -57,7 +57,7 @@ Mapping from ABAP Type/ ABAP Alias to GeneXus types:
 ---
 
 # COMMON SAP STANDARD TYPES
-Frequently encountered types across BAPIs — canonical GeneXus definitions are in [erp-sdt-generation](erp-sdt-generation.md)
+Frequently encountered types across BAPI® functions — canonical GeneXus definitions are in [erp-sdt-generation](erp-sdt-generation.md)
 
 ---
 

@@ -23,7 +23,7 @@ Create one `SDT` for each of the following:
 Do NOT create `SDT` objects for:
 - Top-level scalar parameters with no sub-fields (e.g., a single CHAR field as IMPORTING param)
 - Parameters whose ABAP type maps directly to a single GeneXus built-in type
-Reuse rule: if two BAPIs reference the same ABAP type name, generate the `SDT` once and reference it from both `ExternalObject` methods
+Reuse rule: if two BAPI® functions reference the same ABAP type name, generate the `SDT` once and reference it from both `ExternalObject` methods
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: erp-filter-usage
-description: How to build SAP® BAPI selection table filters in GeneXus Procedure code
+description: How to build SAP® BAPI® selection table filters in GeneXus Procedure code
 ---
 
 Apply these rules when generating sample `Procedure` code that calls SAP BAPIs with filter parameters
