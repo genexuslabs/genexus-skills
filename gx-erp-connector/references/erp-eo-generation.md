@@ -4,10 +4,10 @@ description: Rules for generating GeneXus ExternalObject objects for SAP® BOR o
 ---
 
 Apply these rules in conjunction with the nexa ExternalObject syntax reference:
-[nexa:object-external-object](../nexa/references/object-external-object.md)
+[nexa:object-external-object](../../nexa/references/object-external-object.md)
 
 And the nexa output policy:
-[nexa:global-output](../nexa/references/global-output.md)
+[nexa:global-output](../../nexa/references/global-output.md)
 
 ---
 
@@ -112,7 +112,7 @@ Examples:
 # PARAMETER TYPE MAPPING
 ABAP Parameter Kind → GeneXus `Type` Assignment
 
-Scalar (no sub-fields, maps to built-in) → Built-in GeneXus type from [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
+Scalar (no sub-fields, maps to built-in) → Built-in GeneXus type from [erp-abap-type-mapping](erp-abap-type-mapping.md)
 ABAP structure type → `SDT` name generated in the SDT phase
 ABAP table type → `SDT` name generated in the SDT phase (the `SDT` itself carries `Collection = 'True'`)
 
@@ -248,7 +248,7 @@ ExternalObject CustomerErpEO
 - Every method of the EO must have the value IsStatic set to 'True' or 'False'
 - **Every parameter from the SAP metadata must be included — no omissions allowed regardless of perceived relevance**
 - Never add `NetFrameworkAssemblyName`, `NetFrameworkConstructorParameters`, `NetAssemblyName`, or `JavaConstructorParameters` to SAP `ExternalObject` objects — those are reserved for `GXEnterpriseSessionManager`; the required external name and package ID properties are listed in the PROPERTIES SECTION above
-- Apply nexa global constraints: [nexa:global-constraints](../nexa/references/global-constraints.md)
-- Apply nexa output policy: [nexa:global-output](../nexa/references/global-output.md)
+- Apply nexa global constraints: [nexa:global-constraints](../../nexa/references/global-constraints.md)
+- Apply nexa output policy: [nexa:global-output](../../nexa/references/global-output.md)
 - Default output mode is `single-file`: one file per `ExternalObject` — named `<Name>.gx`
 - Property bracket values `[…]` must use `'single-quoted'` strings; `!"…"` is forbidden in bracket annotations — it is valid only in executable source regions

@@ -119,13 +119,13 @@ Use only as last-resort cross-reference, never as the authoritative source
 
 ## TYPE MAPPING
 No additional MCP tool calls are required in Phases 5–8. All logic is specified in SKILL.md and the dedicated reference files:
-Map all ABAP parameter types to GeneXus types using [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
+Map all ABAP parameter types to GeneXus types using [erp-abap-type-mapping](erp-abap-type-mapping.md)
 
 ## GENERATION PLAN
 Derive the list of object to generate
-- Generate one SDT per unique ABAP structure/table type: [erp-sdt-generation](references/erp-sdt-generation.md) 
-- Generate one ExternalObject for each BOR object, create one method for each BAPI function: [erp-eo-generation](references/erp-eo-generation.md)
-- Sample Procedure generation (optional) : [nexa:object-procedure](../nexa/references/object-procedure.md), [nexa:common-standard-variables](../nexa/references/common-standard-variables.md)
+- Generate one SDT per unique ABAP structure/table type: [erp-sdt-generation](erp-sdt-generation.md) 
+- Generate one ExternalObject for each BOR object, create one method for each BAPI function: [erp-eo-generation](erp-eo-generation.md)
+- Sample Procedure generation (optional) : [nexa:object-procedure](../../nexa/references/object-procedure.md), [nexa:common-standard-variables](../../nexa/references/common-standard-variables.md)
 
 Consult those files directly when executing the corresponding phase
 
@@ -164,16 +164,16 @@ Apply the detected format consistently to every file generated in this phase.
 > **Pre-condition:** `sap_connection_status` must have returned success in this session. If not confirmed, stop and return to RFC CONNECTION CHECK — do not write any file.
 
 ### SDT Generation
-Load: [erp-sdt-generation](references/erp-sdt-generation.md), [nexa:global-output](../nexa/references/global-output.md) and  [nexa:object-structured-data-type](../nexa/references/object-structured-data-type.md)
+Load: [erp-sdt-generation](erp-sdt-generation.md), [nexa:global-output](../../nexa/references/global-output.md) and  [nexa:object-structured-data-type](../../nexa/references/object-structured-data-type.md)
 
 For each ABAP structure/table type: generate `<AbapTypeName>.gx`
 - Set `IsSapParameter = true` in `#Properties`
-- Apply type mapping from [erp-abap-type-mapping](references/erp-abap-type-mapping.md)
+- Apply type mapping from [erp-abap-type-mapping](erp-abap-type-mapping.md)
 
 ### ExternalObject Generation
 Generate one external object for each BOR Type that contains a BAPI function, the BAPI functions are mapped to methods of the EO
 The key attributes of the BOR object are mapped to properties of the EO
-Load [erp-eo-generation](references/erp-eo-generation.md), [nexa:object-external-object](../nexa/references/object-external-object.md) and [nexa:global-output](../nexa/references/global-output.md)
+Load [erp-eo-generation](erp-eo-generation.md), [nexa:object-external-object](../../nexa/references/object-external-object.md) and [nexa:global-output](../../nexa/references/global-output.md)
 
 ### Connection Manager Generation
 Generate the connection manager external object by copying the template in `./templates/gx-erp-connection.tpl`. Always generate this file; if the object already exists in the KB, the import tool in Phase 9 will update it without conflict. Include it in the Phase 9 import list.
@@ -187,7 +187,7 @@ Generate the BOR ExternalObject — `<BorObjectName>ErpEO.gx`
 - Set 'IsStatic' value for the method according to the metadata
 
 ### Sample Procedure (optional)
-If the user requests a sample: load nexa Procedure syntax, standard-variables, and constraints, and `references/erp-filter-usage.md`
+If the user requests a sample: load nexa Procedure syntax, standard-variables, and constraints, and `erp-filter-usage.md`
 
 Generate the sample procedure — `<BapiName>Sample.gx`
 - Declare variables of the generated SDT types
