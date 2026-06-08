@@ -133,16 +133,6 @@ Specifies the form template used to generate default form
 	* `Carmine Template`: Carmine Template
 	* `Fiori Template`: Fiori Template
 
-## HTML Document Type
-- Type: `enum{Do not specify,HTML 4.01 Transitional,HTML 4.01 Strict,XHTML 1.0 Transitional,HTML 5}`
-- Options:
-	* `Do not specify`: Do not specify
-	* `HTML 4.01 Transitional`: HTML 4.01 Transitional
-	* `HTML 4.01 Strict`: HTML 4.01 Strict
-	* `XHTML 1.0 Transitional`: XHTML 1.0 Transitional
-	* `HTML 5`: HTML 5
-- Default: `HTML 5`
-
 ## Genexus IDE Connection String
 - Type: `string`
 
