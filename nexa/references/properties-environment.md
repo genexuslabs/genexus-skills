@@ -94,6 +94,12 @@ Security strictness for web runtime behavior
 ## HTML Document Type
 HTML document type declaration for generated web pages
 - Type: `enum{Do not specify,HTML 4.01 Transitional,HTML 4.01 Strict,XHTML 1.0 Transitional,HTML 5}`
+- Options:
+	* `Do not specify`: Do not specify
+	* `HTML 4.01 Transitional`: HTML 4.01 Transitional
+	* `HTML 4.01 Strict`: HTML 4.01 Strict
+	* `XHTML 1.0 Transitional`: XHTML 1.0 Transitional
+	* `HTML 5`: HTML 5
 - Default: `HTML 5`
 
 ---
