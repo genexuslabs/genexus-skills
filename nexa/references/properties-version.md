@@ -29,15 +29,6 @@ Enable Multi Tenant support
 - Type: `boolean`
 - Default: `False`
 
-## Translation type
-Type of translation
-- Type: `enum{Static,Run-time,No translation}`
-- Options:
-	* `Static`: Static
-	* `Run-time`: Run-time
-	* `No translation`: No translation
-- Default: `No translation`
-
 ## Preserve Table Casing
 - Type: `boolean`
 - Default: `True`
@@ -141,16 +132,6 @@ Specifies the form template used to generate default form
 	* `Unanimo Template`: Unanimo Template
 	* `Carmine Template`: Carmine Template
 	* `Fiori Template`: Fiori Template
-
-## HTML Document Type
-- Type: `enum{Do not specify,HTML 4.01 Transitional,HTML 4.01 Strict,XHTML 1.0 Transitional,HTML 5}`
-- Options:
-	* `Do not specify`: Do not specify
-	* `HTML 4.01 Transitional`: HTML 4.01 Transitional
-	* `HTML 4.01 Strict`: HTML 4.01 Strict
-	* `XHTML 1.0 Transitional`: XHTML 1.0 Transitional
-	* `HTML 5`: HTML 5
-- Default: `HTML 5`
 
 ## Genexus IDE Connection String
 - Type: `string`
