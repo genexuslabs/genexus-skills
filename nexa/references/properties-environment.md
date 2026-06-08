@@ -46,6 +46,14 @@ Timezone for datetime database storage
 - Type: `string`
 - Default: `0000`
 
+## User Interface
+Type of user interface for the generated application
+- Type: `enum{Web,Win,Smart Devices}`
+- Options:
+	* `Web`: Web interface
+	* `Win`: Windows interface (ProductVersion: `<15`)
+	* `Smart Devices`: Native interface; Mobile and Angular
+
 ---
 
 # TRANSACTION INTEGRITY
@@ -82,6 +90,11 @@ Security strictness for web runtime behavior
 	* `High`: Uses the high level for this setting
 	* `Medium`: Uses the medium level for this setting
 - Default: `High`
+
+## HTML Document Type
+HTML document type declaration for generated web pages
+- Type: `enum{Do not specify,HTML 4.01 Transitional,HTML 4.01 Strict,XHTML 1.0 Transitional,HTML 5}`
+- Default: `HTML 5`
 
 ---
 
@@ -185,3 +198,37 @@ Database management system for the default data store
 	* `Informix`: IBM Informix
 	* `DB2 UDB`: IBM DB2 Universal Database
 	* `Dameng`: Dameng database
+
+---
+
+# TRANSLATION
+
+## Translation type
+Type of literal translation support
+- Type: `enum{No translation,Run-time,Static}`
+- Default: `No translation`
+
+## Translate to language
+Target language for static translation of all literals
+- Type: `string` (language code)
+- Require: `Translation type = Static`
+
+## Translation exceptions
+List of regular expressions that are excluded from translation
+- Type: `string`
+- Default: `@a[0-9A-F]{6}#0.*javascript.*#0[ \t\-_=x\*]+#0[^\p{L}]*#1&lt;.*&gt;#1`
+- Require: `Translation type ≠ No translation`
+
+---
+
+# TESTING
+
+## Generate Code Coverage information
+Indicates whether to generate GeneXus source‑level runtime code coverage information
+- Type: `enum{No,Yes}`
+- Default: `No`
+
+## Generate Mockable Objects
+Indicates whether to generate GeneXus source‑level code to allow mock testing on objects
+- Type: `enum{No,Yes}`
+- Default: `No`
