@@ -29,15 +29,6 @@ Enable Multi Tenant support
 - Type: `boolean`
 - Default: `False`
 
-## Translation type
-Type of translation
-- Type: `enum{Static,Run-time,No translation}`
-- Options:
-	* `Static`: Static
-	* `Run-time`: Run-time
-	* `No translation`: No translation
-- Default: `No translation`
-
 ## Preserve Table Casing
 - Type: `boolean`
 - Default: `True`
