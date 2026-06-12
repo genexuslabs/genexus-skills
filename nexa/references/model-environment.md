@@ -208,7 +208,7 @@ Environment NETSQLServer
 				UseTrustedConnection = 'Yes',
 				UserId = '',
 				UserPassword = ''
-		    ]
+			]
 		}
 	#End
 }

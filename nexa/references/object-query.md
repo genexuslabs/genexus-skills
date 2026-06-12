@@ -63,10 +63,10 @@ Notes:
 Every parameter must follow the `<param-name> [ <param-properties> ]` syntax, where:
 - `<param-name>`: Parameter name without any prefix, but referenced with ampersand (&) prefix from other sections
 - `<param-properties>`: Parameter properties list separated by comma; allowed properties:
-    * `DataType` (mandatory): Parameter type following the DATA TYPE specification
-    * `Description`: Parameter short description purpose
-    * `IsCollection`: Indicates whether the parameter is a collection ('True') or a single value ('False')
-    * `Value`: Parameter default value, consistent with the defined `DataType`, used when no input is provided
+	* `DataType` (mandatory): Parameter type following the DATA TYPE specification
+	* `Description`: Parameter short description purpose
+	* `IsCollection`: Indicates whether the parameter is a collection ('True') or a single value ('False')
+	* `Value`: Parameter default value, consistent with the defined `DataType`, used when no input is provided
 
 ---
 
@@ -142,19 +142,19 @@ Get average `User` age grouped by gender
 ~~~
 Query AvgUserAgeByGender
 {
-    Element1 = UserGender [ Description = 'Gender', ExpandCollapse = 'Expand some values', RaiseItemClickEvent = 'False' ]
-    Element2 = Average(UserAge) [ Description = 'Age Average', Picture = 'Z9' ]
+	Element1 = UserGender [ Description = 'Gender', ExpandCollapse = 'Expand some values', RaiseItemClickEvent = 'False' ]
+	Element2 = Average(UserAge) [ Description = 'Age Average', Picture = 'Z9' ]
 
 	#Parameters
 	#End
 
-    #Filters
-        UserAge > 0
-    #End
+	#Filters
+		UserAge > 0
+	#End
 
-    #Orders
-        UserGender
-    #End
+	#Orders
+		UserGender
+	#End
 
 	#Properties
 		Title = "Average user age by gender"
@@ -168,22 +168,22 @@ Monthly `Sale` amount in a date range
 ~~~
 Query MonthlySales
 {
-    Element1 = Month(SaleDate) [ Description = 'Month' ]
-    Element2 = Sum(SaleAmount) [ Description = 'Total amount' ]
+	Element1 = Month(SaleDate) [ Description = 'Month' ]
+	Element2 = Sum(SaleAmount) [ Description = 'Total amount' ]
 
 	#Parameters
 		FromDate [ DataType = 'Date' ]
 		ToDate [ DataType = 'Date' ]
 	#End
 
-    #Filters
-        SaleDate >= &FromDate;
+	#Filters
+		SaleDate >= &FromDate;
 		SaleDate <= &ToDate;
-    #End
+	#End
 
-    #Orders
-        Month(SaleDate)
-    #End
+	#Orders
+		Month(SaleDate)
+	#End
 
 	#Properties
 		Title = "Monthly sales in date range"
@@ -197,16 +197,16 @@ Count `Customer` with sales using `DEFINED BY` clause
 ~~~
 Query CustomersWithSales
 {
-    Element1 = Count(CustomerId) DEFINED BY SaleDate [ Description = 'Customers with sales' ]
+	Element1 = Count(CustomerId) DEFINED BY SaleDate [ Description = 'Customers with sales' ]
 
 	#Parameters
 	#End
 
-    #Filters
-    #End
+	#Filters
+	#End
 
-    #Orders
-    #End
+	#Orders
+	#End
 
 	#Properties
 		Title = "Number of customers with sales"
@@ -220,18 +220,18 @@ Total `Covid` deaths by year split with `FOR EACH` clause
 ~~~
 Query DeathsPerYearAndCountry
 {
-    Element1 = Year(CovidDate) [ Description = 'Year' ]
-    Element2 = Sum(CovidDeathCount) FOR EACH CountryName [ Description = 'Countries' ]
+	Element1 = Year(CovidDate) [ Description = 'Year' ]
+	Element2 = Sum(CovidDeathCount) FOR EACH CountryName [ Description = 'Countries' ]
 
 	#Parameters
 	#End
 
-    #Filters
-    #End
+	#Filters
+	#End
 
-    #Orders
-        Year(CovidDate) [ Order = 'Descending' ]
-    #End
+	#Orders
+		Year(CovidDate) [ Order = 'Descending' ]
+	#End
 
 	#Properties
 		Title = "Total deaths by year and country"

@@ -235,7 +235,7 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Use when: Implementing intelligent assistants, automating decision-making with LLMs, or integrating natural language processing
 - Reference: [Agent object](references/object-agent.md)
 - Availability:
-	* ProductVersion:`>=19`
+	* ProductVersion: `>=19`
 
 ## API
 - Purpose: REST API endpoint definition with HTTP methods
@@ -252,7 +252,7 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Suggest: `DesignSystem` (color tokens) instead
 - Website: [ColorPalette object](https://docs.genexus.com/en/wiki?31262)
 - Availability:
-	* ProductVersion: `< 17.6`
+	* ProductVersion: `<17.6`
 
 ## DataProvider (DP)
 - Purpose: Data retrieval and manipulation through query syntax
@@ -359,7 +359,7 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Suggest: `DesignSystem` (style classes) instead
 - Website: [Theme object](https://docs.genexus.com/en/wiki?4375)
 - Availability:
-	* ProductVersion: `< 17.6`
+	* ProductVersion: `<17.6`
 
 ## Transaction (TRN)
 - Purpose: Core entity representing real-world objects, mapping to database tables
@@ -377,7 +377,7 @@ Quick reference for appropriate use of each object type; stored in `/src` sub di
 - Suggest: `Panel` or `WebPanel` instead
 - Website: [WorkPanel object](https://docs.genexus.com/en/wiki?7387)
 - Availability:
-	* ProductVersion: `< 15`
+	* ProductVersion: `<15`
 
 ---
 

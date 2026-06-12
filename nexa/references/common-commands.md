@@ -466,11 +466,11 @@ Iterates matching records from a `Data View` index
 Syntax:
 ~~~
 XFor Each <dataview>
-    [Index <index>]
-    [Where <condition>]
-    <code-main>
+	[Index <index>]
+	[Where <condition>]
+	<code-main>
 [When none
-    <code-none>]
+	<code-none>]
 XEndFor
 ~~~
 
@@ -487,9 +487,9 @@ Constraints:
 Example:
 ~~~
 XFor Each CustomerExternal
-    Index ICustomerExternal
-    Where CustomerStatus = !'A'
-    &CustomerName = CustomerName
+	Index ICustomerExternal
+	Where CustomerStatus = !'A'
+	&CustomerName = CustomerName
 XEndFor
 ~~~
 
@@ -499,11 +499,11 @@ Reads first matching record from a `Data View` index
 Syntax:
 ~~~
 XFor First <dataview>
-    [Index <index>]
-    [Where <condition>]
-    <code-main>
+	[Index <index>]
+	[Where <condition>]
+	<code-main>
 [When none
-    <code-none>]
+	<code-none>]
 XEndFor
 ~~~
 
@@ -521,11 +521,11 @@ Constraints:
 Example:
 ~~~
 XFor First CustomerExternal 
-    Index ICustomerExternal
-    Where CustomerId = &CustomerId
-    &CustomerName = CustomerName
+	Index ICustomerExternal
+	Where CustomerId = &CustomerId
+	&CustomerName = CustomerName
 When none
-    msg("Customer not found", status)
+	msg("Customer not found", status)
 XEndFor
 ~~~
 

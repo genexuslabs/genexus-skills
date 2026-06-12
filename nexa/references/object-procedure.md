@@ -193,163 +193,163 @@ Layout elements with allowed attributes in XML definition
 Root report container
 
 - `type` (required)
-    * Description: Identifies layout type
-    * Type: `enum{"Report"}`
+	* Description: Identifies layout type
+	* Type: `enum{"Report"}`
 
 - `paperSize`
-    * Description: Physical paper size
-    * Type: `enum{"Custom","Letter","Legal","Executive","A3","A4","A5"}`
-    * Default: `"Custom"`
+	* Description: Physical paper size
+	* Type: `enum{"Custom","Letter","Legal","Executive","A3","A4","A5"}`
+	* Default: `"Custom"`
 
 - `paperOrientation`
-    * Description: Page orientation
-    * Type: `enum{"Portrait","Landscape"}`
-    * Default: `"Portrait"`
+	* Description: Page orientation
+	* Type: `enum{"Portrait","Landscape"}`
+	* Default: `"Portrait"`
 
 - `width`, `height`
-    * Description: Paper dimensions; only if `paperSize="Custom"`
-    * Type: `int`
+	* Description: Paper dimensions; only if `paperSize="Custom"`
+	* Type: `int`
 
 - `rightMargin`
-    * Description: Right margin size
-    * Type: `int`
+	* Description: Right margin size
+	* Type: `int`
 
 - `attributeFont`, `textBlockFont`
-    * Description: Default font for data‑bound / text controls
-    * Type: `string`, format `"<family>, <size>"`; e.g. `"Arial, 10"`
+	* Description: Default font for data‑bound / text controls
+	* Type: `string`, format `"<family>, <size>"`; e.g. `"Arial, 10"`
 
 ### printBlock
 Band printed by `Print <name>` command in source
 
 - `name` (required)
-    * Description: Unique block name
-    * Type: `string`
+	* Description: Unique block name
+	* Type: `string`
 
 - `height`
-    * Description: Fixed band height; auto if omitted
-    * Type: `int`
+	* Description: Fixed band height; auto if omitted
+	* Type: `int`
 
 ### label / attribute
 Static or dynamic (by Attribute value) text control
 
 - `name` (required)
-    * Description: Unique control name within block
-    * Type: `string`
+	* Description: Unique control name within block
+	* Type: `string`
 
 - `text` (required for `label` element)
-    * Description: Static text to display
-    * Type: `string`
+	* Description: Static text to display
+	* Type: `string`
 
 - `attribute` (required for `attribute` element)
-    * Description: Attribute or `&amp;`-prefixed Variable name to bind
-    * Type: `string`
+	* Description: Attribute or `&amp;`-prefixed Variable name to bind
+	* Type: `string`
 
 - `x`, `y`, `width`, `height`
-    * Description: Position and size
-    * Type: `int`
+	* Description: Position and size
+	* Type: `int`
 
 - `font`
-    * Description: Overrides block‑level font
-    * Type: `string` format `"<family>, <size>"`
+	* Description: Overrides block‑level font
+	* Type: `string` format `"<family>, <size>"`
 
 - `foreColor`, `backColor`, `borderColor`
-    * Description: Text, background, and border colors
-    * Type: `string`, format `"#RRGGBB"` (no alpha allowed); e.g. `"#FF0000"`
+	* Description: Text, background, and border colors
+	* Type: `string`, format `"#RRGGBB"` (no alpha allowed); e.g. `"#FF0000"`
 
 - `borderWidth`
-    * Description: Border thickness
-    * Type: `int`
+	* Description: Border thickness
+	* Type: `int`
 
 - `borders`
-    * Description: Which sides render border
-    * Type: `enum{"None","Top","Bottom","Left","Right","All"}`
-    * Default: `"None"`
+	* Description: Which sides render border
+	* Type: `enum{"None","Top","Bottom","Left","Right","All"}`
+	* Default: `"None"`
 
 - `alignment`
-    * Description: Content alignment within bounds
-    * Type: `enum{"TopLeft","TopCenter","TopRight","MiddleLeft","MiddleCenter","MiddleRight","BottomLeft","BottomCenter","BottomRight","TopJustify","MiddleJustify","BottomJustify"}`
-    * Default: `"TopLeft"`
+	* Description: Content alignment within bounds
+	* Type: `enum{"TopLeft","TopCenter","TopRight","MiddleLeft","MiddleCenter","MiddleRight","BottomLeft","BottomCenter","BottomRight","TopJustify","MiddleJustify","BottomJustify"}`
+	* Default: `"TopLeft"`
 
 - `format`
-    * Description: Text interpretation (`Text` or `HTML`)
-    * Type: `enum{"Text","HTML"}`
-    * Default: `"Text"`
+	* Description: Text interpretation (`Text` or `HTML`)
+	* Type: `enum{"Text","HTML"}`
+	* Default: `"Text"`
 
 - `wordWrap`
-    * Description: Wrap text when exceeding width
-    * Type: `enum{"False","True"}`
-    * Default: `"False"`
+	* Description: Wrap text when exceeding width
+	* Type: `enum{"False","True"}`
+	* Default: `"False"`
 
 ### image
 Image control
 
 - `name` (required)
-    * Description: Unique control name within block
-    * Type: `string`
+	* Description: Unique control name within block
+	* Type: `string`
 
 - `image` (required)
-    * Description: Image object name to render
-    * Type: `string`
+	* Description: Image object name to render
+	* Type: `string`
 
 - `x`, `y`, `width`, `height`
-    * Description: Same as in `label`
-    * Type: `int`
+	* Description: Same as in `label`
+	* Type: `int`
 
 ### line
 Line control
 
 - `name` (required)
-    * Description: Unique control name within block
-    * Type: `string`
+	* Description: Unique control name within block
+	* Type: `string`
 
 - `x`, `y`, `width`
-    * Description: Position and length
-    * Type: `int`
+	* Description: Position and length
+	* Type: `int`
 
 - `lineWidth`
-    * Description: Line thickness
-    * Type: `int`
+	* Description: Line thickness
+	* Type: `int`
 
 - `lineDirection`
-    * Description: Horizontal or vertical
-    * Type: `enum{"Horizontal","Vertical"}`
+	* Description: Horizontal or vertical
+	* Type: `enum{"Horizontal","Vertical"}`
 
 - `foreColor`
-    * Description: Line color
-    * Type: `string`, format `"#RRGGBB"` (no alpha allowed); e.g. `"#00FF00"`
+	* Description: Line color
+	* Type: `string`, format `"#RRGGBB"` (no alpha allowed); e.g. `"#00FF00"`
 
 - `borderStyle`
-    * Description: Dash style
-    * Type: `enum{"Solid","Dotted","Dashed","LongDashed","LongDotDashed"}`
+	* Description: Dash style
+	* Type: `enum{"Solid","Dotted","Dashed","LongDashed","LongDotDashed"}`
 	* Default: `"Solid"`
 
 ### rectangle
 Rectangle control
 
 - `name` (required)
-    * Description: Unique control name within block
-    * Type: `string`
+	* Description: Unique control name within block
+	* Type: `string`
 
 - `x`, `y`, `width`, `height`
-    * Description: Position and dimensions
-    * Type: `int`
+	* Description: Position and dimensions
+	* Type: `int`
 
 - `borderWidth`
-    * Description: Border thickness (all sides)
-    * Type: `int`
+	* Description: Border thickness (all sides)
+	* Type: `int`
 
 - `backColor`, `borderColor`
-    * Description: Fill and border colors
-    * Type: `string`, format `"#RRGGBB"` (no alpha allowed); e.g. `"#0000FF"`
+	* Description: Fill and border colors
+	* Type: `string`, format `"#RRGGBB"` (no alpha allowed); e.g. `"#0000FF"`
 
 - `borderStyle(Top|Bottom|Left|Right)`
-    * Description: Per‑side border dash style
-    * Type: `enum{"Solid","None","Dotted","Dashed","LongDashed","LongDotDashed"}`
+	* Description: Per‑side border dash style
+	* Type: `enum{"Solid","None","Dotted","Dashed","LongDashed","LongDotDashed"}`
 	* Default: `"Solid"`
 
 - `borderRadius(TopLeft|TopRight|BottomLeft|BottomRight)`
-    * Description: Per‑corner rounding radius
-    * Type: `int`
+	* Description: Per‑corner rounding radius
+	* Type: `int`
 
 ---
 

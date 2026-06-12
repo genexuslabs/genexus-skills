@@ -269,7 +269,7 @@ EndIf
 Words or phrases as numerical vectors for semantic search
 
 Availability:
-- ProductVersion:`>=19`
+- ProductVersion: `>=19`
 
 Methods:
 - `<embedding>.GenerateEmbedding(<text>[, <messages>])`: Converts `<text>` to vector (embedding), optionally fills `<messages>` variable (type: `Messages, GeneXus.Common` SDT)

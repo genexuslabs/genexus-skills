@@ -52,8 +52,8 @@ Examples:
 ~~~
 ```genexus.procedure
 For Each Customer
-    Where CustomerId = &CustomerId
-    &CustomerName = CustomerName
+	Where CustomerId = &CustomerId
+	&CustomerName = CustomerName
 EndFor
 ```
 ~~~
