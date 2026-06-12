@@ -53,6 +53,7 @@ Syntax:
 ProductName = "<name>"
 ProductVersion = "<version>"
 FriendlyVersion = "<friendly>"
+InstallationPath = "<installation>"
 ~~~
 
 Where:
@@ -64,6 +65,7 @@ Where:
 		- `19.X.*`: GeneXus Next Release X
 	* Used for feature compatibility evaluation
 - `<friendly>`: Human-readable product version
+- `<installation>`: Target installation path
 
 Rules:
 - All properties in this sections are readonly and must remain unchanged
