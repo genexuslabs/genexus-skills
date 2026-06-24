@@ -13,7 +13,7 @@ An `API` object (or `API`) consists of entry points defining services delegating
 Protocol guidance:
 - Prefer `REST` as default protocol
 	* Applies to public/external integrations and standard HTTP clients
-	* Set `CallProtocol = "HTTP"`
+	* Set `RESTProtocol = true`
 	* Set `GRPCProtocol = false`
 - Choose `gRPC` only when explicitly requested
 	* Applies to internal service-to-service contracts with strict typing
@@ -22,7 +22,6 @@ Protocol guidance:
 - Keep one service definition mode:
 	* Prefer `API` object exposure layer with reference to implementation objects
 	* Define `Web Service` exposure in target object only when explicitly requested
-
 
 ---
 
@@ -61,7 +60,6 @@ Where:
 - `<properties>`: Optional object properties in TOML syntax; see [properties](./properties-object-api.md)
 - `<documentation>`: Optional object documentation; see [markdown](./common-markdown.md)
 
-
 ---
 
 # SERVICE
@@ -81,9 +79,17 @@ Where:
 - `<implementation>`: Implementation object (`Procedure`, `DataProvider`, or other callable object)
 - `<arguments>`: Comma-separated variables or constants for implementation call
 
-Notes:
+Rules:
 - Write annotations immediately before the service declaration
 - Keep one implementation call per service
+- Give all implementation arguments explicitly; use constants when no binding exists
+- Bind implementation outputs (when present) using return-by-reference scheme only:
+	* Detect output contract from implementation definition
+		* For `DataProvider` objects, check `Output` and `Collection` properties
+		* For other callable objects, check `parm` rule `out` variables
+	* Derive service `out` argument from detected output
+	* Assign service variable to inferred `out` parameter
+	* Invoke service implementation using service that variable as `out` argument
 
 ---
 
@@ -215,7 +221,7 @@ Use [global-output](./global-output.md)
 - Service parameters can omit `in` params (initialized in Before event)
 - Service can define `out` params not in implementation (initialized in After event)
 - Event code must be orchestration only; never include direct DB access commands
-- Keep API execution under HTTP semantics by setting `CallProtocol = "HTTP"` when exposing REST behavior
+- Keep API execution under HTTP semantics by setting `RESTProtocol = true` when exposing REST behavior
 - Keep either `API` object references or object-level `Web Service` definition, never both
 
 ---
