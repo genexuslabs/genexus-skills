@@ -156,7 +156,7 @@ Where:
 - `<level>`: Access requirement
 	* `None`: No authentication (default)
 	* `Authentication`: User must be authenticated
-	* `Authorize`: User must be authenticated and authorized
+	* `Authorization`: User must be authenticated and authorized
 
 Example:
 ~~~
